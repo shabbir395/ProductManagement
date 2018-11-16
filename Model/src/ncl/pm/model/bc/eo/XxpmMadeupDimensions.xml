@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxpmMadeupDimensions"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  DBObjectType="synonym"
+  DBObjectName="XXPM_MADEUP_DIMENSIONS"
+  AliasName="XxpmMadeupDimensions"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="ncl.pm.model.bc.eo.XxpmMadeupDimensionsImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="DimensionId"
+    ColumnName="DIMENSION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="XXPM_MADEUP_DIMENSIONS"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ArticleId"
+    ColumnName="ARTICLE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Parameter"
+    Precision="240"
+    ColumnName="PARAMETER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Uom"
+    Precision="240"
+    ColumnName="UOM"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize1"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize2"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize3"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE3"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize4"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE4"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize5"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE5"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize6"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE6"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize7"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE7"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize8"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE8"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize9"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE9"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize10"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE10"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize11"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE11"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize12"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE12"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize13"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE13"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize14"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE14"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize15"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE15"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize16"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE16"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize17"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE17"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize18"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE18"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize19"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE19"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize20"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE20"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize21"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE21"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize22"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE22"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize23"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE23"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize24"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE24"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize25"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE25"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize26"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE26"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize27"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE27"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize28"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE28"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize29"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE29"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DimensionSize30"
+    Precision="240"
+    ColumnName="DIMENSION_SIZE30"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Instructions"
+    Precision="2000"
+    ColumnName="INSTRUCTIONS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_MADEUP_DIMENSIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EbsStatus"
+    ColumnName="EBS_STATUS"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="XXPM_MADEUP_DIMENSIONS"
+    DefaultValue="0">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="XxpmMadeupArticles"
+    Association="ncl.pm.model.bc.eo.asc.DimensionArticleIdFkAssoc"
+    AssociationEnd="ncl.pm.model.bc.eo.asc.DimensionArticleIdFkAssoc.XxpmMadeupArticles"
+    AssociationOtherEnd="ncl.pm.model.bc.eo.asc.DimensionArticleIdFkAssoc.XxpmMadeupDimensions"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="DimensionArticleIdNn">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DIMENSION_ARTICLE_ID_NN"/>
+      <Attr Name="_checkCondition" Value="article_id IS NOT NULL"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.ArticleId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DimensionIdPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DIMENSION_ID_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DimensionSizesNn">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DIMENSION_SIZES_NN"/>
+      <Attr Name="_checkCondition" Value="dimension_size1 IS NOT NULL OR
+dimension_size2 IS NOT NULL OR
+dimension_size3 IS NOT NULL OR
+dimension_size4 IS NOT NULL OR
+dimension_size5 IS NOT NULL OR
+dimension_size6 IS NOT NULL OR
+dimension_size7 IS NOT NULL OR
+dimension_size8 IS NOT NULL OR
+dimension_size9 IS NOT NULL OR
+dimension_size10 IS NOT NULL OR
+dimension_size11 IS NOT NULL OR
+dimension_size12 IS NOT NULL OR
+dimension_size13 IS NOT NULL OR
+dimension_size14 IS NOT NULL OR
+dimension_size15 IS NOT NULL OR
+dimension_size16 IS NOT NULL OR
+dimension_size17 IS NOT NULL OR
+dimension_size18 IS NOT NULL OR
+dimension_size19 IS NOT NULL OR
+dimension_size20 IS NOT NULL OR
+dimension_size21 IS NOT NULL OR
+dimension_size22 IS NOT NULL OR
+dimension_size23 IS NOT NULL OR
+dimension_size24 IS NOT NULL OR
+dimension_size25 IS NOT NULL OR
+dimension_size26 IS NOT NULL OR
+dimension_size27 IS NOT NULL OR
+dimension_size28 IS NOT NULL OR
+dimension_size29 IS NOT NULL OR
+dimension_size30 IS NOT NULL "/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize4"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize5"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize6"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize7"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize8"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize9"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize10"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize11"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize12"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize13"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize30"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize15"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize16"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize17"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize18"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize19"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize20"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize21"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize22"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize23"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize24"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize25"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize26"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize27"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize28"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize29"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize3"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize2"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize1"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.DimensionSize14"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DimensionArticleIdFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ARTICLE_ID_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DIMENSION_ARTICLE_ID_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ncl.pm.model.bc.eo.XxpmMadeupDimensions.ArticleId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SetArticlesSetIdFkLink"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  EntityAssociation="ncl.pm.model.bc.eo.asc.SetArticlesSetIdFkAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ncl.pm.model.bc.vo.vl.SetArticlesSetIdFkLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="XxpmMadeupSetsView"
+    Cardinality="1"
+    Owner="ncl.pm.model.bc.vo.XxpmMadeupSetsView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="XxpmMadeupSetsView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ncl.pm.model.bc.vo.XxpmMadeupSetsView.SetId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="XxpmMadeupSetArticlesView"
+    Cardinality="-1"
+    Owner="ncl.pm.model.bc.vo.XxpmMadeupSetArticlesView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="XxpmMadeupSetArticlesView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ncl.pm.model.bc.vo.XxpmMadeupSetArticlesView.SetId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="ncl.pm.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

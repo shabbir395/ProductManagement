@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="madeupCombsReportPageDef"
+                Package="pages">
+  <parameters/>
+  <executables>
+    <invokeAction id="BlankMadeupCombsReportPage"
+                  Binds="blankMadeupCombsReportPage" Refresh="prepareModel"
+                  RefreshCondition="#{adfFacesContext.postback==false}"/>
+    <variableIterator id="variables">
+      <variable Name="ExecuteWithParams_BindProg" Type="String"/>
+      <variable Name="ExecuteWithParams_BindUser" Type="String"/>
+      <variable Name="ExecuteWithParams_BindManager" Type="String"/>
+    </variableIterator>
+    <iterator Binds="MadeupCombinationsExportToExcelView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="MadeupCombinationsExportToExcelViewIterator"/>
+    <searchRegion Binds="MadeupCombinationsExportToExcelViewIterator"
+                  Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MadeupCombinationsExportToExcelViewQuery"/>
+    <iterator Binds="MadeupAllProgramsView" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="MadeupAllProgramsViewIterator"/>
+    <iterator Binds="FndUserView" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl" id="FndUserViewIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MadeupCombinationsExportToExcelViewIterator"
+          id="MadeupCombinationsExportToExcelView">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.misc.MadeupCombinationsExportToExcelView"
+                      Name="MadeupCombinationsExportToExcelView0">
+        <AttrNames>
+          <Item Value="ConcatenatedSegments"/>
+          <Item Value="Description"/>
+          <Item Value="Quantities"/>
+          <Item Value="Price"/>
+          <Item Value="HsCode"/>
+          <Item Value="DestinationPort"/>
+          <Item Value="Sku"/>
+          <Item Value="ItemId"/>
+          <Item Value="ProgId"/>
+          <Item Value="ProgName"/>
+          <Item Value="Usr"/>
+          <Item Value="Mgr"/>
+          <Item Value="UserId"/>
+          <Item Value="ManagerId"/>
+          <Item Value="Type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues StaticList="false" Uses="LOV_ProgName"
+                  IterBinding="MadeupAllProgramsViewIterator" id="ProgName"/>
+    <attributeValues IterBinding="variables" id="BindProg">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindProg"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="MadeupCombinationsExportToExcelViewIterator"
+            id="ExecuteWithParams"
+            InstanceName="XxpmAppModuleDataControl.MadeupCombinationsExportToExcelView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindProgName" NDValue="" NDType="java.lang.String"/>
+      <NamedData NDName="BindUser" NDValue="" NDType="java.lang.String"/>
+      <NamedData NDName="BindManager" NDValue="" NDType="java.lang.String"/>
+    </action>
+    <listOfValues StaticList="false" Uses="LOV_UserName"
+                  IterBinding="FndUserViewIterator" id="UserName"/>
+    <attributeValues IterBinding="variables" id="BindManager">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindManager"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindUser">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindUser"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="blankMadeupCombsReportPage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="blankMadeupCombsReportPage"
+                  IsViewObjectMethod="false"/>
+  </bindings>
+</pageDefinition>

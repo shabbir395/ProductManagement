@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="purchaseOrderPageDef"
+                Package="pages" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <invokeAction id="BlankPoPage" Binds="blankPoPage" Refresh="prepareModel"
+                  RefreshCondition="#{adfFacesContext.postback==false}"/>
+    <invokeAction id="ExecutePoLinesAccCatQuery"
+                  Binds="executePoLinesAccCatQuery" Refresh="prepareModel"
+                  RefreshCondition="#{adfFacesContext.postback==false}"/>
+    <iterator Binds="XxpmPoHeaderView" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmPoHeaderViewIterator"/>
+    <iterator Binds="XxpmPoLinesViewFabChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmPoLinesViewFabChildIterator"/>
+    <searchRegion Binds="XxpmPoLinesViewFabChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmPoLinesViewFabChildQuery"/>
+    <iterator Binds="XxpmPoLinesViewAccChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmPoLinesViewAccChildIterator"/>
+    <searchRegion Binds="XxpmPoLinesViewAccChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmPoLinesViewAccChildQuery"/>
+    <iterator id="PoSearchViewIterator" Binds="PoSearchView"
+              DataControl="XxpmAppModuleDataControl" RangeSize="25"/>
+    <variableIterator id="variables">
+      <variable Name="ExecuteWithParams_BindPoId" Type="Integer"/>
+    </variableIterator>
+    <iterator Binds="AccCategoryTypeLov" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="AccCategoryTypeLovIterator"/>
+    <iterator Binds="VendorsLov" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl" id="VendorsLovIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="XxpmPoHeaderViewIterator" id="First"
+            InstanceName="XxpmAppModuleDataControl.XxpmPoHeaderView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="first"/>
+    <action IterBinding="XxpmPoHeaderViewIterator" id="Previous"
+            InstanceName="XxpmAppModuleDataControl.XxpmPoHeaderView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="previous"/>
+    <action IterBinding="XxpmPoHeaderViewIterator" id="Next"
+            InstanceName="XxpmAppModuleDataControl.XxpmPoHeaderView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="next"/>
+    <action IterBinding="XxpmPoHeaderViewIterator" id="Last"
+            InstanceName="XxpmAppModuleDataControl.XxpmPoHeaderView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="last"/>
+    <action IterBinding="XxpmPoHeaderViewIterator" id="CreateInsertPoHeader"
+            InstanceName="XxpmAppModuleDataControl.XxpmPoHeaderView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <methodAction id="blankPoPage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="blankPoPage" IsViewObjectMethod="false"/>
+    <listOfValues StaticList="false" IterBinding="XxpmPoHeaderViewIterator"
+                  Uses="LOV_ProgName" id="ProgName"/>
+    <attributeValues IterBinding="XxpmPoHeaderViewIterator" id="ProgId">
+      <AttrNames>
+        <Item Value="ProgId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmPoHeaderViewIterator" id="CustomerName">
+      <AttrNames>
+        <Item Value="CustomerName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmPoHeaderViewIterator" StaticList="false"
+          Uses="LOV_SoHeaderId" id="SoHeaderId" DTSupportsMRU="true"/>
+    <tree IterBinding="XxpmPoLinesViewFabChildIterator"
+          id="XxpmPoLinesViewFabChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmPoLinesView"
+                      Name="XxpmPoLinesViewFabChild0">
+        <AttrNames>
+          <Item Value="PoLineId"/>
+          <Item Value="PoHeaderId"/>
+          <Item Value="InventoryItemId"/>
+          <Item Value="Segment2"/>
+          <Item Value="Description"/>
+          <Item Value="Uom"/>
+          <Item Value="ItemType"/>
+          <Item Value="Consumption"/>
+          <Item Value="SoLineQty"/>
+          <Item Value="PoQnty"/>
+          <Item Value="SoLineRate"/>
+          <Item Value="Moq"/>
+          <Item Value="VendorId"/>
+          <Item Value="VendorName"/>
+          <Item Value="ActOrderedQty"/>
+          <Item Value="VendorSiteId"/>
+          <Item Value="EbsStatus"/>
+          <Item Value="PoNum"/>
+          <Item Value="CurrencyCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XxpmPoLinesViewAccChildIterator"
+          id="XxpmPoLinesViewAccChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmPoLinesView"
+                      Name="XxpmPoLinesViewAccChild0">
+        <AttrNames>
+          <Item Value="PoLineId"/>
+          <Item Value="PoHeaderId"/>
+          <Item Value="InventoryItemId"/>
+          <Item Value="Segment2"/>
+          <Item Value="Description"/>
+          <Item Value="Uom"/>
+          <Item Value="ItemType"/>
+          <Item Value="Consumption"/>
+          <Item Value="SoLineQty"/>
+          <Item Value="PoQnty"/>
+          <Item Value="SoLineRate"/>
+          <Item Value="Moq"/>
+          <Item Value="VendorId"/>
+          <Item Value="VendorName"/>
+          <Item Value="ActOrderedQty"/>
+          <Item Value="VendorSiteId"/>
+          <Item Value="EbsStatus"/>
+          <Item Value="PoNum"/>
+          <Item Value="ItmStock"/>
+          <Item Value="AccCat"/>
+          <Item Value="CurrencyCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues StaticList="false" Uses="LOV_PoHeaderId"
+                  IterBinding="PoSearchViewIterator" id="PoHeaderIdLov"/>
+    <attributeValues IterBinding="variables" id="BindPoId">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindPoId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmPoHeaderViewIterator" id="ExecuteWithParams"
+            InstanceName="XxpmAppModuleDataControl.XxpmPoHeaderView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindPoId"
+                 NDValue="#{bindings.ExecuteWithParams_BindPoId}"
+                 NDType="java.lang.Integer"/>
+    </action>
+    <methodAction id="insertPoLines"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="insertPoLines" IsViewObjectMethod="false">
+      <NamedData NDName="prog" NDValue="" NDType="java.lang.Integer"/>
+      <NamedData NDName="hid" NDValue="" NDType="java.lang.Integer"/>
+      <NamedData NDName="poId" NDValue="" NDType="java.lang.Integer"/>
+      <NamedData NDName="transType" NDValue="" NDType="java.lang.Integer"/>
+    </methodAction>
+    <attributeValues IterBinding="XxpmPoHeaderViewIterator" id="PoHeaderId">
+      <AttrNames>
+        <Item Value="PoHeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmPoHeaderViewIterator" id="EbsStatus">
+      <AttrNames>
+        <Item Value="EbsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="XxpmPoHeaderViewIterator"
+                  id="updatePoHeaderLovsAccessor"
+                  InstanceName="bindings.XxpmPoHeaderViewIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updatePoHeaderLovsAccessor"
+                  IsViewObjectMethod="false" IsLocalObjectReference="true"/>
+    <methodAction id="generatePO"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="generatePO" IsViewObjectMethod="false">
+      <NamedData NDName="phId" NDValue="#{bindings.PoHeaderId.inputValue}"
+                 NDType="java.lang.Integer"/>
+    </methodAction>
+    <methodAction id="getActiveUserAgent"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getActiveUserAgent" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.getActiveUserAgent_XxpmAppModuleDataControl_dataProvider_getActiveUserAgent_result"/>
+    <methodAction IterBinding="XxpmPoLinesViewAccChildIterator"
+                  id="getDefaultValForVendorSiteIdAcc"
+                  InstanceName="bindings.XxpmPoLinesViewAccChildIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getDefaultValForVendorSiteId"
+                  IsViewObjectMethod="false" IsLocalObjectReference="true"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.getDefaultValForVendorSiteId_getDefaultValForVendorSiteId_getDefaultValForVendorSiteId_result"/>
+    <methodAction IterBinding="XxpmPoLinesViewFabChildIterator"
+                  id="getDefaultValForVendorSiteIdFab"
+                  InstanceName="bindings.XxpmPoLinesViewFabChildIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getDefaultValForVendorSiteId"
+                  IsViewObjectMethod="false" IsLocalObjectReference="true"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.getDefaultValForVendorSiteId_getDefaultValForVendorSiteId_getDefaultValForVendorSiteId_result"/>
+    <list IterBinding="AccCategoryTypeLovIterator" ListOperMode="multiSelect"
+          ListIter="AccCategoryTypeLovIterator" id="AccCategoryTypeLov">
+      <AttrNames>
+        <Item Value="Value"/>
+      </AttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Display"/>
+      </ListDisplayAttrNames>
+    </list>
+    <methodAction id="executePoLinesAccCatQuery"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="executePoLinesAccCatQuery"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="accCat" NDValue="" NDType="java.lang.String"/>
+    </methodAction>
+    <listOfValues StaticList="false" IterBinding="VendorsLovIterator"
+                  Uses="LOV_VendorName" id="VendorName"/>
+    <methodAction id="getDefaultVendorSiteId"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getDefaultVendorSiteId" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.getDefaultVendorSiteId_XxpmAppModuleDataControl_dataProvider_getDefaultVendorSiteId_result">
+      <NamedData NDName="vendorId" NDType="java.lang.Integer"/>
+    </methodAction>
+    <action IterBinding="XxpmPoHeaderViewIterator"
+            id="setCurrentRowWithKeyValuePO"
+            InstanceName="XxpmAppModuleDataControl.XxpmPoHeaderView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

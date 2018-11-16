@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="poSoHeaderLov"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  OrderBy='"ORDER_NUMBER"'>
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="ncl.pm.model.bc.vo.lov.poSoHeaderLov_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="BindProgId"
+    Kind="where"
+    Type="java.lang.Integer"/>
+  <Variable
+    Name="BindHeaderId"
+    Kind="where"
+    Type="java.lang.Integer"/>
+  <SQLQuery>
+    <![CDATA[SELECT   O.HEADER_ID, O.ORDER_NUMBER
+    FROM OE_ORDER_LINES_ALL L,
+         OE_ORDER_HEADERS_ALL O,
+         OE_TRANSACTION_TYPES_ALL T,
+         XXPM_MADEUP_PROGRAMS P
+   WHERE L.HEADER_ID = O.HEADER_ID
+     AND O.ORDER_TYPE_ID = T.TRANSACTION_TYPE_ID
+     AND O.ATTRIBUTE3 = P.PROG_CODE
+     AND P.PROG_ID = :BindProgId
+     AND O.CONTEXT = 'Program Name'
+     AND UPPER (T.ORDER_CATEGORY_CODE) <> 'RETURN'
+     AND O.HEADER_ID NOT IN (SELECT SO_HEADER_ID FROM XXPM_PO_HEADER
+                             MINUS
+                             SELECT TO_NUMBER(:BindHeaderId) FROM DUAL)
+GROUP BY O.HEADER_ID, O.ORDER_NUMBER]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="HeaderId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="HEADER_ID"
+    Expression="HEADER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="ORDER_NUMBER"
+    Expression="ORDER_NUMBER"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="HeaderId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="ncl.pm.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="setBomPageDef" Package="pages"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <invokeAction id="BlankSetBomPage" Binds="blankSetBomPage"
+                  Refresh="prepareModel"
+                  RefreshCondition="#{adfFacesContext.postback==false}"/>
+    <variableIterator id="variables">
+      <variable Name="ExecuteWithParams_BindBomNum" Type="String"/>
+    </variableIterator>
+    <iterator Binds="XxpmSetBomView" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmSetBomViewIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XxpmSetBomArticlesViewChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmSetBomArticlesViewChildIterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmSetBomArticlesViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmSetBomArticlesViewChildQuery"/>
+    <iterator Binds="XxpmSetBomAccessoriesViewChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmSetBomAccessoriesViewChildIterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmSetBomAccessoriesViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmSetBomAccessoriesViewChildQuery"/>
+    <iterator RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="SetBomSearchViewIterator" Binds="SetBomSearchView"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XxpmSetBomViewIterator" id="BomNumber">
+      <AttrNames>
+        <Item Value="BomNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmSetBomViewIterator" StaticList="false"
+          Uses="LOV_SetId" id="SetId" DTSupportsMRU="true"/>
+    <action IterBinding="XxpmSetBomViewIterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="XxpmSetBomViewIterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="XxpmSetBomViewIterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="XxpmSetBomViewIterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="XxpmSetBomViewIterator" id="CreateInsertSetBom"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <methodAction id="insetArticleIntoSetBom"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="insetArticleIntoSetBom"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="progId" NDValue="" NDType="java.lang.Integer"/>
+      <NamedData NDName="setId" NDValue="" NDType="java.lang.Integer"/>
+      <NamedData NDName="setBomId" NDValue="" NDType="java.lang.Integer"/>
+      <NamedData NDName="s4" NDValue="" NDType="java.lang.String"/>
+      <NamedData NDName="s5" NDValue="" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="XxpmSetBomViewIterator" id="SetBomId">
+      <AttrNames>
+        <Item Value="SetBomId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxpmSetBomArticlesViewChildIterator"
+          id="XxpmSetBomArticlesViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmSetBomArticlesView"
+                      Name="XxpmSetBomArticlesViewChild0">
+        <AttrNames>
+          <Item Value="ItemCodeTrans"/>
+          <Item Value="DescriptionTrans"/>
+          <Item Value="UomTrans"/>
+          <Item Value="SubInventory"/>
+          <Item Value="ConsumptionTrans"/>
+          <Item Value="BomArticleId"/>
+          <Item Value="CombId"/>
+          <Item Value="SetBomId"/>
+          <Item Value="Active"/>
+          <Item Value="EbsStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XxpmSetBomViewIterator" id="UserName">
+      <AttrNames>
+        <Item Value="UserName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmSetBomViewIterator"
+                     id="CustomerNameTrans">
+      <AttrNames>
+        <Item Value="CustomerNameTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxpmSetBomAccessoriesViewChildIterator"
+          id="XxpmSetBomAccessoriesViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmSetBomAccessoriesView"
+                      Name="XxpmSetBomAccessoriesViewChild0">
+        <AttrNames>
+          <Item Value="AccessoryId"/>
+          <Item Value="ImId"/>
+          <Item Value="SetBomId"/>
+          <Item Value="DescriptionTrans"/>
+          <Item Value="ItemCodeTrans"/>
+          <Item Value="UomTrans"/>
+          <Item Value="AccColor"/>
+          <Item Value="AccSize"/>
+          <Item Value="SubInventory"/>
+          <Item Value="Consumption"/>
+          <Item Value="Active"/>
+          <Item Value="EbsStatus"/>
+          <Item Value="Wastage"/>
+          <Item Value="AccColorTrans"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxpmSetBomAccessoriesViewChildIterator"
+            id="CreateInsertSetBomAccessory" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <methodAction id="blankSetBomPage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="blankSetBomPage" IsViewObjectMethod="false"/>
+    <action id="Commit" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <listOfValues StaticList="false" IterBinding="XxpmSetBomViewIterator"
+                  Uses="LOV_ProgramName" id="ProgramName"/>
+    <methodAction id="createSetBom"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createSetBom" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.createSetBom_XxpmAppModuleDataControl_dataProvider_createSetBom_result">
+      <NamedData NDName="bomId" NDValue="#{bindings.SetBomId.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="BindBomNum">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindBomNum"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmSetBomViewIterator" id="ExecuteWithParams"
+            InstanceName="XxpmAppModuleDataControl.XxpmSetBomView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindBomNum"
+                 NDValue="#{bindings.ExecuteWithParams_BindBomNum}"
+                 NDType="java.lang.String"/>
+    </action>
+    <listOfValues StaticList="false" Uses="LOV_BomNumber"
+                  IterBinding="SetBomSearchViewIterator" id="BomNumberLov"/>
+    <attributeValues IterBinding="XxpmSetBomViewIterator"
+                     id="ConcatenatedSegments">
+      <AttrNames>
+        <Item Value="ConcatenatedSegments"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmSetBomViewIterator" id="RowStatus">
+      <AttrNames>
+        <Item Value="RowStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmSetBomViewIterator"
+            id="setCurrentRowWithKeyValueSetBom"
+            InstanceName="XxpmAppModuleDataControl.XxpmSetBomView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
+    <methodAction id="setBomProc"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setBomProc" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.setBomProc_XxpmAppModuleDataControl_dataProvider_setBomProc_result">
+      <NamedData NDName="bomId" NDValue="#{bindings.SetBomId.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="XxpmSetBomViewIterator" id="BomLog">
+      <AttrNames>
+        <Item Value="BomLog"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmSetBomAccessoriesViewChildIterator"
+            id="DeleteSetBomAccessories"
+            InstanceName="XxpmAppModuleDataControl.XxpmSetBomAccessoriesViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="XxpmSetBomAccessoriesViewChildIterator"
+                     id="EbsStatusAccessories">
+      <AttrNames>
+        <Item Value="EbsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmSetBomViewIterator" id="ColorTrans">
+      <AttrNames>
+        <Item Value="ColorTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmSetBomViewIterator" id="SizeTrans">
+      <AttrNames>
+        <Item Value="SizeTrans"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

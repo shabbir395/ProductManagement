@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation"
+  Name="XxpmYarnType"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  DBObjectType="synonym"
+  DBObjectName="XXPM_YARN_TYPE"
+  AliasName="XxpmYarnType"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="ncl.pm.model.bc.eo.XxpmYarnTypeImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="YtId"
+    IsUpdateable="while_insert"
+    ColumnName="YT_ID"
+    SQLType="NUMERIC"
+    Domain="oracle.jbo.domain.DBSequence"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="XXPM_YARN_TYPE"
+    PrimaryKey="true"
+    ChangeIndicator="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FancyYarnType"
+    IsUnique="true"
+    Precision="50"
+    ColumnName="FANCY_YARN_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FytRatio"
+    IsUnique="true"
+    ColumnName="FYT_RATIO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+    <validation:RangeValidationBean
+      Name="FytRatio_Rule_0"
+      ResId="ncl.pm.model.bc.eo.XxpmYarnType.FytRatio_Rule_2"
+      OnAttribute="FytRatio"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="0.001"
+      MaxValue="100"/>
+  </Attribute>
+  <Attribute
+    Name="SlubCode"
+    IsUnique="true"
+    Precision="20"
+    ColumnName="SLUB_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Denier1"
+    IsUnique="true"
+    ColumnName="DENIER1"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Denier2"
+    IsUnique="true"
+    ColumnName="DENIER2"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ImId"
+    ColumnName="IM_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Draft2"
+    ColumnName="DRAFT2"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Draft1"
+    ColumnName="DRAFT1"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DualCore"
+    Precision="10"
+    ColumnName="DUAL_CORE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FancyYarnType2"
+    Precision="50"
+    ColumnName="FANCY_YARN_TYPE2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FytRatio2"
+    ColumnName="FYT_RATIO2"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <validation:RangeValidationBean
+      Name="FytRatio2_Rule_0"
+      ResId="ncl.pm.model.bc.eo.XxpmYarnType.FytRatio2_Rule_0"
+      OnAttribute="FytRatio2"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="0.001"
+      MaxValue="100"/>
+  </Attribute>
+  <Attribute
+    Name="NewRow"
+    ColumnName="NEW_ROW"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Multicount"
+    Precision="10"
+    ColumnName="MULTICOUNT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Dtex1"
+    Precision="10"
+    ColumnName="DTEX1"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Dtex2"
+    Precision="10"
+    ColumnName="DTEX2"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_YARN_TYPE">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="XxpmItemMaster"
+    Association="ncl.pm.model.bc.eo.asc.XxpmYarnTypeImIdFkAsc"
+    AssociationEnd="ncl.pm.model.bc.eo.asc.XxpmYarnTypeImIdFkAsc.XxpmItemMaster"
+    AssociationOtherEnd="ncl.pm.model.bc.eo.asc.XxpmYarnTypeImIdFkAsc.XxpmYarnType"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="XxpmItemMaster1"
+    Association="ncl.pm.model.bc.eo.asc.XxpmYarnTypeImIdFkAssoc"
+    AssociationEnd="ncl.pm.model.bc.eo.asc.XxpmYarnTypeImIdFkAssoc.XxpmItemMaster1"
+    AssociationOtherEnd="ncl.pm.model.bc.eo.asc.XxpmYarnTypeImIdFkAssoc.XxpmYarnType1"
+    Type="ncl.pm.model.bc.eo.XxpmItemMasterImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="XxpmYtFytRatioCk">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XXPM_YT_FYT_RATIO_CK"/>
+      <Attr Name="_checkCondition" Value="fyt_ratio BETWEEN 0 AND 100"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ncl.pm.model.bc.eo.XxpmYarnType.FytRatio"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxpmYtPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XXPM_YT_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ncl.pm.model.bc.eo.XxpmYarnType.YtId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxpmYarnTypeImIdFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="XXPM_ITM_MST_IM_ID_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXPM_YARN_TYPE_IM_ID_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ncl.pm.model.bc.eo.XxpmYarnType.ImId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="ncl.pm.model.ModelBundle"/>
+  </ResourceBundle>
+</Entity>

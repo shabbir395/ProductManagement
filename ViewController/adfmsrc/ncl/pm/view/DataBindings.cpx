@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="ncl.pm.view" ClientType="Generic">
+  <pageMap>
+    <page path="/pages/spinning.jsp" usageId="ncl_pm_view_spinningPageDef"/>
+    <page path="/pages/weaving.jsp" usageId="ncl_pm_view_weavingPageDef"/>
+    <page path="/pages/home.jsp" usageId="ncl_pm_view_homePageDef"/>
+    <page path="/pages/dyeing.jsp" usageId="ncl_pm_view_DyeingPageDef"/>
+    <page path="/pages/printing.jsp" usageId="ncl_pm_view_printingPageDef"/>
+    <page path="/pages/accessories.jsp"
+          usageId="ncl_pm_view_AccessoriesPageDef"/>
+    <page path="/pages/programCreation.jsp"
+          usageId="ncl_pm_view_programCreationPageDef"/>
+    <page path="/pages/articleBom.jsp" usageId="ncl_pm_view_articleBomPageDef"/>
+    <page path="/pages/articleBomApproval.jsp"
+          usageId="ncl_pm_view_articleBomApprovalPageDef"/>
+    <page path="PageFlow#ExecuteWithParams"
+          usageId="ncl_pm_view_adfc_config___ExecuteWithParamsPageDef1"/>
+    <page path="/pages/purchaseOrder.jsp"
+          usageId="ncl_pm_view_purchaseOrderPageDef"/>
+    <page path="/pages/setBom.jsp" usageId="ncl_pm_view_setBomPageDef"/>
+    <page path="PageFlow#ExecuteWithParams1"
+          usageId="ncl_pm_view_adfc_config___ExecuteWithParams1PageDef"/>
+    <page path="/pages/madeupCombsReport.jspx"
+          usageId="ncl_pm_view_madeupCombsPageDef"/>
+    <page path="/pages/accessoriesReport.jspx"
+          usageId="ncl_pm_view_accessoriesReportPageDef"/>
+    <page path="/pages/poRcvStatusReport.jspx"
+          usageId="ncl_pm_view_poRcvStatusPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="ncl_pm_view_spinningPageDef" path="pages.spinningPageDef"/>
+    <page id="ncl_pm_view_weavingPageDef" path="pages.weavingPageDef"/>
+    <page id="ncl_pm_view_homePageDef" path="pages.homePageDef"/>
+    <page id="ncl_pm_view_DyeingPageDef" path="pages.DyeingPageDef"/>
+    <page id="ncl_pm_view_printingPageDef" path="pages.printingPageDef"/>
+    <page id="ncl_pm_view_AccessoriesPageDef" path="pages.AccessoriesPageDef"/>
+    <page id="ncl_pm_view_programCreationPageDef"
+          path="pages.programCreationPageDef"/>
+    <page id="ncl_pm_view_articleBomPageDef" path="pages.articleBomPageDef"/>
+    <page id="ncl_pm_view_articleBomApprovalPageDef"
+          path="pages.articleBomApprovalPageDef"/>
+    <page id="ncl_pm_view_adfc_config___ExecuteWithParamsPageDef"
+          path="ncl.pm.view.pageDefs.adfc_config___ExecuteWithParamsPageDef"/>
+    <page id="ncl_pm_view_adfc_config___ExecuteWithParamsPageDef1"
+          path="ncl.pm.view.pageDefs.adfc_config___ExecuteWithParamsPageDef1"/>
+    <page id="ncl_pm_view_purchaseOrderPageDef"
+          path="pages.purchaseOrderPageDef"/>
+    <page id="ncl_pm_view_setBomPageDef" path="pages.setBomPageDef"/>
+    <page id="ncl_pm_view_adfc_config___ExecuteWithParams1PageDef"
+          path="ncl.pm.view.pageDefs.adfc_config___ExecuteWithParams1PageDef"/>
+    <page id="ncl_pm_view_madeupCombsPageDef"
+          path="pages.madeupCombsReportPageDef"/>
+    <page id="ncl_pm_view_accessoriesReportPageDef"
+          path="pages.accessoriesReportPageDef"/>
+    <page id="ncl_pm_view_poRcvStatusPageDef"
+          path="pages.poRcvStatusReportPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="XxpmAppModuleDataControl" Package="ncl.pm.model.bc.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="XxpmAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

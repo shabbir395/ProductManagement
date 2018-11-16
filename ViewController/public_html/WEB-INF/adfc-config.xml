@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="home">
+    <page>/pages/home.jsp</page>
+    <redirect/>
+  </view>
+  <view id="spinning">
+    <page>/pages/spinning.jsp</page>
+    <redirect/>
+  </view>
+  <view id="weaving">
+    <page>/pages/weaving.jsp</page>
+    <redirect/>
+  </view>
+  <view id="dyeing">
+    <page>/pages/dyeing.jsp</page>
+    <redirect/>
+  </view>
+  <view id="printing">
+    <page>/pages/printing.jsp</page>
+    <redirect/>
+  </view>
+  <view id="accessories">
+    <page>/pages/accessories.jsp</page>
+    <redirect/>
+  </view>
+  <view id="programCreation">
+    <page>/pages/programCreation.jsp</page>
+    <redirect/>
+  </view>
+  <view id="articleBom">
+    <page>/pages/articleBom.jsp</page>
+    <redirect/>
+  </view>
+  <view id="articleBomApproval">
+    <page>/pages/articleBomApproval.jsp</page>
+    <redirect/>
+  </view>
+  <method-call id="ExecuteWithParams">
+    <method>#{bindings.ExecuteWithParams.execute}</method>
+    <outcome id="__23">
+      <fixed-outcome>ExecuteWithParams</fixed-outcome>
+    </outcome>
+  </method-call>
+  <view id="purchaseOrder">
+    <page>/pages/purchaseOrder.jsp</page>
+  </view>
+  <view id="setBom">
+    <page>/pages/setBom.jsp</page>
+  </view>
+  <method-call id="ExecuteWithParams1">
+    <method>#{bindings.ExecuteWithParams.execute}</method>
+    <outcome id="__104">
+      <fixed-outcome>ExecuteWithParams</fixed-outcome>
+    </outcome>
+  </method-call>
+  <view id="madeupCombsReport">
+    <page>/pages/madeupCombsReport.jspx</page>
+    <redirect/>
+  </view>
+  <view id="accessoriesReport">
+    <page>/pages/accessoriesReport.jspx</page>
+  </view>
+  <view id="poRcvStatusReport">
+    <page>/pages/poRcvStatusReport.jspx</page>
+  </view>
+  <control-flow-rule id="__5">
+    <from-activity-id id="__6">home</from-activity-id>
+    <control-flow-case id="__7">
+      <from-outcome id="__9">spinning</from-outcome>
+      <to-activity-id id="__8">spinning</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__16">
+      <from-outcome id="__17">weaving</from-outcome>
+      <to-activity-id id="__15">weaving</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__30">
+      <from-outcome id="__31">dyeing</from-outcome>
+      <to-activity-id id="__29">dyeing</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__49">
+      <from-outcome id="__51">printing</from-outcome>
+      <to-activity-id id="__50">printing</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__44">
+      <from-outcome id="__45">accessories</from-outcome>
+      <to-activity-id id="__43">accessories</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__60">
+      <from-outcome id="__61">programCreation</from-outcome>
+      <to-activity-id id="__59">programCreation</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__75">
+      <from-outcome id="__76">articleBOM</from-outcome>
+      <to-activity-id id="__74">articleBom</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__24">
+      <from-outcome id="__26">executeWithParamsApproval</from-outcome>
+      <to-activity-id id="__25">ExecuteWithParams</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__85">
+      <from-outcome id="__86">purchaseOrder</from-outcome>
+      <to-activity-id id="__84">purchaseOrder</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__97">
+      <from-outcome id="__98">setBom</from-outcome>
+      <to-activity-id id="__96">setBom</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__106">
+      <from-outcome id="__107">executeWithParamsArticleBom</from-outcome>
+      <to-activity-id id="__105">ExecuteWithParams1</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__113">
+      <from-outcome id="__115">articlesReport</from-outcome>
+      <to-activity-id id="__114">madeupCombsReport</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__121">
+      <from-outcome id="__123">accessoriesReport</from-outcome>
+      <to-activity-id id="__122">accessoriesReport</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__135">
+      <from-outcome id="__136">poRcvStatus</from-outcome>
+      <to-activity-id id="__134">poRcvStatusReport</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__10">
+    <from-activity-id id="__11">spinning</from-activity-id>
+    <control-flow-case id="__13">
+      <from-outcome id="__14">spnBack</from-outcome>
+      <to-activity-id id="__12">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__18">
+    <from-activity-id id="__19">weaving</from-activity-id>
+    <control-flow-case id="__20">
+      <from-outcome id="__22">wvBack</from-outcome>
+      <to-activity-id id="__21">view1</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__28">
+      <from-outcome id="__37">wvBack</from-outcome>
+      <to-activity-id id="__27">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__32">
+    <from-activity-id id="__33">dyeing</from-activity-id>
+    <control-flow-case id="__35">
+      <from-outcome id="__36">DyeingBack</from-outcome>
+      <to-activity-id id="__34">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__52">
+    <from-activity-id id="__53">printing</from-activity-id>
+    <control-flow-case id="__54">
+      <from-outcome id="__56">printingBack</from-outcome>
+      <to-activity-id id="__55">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__38">
+    <from-activity-id id="__39">accessories</from-activity-id>
+    <control-flow-case id="__41">
+      <from-outcome id="__42">accBack</from-outcome>
+      <to-activity-id id="__40">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__46">
+    <from-activity-id id="__47">programCreation</from-activity-id>
+    <control-flow-case id="__48">
+      <from-outcome id="__58">pcBack</from-outcome>
+      <to-activity-id id="__57">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__69">
+    <from-activity-id id="__70">articleBom</from-activity-id>
+    <control-flow-case id="__72">
+      <from-outcome id="__73">abBack</from-outcome>
+      <to-activity-id id="__71">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__79">
+    <from-activity-id id="__80">articleBomApproval</from-activity-id>
+    <control-flow-case id="__82">
+      <from-outcome id="__83">abApprBack</from-outcome>
+      <to-activity-id id="__81">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__66">
+    <from-activity-id id="__67">ExecuteWithParams</from-activity-id>
+    <control-flow-case id="__68">
+      <from-outcome id="__78">ExecuteWithParams</from-outcome>
+      <to-activity-id id="__77">articleBomApproval</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__87">
+    <from-activity-id id="__92">purchaseOrder</from-activity-id>
+    <control-flow-case id="__93">
+      <from-outcome id="__95">poBack</from-outcome>
+      <to-activity-id id="__94">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__99">
+    <from-activity-id id="__100">setBom</from-activity-id>
+    <control-flow-case id="__101">
+      <from-outcome id="__103">sbBack</from-outcome>
+      <to-activity-id id="__102">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__108">
+    <from-activity-id id="__109">ExecuteWithParams1</from-activity-id>
+    <control-flow-case id="__110">
+      <from-outcome id="__112">ExecuteWithParams</from-outcome>
+      <to-activity-id id="__111">articleBom</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__116">
+    <from-activity-id id="__117">madeupCombsReport</from-activity-id>
+    <control-flow-case id="__119">
+      <from-outcome id="__120">articlesReportBack</from-outcome>
+      <to-activity-id id="__118">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__124">
+    <from-activity-id id="__125">accessoriesReport</from-activity-id>
+    <control-flow-case id="__126">
+      <from-outcome id="__128">accessoriesReportBack</from-outcome>
+      <to-activity-id id="__127">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__129">
+    <from-activity-id id="__130">poRcvStatusReport</from-activity-id>
+    <control-flow-case id="__132">
+      <from-outcome id="__133">poRcvStatusBack</from-outcome>
+      <to-activity-id id="__131">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__4">
+    <managed-bean-name id="__1">ViewActions</managed-bean-name>
+    <managed-bean-class id="__3">ncl.pm.view.beans.ViewActions</managed-bean-class>
+    <managed-bean-scope id="__2">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__65">
+    <managed-bean-name id="__62">PageListener</managed-bean-name>
+    <managed-bean-class id="__64">ncl.pm.view.beans.PageListener</managed-bean-class>
+    <managed-bean-scope id="__63">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__91">
+    <managed-bean-name id="__89">RequestVariablesRegister</managed-bean-name>
+    <managed-bean-class id="__90">ncl.pm.view.beans.RequestVariablesRegister</managed-bean-class>
+    <managed-bean-scope id="__88">request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

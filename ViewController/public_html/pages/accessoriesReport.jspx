@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Accessories Report">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelFormLayout id="pfl1">
+          <f:facet name="footer">
+            <af:toolbar id="toolbar1">
+              <af:spacer width="10" height="10" id="s8" visible="false"/>
+              <af:commandButton text="Go" id="cb1"
+                                actionListener="#{ViewActions.accessoriesListReportParamsAL}"
+                                partialSubmit="true"/>
+              <af:commandButton text="Back" id="cb2"
+                                partialSubmit="true"
+                                action="accessoriesReportBack"/>
+            </af:toolbar>
+          </f:facet>
+          <af:inputListOfValues label="Prog. Name"
+                                popupTitle="Search and Result Dialog" id="ilov1"
+                                model="#{bindings.ProgName.listOfValuesModel}"
+                                value="#{bindings.BindProgName.inputValue}"
+                                autoSubmit="true"/>
+          <af:inputListOfValues label="Category"
+                                popupTitle="Search and Result Dialog"
+                                id="inputListOfValues1"
+                                model="#{bindings.Category.listOfValuesModel}"
+                                value="#{bindings.BindAccCategory.inputValue}"
+                                autoSubmit="true"/>
+        </af:panelFormLayout>
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t2">
+              <af:commandToolbarButton id="ctb21"
+                                       icon="/Images/excel 12x12.png">
+                <af:setPropertyListener from="true"
+                                        to="#{pageFlowScope.hideColumn}"
+                                        type="action"/>
+                <af:exportCollectionActionListener type="excelHTML"
+                                                   exportedId="t1"
+                                                   filename="#{ViewActions.expAccessoriesToExcelFileName}.xls"/>
+                <af:setPropertyListener from="false"
+                                        to="#{pageFlowScope.hideColumn}"
+                                        type="action"/>
+              </af:commandToolbarButton>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.AccessoriesExportToExcalView.collectionModel}"
+                    var="row"
+                    rows="#{bindings.AccessoriesExportToExcalView.rangeSize}"
+                    emptyText="#{bindings.AccessoriesExportToExcalView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.AccessoriesExportToExcalView.rangeSize}"
+                    rowBandingInterval="0"
+                    filterModel="#{bindings.AccessoriesExportToExcalViewQuery.queryDescriptor}"
+                    queryListener="#{bindings.AccessoriesExportToExcalViewQuery.processQuery}"
+                    filterVisible="true" varStatus="vs"
+                    selectedRowKeys="#{bindings.AccessoriesExportToExcalView.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.AccessoriesExportToExcalView.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t1" partialTriggers=":::cb1"
+                    contentDelivery="immediate"
+                    autoHeightRows="#{bindings.AccessoriesExportToExcalViewIterator.estimatedRowCount}"
+                    columnStretching="column:c3">
+            <af:column id="c6" width="30" headerText="Sr#" align="center">
+              <af:outputText id="ot6" value="#{vs.index + 1}"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.AccessoriesExportToExcalView.hints.ProgName.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.AccessoriesExportToExcalView.hints.ProgName.label}"
+                       id="c2" align="center" width="250"
+                       inlineStyle="text-align:left;">
+              <af:outputText value="#{row.ProgName}" id="ot5"
+                             inlineStyle="text-align:left;"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.AccessoriesExportToExcalView.hints.ConcatenatedSegments.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.AccessoriesExportToExcalView.hints.ConcatenatedSegments.label}"
+                       id="c4" align="center" width="250"
+                       inlineStyle="text-align:left;">
+              <af:outputText value="#{row.ConcatenatedSegments}" id="ot3"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.AccessoriesExportToExcalView.hints.Description.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.AccessoriesExportToExcalView.hints.Description.label}"
+                       id="c3" align="center" width="350"
+                       inlineStyle="text-align:left;">
+              <af:outputText value="#{row.Description}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.AccessoriesExportToExcalView.hints.AccAccessoryType.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.AccessoriesExportToExcalView.hints.AccAccessoryType.label}"
+                       id="c1" align="center" inlineStyle="text-align:left;">
+              <af:outputText value="#{row.AccAccessoryType}" id="ot4"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.AccessoriesExportToExcalView.hints.AccListPrice.name}" sortable="true"
+                       headerText="#{bindings.AccessoriesExportToExcalView.hints.AccListPrice.label}"
+                       id="column1" align="center"
+                       inlineStyle="text-align:right;" width="60">
+              <af:outputText value="#{row.AccListPrice}" id="ot7">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AccessoriesExportToExcalView.hints.AccListPrice.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.AccessoriesExportToExcalView.hints.ImId.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.AccessoriesExportToExcalView.hints.ImId.label}"
+                       id="c5" align="center" rendered="false">
+              <af:outputText value="#{row.ImId}" id="ot2">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AccessoriesExportToExcalView.hints.ImId.format}"/>
+              </af:outputText>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

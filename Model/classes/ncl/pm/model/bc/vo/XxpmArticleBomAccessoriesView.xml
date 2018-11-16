@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxpmArticleBomAccessoriesView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="XxpmArticleBomAccessories.ART_BOM_ACC_ID, 
+       XxpmArticleBomAccessories.ART_BOM_ID, 
+       XxpmArticleBomAccessories.IM_ID, 
+       XxpmArticleBomAccessories.SEGMENT2, 
+       XxpmArticleBomAccessories.ACC_COLOR, 
+       XXPM_GET_COLOR_DESC(XxpmArticleBomAccessories.ACC_COLOR) AS COLOR_DESC, 
+       XxpmArticleBomAccessories.ACC_SIZE, 
+       XxpmArticleBomAccessories.SUB_INV, 
+       XxpmArticleBomAccessories.CONSUMPTION, 
+       XxpmArticleBomAccessories.METER_CONE_CONVERSION, 
+       XxpmArticleBomAccessories.WASTAGE, 
+       XxpmArticleBomAccessories.ACTIVE, 
+       XxpmArticleBomAccessories.EBS_STATUS, 
+       XxpmArticleBomAccessories.COLOR_CHKBOX, 
+       XxpmArticleBomAccessories.SIZE_CHKBOX"
+  FromList="XXPM_ARTICLE_BOM_ACCESSORIES XxpmArticleBomAccessories"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  ComponentClass="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesViewImpl"
+  RowClass="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesViewRowImpl"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="8"
+  OrderBy="XxpmArticleBomAccessories.ART_BOM_ACC_ID DESC"
+  RangeSize="10"
+  QueryHint="FIRST_ROWS_8">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="ItemColorsLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ItemColorsLov"
+    RowLevelBinds="false">
+    <ParameterMap>
+      <PIMap Variable="BindModule1">
+        <TransientExpression><![CDATA['D']]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="BindModule2">
+        <TransientExpression><![CDATA['P']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="ArticleBomItemSubInvLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomItemSubInvLov"
+    RowLevelBinds="false">
+    <ViewCriteriaUsage
+      Name="ArticleBomItemSubInvLovCriteria"
+      FullName="ncl.pm.model.bc.vo.lov.ArticleBomItemSubInvLov.ArticleBomItemSubInvLovCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="BindItemImId">
+        <TransientExpression><![CDATA[ImId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="ArticleBomAcclov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomAcclov"
+    RowLevelBinds="false">
+    <ViewCriteriaUsage
+      Name="ArticleBomAcclovCriteria"
+      FullName="ncl.pm.model.bc.vo.lov.ArticleBomAcclov.ArticleBomAcclovCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="BindProgId">
+        <TransientExpression><![CDATA[XxpmArticleBomView.ProgId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="YesNoIntlov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.YesNoIntlov"/>
+  <ViewAccessor
+    Name="ItemSizeLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ItemSizeLov"
+    RowLevelBinds="false">
+    <ParameterMap>
+      <PIMap Variable="BindModule1">
+        <TransientExpression><![CDATA['D']]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="BindModule2">
+        <TransientExpression><![CDATA['P']]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ListBinding
+    Name="LOV_SubInv"
+    ListVOName="ArticleBomItemSubInvLov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_SubInv_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SubInv"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SubInv"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SubInv"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Segment2"
+    ListVOName="ArticleBomAcclov"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Segment2_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Segment2"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="Description"/>
+      <Item Value="ImId"/>
+      <Item Value="Uom"/>
+      <Item Value="Wastage"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Segment2"/>
+      <Item Value="Description"/>
+      <Item Value="ImId"/>
+      <Item Value="Uom"/>
+      <Item Value="AccWastage"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Segment2"/>
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Active"
+    ListVOName="YesNoIntlov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Active_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Active"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ColorChkbox"
+    ListVOName="YesNoIntlov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_ColorChkbox_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ColorChkbox"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SizeChkbox"
+    ListVOName="YesNoIntlov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_SizeChkbox_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SizeChkbox"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AccColorTrans"
+    ListVOName="ItemColorsLov"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_AccColorTrans_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AccColorTrans"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="AccColor"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Display"/>
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Display"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AccSizeTrans"
+    ListVOName="ItemSizeLov"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_AccSizeTrans_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AccSizeTrans"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="AccSize"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Display"/>
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Display"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="XxpmArticleBomAccessories"
+    Entity="ncl.pm.model.bc.eo.XxpmArticleBomAccessories"/>
+  <ViewAttribute
+    Name="ArtBomAccId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ArtBomAccId"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="ART_BOM_ACC_ID"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ArtBomId"
+    PrecisionRule="true"
+    EntityAttrName="ArtBomId"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="ART_BOM_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImId"
+    PrecisionRule="true"
+    EntityAttrName="ImId"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="IM_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Segment2"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Segment2"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="SEGMENT2"
+    LOVName="LOV_Segment2">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView.Segment2_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Description"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccColor"
+    PrecisionRule="true"
+    EntityAttrName="AccColor"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="ACC_COLOR">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView.AccColor_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccColorTrans"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOR_DESC"
+    SQLType="VARCHAR"
+    LOVName="LOV_AccColorTrans"
+    Precision="255"
+    Expression="XXPM_GET_COLOR_DESC(XxpmArticleBomAccessories.ACC_COLOR)">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView.AccColorTrans_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccSize"
+    PrecisionRule="true"
+    EntityAttrName="AccSize"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="ACC_SIZE"
+    DefaultValue="00000">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AccSizeTrans"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SIZE_DESC"
+    SQLType="VARCHAR"
+    Precision="255"
+    LOVName="LOV_AccSizeTrans">
+    <TransientExpression><![CDATA[AccSize!=null ? ItemSizeLov.findByKey(key(AccSize),1)[0].getAttribute("Display") : ""]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView.AccSizeTrans_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Uom"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView.Uom_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SubInv"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SubInv"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="SUB_INV"
+    LOVName="LOV_SubInv">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView.SubInv_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Consumption"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Consumption"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="CONSUMPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView.Consumption_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MeterConeConversion"
+    PrecisionRule="true"
+    EntityAttrName="MeterConeConversion"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="METER_CONE_CONVERSION">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView.MeterConeConversion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Wastage"
+    PrecisionRule="true"
+    EntityAttrName="Wastage"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="WASTAGE">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Active"
+    PrecisionRule="true"
+    EntityAttrName="Active"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="ACTIVE"
+    LOVName="LOV_Active"
+    DefaultValue="1">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EbsStatus"
+    PrecisionRule="true"
+    EntityAttrName="EbsStatus"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="EBS_STATUS"/>
+  <ViewAttribute
+    Name="ColorChkbox"
+    PrecisionRule="true"
+    EntityAttrName="ColorChkbox"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="COLOR_CHKBOX"
+    LOVName="LOV_ColorChkbox">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SizeChkbox"
+    PrecisionRule="true"
+    EntityAttrName="SizeChkbox"
+    EntityUsage="XxpmArticleBomAccessories"
+    AliasName="SIZE_CHKBOX"
+    LOVName="LOV_SizeChkbox">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="XxpmAbAccessoriesColorsView"
+    ViewLink="ncl.pm.model.bc.vo.vl.AbAccClrArtBomAccIdFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="XxpmAbAccessoriesSizesView"
+    ViewLink="ncl.pm.model.bc.vo.vl.AbAccSizesArtBomAccIdFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="XxpmArticleBomView"
+    ViewLink="ncl.pm.model.bc.vo.vl.ArtBomAccArtBomIdFkLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="ncl.pm.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

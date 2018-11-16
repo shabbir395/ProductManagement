@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93"
+                id="adfc_config___ExecuteWithParamsPageDef"
+                Package="ncl.pm.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="XxpmArticleBomReadOnlyView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmArticleBomReadOnlyViewIterator" Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="XxpmArticleBomReadOnlyViewIterator"
+            id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindArtBomId"
+                 NDValue="#{RequestVariablesRegister.artBomId}"
+                 NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="articleBomPageDef" Package="pages"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="ExecuteWithParams_BindArtBomNum" Type="String"/>
+    </variableIterator>
+    <iterator Binds="XxpmArticleBomView" RangeSize="1"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmArticleBomViewIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XxpmArticleBomFabricViewChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmArticleBomFabricViewChildIterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmArticleBomFabricViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmArticleBomFabricViewChildQuery"/>
+    <iterator Binds="MadeupCombDetailsLovChild" RangeSize="7"
+              DataControl="XxpmAppModuleDataControl"
+              id="MadeupCombDetailsLovChildIterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="MadeupCombDetailsLovChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MadeupCombDetailsLovChildQuery"/>
+    <iterator Binds="XxpmArticleBomAccessoriesViewChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmArticleBomAccessoriesViewChildIterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmArticleBomAccessoriesViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmArticleBomAccessoriesViewChildQuery"/>
+    <iterator Binds="XxpmAbFabricColorsViewChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmAbFabricColorsViewChildIterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmAbFabricColorsViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmAbFabricColorsViewChildQuery"/>
+    <iterator Binds="XxpmAbFabricSizesViewChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmAbFabricSizesViewChildIterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmAbFabricSizesViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmAbFabricSizesViewChildQuery"/>
+    <iterator Binds="XxpmAbAccessoriesColorsViewChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmAbAccessoriesColorsViewChildIterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmAbAccessoriesColorsViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmAbAccessoriesColorsViewChildQuery"/>
+    <iterator Binds="XxpmAbAccessoriesSizesViewChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmAbAccessoriesSizesViewChildIterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmAbAccessoriesSizesViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmAbAccessoriesSizesViewChildQuery"/>
+    <iterator Binds="ArticleBomSearchView" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="ArticleBomSearchViewIterator"/>
+    <iterator id="ArticleBomCombColorsViewIterator"
+              Binds="ArticleBomCombColorsView"
+              DataControl="XxpmAppModuleDataControl" RangeSize="10"/>
+    <iterator id="ArticleBomCombSizesViewIterator"
+              Binds="ArticleBomCombSizesView"
+              DataControl="XxpmAppModuleDataControl" RangeSize="10"/>
+  </executables>
+  <bindings>
+    <listOfValues StaticList="false" IterBinding="XxpmArticleBomViewIterator"
+                  Uses="LOV_ProgName" id="ProgName"/>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator" id="ArtBomId">
+      <AttrNames>
+        <Item Value="ArtBomId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator" id="ArtBomNum">
+      <AttrNames>
+        <Item Value="ArtBomNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator" id="ProgId">
+      <AttrNames>
+        <Item Value="ProgId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator"
+                     id="CustomerNameTrans">
+      <AttrNames>
+        <Item Value="CustomerNameTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator"
+                     id="ProgManagerTrans">
+      <AttrNames>
+        <Item Value="ProgManagerTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmArticleBomViewIterator" StaticList="false"
+          Uses="LOV_ArticleId" id="ArticleId" DTSupportsMRU="false"/>
+    <action IterBinding="XxpmArticleBomViewIterator" id="CreateInsertArticleBom"
+            InstanceName="XxpmAppModuleDataControl.XxpmArticleBomView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="XxpmArticleBomViewIterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="XxpmArticleBomViewIterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="XxpmArticleBomViewIterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="XxpmArticleBomViewIterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="XxpmArticleBomFabricViewChildIterator"
+          id="XxpmArticleBomFabricViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmArticleBomFabricView"
+                      Name="XxpmArticleBomFabricViewChild0">
+        <AttrNames>
+          <Item Value="ArtBomFabId"/>
+          <Item Value="ArtBomId"/>
+          <Item Value="ImId"/>
+          <Item Value="Segment2"/>
+          <Item Value="Description"/>
+          <Item Value="ItemColor"/>
+          <Item Value="ItemSize"/>
+          <Item Value="Uom"/>
+          <Item Value="SubInv"/>
+          <Item Value="Consumption"/>
+          <Item Value="Wastage"/>
+          <Item Value="Active"/>
+          <Item Value="EbsStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxpmArticleBomFabricViewChildIterator"
+            id="CreateInsertAbFabric"
+            InstanceName="XxpmAppModuleDataControl.XxpmArticleBomFabricViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="MadeupCombDetailsLovChildIterator"
+          id="MadeupCombDetailsLovChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.lov.MadeupCombDetailsLov"
+                      Name="MadeupCombDetailsLovChild0">
+        <AttrNames>
+          <Item Value="CombId"/>
+          <Item Value="CombEbsDesc"/>
+          <Item Value="CombPmDesc"/>
+          <Item Value="ArticleId"/>
+          <Item Value="ArticleName"/>
+          <Item Value="PrimaryUnitOfMeasure"/>
+          <Item Value="ColorCode"/>
+          <Item Value="CombColor"/>
+          <Item Value="SizeCode"/>
+          <Item Value="CombSize"/>
+          <Item Value="ConcatenatedSegments"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="updateArticleBomDetails"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateArticleBomDetails"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="bomId" NDValue="#{bindings.ArtBomId.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="XxpmArticleBomAccessoriesViewChildIterator"
+          id="XxpmArticleBomAccessoriesViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView"
+                      Name="XxpmArticleBomAccessoriesViewChild0">
+        <AttrNames>
+          <Item Value="ArtBomAccId"/>
+          <Item Value="ArtBomId"/>
+          <Item Value="ImId"/>
+          <Item Value="Segment2"/>
+          <Item Value="Description"/>
+          <Item Value="AccColor"/>
+          <Item Value="Uom"/>
+          <Item Value="SubInv"/>
+          <Item Value="Consumption"/>
+          <Item Value="Wastage"/>
+          <Item Value="Active"/>
+          <Item Value="EbsStatus"/>
+          <Item Value="MeterConeConversion"/>
+          <Item Value="AccColorTrans"/>
+          <Item Value="AccSizeTrans"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxpmArticleBomAccessoriesViewChildIterator"
+            id="CreateInsertAbAccessories"
+            InstanceName="XxpmAppModuleDataControl.XxpmArticleBomAccessoriesViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XxpmArticleBomFabricViewChildIterator"
+            id="DeleteArticleBomFabric"
+            InstanceName="XxpmAppModuleDataControl.XxpmArticleBomFabricViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="XxpmArticleBomAccessoriesViewChildIterator"
+            id="DeleteArticleBomAccessories"
+            InstanceName="XxpmAppModuleDataControl.XxpmArticleBomAccessoriesViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="XxpmAbFabricColorsViewChildIterator"
+          id="XxpmAbFabricColorsViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAbFabricColorsView"
+                      Name="XxpmAbFabricColorsViewChild0">
+        <AttrNames>
+          <Item Value="AbFabColorId"/>
+          <Item Value="ArtBomFabId"/>
+          <Item Value="ColorCode"/>
+          <Item Value="ColorDesc"/>
+          <Item Value="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XxpmAbFabricSizesViewChildIterator"
+          id="XxpmAbFabricSizesViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAbFabricSizesView"
+                      Name="XxpmAbFabricSizesViewChild0">
+        <AttrNames>
+          <Item Value="AbFabSizeId"/>
+          <Item Value="ArtBomFabId"/>
+          <Item Value="SizeCode"/>
+          <Item Value="SizeDesc"/>
+          <Item Value="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator"
+                     id="ApprovalStatus">
+      <AttrNames>
+        <Item Value="ApprovalStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator" id="CreatorName">
+      <AttrNames>
+        <Item Value="CreatorName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator" id="RowStatus">
+      <AttrNames>
+        <Item Value="RowStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxpmAbAccessoriesColorsViewChildIterator"
+          id="XxpmAbAccessoriesColorsViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAbAccessoriesColorsView"
+                      Name="XxpmAbAccessoriesColorsViewChild0">
+        <AttrNames>
+          <Item Value="AbAccColorId"/>
+          <Item Value="ArtBomAccId"/>
+          <Item Value="ColorCode"/>
+          <Item Value="ColorDesc"/>
+          <Item Value="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XxpmAbAccessoriesSizesViewChildIterator"
+          id="XxpmAbAccessoriesSizesViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAbAccessoriesSizesView"
+                      Name="XxpmAbAccessoriesSizesViewChild0">
+        <AttrNames>
+          <Item Value="AbAccSizeId"/>
+          <Item Value="ArtBomAccId"/>
+          <Item Value="SizeCode"/>
+          <Item Value="SizeDesc"/>
+          <Item Value="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator" id="BomLog">
+      <AttrNames>
+        <Item Value="BomLog"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomAccessoriesViewChildIterator"
+                     id="EbsStatusAccessories">
+      <AttrNames>
+        <Item Value="EbsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomFabricViewChildIterator"
+                     id="EbsStatusFabric">
+      <AttrNames>
+        <Item Value="EbsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindArtBomNum">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindArtBomNum"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" Uses="LOV_ArtBomNum"
+                  IterBinding="ArticleBomSearchViewIterator"
+                  id="BomNoSearchRef"/>
+    <action IterBinding="XxpmArticleBomViewIterator" id="ExecuteWithParams"
+            InstanceName="XxpmAppModuleDataControl.XxpmArticleBomView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindArtBomId" NDType="java.lang.Integer"/>
+      <NamedData NDName="BindArtBomNum" NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator"
+                     id="ProgNameMaster">
+      <AttrNames>
+        <Item Value="ProgNameMaster"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator"
+                     id="BomGroupTrans">
+      <AttrNames>
+        <Item Value="BomGroupTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <button IterBinding="XxpmArticleBomFabricViewChildIterator"
+            StaticList="false" Uses="LOV_ColorChkbox" id="ColorChkboxFab"
+            DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="ColorChkbox"/>
+      </AttrNames>
+    </button>
+    <button IterBinding="XxpmArticleBomFabricViewChildIterator"
+            StaticList="false" Uses="LOV_SizeChkbox" id="SizeChkboxFab"
+            DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="SizeChkbox"/>
+      </AttrNames>
+    </button>
+    <button IterBinding="XxpmArticleBomAccessoriesViewChildIterator"
+            StaticList="false" Uses="LOV_ColorChkbox" id="ColorChkboxAcc"
+            DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="ColorChkbox"/>
+      </AttrNames>
+    </button>
+    <button IterBinding="XxpmArticleBomAccessoriesViewChildIterator"
+            StaticList="false" Uses="LOV_SizeChkbox" id="SizeChkboxAcc"
+            DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="SizeChkbox"/>
+      </AttrNames>
+    </button>
+    <methodAction id="blankArtBomPage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="blankArtBomPage" IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator" id="RejectReason">
+      <AttrNames>
+        <Item Value="RejectReason"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmArticleBomViewIterator"
+            id="setCurrentRowWithKeyValueArtBom"
+            InstanceName="XxpmAppModuleDataControl.XxpmArticleBomView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="XxpmArticleBomAccessoriesViewChildIterator"
+            id="CreateInsertArticleBomAcc"
+            InstanceName="XxpmAppModuleDataControl.XxpmArticleBomAccessoriesViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XxpmArticleBomFabricViewChildIterator"
+            id="CreateInsertArticleBomFab"
+            InstanceName="XxpmAppModuleDataControl.XxpmArticleBomFabricViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="homePageDef" Package="pages">
+  <parameters/>
+  <executables>
+    <invokeAction id="executeWithParamsApproval"
+                  Binds="ExecuteWithParamsApproval" Refresh="always"/>
+    <variableIterator id="variables"/>
+    <iterator Binds="ArticleBomApprovalView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="ArticleBomApprovalViewIterator"/>
+    <searchRegion Binds="ArticleBomApprovalViewIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ArticleBomApprovalViewQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ArticleBomApprovalViewIterator"
+          id="ArticleBomApprovalView">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.misc.ArticleBomApprovalView"
+                      Name="ArticleBomApprovalView0">
+        <AttrNames>
+          <Item Value="UserName"/>
+          <Item Value="ArtBomNum"/>
+          <Item Value="Subject"/>
+          <Item Value="Dated"/>
+          <Item Value="ArtBomId"/>
+          <Item Value="UserId"/>
+          <Item Value="Tseq"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ArticleBomApprovalViewIterator"
+            id="ExecuteWithParamsApproval"
+            InstanceName="XxpmAppModuleDataControl.ArticleBomApprovalView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindUserId" NDValue="#{PageListener.userID}"
+                 NDType="java.lang.Integer"/>
+    </action>
+  </bindings>
+</pageDefinition>

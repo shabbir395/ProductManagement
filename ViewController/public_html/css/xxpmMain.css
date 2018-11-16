@@ -1,0 +1,41 @@
+af|panelGridLayout {
+    background: rgb(243, 255, 254);
+}
+
+af|inputText:disabled::content {
+    background: rgb(231, 231, 231);
+    border: thin Window Gray;
+}
+
+af|inputText:read-only::content {
+    background: rgb(231, 231, 231);
+    border: thin Window Gray;
+}
+
+af|panelStretchLayout {
+    background-color: rgb(201, 210, 255);
+    border: thin outset Window;
+    width: auto;
+    font-size: small;
+    font-weight: bold;
+}
+
+.PreWrap {
+    white-space: -moz-pre-wrap; /* Mozilla */
+    white-space: pre;           /* CSS 2.0 */
+    white-space: pre-wrap;      /* CSS 2.1 */
+    word-wrap: break-word;      /* IE 5.5-7 */
+}
+
+af|inputListOfValues,
+af|inputComboboxListOfValues
+{
+-tr-stretch-search-dialog: true;
+}
+
+af|inputListOfValues::dialog af|dialog::content-center,
+af|inputComboboxListOfValues::dialog af|dialog::content-center
+{
+min-width:500px;
+/* min-height:500px; */
+}

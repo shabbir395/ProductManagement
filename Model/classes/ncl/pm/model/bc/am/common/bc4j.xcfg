@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="ncl.pm.model.bc.am.XxpmAppModule">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="ncl.pm.model.Model" name="XxpmAppModuleShared" ApplicationName="ncl.pm.model.bc.am.XxpmAppModule">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="ncl.pm.model.bc.am.XxpmAppModule"/>
+         <Custom JDBCDataSource="jdbc/ebsDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="ncl.pm.model.Model" name="XxpmAppModuleLocal" ApplicationName="ncl.pm.model.bc.am.XxpmAppModule">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="ncl.pm.model.bc.am.XxpmAppModule"/>
+         <Custom JDBCDataSource="jdbc/ebsDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="AccessoriesPageDef" Package="pages"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <invokeAction Binds="blankAccPage" id="BlankAccPage" Refresh="prepareModel"
+                  RefreshCondition="#{adfFacesContext.postback==false}"/>
+    <iterator Binds="XxpmItemMasterAccView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmItemMasterAccViewIterator" ChangeEventPolicy="ppr"/>
+    <variableIterator id="variables">
+      <variable Name="ExecuteWithParams_BindDescAcc" Type="java.lang.String"/>
+      <variable Name="VsetVal" Type="java.lang.String"/>
+      <variable Name="ValueSet" Type="java.lang.String"/>
+    </variableIterator>
+    <iterator id="AccessoryItemDescViewIterator" Binds="AccessoryItemDescView"
+              DataControl="XxpmAppModuleDataControl" RangeSize="25"/>
+    <iterator Binds="XxpmAttachmentsViewChildAcc" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmAttachmentsViewChildAccIterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_AccAccessoryType" id="AccAccessoryType"
+          DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="Segment1">
+      <AttrNames>
+        <Item Value="Segment1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BgBagDimensions">
+      <AttrNames>
+        <Item Value="BgBagDimensions"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BgBagMaterial" id="BgBagMaterial" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BgBagPocket" id="BgBagPocket" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BgBagType" id="BgBagType" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BgBpLength">
+      <AttrNames>
+        <Item Value="BgBpLength"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="BgBpWidth">
+      <AttrNames>
+        <Item Value="BgBpWidth"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BgBtnColor" id="BgBtnColor" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BgBtnMaterial" id="BgBtnMaterial" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="BgFlap">
+      <AttrNames>
+        <Item Value="BgFlap"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BgFpLength">
+      <AttrNames>
+        <Item Value="BgFpLength"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="BgFpWidth">
+      <AttrNames>
+        <Item Value="BgFpWidth"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="BgGusset">
+      <AttrNames>
+        <Item Value="BgGusset"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BgMaterialGuage">
+      <AttrNames>
+        <Item Value="BgMaterialGuage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BgMaterialSpecs">
+      <AttrNames>
+        <Item Value="BgMaterialSpecs"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BgPrintType" id="BgPrintType" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BgZipColor" id="BgZipColor" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BgZipMaterial" id="BgZipMaterial" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="BgZipSize">
+      <AttrNames>
+        <Item Value="BgZipSize"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="InsDimensions">
+      <AttrNames>
+        <Item Value="InsDimensions"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_InsFixType" id="InsFixType" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="InsGusset">
+      <AttrNames>
+        <Item Value="InsGusset"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_InsInsertType" id="InsInsertType" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_InsLamination" id="InsLamination" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_InsMaterialGsm" id="InsMaterialGsm" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_InsPaperType" id="InsPaperType" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_InsVarnish" id="InsVarnish" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="StfGusset1">
+      <AttrNames>
+        <Item Value="StfGusset1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="StfGusset2">
+      <AttrNames>
+        <Item Value="StfGusset2"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_StfMaterial" id="StfMaterial" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_StfPly" id="StfPly" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_StfStifnerType" id="StfStifnerType" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtBusting">
+      <AttrNames>
+        <Item Value="CrtBusting"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="CrtEct">
+      <AttrNames>
+        <Item Value="CrtEct"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtInnDimensions">
+      <AttrNames>
+        <Item Value="CrtInnDimensions"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtInnHeight">
+      <AttrNames>
+        <Item Value="CrtInnHeight"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtInnLength">
+      <AttrNames>
+        <Item Value="CrtInnLength"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_CrtInnUom" id="CrtInnUom" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtInnWidth">
+      <AttrNames>
+        <Item Value="CrtInnWidth"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_CrtMaterial" id="CrtMaterial" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtOutDimensions">
+      <AttrNames>
+        <Item Value="CrtOutDimensions"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtOutHeight">
+      <AttrNames>
+        <Item Value="CrtOutHeight"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtOutLength">
+      <AttrNames>
+        <Item Value="CrtOutLength"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_CrtOutUom" id="CrtOutUom" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtOutWidth">
+      <AttrNames>
+        <Item Value="CrtOutWidth"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_CrtPly" id="CrtPly" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_CrtPrintType" id="CrtPrintType" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_CrtPrintedType" id="CrtPrintedType" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LblFoldLength">
+      <AttrNames>
+        <Item Value="LblFoldLength"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LblFoldSize">
+      <AttrNames>
+        <Item Value="LblFoldSize"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LblFoldSwingMargin">
+      <AttrNames>
+        <Item Value="LblFoldSwingMargin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LblFoldWidth">
+      <AttrNames>
+        <Item Value="LblFoldWidth"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_LblFoldingType" id="LblFoldingType" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_LblLableType" id="LblLableType" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_LblMaterial" id="LblMaterial" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LblPlainLength">
+      <AttrNames>
+        <Item Value="LblPlainLength"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LblPlainSize">
+      <AttrNames>
+        <Item Value="LblPlainSize"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LblPlainSwingMargin">
+      <AttrNames>
+        <Item Value="LblPlainSwingMargin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LblPlainWidth">
+      <AttrNames>
+        <Item Value="LblPlainWidth"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_ZipMaterialType" id="ZipMaterialType"
+          DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_ZipTeethType" id="ZipTeethType" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_ThrMaterial" id="ThrMaterial" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="ThrTexSizePly">
+      <AttrNames>
+        <Item Value="ThrTexSizePly"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_ThrThreadType" id="ThrThreadType" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_ThrThreadUsage" id="ThrThreadUsage" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="ElsCordType">
+      <AttrNames>
+        <Item Value="ElsCordType"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_ElsElasticType" id="ElsElasticType" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="ElsRatio">
+      <AttrNames>
+        <Item Value="ElsRatio"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CtcDiaThickness">
+      <AttrNames>
+        <Item Value="CtcDiaThickness"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_CtcMaterial" id="CtcMaterial" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="FusGsm">
+      <AttrNames>
+        <Item Value="FusGsm"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_FusMaterial" id="FusMaterial" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="NwvGsm">
+      <AttrNames>
+        <Item Value="NwvGsm"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_NwvMaterial" id="NwvMaterial" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="WdGsm">
+      <AttrNames>
+        <Item Value="WdGsm"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="WdLoaft">
+      <AttrNames>
+        <Item Value="WdLoaft"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_WdMaterial" id="WdMaterial" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="WdRatio">
+      <AttrNames>
+        <Item Value="WdRatio"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BfMaterial" id="BfMaterial" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BfMaterialType" id="BfMaterialType" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BtnButtonColor" id="BtnButtonColor" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BtnButtonMaterial" id="BtnButtonMaterial"
+          DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_BtnButtonType" id="BtnButtonType" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BtnHolesNum">
+      <AttrNames>
+        <Item Value="BtnHolesNum"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_PprPaperMaterial" id="PprPaperMaterial"
+          DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_StkMaterial" id="StkMaterial" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_StkPeelableType" id="StkPeelableType"
+          DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_StkStickerType" id="StkStickerType" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="StkText">
+      <AttrNames>
+        <Item Value="StkText"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_SgItem" id="SgItem" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="SgWeight">
+      <AttrNames>
+        <Item Value="SgWeight"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_TpMaterialType" id="TpMaterialType" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_LacMaterial" id="LacMaterial" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_LacType" id="LacType" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_EyFinish" id="EyFinish" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_EyMaterial" id="EyMaterial" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="HngMaterialCombination">
+      <AttrNames>
+        <Item Value="HngMaterialCombination"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="HngThickness">
+      <AttrNames>
+        <Item Value="HngThickness"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="StrDescription">
+      <AttrNames>
+        <Item Value="StrDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_TapMaterial" id="TapMaterial" DTSupportsMRU="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_TapPrintText" id="TapPrintText" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccDiameter">
+      <AttrNames>
+        <Item Value="AccDiameter"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="AccHeight">
+      <AttrNames>
+        <Item Value="AccHeight"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="AccLength">
+      <AttrNames>
+        <Item Value="AccLength"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccLength1">
+      <AttrNames>
+        <Item Value="AccLength1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccLength1Uom">
+      <AttrNames>
+        <Item Value="AccLength1Uom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccLength2">
+      <AttrNames>
+        <Item Value="AccLength2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccLength2Uom">
+      <AttrNames>
+        <Item Value="AccLength2Uom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccListPrice">
+      <AttrNames>
+        <Item Value="AccListPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccRemarks">
+      <AttrNames>
+        <Item Value="AccRemarks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccWastage">
+      <AttrNames>
+        <Item Value="AccWastage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="AccWidth">
+      <AttrNames>
+        <Item Value="AccWidth"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="AccWidth1">
+      <AttrNames>
+        <Item Value="AccWidth1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccWidth1Uom">
+      <AttrNames>
+        <Item Value="AccWidth1Uom"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="AccWidth2">
+      <AttrNames>
+        <Item Value="AccWidth2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccWidth2Uom">
+      <AttrNames>
+        <Item Value="AccWidth2Uom"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_CtcItemType" id="CtcItemType" DTSupportsMRU="false"/>
+    <action IterBinding="XxpmItemMasterAccViewIterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="XxpmItemMasterAccViewIterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="XxpmItemMasterAccViewIterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="XxpmItemMasterAccViewIterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="XxpmItemMasterAccViewIterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="ImId">
+      <AttrNames>
+        <Item Value="ImId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="Segment2">
+      <AttrNames>
+        <Item Value="Segment2"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_Segment3" id="Segment3" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_Segment5" id="Segment5" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_ZipUom" id="ZipUom" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_AccLengthUom" id="AccLengthUom" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_AccDiameterUom" id="AccDiameterUom" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_CrtCartonType" id="CrtCartonType" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_PprPaperColor" id="PprPaperColor" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_StkColor" id="StkColor" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_TpColor" id="TpColor" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_LacColor" id="LacColor" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_EyColor" id="EyColor" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BagDimensionsTrans">
+      <AttrNames>
+        <Item Value="BagDimensionsTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BagSizeTrans">
+      <AttrNames>
+        <Item Value="BagSizeTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BagResultantTrans">
+      <AttrNames>
+        <Item Value="BagResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="InsDimensionsTrans">
+      <AttrNames>
+        <Item Value="InsDimensionsTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="InsSizeTrans">
+      <AttrNames>
+        <Item Value="InsSizeTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="InsResultantTrans">
+      <AttrNames>
+        <Item Value="InsResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="StfSizeTrans">
+      <AttrNames>
+        <Item Value="StfSizeTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="StfResultantTrans">
+      <AttrNames>
+        <Item Value="StfResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtOutDimensionTrans">
+      <AttrNames>
+        <Item Value="CrtOutDimensionTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtInDimensionTrans">
+      <AttrNames>
+        <Item Value="CrtInDimensionTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtSizeTrans">
+      <AttrNames>
+        <Item Value="CrtSizeTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CrtResultantTrans">
+      <AttrNames>
+        <Item Value="CrtResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LblPlainSizeTrans">
+      <AttrNames>
+        <Item Value="LblPlainSizeTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LblFoldSizeTrans">
+      <AttrNames>
+        <Item Value="LblFoldSizeTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LblResultantTrans">
+      <AttrNames>
+        <Item Value="LblResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="ZipResultantTrans">
+      <AttrNames>
+        <Item Value="ZipResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="ElsResultantTrans">
+      <AttrNames>
+        <Item Value="ElsResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="CtcResultantTrans">
+      <AttrNames>
+        <Item Value="CtcResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="FusResultantTrans">
+      <AttrNames>
+        <Item Value="FusResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="NwvResultantTrans">
+      <AttrNames>
+        <Item Value="NwvResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="WdResultantTrans">
+      <AttrNames>
+        <Item Value="WdResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BfResultantTrans">
+      <AttrNames>
+        <Item Value="BfResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BtnResultantTrans">
+      <AttrNames>
+        <Item Value="BtnResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="PprResultantTrans">
+      <AttrNames>
+        <Item Value="PprResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="StkResultantTrans">
+      <AttrNames>
+        <Item Value="StkResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="SgResultantTrans">
+      <AttrNames>
+        <Item Value="SgResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="TpResultantTrans">
+      <AttrNames>
+        <Item Value="TpResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="TgResultantTrans">
+      <AttrNames>
+        <Item Value="TgResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="LacResultantTrans">
+      <AttrNames>
+        <Item Value="LacResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="EyResultantTrans">
+      <AttrNames>
+        <Item Value="EyResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="HngResultantTrans">
+      <AttrNames>
+        <Item Value="HngResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="PmResultantTrans">
+      <AttrNames>
+        <Item Value="PmResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="StrResultantTrans">
+      <AttrNames>
+        <Item Value="StrResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="TapResultantTrans">
+      <AttrNames>
+        <Item Value="TapResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_LacUom" id="LacUom" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_AccHeightUom" id="AccHeightUom" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_HngThicknessUom" id="HngThicknessUom" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_AccWidthUom" id="AccWidthUom" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_StkPerforatedType" id="StkPerforatedType"
+          DTSupportsMRU="true"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="ThrResultantTrans">
+      <AttrNames>
+        <Item Value="ThrResultantTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindDescAcc">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindDescAcc"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmItemMasterAccViewIterator" id="ExecuteWithParams"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterAccView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindDescAcc"
+                 NDValue="#{bindings.ExecuteWithParams_BindDescAcc}"
+                 NDType="java.lang.String"/>
+    </action>
+    <listOfValues StaticList="false" Uses="LOV_Description"
+                  IterBinding="AccessoryItemDescViewIterator"
+                  id="AccDescriptionLov"/>
+    <methodAction id="blankAccPage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="blankAccPage" IsViewObjectMethod="false"/>
+    <action id="Rollback" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccTypeValueDisplay">
+      <AttrNames>
+        <Item Value="AccTypeValueDisplay"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="Segment4">
+      <AttrNames>
+        <Item Value="Segment4"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="Segment6">
+      <AttrNames>
+        <Item Value="Segment6"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="variables" id="BindVsetVal">
+      <AttrNames>
+        <Item Value="VsetVal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindValueSet">
+      <AttrNames>
+        <Item Value="ValueSet"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="addVsetVal"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addVsetVal" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.addVsetVal_XxpmAppModuleDataControl_dataProvider_addVsetVal_result">
+      <NamedData NDName="prefix" NDValue="14" NDType="java.lang.String"/>
+      <NamedData NDName="vSet" NDValue="#{bindings.ValueSet}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="value" NDValue="#{bindings.VsetVal}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="XxpmItemMasterAccViewIterator"
+                  id="updateAccLovsAccessor"
+                  InstanceName="bindings.XxpmItemMasterAccViewIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateAccLovsAccessor" IsViewObjectMethod="false"
+                  IsLocalObjectReference="true"/>
+    <tree IterBinding="XxpmAttachmentsViewChildAccIterator"
+          id="XxpmAttachmentsViewChildAcc">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAttachmentsView"
+                      Name="XxpmAttachmentsViewChildAcc0">
+        <AttrNames>
+          <Item Value="AtchId"/>
+          <Item Value="ImId"/>
+          <Item Value="FileCode"/>
+          <Item Value="FileName"/>
+          <Item Value="Path"/>
+          <Item Value="FileExt"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="setXxpmAttachmentsAcc"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setXxpmAttachmentsAcc" IsViewObjectMethod="false">
+      <NamedData NDName="fileCode" NDType="int"/>
+      <NamedData NDName="name" NDType="java.lang.String"/>
+      <NamedData NDName="path" NDType="java.lang.String"/>
+      <NamedData NDName="ext" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="getMaxAtchCode"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getMaxAtchCode" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.getMaxAtchCode_XxpmAppModuleDataControl_dataProvider_getMaxAtchCode_result">
+      <NamedData NDName="type" NDValue="2" NDType="int"/>
+    </methodAction>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="FolderCode">
+      <AttrNames>
+        <Item Value="FolderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="RowStatus">
+      <AttrNames>
+        <Item Value="RowStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="copyAccItem"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copyAccItem" IsViewObjectMethod="false"/>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_HngHookType" id="HngHookType" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="MinOrderQty">
+      <AttrNames>
+        <Item Value="MinOrderQty"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
+          Uses="LOV_AccItemUom" id="AccItemUom" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="AccSize">
+      <AttrNames>
+        <Item Value="AccSize"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="BtnButtonSize">
+      <AttrNames>
+        <Item Value="BtnButtonSize"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="AccCustVal">
+      <AttrNames>
+        <Item Value="AccCustVal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="InsText">
+      <AttrNames>
+        <Item Value="InsText"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator" id="CrtText">
+      <AttrNames>
+        <Item Value="CrtText"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="XxpmItemMasterAccViewIterator"
+                  Uses="LOV_ProgramNameDesc" id="ProgramNameDesc"/>
+    <attributeValues IterBinding="XxpmItemMasterAccViewIterator"
+                     id="ItemStatusFlagTrans">
+      <AttrNames>
+        <Item Value="ItemStatusFlagTrans"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

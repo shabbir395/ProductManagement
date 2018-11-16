@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+
+<JboProject
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="Model"
+   Version="11.1.1.64.93"
+   SeparateXMLFiles="true"
+   PackageName="ncl.pm.model" >
+   <DesignTime>
+      <Attr Name="_jprName" Value="../../../../Model.jpr" />
+      <Attr Name="_appModuleNames0" Value="ncl.pm.model.bc.am.XxpmAppModule" />
+      <Attr Name="_NamedConnection" Value="APPS" />
+   </DesignTime>
+   <Containee
+      Name="am"
+      ObjectType="JboPackage"
+      PackageName="ncl.pm.model.bc.am" >
+      <DesignTime>
+         <Attr Name="_AM" Value="true" />
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="asc"
+      ObjectType="JboPackage"
+      PackageName="ncl.pm.model.bc.eo.asc" >
+      <DesignTime>
+         <Attr Name="_AS" Value="true" />
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="eo"
+      ObjectType="JboPackage"
+      PackageName="ncl.pm.model.bc.eo" >
+      <DesignTime>
+         <Attr Name="_EO" Value="true" />
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="lov"
+      ObjectType="JboPackage"
+      PackageName="ncl.pm.model.bc.vo.lov" >
+      <DesignTime>
+         <Attr Name="_VO" Value="true" />
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="misc"
+      ObjectType="JboPackage"
+      PackageName="ncl.pm.model.bc.vo.misc" >
+      <DesignTime>
+         <Attr Name="_VO" Value="true" />
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="vl"
+      ObjectType="JboPackage"
+      PackageName="ncl.pm.model.bc.vo.vl" >
+      <DesignTime>
+         <Attr Name="_VL" Value="true" />
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="vo"
+      ObjectType="JboPackage"
+      PackageName="ncl.pm.model.bc.vo" >
+      <DesignTime>
+         <Attr Name="_VO" Value="true" />
+      </DesignTime>
+   </Containee>
+   <AttrArray Name="MessageBundles">
+      <Item Value="ncl.pm.model.bc.view.xxpmJC.CustomMessageBundle" />
+   </AttrArray>
+</JboProject>

@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="PO Receiving Status Report">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelFormLayout id="pfl1">
+          <af:selectOneChoice value="#{bindings.ProgId.inputValue}"
+                              label="#{bindings.ProgId.label}"
+                              required="#{bindings.ProgId.hints.mandatory}"
+                              shortDesc="#{bindings.ProgId.hints.tooltip}"
+                              id="soc1" autoSubmit="true"
+                              contentStyle="width:250px;" rendered="false">
+            <f:selectItems value="#{bindings.ProgId.items}" id="si1"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{bindings.SoHeaderId.inputValue}"
+                              label="#{bindings.SoHeaderId.label}"
+                              required="#{bindings.SoHeaderId.hints.mandatory}"
+                              shortDesc="#{bindings.SoHeaderId.hints.tooltip}"
+                              id="soc2" partialTriggers="soc1" autoSubmit="true"
+                              contentStyle="width:250px;">
+            <f:selectItems value="#{bindings.SoHeaderId.items}" id="si2"/>
+          </af:selectOneChoice>
+          <af:panelGroupLayout id="pgl1" layout="horizontal">
+            <af:commandButton text="Go" id="cb1"
+                              actionListener="#{ViewActions.poRcvStatusReportGoBtn}"/>
+            <af:spacer width="10" height="10" id="s8" visible="false"/>
+            <af:commandButton text="Back" id="cb2" action="poRcvStatusBack"/>
+          </af:panelGroupLayout>
+        </af:panelFormLayout>
+        <af:panelCollection id="pc1" inlineStyle="width:inherit;">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t12">
+              <af:commandToolbarButton id="ctb21"
+                                       icon="/Images/excel 12x12.png">
+                <af:setPropertyListener from="true"
+                                        to="#{pageFlowScope.hideColumn}"
+                                        type="action"/>
+                <af:exportCollectionActionListener type="excelHTML"
+                                                   exportedId="t1"
+                                                   filename="#{ViewActions.expPORcvStatusReportFileName}.xls"/>
+                <af:setPropertyListener from="false"
+                                        to="#{pageFlowScope.hideColumn}"
+                                        type="action"/>
+              </af:commandToolbarButton>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.PoRcvStatusView.collectionModel}"
+                    var="row" rows="#{bindings.PoRcvStatusView.rangeSize}"
+                    emptyText="#{bindings.PoRcvStatusView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.PoRcvStatusView.rangeSize}"
+                    rowBandingInterval="0"
+                    filterModel="#{bindings.PoRcvStatusViewQuery.queryDescriptor}"
+                    queryListener="#{bindings.PoRcvStatusViewQuery.processQuery}"
+                    filterVisible="true" varStatus="vs"
+                    selectedRowKeys="#{bindings.PoRcvStatusView.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.PoRcvStatusView.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t1" partialTriggers=":::cb1"
+                    columnStretching="column:c1" contentDelivery="immediate"
+                    autoHeightRows="#{bindings.PoRcvStatusView.estimatedRowCount}">
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.PoNum.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.PoNum.label}"
+                       id="c4" align="center" width="50">
+              <af:outputText value="#{row.PoNum}" id="ot5"/>
+            </af:column>
+            <af:column headerText="#{bindings.PoRcvStatusView.hints.VendorName.label}"
+                       id="c10" align="center" inlineStyle="text-align:left;"
+                       width="150">
+              <af:outputText value="#{row.VendorName}" id="ot10"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.PoLineId.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.PoLineId.label}"
+                       id="c7" align="center" rendered="false">
+              <af:outputText value="#{row.PoLineId}" id="ot6">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PoRcvStatusView.hints.PoLineId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.SoHeaderId.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.SoHeaderId.label}"
+                       id="c2" align="center" rendered="false">
+              <af:outputText value="#{row.SoHeaderId}" id="ot9">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PoRcvStatusView.hints.SoHeaderId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.ItemCode.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.ItemCode.label}"
+                       id="c6" align="center" inlineStyle="text-align:left;"
+                       width="250">
+              <af:outputText value="#{row.ItemCode}" id="ot2"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.ItemDescription.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.ItemDescription.label}"
+                       id="c1" align="center" inlineStyle="text-align:left;">
+              <af:outputText value="#{row.ItemDescription}" id="ot4"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.Uom.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.Uom.label}"
+                       id="c3" align="center">
+              <af:outputText value="#{row.Uom}" id="ot8"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.UnitPrice.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.UnitPrice.label}"
+                       id="c9" align="center" inlineStyle="text-align:right;"
+                       width="60">
+              <af:outputText value="#{row.UnitPrice}" id="ot7">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PoRcvStatusView.hints.UnitPrice.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.OrderedQuantity.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.OrderedQuantity.label}"
+                       id="c8" align="center" inlineStyle="text-align:right;"
+                       width="60">
+              <af:outputText value="#{row.OrderedQuantity}" id="ot3">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PoRcvStatusView.hints.OrderedQuantity.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.PoRcvStatusView.hints.QuantityReceived.label}"
+                       id="c11" width="60" align="center"
+                       inlineStyle="text-align:right;">
+              <af:outputText value="#{row.QuantityReceived}" id="ot11">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PoRcvStatusView.hints.QuantityReceived.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column headerText="#{bindings.PoRcvStatusView.hints.QuantityBalance.label}"
+                       id="column1" width="60" align="center"
+                       inlineStyle="text-align:right;" sortable="true"
+                       filterable="true"
+                       sortProperty="#{bindings.PoRcvStatusView.hints.QuantityBalance.name}">
+              <af:inputText value="#{row.bindings.QuantityBalance.inputValue}"
+                            label="#{bindings.PoRcvStatusView.hints.QuantityBalance.label}"
+                            required="#{bindings.PoRcvStatusView.hints.QuantityBalance.mandatory}"
+                            columns="#{bindings.PoRcvStatusView.hints.QuantityBalance.displayWidth}"
+                            maximumLength="#{bindings.PoRcvStatusView.hints.QuantityBalance.precision}"
+                            shortDesc="#{bindings.PoRcvStatusView.hints.QuantityBalance.tooltip}"
+                            id="it2">
+                <f:validator binding="#{row.bindings.QuantityBalance.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PoRcvStatusView.hints.QuantityBalance.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.AcceptedQuantity.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.AcceptedQuantity.label}"
+                       id="c5" align="center" inlineStyle="text-align:right;"
+                       width="60">
+              <af:inputText value="#{row.AcceptedQuantity}" id="ot1"
+                            disabled="true"
+                            contentStyle="background-color:#{row.AcceptedQuantity eq row.OrderedQuantity?'green':( row.AcceptedQuantity eq '0' ? 'gray' :( row.AcceptedQuantity > row.OrderedQuantity ? 'red' :'blue'))};color:Black;font-weight:bold;text-align:right;">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PoRcvStatusView.hints.AcceptedQuantity.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column headerText="#{bindings.PoRcvStatusView.hints.QuantityRejected.label}"
+                       id="c12" width="60" align="center"
+                       inlineStyle="text-align:right;">
+              <af:outputText value="#{row.QuantityRejected}" id="ot12">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PoRcvStatusView.hints.QuantityRejected.format}"/>
+              </af:outputText>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+        <af:panelGroupLayout id="pgl2" layout="horizontal">
+          <af:spacer width="10" height="10" id="s1"/>
+          <af:panelLabelAndMessage label="#{bindings.Remarks.hints.label}"
+                                   id="plam1">
+            <af:inputText value="#{bindings.Remarks.inputValue}"
+                          label="#{bindings.Remarks.hints.label}"
+                          required="#{bindings.Remarks.hints.mandatory}"
+                          columns="#{bindings.Remarks.hints.displayWidth}"
+                          maximumLength="#{bindings.Remarks.hints.precision}"
+                          shortDesc="#{bindings.Remarks.hints.tooltip}" id="it1"
+                          rows="3" contentStyle="width:300px;" autoSubmit="true"
+                          valueChangeListener="#{ViewActions.updateRemarksIntoPoLineVCL}"
+                          partialTriggers="pc1:t1" simple="true">
+              <f:validator binding="#{bindings.Remarks.validator}"/>
+            </af:inputText>
+          </af:panelLabelAndMessage>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

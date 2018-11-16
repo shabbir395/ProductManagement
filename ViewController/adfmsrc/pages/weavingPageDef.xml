@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="weavingPageDef" Package="pages"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <invokeAction id="BlankWvPage" Binds="blankWvPage" Refresh="prepareModel"
+                  RefreshCondition="#{adfFacesContext.postback==false}"/>
+    <iterator Binds="XxpmItemMasterWvView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmItemMasterWvViewIterator" ChangeEventPolicy="ppr"/>
+    <variableIterator id="variables">
+      <variable Name="ExecuteWithParams_BindDescWv" Type="java.lang.String"/>
+      <variable Name="VsetVal" Type="java.lang.String"/>
+      <variable Name="ValueSet" Type="java.lang.String"/>
+    </variableIterator>
+    <iterator Binds="XxpmWarpViewChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmWarpViewChildIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XxpmWeftViewChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmWeftViewChildIterator" ChangeEventPolicy="ppr"/>
+    <iterator id="XxpmAttachmentsViewChildWvIterator"
+              Binds="XxpmAttachmentsViewChildWv"
+              DataControl="XxpmAppModuleDataControl" RangeSize="25"
+              ChangeEventPolicy="ppr"/>
+    <iterator id="WeavingItemDescViewIterator" Binds="WeavingItemDescView"
+              DataControl="XxpmAppModuleDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator" id="Segment2">
+      <AttrNames>
+        <Item Value="Segment2"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmItemMasterWvViewIterator" id="First"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterWvView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="first"/>
+    <action IterBinding="XxpmItemMasterWvViewIterator" id="Previous"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterWvView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="previous"/>
+    <action IterBinding="XxpmItemMasterWvViewIterator" id="Next"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterWvView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="next"/>
+    <action IterBinding="XxpmItemMasterWvViewIterator" id="Last"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterWvView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="last"/>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator"
+                     id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator" id="Ends">
+      <AttrNames>
+        <Item Value="Ends"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator" id="Picks">
+      <AttrNames>
+        <Item Value="Picks"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator" id="Width">
+      <AttrNames>
+        <Item Value="Width"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindDescWv">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindDescWv"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmItemMasterWvViewIterator" id="ExecuteWithParams"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterWvView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindDescWv"
+                 NDValue="${bindings.ExecuteWithParams_BindDescWv}"
+                 NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator"
+                     id="EPWResultant">
+      <AttrNames>
+        <Item Value="EPWResultant"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmWarpViewChildIterator" id="CreateInsertWarp"
+            InstanceName="XxpmAppModuleDataControl.XxpmWarpViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XxpmWeftViewChildIterator" id="CreateInsertWeft"
+            InstanceName="XxpmAppModuleDataControl.XxpmWeftViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action IterBinding="XxpmItemMasterWvViewIterator"
+            id="CreateInsertItemMasterWv"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterWvView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator"
+                     id="WeaveResultant">
+      <AttrNames>
+        <Item Value="WeaveResultant"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxpmWarpViewChildIterator" id="XxpmWarpViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmWarpView"
+                      Name="XxpmWarpViewChild0">
+        <AttrNames>
+          <Item Value="WarpId"/>
+          <Item Value="BaseImId"/>
+          <Item Value="CottonRatio"/>
+          <Item Value="Description"/>
+          <Item Value="FiberRatio"/>
+          <Item Value="ImId"/>
+          <Item Value="ImIdYB"/>
+          <Item Value="ImIdYT"/>
+          <Item Value="MeasuringSystem"/>
+          <Item Value="Segment2"/>
+          <Item Value="WarpResultant"/>
+          <Item Value="YarnCount"/>
+          <Item Value="YarnPlies"/>
+          <Item Value="YarnType"/>
+          <Item Value="YBResultant"/>
+          <Item Value="YTResultant"/>
+          <Item Value="FancyYarnType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XxpmWeftViewChildIterator" id="XxpmWeftViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmWeftView"
+                      Name="XxpmWeftViewChild0">
+        <AttrNames>
+          <Item Value="WeftId"/>
+          <Item Value="ImId"/>
+          <Item Value="Segment2"/>
+          <Item Value="BaseImId"/>
+          <Item Value="ImIdYB"/>
+          <Item Value="Description"/>
+          <Item Value="MeasuringSystem"/>
+          <Item Value="YarnCount"/>
+          <Item Value="YarnPlies"/>
+          <Item Value="YarnType"/>
+          <Item Value="YBResultant"/>
+          <Item Value="YTResultant"/>
+          <Item Value="ImIdYT"/>
+          <Item Value="CottonRatio"/>
+          <Item Value="FiberRatio"/>
+          <Item Value="WeftResultant"/>
+          <Item Value="FancyYarnType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxpmWarpViewChildIterator" id="DeleteWarp"
+            InstanceName="XxpmAppModuleDataControl.XxpmWarpViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="XxpmWeftViewChildIterator" id="DeleteWeft"
+            InstanceName="XxpmAppModuleDataControl.XxpmWeftViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator" id="ImId">
+      <AttrNames>
+        <Item Value="ImId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="blankWvPage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="blankWvPage" IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator"
+                     id="FabricBlendResultant">
+      <AttrNames>
+        <Item Value="FabricBlendResultant"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator"
+                     id="WarpResultantSum">
+      <AttrNames>
+        <Item Value="WarpResultantSum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator"
+                     id="WeftResultantSum">
+      <AttrNames>
+        <Item Value="WeftResultantSum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator"
+                     id="WarpContraction">
+      <AttrNames>
+        <Item Value="WarpContraction"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator"
+                     id="WeftContraction">
+      <AttrNames>
+        <Item Value="WeftContraction"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxpmAttachmentsViewChildWvIterator"
+          id="XxpmAttachmentsViewChildWv">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAttachmentsView"
+                      Name="XxpmAttachmentsViewChildWv0">
+        <AttrNames>
+          <Item Value="AtchId"/>
+          <Item Value="ImId"/>
+          <Item Value="FileCode"/>
+          <Item Value="FileName"/>
+          <Item Value="Path"/>
+          <Item Value="FileExt"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="getMaxAtchCode"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getMaxAtchCode" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.getMaxAtchCode_XxpmAppModuleDataControl_dataProvider_getMaxAtchCode_result">
+      <NamedData NDName="type" NDValue="2" NDType="int"/>
+    </methodAction>
+    <methodAction id="setXxpmAttachmentsWv"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setXxpmAttachmentsWv" IsViewObjectMethod="false">
+      <NamedData NDName="fileCode" NDType="int"/>
+      <NamedData NDName="name" NDType="java.lang.String"/>
+      <NamedData NDName="path" NDType="java.lang.String"/>
+      <NamedData NDName="ext" NDType="java.lang.String"/>
+    </methodAction>
+    <list IterBinding="XxpmItemMasterWvViewIterator" StaticList="false"
+          Uses="LOV_Weave" id="Weave" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterWvViewIterator" StaticList="false"
+          Uses="LOV_Direction" id="Direction" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterWvViewIterator" StaticList="false"
+          Uses="LOV_Design" id="Design" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterWvViewIterator" StaticList="false"
+          Uses="LOV_WeaveSize" id="WeaveSize" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterWvViewIterator" StaticList="false"
+          Uses="LOV_Insertion" id="Insertion" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterWvViewIterator" StaticList="false"
+          Uses="LOV_SelvedgeType" id="SelvedgeType" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="variables" id="BindVsetVal">
+      <AttrNames>
+        <Item Value="VsetVal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindValueSet">
+      <AttrNames>
+        <Item Value="ValueSet"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="XxpmItemMasterWvViewIterator"
+                  id="updateWvLovsAccessor"
+                  InstanceName="bindings.XxpmItemMasterWvViewIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateWvLovsAccessor" IsViewObjectMethod="false"
+                  IsLocalObjectReference="true"/>
+    <listOfValues StaticList="false" Uses="LOV_Description"
+                  IterBinding="WeavingItemDescViewIterator"
+                  id="WvDescriptionLov"/>
+    <methodAction id="copyWvItem"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copyWvItem" IsViewObjectMethod="false"/>
+    <list IterBinding="XxpmItemMasterWvViewIterator" StaticList="false"
+          Uses="LOV_Segment3" id="Segment3" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator" id="RowStatus">
+      <AttrNames>
+        <Item Value="RowStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="addVsetVal"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addVsetVal" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.addVsetVal_XxpmAppModuleDataControl_dataProvider_addVsetVal_result">
+      <NamedData NDName="prefix" NDValue="18" NDType="java.lang.String"/>
+      <NamedData NDName="vSet" NDValue="#{bindings.ValueSet}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="value" NDValue="#{bindings.VsetVal}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="copyEBSItemUpdateStatus"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copyEBSItemUpdateStatus"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.copyEBSItemUpdateStatus_XxpmAppModuleDataControl_dataProvider_copyEBSItemUpdateStatus_result">
+      <NamedData NDName="imId" NDType="java.lang.String"/>
+      <NamedData NDName="s3" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="chkCustSeg2VAlidity"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="chkCustSeg2VAlidity" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.chkCustSeg2VAlidity_XxpmAppModuleDataControl_dataProvider_chkCustSeg2VAlidity_result">
+      <NamedData NDName="seg2" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="XxpmItemMasterWvViewIterator"
+                     id="WvFabricBlend">
+      <AttrNames>
+        <Item Value="WvFabricBlend"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

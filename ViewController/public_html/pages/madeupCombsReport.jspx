@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Madeup Details Report">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelFormLayout id="pfl1">
+          <f:facet name="footer">
+            <af:toolbar id="t2">
+              <af:commandButton text="Go" id="cb1"
+                                actionListener="#{ViewActions.articleListReportParamsAL}"
+                                partialSubmit="true"/>
+              <af:spacer width="10" height="10" id="s8" visible="false"/>
+              <af:commandButton text="Back" id="cb2" action="articlesReportBack"
+                                partialSubmit="true"/>
+            </af:toolbar>
+          </f:facet>
+          <af:inputListOfValues label="Program Name"
+                                popupTitle="Search and Result Dialog" id="ilov1"
+                                autoSubmit="true"
+                                model="#{bindings.ProgName.listOfValuesModel}"
+                                value="#{bindings.BindProg.inputValue}"/>
+          <af:inputListOfValues label="Program Manager"
+                                popupTitle="Search and Result Dialog" id="ilov2"
+                                autoSubmit="true"
+                                model="#{bindings.UserName.listOfValuesModel}"
+                                value="#{bindings.BindUser.inputValue}"/>
+          <af:inputListOfValues label="Line Manager"
+                                popupTitle="Search and Result Dialog" id="ilov3"
+                                autoSubmit="true"
+                                model="#{bindings.UserName.listOfValuesModel}"
+                                value="#{bindings.BindManager.inputValue}"/>
+        </af:panelFormLayout>
+        <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t12">
+              <af:commandToolbarButton id="ctb21"
+                                       icon="/Images/excel 12x12.png">
+                <af:setPropertyListener from="true"
+                                        to="#{pageFlowScope.hideColumn}"
+                                        type="action"/>
+                <af:exportCollectionActionListener type="excelHTML"
+                                                   exportedId="t1"
+                                                   filename="#{ViewActions.expAllCombsToExcelFileName}.xls"/>
+                <af:setPropertyListener from="false"
+                                        to="#{pageFlowScope.hideColumn}"
+                                        type="action"/>
+              </af:commandToolbarButton>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.MadeupCombinationsExportToExcelView.collectionModel}"
+                    var="row"
+                    rows="#{bindings.MadeupCombinationsExportToExcelView.rangeSize}"
+                    emptyText="#{bindings.MadeupCombinationsExportToExcelView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.MadeupCombinationsExportToExcelView.rangeSize}"
+                    rowBandingInterval="0"
+                    filterModel="#{bindings.MadeupCombinationsExportToExcelViewQuery.queryDescriptor}"
+                    queryListener="#{bindings.MadeupCombinationsExportToExcelViewQuery.processQuery}"
+                    filterVisible="true" varStatus="vs"
+                    selectedRowKeys="#{bindings.MadeupCombinationsExportToExcelView.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.MadeupCombinationsExportToExcelView.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t1" contentDelivery="immediate"
+                    autoHeightRows="#{bindings.MadeupCombinationsExportToExcelView.estimatedRowCount}"
+                    partialTriggers=":::cb1" columnStretching="column:c5">
+            <af:column id="c15" headerText="Sr#" align="center" width="35">
+              <af:outputText value="#{vs.index + 1}" id="ot15"/>
+            </af:column>
+            <af:column headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.Type.label}"
+                       id="c16" align="center" inlineStyle="text-align:left;"
+                       width="50">
+              <af:outputText value="#{row.Type}" id="ot6"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.ConcatenatedSegments.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.ConcatenatedSegments.label}"
+                       id="c6" align="center" width="250"
+                       inlineStyle="text-align:left;">
+              <af:outputText value="#{row.ConcatenatedSegments}" id="ot8"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.Description.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.Description.label}"
+                       id="c5" align="center" width="350"
+                       inlineStyle="text-align:left;">
+              <af:outputText value="#{row.Description}" id="ot4"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.Quantities.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.Quantities.label}"
+                       id="c11" align="center" width="30">
+              <af:outputText value="#{row.Quantities}" id="ot7"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.Price.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.Price.label}"
+                       id="c10" align="center" width="30">
+              <af:outputText value="#{row.Price}" id="ot14"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.HsCode.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.HsCode.label}"
+                       id="c14" align="center" width="30">
+              <af:outputText value="#{row.HsCode}" id="ot3"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.DestinationPort.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.DestinationPort.label}"
+                       id="c2" align="center" width="100" rendered="false">
+              <af:outputText value="#{row.DestinationPort}" id="ot9"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.Sku.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.Sku.label}"
+                       id="c1" align="center" width="75"
+                       inlineStyle="text-align:left;">
+              <af:outputText value="#{row.Sku}" id="ot2"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.ItemId.name}" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.ItemId.label}"
+                       id="c9" align="center" rendered="false">
+              <af:inputText value="#{row.bindings.ItemId.inputValue}"
+                            label="#{bindings.MadeupCombinationsExportToExcelView.hints.ItemId.label}"
+                            required="#{bindings.MadeupCombinationsExportToExcelView.hints.ItemId.mandatory}"
+                            columns="#{bindings.MadeupCombinationsExportToExcelView.hints.ItemId.displayWidth}"
+                            maximumLength="#{bindings.MadeupCombinationsExportToExcelView.hints.ItemId.precision}"
+                            shortDesc="#{bindings.MadeupCombinationsExportToExcelView.hints.ItemId.tooltip}"
+                            id="it1">
+                <f:validator binding="#{row.bindings.ItemId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MadeupCombinationsExportToExcelView.hints.ItemId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.ProgId.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.ProgId.label}"
+                       id="c3" align="center" rendered="false">
+              <af:outputText value="#{row.ProgId}" id="ot11">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MadeupCombinationsExportToExcelView.hints.ProgId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.ProgName.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.ProgName.label}"
+                       id="c13" align="center" width="250"
+                       inlineStyle="text-align:left;">
+              <af:outputText value="#{row.ProgName}" id="ot10"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.Usr.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.Usr.label}"
+                       id="c7" align="center" inlineStyle="text-align:left;">
+              <af:outputText value="#{row.Usr}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.Mgr.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.Mgr.label}"
+                       id="c8" align="center" inlineStyle="text-align:left;">
+              <af:outputText value="#{row.Mgr}" id="ot13"/>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.UserId.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.UserId.label}"
+                       id="c12" align="center" rendered="false">
+              <af:outputText value="#{row.UserId}" id="ot12">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MadeupCombinationsExportToExcelView.hints.UserId.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.MadeupCombinationsExportToExcelView.hints.ManagerId.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.MadeupCombinationsExportToExcelView.hints.ManagerId.label}"
+                       id="c4" align="center" rendered="false">
+              <af:outputText value="#{row.ManagerId}" id="ot5">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MadeupCombinationsExportToExcelView.hints.ManagerId.format}"/>
+              </af:outputText>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

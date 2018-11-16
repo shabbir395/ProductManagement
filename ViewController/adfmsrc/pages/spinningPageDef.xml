@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="spinningPageDef" Package="pages"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <invokeAction id="BlankSpnPage" Binds="blankSpnPage"
+                  Refresh="prepareModel"
+                  RefreshCondition="#{adfFacesContext.postback==false}"/>
+    <iterator Binds="XxpmItemMasterSpnView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmItemMasterSpnViewIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XxpmYarnBlendViewChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmYarnBlendViewChildIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XxpmYarnTypeViewChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmYarnTypeViewChildIterator" ChangeEventPolicy="ppr"/>
+    <variableIterator id="variables">
+      <variable Name="ExecuteWithParams_BindDescSpn" Type="String"/>
+      <variable Name="VsetVal" Type="String"/>
+      <variable Name="ValueSet" Type="java.lang.String"/>
+    </variableIterator>
+    <iterator Binds="XxpmAttachmentsViewChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmAttachmentsViewChildIterator" ChangeEventPolicy="ppr"
+              Refresh="always"/>
+    <iterator id="SpinningItemDescViewIterator" Binds="SpinningItemDescView"
+              DataControl="XxpmAppModuleDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator" id="YarnCount">
+      <AttrNames>
+        <Item Value="YarnCount"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterSpnViewIterator" StaticList="false"
+          Uses="LOV_YarnPlies" id="YarnPlies" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterSpnViewIterator" StaticList="false"
+          Uses="LOV_YarnType" id="YarnType" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterSpnViewIterator" StaticList="false"
+          Uses="LOV_MeasuringSystem" id="MeasuringSystem" DTSupportsMRU="true"/>
+    <action IterBinding="XxpmItemMasterSpnViewIterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="XxpmItemMasterSpnViewIterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="XxpmItemMasterSpnViewIterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="XxpmItemMasterSpnViewIterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="XxpmYarnBlendViewChildIterator"
+          id="XxpmYarnBlendViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmYarnBlendView"
+                      Name="XxpmYarnBlendViewChild0">
+        <AttrNames>
+          <Item Value="YbId"/>
+          <Item Value="Cotton"/>
+          <Item Value="CottonRatio"/>
+          <Item Value="Fiber"/>
+          <Item Value="FiberRatio"/>
+          <Item Value="YBResultant"/>
+          <Item Value="ImId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XxpmYarnTypeViewChildIterator"
+          id="XxpmYarnTypeViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmYarnTypeView"
+                      Name="XxpmYarnTypeViewChild0">
+        <AttrNames>
+          <Item Value="YtId"/>
+          <Item Value="FancyYarnType"/>
+          <Item Value="FytRatio"/>
+          <Item Value="SlubCode"/>
+          <Item Value="Denier1"/>
+          <Item Value="Denier2"/>
+          <Item Value="YTResultant"/>
+          <Item Value="ImId"/>
+          <Item Value="Draft1"/>
+          <Item Value="Draft2"/>
+          <Item Value="DualCore" Binds="DualCore"/>
+          <Item Value="FancyYarnType2"/>
+          <Item Value="FytRatio2"/>
+          <Item Value="NewRow"/>
+          <Item Value="Multicount" Binds="Multicount"/>
+          <Item Value="Dtex1" Binds="Dtex1"/>
+          <Item Value="Dtex2" Binds="Dtex2"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator"
+                     id="SumYBTotRatio">
+      <AttrNames>
+        <Item Value="SumYBTotRatio"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmItemMasterSpnViewIterator"
+            id="CreateInsertItemMasterSpn"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterSpnView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator" id="Segment1">
+      <AttrNames>
+        <Item Value="Segment1"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="revertOrremoveCurRowValue" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="revertOrremoveCurRowValue"
+                  IsViewObjectMethod="true"
+                  DataControl="XxpmAppModuleDataControl"
+                  InstanceName="XxpmAppModuleDataControl.XxpmYarnBlendViewChild"/>
+    <action IterBinding="XxpmItemMasterSpnViewIterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="BindDescSpn"
+                 NDValue="#{bindings.ExecuteWithParams_BindDescSpn}"
+                 NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="XxpmYarnBlendViewChildIterator" id="DeleteYB"
+            InstanceName="XxpmAppModuleDataControl.XxpmYarnBlendViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="XxpmYarnTypeViewChildIterator" id="DeleteYT"
+            InstanceName="XxpmAppModuleDataControl.XxpmYarnTypeViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator" id="ImId">
+      <AttrNames>
+        <Item Value="ImId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmYarnBlendViewChildIterator" id="CreateInsertYB"
+            InstanceName="XxpmAppModuleDataControl.XxpmYarnBlendViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XxpmYarnTypeViewChildIterator" id="CreateInsertYT"
+            InstanceName="XxpmAppModuleDataControl.XxpmYarnTypeViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator" id="RowStatus">
+      <AttrNames>
+        <Item Value="RowStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="blankSpnPage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="blankSpnPage" IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator"
+                     id="ItemStatusFlag">
+      <AttrNames>
+        <Item Value="ItemStatusFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindDescSpn">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindDescSpn"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator" id="Segment2">
+      <AttrNames>
+        <Item Value="Segment2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator"
+                     id="MasterResultant">
+      <AttrNames>
+        <Item Value="MasterResultant"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterSpnViewIterator" StaticList="false"
+          Uses="LOV_YarnOutput" id="YarnOutput" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterSpnViewIterator" StaticList="false"
+          Uses="LOV_YarnStatus" id="YarnStatus" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterSpnViewIterator" StaticList="false"
+          Uses="LOV_Segment3" id="Segment3" DTSupportsMRU="true"/>
+    <methodAction id="getMaxAtchCode"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getMaxAtchCode" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.getMaxAtchCode_XxpmAppModuleDataControl_dataProvider_getMaxAtchCode_result">
+      <NamedData NDName="type" NDValue="2" NDType="int"/>
+    </methodAction>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator" id="FolderCode">
+      <AttrNames>
+        <Item Value="FolderCode"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxpmAttachmentsViewChildIterator"
+          id="XxpmAttachmentsViewChild" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAttachmentsView"
+                      Name="XxpmAttachmentsViewChild0">
+        <AttrNames>
+          <Item Value="AtchId"/>
+          <Item Value="ImId"/>
+          <Item Value="FileCode"/>
+          <Item Value="FileName"/>
+          <Item Value="Path"/>
+          <Item Value="FileExt"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="variables" id="BindVsetVal">
+      <AttrNames>
+        <Item Value="VsetVal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindValueSet">
+      <AttrNames>
+        <Item Value="ValueSet"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="XxpmItemMasterSpnViewIterator"
+                  id="updateSpnLovsAccessor"
+                  InstanceName="bindings.XxpmItemMasterSpnViewIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateSpnLovsAccessor" IsViewObjectMethod="false"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="XxpmYarnBlendViewChildIterator"
+                  id="updateYbLovsAccessor"
+                  InstanceName="bindings.XxpmYarnBlendViewChildIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateYbLovsAccessor" IsViewObjectMethod="false"
+                  IsLocalObjectReference="true"/>
+    <methodAction IterBinding="XxpmYarnTypeViewChildIterator"
+                  id="updateYtLovsAccessor"
+                  InstanceName="bindings.XxpmYarnTypeViewChildIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateYtLovsAccessor" IsViewObjectMethod="false"
+                  IsLocalObjectReference="true"/>
+    <button IterBinding="XxpmYarnTypeViewChildIterator" StaticList="false"
+            Uses="LOV_DualCore" id="DualCore" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="DualCore"/>
+      </AttrNames>
+    </button>
+    <methodAction id="chkSpnItmUsage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="chkSpnItmUsage" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.chkSpnItmUsage_XxpmAppModuleDataControl_dataProvider_chkSpnItmUsage_result">
+      <NamedData NDName="vId" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="setXxpmAttachmentsSpn"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setXxpmAttachmentsSpn" IsViewObjectMethod="false">
+      <NamedData NDName="fileCode" NDType="int"/>
+      <NamedData NDName="name" NDType="java.lang.String"/>
+      <NamedData NDName="path" NDType="java.lang.String"/>
+      <NamedData NDName="ext" NDType="java.lang.String"/>
+    </methodAction>
+    <listOfValues StaticList="false" Uses="LOV_Description"
+                  IterBinding="SpinningItemDescViewIterator"
+                  id="SpnDescriptionLov"/>
+    <methodAction id="copySpnItem"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copySpnItem" IsViewObjectMethod="false"/>
+    <button IterBinding="XxpmYarnTypeViewChildIterator" StaticList="false"
+            Uses="LOV_Multicount" id="Multicount" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="Multicount"/>
+      </AttrNames>
+    </button>
+    <button IterBinding="XxpmYarnTypeViewChildIterator" StaticList="false"
+            Uses="LOV_Dtex1" id="Dtex1" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="Dtex1"/>
+      </AttrNames>
+    </button>
+    <button IterBinding="XxpmYarnTypeViewChildIterator" StaticList="false"
+            Uses="LOV_Dtex2" id="Dtex2" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="Dtex2"/>
+      </AttrNames>
+    </button>
+    <methodAction id="addVsetVal"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addVsetVal" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.addVsetVal_XxpmAppModuleDataControl_dataProvider_addVsetVal_result">
+      <NamedData NDName="prefix" NDValue="17" NDType="java.lang.String"/>
+      <NamedData NDName="vSet" NDValue="#{bindings.ValueSet}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="value" NDValue="#{bindings.VsetVal}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="copyEBSItemUpdateStatus"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copyEBSItemUpdateStatus"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.copyEBSItemUpdateStatus_XxpmAppModuleDataControl_dataProvider_copyEBSItemUpdateStatus_result">
+      <NamedData NDName="imId" NDType="java.lang.String"/>
+      <NamedData NDName="s3" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator"
+                     id="Segment3Value">
+      <AttrNames>
+        <Item Value="Segment3Value"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="XxpmItemMasterSpnViewIterator"
+                  Uses="LOV_DyeColorNameTrans" id="DyeColorNameTrans"/>
+    <button IterBinding="XxpmItemMasterSpnViewIterator" StaticList="false"
+            Uses="LOV_Dyed" id="Dyed" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="Dyed"/>
+      </AttrNames>
+    </button>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator" id="DyeColor">
+      <AttrNames>
+        <Item Value="DyeColor"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator" id="RefLotNum">
+      <AttrNames>
+        <Item Value="RefLotNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterSpnViewIterator"
+                     id="DyedResultant">
+      <AttrNames>
+        <Item Value="DyedResultant"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

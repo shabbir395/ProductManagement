@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="DyeingPageDef" Package="pages"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <invokeAction id="BlankDyPage" Binds="blankDyPage" Refresh="prepareModel"
+                  RefreshCondition="#{adfFacesContext.postback==false}"/>
+    <variableIterator id="variables">
+      <variable Name="ExecuteWithParams_BindDescDy" Type="java.lang.String"/>
+      <variable Name="VsetVal" Type="java.lang.String"/>
+      <variable Name="ValueSet" Type="java.lang.String"/>
+    </variableIterator>
+    <iterator Binds="XxpmItemMasterDyView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmItemMasterDyViewIterator" ChangeEventPolicy="ppr"/>
+    <iterator id="DyeingItemDescViewIterator" Binds="DyeingItemDescView"
+              DataControl="XxpmAppModuleDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XxpmItemMasterDyViewIterator" id="Segment2">
+      <AttrNames>
+        <Item Value="Segment2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterDyViewIterator"
+                     id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="XxpmItemMasterDyViewIterator"
+                  Uses="LOV_WvDescription" id="WvDescription"/>
+    <list IterBinding="XxpmItemMasterDyViewIterator" StaticList="false"
+          Uses="LOV_FinishType" id="FinishType" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="XxpmItemMasterDyViewIterator"
+                     id="DyeingResultant">
+      <AttrNames>
+        <Item Value="DyeingResultant"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterDyViewIterator" id="ImId">
+      <AttrNames>
+        <Item Value="ImId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmItemMasterDyViewIterator"
+            id="CreateInsertItemMasterDy"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterDyView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Rollback" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <action id="Commit" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <methodAction id="blankDyPage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="blankDyPage" IsViewObjectMethod="false"/>
+    <action IterBinding="XxpmItemMasterDyViewIterator" id="First"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterDyView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="first"/>
+    <action IterBinding="XxpmItemMasterDyViewIterator" id="Previous"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterDyView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="previous"/>
+    <action IterBinding="XxpmItemMasterDyViewIterator" id="Next"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterDyView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="next"/>
+    <action IterBinding="XxpmItemMasterDyViewIterator" id="Last"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterDyView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="last"/>
+    <action IterBinding="XxpmItemMasterDyViewIterator" id="ExecuteWithParams"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterDyView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindDescDy"
+                 NDValue="#{bindings.ExecuteWithParams_BindDescDy}"
+                 NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="variables" id="BindDescDy">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindDescDy"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" Uses="LOV_Description"
+                  IterBinding="DyeingItemDescViewIterator"
+                  id="DyDescriptionLov"/>
+    <list IterBinding="XxpmItemMasterDyViewIterator" StaticList="false"
+          Uses="LOV_Category" id="Category" DTSupportsMRU="true"/>
+    <methodAction id="copyDyItem"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copyDyItem" IsViewObjectMethod="false"/>
+    <list IterBinding="XxpmItemMasterDyViewIterator" StaticList="false"
+          Uses="LOV_Segment3" id="Segment3" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="XxpmItemMasterDyViewIterator" id="RowStatus">
+      <AttrNames>
+        <Item Value="RowStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction IterBinding="XxpmItemMasterDyViewIterator"
+                  id="updateDyLovsAccessor"
+                  InstanceName="bindings.XxpmItemMasterDyViewIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateDyLovsAccessor" IsViewObjectMethod="false"
+                  IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="variables" id="BindVsetVal">
+      <AttrNames>
+        <Item Value="VsetVal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindValueSet">
+      <AttrNames>
+        <Item Value="ValueSet"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="addVsetVal"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addVsetVal" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.addVsetVal_XxpmAppModuleDataControl_dataProvider_addVsetVal_result">
+      <NamedData NDName="prefix" NDValue="19" NDType="java.lang.String"/>
+      <NamedData NDName="vSet" NDValue="#{bindings.ValueSet}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="value" NDValue="#{bindings.VsetVal}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <listOfValues StaticList="false" IterBinding="XxpmItemMasterDyViewIterator"
+                  Uses="LOV_DyColor" id="DyColor"/>
+    <listOfValues StaticList="false" IterBinding="XxpmItemMasterDyViewIterator"
+                  Uses="LOV_DyFinishWidthDesc" id="DyFinishWidthDesc"/>
+    <list IterBinding="XxpmItemMasterDyViewIterator" StaticList="false"
+          Uses="LOV_DyeStandard" id="DyeStandard" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="XxpmItemMasterDyViewIterator" id="DyeCode">
+      <AttrNames>
+        <Item Value="DyeCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterDyViewIterator"
+                     id="ColorResultant">
+      <AttrNames>
+        <Item Value="ColorResultant"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="copyEBSItemUpdateStatus"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copyEBSItemUpdateStatus"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.copyEBSItemUpdateStatus_XxpmAppModuleDataControl_dataProvider_copyEBSItemUpdateStatus_result">
+      <NamedData NDName="imId" NDType="java.lang.String"/>
+      <NamedData NDName="s3" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

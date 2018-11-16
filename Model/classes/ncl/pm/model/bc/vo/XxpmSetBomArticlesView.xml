@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxpmSetBomArticlesView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="XxpmSetBomArticles.BOM_ARTICLE_ID, 
+       XxpmSetBomArticles.SET_BOM_ID, 
+       XxpmSetBomArticles.SUB_INVENTORY, 
+       XxpmSetBomArticles.COMB_ID, 
+       XXPM_GET_COMB_CONSUMPTION_FUNC (XxpmSetBom.SET_ID, XxpmSetBomArticles.COMB_ID) AS CONSUMPTION, 
+       XxpmSetBomArticles.ACTIVE, 
+       XxpmSetBomArticles.EBS_STATUS, 
+       XxpmSetBom.SET_ID, 
+       XxpmSetBom.SET_BOM_ID AS SET_BOM_ID1"
+  FromList="XXPM_SET_BOM_ARTICLES XxpmSetBomArticles, XXPM_SET_BOM XxpmSetBom"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  ComponentClass="ncl.pm.model.bc.vo.XxpmSetBomArticlesViewImpl"
+  RowClass="ncl.pm.model.bc.vo.XxpmSetBomArticlesViewRowImpl"
+  Where="XxpmSetBomArticles.SET_BOM_ID = XxpmSetBom.SET_BOM_ID(+)"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="26"
+  OrderBy="NVL(XxpmSetBomArticles.ACTIVE,0) DESC">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="BomArticleSubInvLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.BomArticleSubInvLov">
+    <ViewCriteriaUsage
+      Name="BomArticleSubInvLovCriteria"
+      FullName="ncl.pm.model.bc.vo.lov.BomArticleSubInvLov.BomArticleSubInvLovCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="BindCombId">
+        <TransientExpression><![CDATA[CombId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="YesNoIntlov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.YesNoIntlov"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_SubInventory"
+    ListVOName="BomArticleSubInvLov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_SubInventory_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SubInventory"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SubInv"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="SubInv"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Active"
+    ListVOName="YesNoIntlov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Active_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Active"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="XxpmSetBomArticles"
+    Entity="ncl.pm.model.bc.eo.XxpmSetBomArticles"/>
+  <EntityUsage
+    Name="XxpmSetBom"
+    Entity="ncl.pm.model.bc.eo.XxpmSetBom"
+    Association="ncl.pm.model.bc.eo.asc.ArticlesSetBomIdFkAssoc"
+    AssociationEnd="ncl.pm.model.bc.eo.asc.ArticlesSetBomIdFkAssoc.XxpmSetBom"
+    SourceUsage="ncl.pm.model.bc.vo.XxpmSetBomArticlesView.XxpmSetBomArticles"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="ncl.pm.model.bc.eo.XxpmSetBomArticles.SetBomId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="ncl.pm.model.bc.eo.XxpmSetBom.SetBomId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="BomArticleId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="BomArticleId"
+    EntityUsage="XxpmSetBomArticles"
+    AliasName="BOM_ARTICLE_ID"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SetBomId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SetBomId"
+    EntityUsage="XxpmSetBomArticles"
+    AliasName="SET_BOM_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SubInventory"
+    PrecisionRule="true"
+    EntityAttrName="SubInventory"
+    EntityUsage="XxpmSetBomArticles"
+    AliasName="SUB_INVENTORY"
+    LOVName="LOV_SubInventory">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmSetBomArticlesView.SubInventory_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CombId"
+    PrecisionRule="true"
+    EntityAttrName="CombId"
+    EntityUsage="XxpmSetBomArticles"
+    AliasName="COMB_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ItemCodeTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmSetBomArticlesView.ItemCodeTrans_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DescriptionTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmSetBomArticlesView.DescriptionTrans_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UomTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmSetBomArticlesView.UomTrans_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ConsumptionTrans"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="CONSUMPTION"
+    SQLType="NUMERIC"
+    Expression="XXPM_GET_COMB_CONSUMPTION_FUNC (XxpmSetBom.SET_ID, XxpmSetBomArticles.COMB_ID)">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmSetBomArticlesView.ConsumptionTrans_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Active"
+    PrecisionRule="true"
+    EntityAttrName="Active"
+    EntityUsage="XxpmSetBomArticles"
+    AliasName="ACTIVE"
+    LOVName="LOV_Active">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EbsStatus"
+    PrecisionRule="true"
+    EntityAttrName="EbsStatus"
+    EntityUsage="XxpmSetBomArticles"
+    AliasName="EBS_STATUS">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SetId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SetId"
+    EntityUsage="XxpmSetBom"
+    AliasName="SET_ID"/>
+  <ViewAttribute
+    Name="SetBomIdMaster"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="SetBomId"
+    EntityUsage="XxpmSetBom"
+    AliasName="SET_BOM_ID1"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="BomArticleId"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="ncl.pm.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

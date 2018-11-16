@@ -1,0 +1,9 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :XxpmYarnType
+  Attribute :YtId
+    Change Mandatory to:true
+  Remove Key Constraint: XxpmYtSegment2Fk
+  Remove Key Constraint: XxpmYtUk1
+  Remove Key Constraint: XxpmYtSegment2Nn
+  Create Key for Constraint: XXPM_YARN_TYPE_FK1

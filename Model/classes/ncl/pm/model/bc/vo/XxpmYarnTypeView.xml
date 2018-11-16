@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxpmYarnTypeView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="XxpmYarnType.YT_ID, 
+       XxpmYarnType.FANCY_YARN_TYPE, 
+       XxpmYarnType.FYT_RATIO, 
+       XxpmYarnType.SLUB_CODE, 
+       XxpmYarnType.DENIER1, 
+       XxpmYarnType.DENIER2, 
+       XxpmYarnType.IM_ID, 
+       XxpmYarnType.DRAFT1, 
+       XxpmYarnType.DRAFT2, 
+       XxpmYarnType.DUAL_CORE, 
+       XxpmYarnType.FANCY_YARN_TYPE2, 
+       XxpmYarnType.FYT_RATIO2, 
+       XxpmYarnType.NEW_ROW, 
+       XxpmYarnType.MULTICOUNT, 
+       XxpmYarnType.DTEX1, 
+       XxpmYarnType.DTEX2"
+  FromList="XXPM_YARN_TYPE XxpmYarnType"
+  OrderBy="XxpmYarnType.YT_ID"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="ncl.pm.model.bc.vo.XxpmYarnTypeViewRowImpl"
+  ComponentClass="ncl.pm.model.bc.vo.XxpmYarnTypeViewImpl"
+  RowInterface="ncl.pm.model.bc.vo.common.XxpmYarnTypeViewRow"
+  ClientRowProxyName="ncl.pm.model.bc.vo.client.XxpmYarnTypeViewRowClient"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="FancyYarnTypeLOV"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.FancyYarnTypeLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="YesNoBooleanLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.YesNoBooleanLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DenierLOV"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.DenierLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SlubLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.SlubLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DualCoreLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.DualCoreLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="YarnTypeDtexLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.YarnTypeDtexLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="YarnTypeMulticountLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.YarnTypeMulticountLov"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_FancyYarnType"
+    ListVOName="FancyYarnTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FancyYarnType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SlubCode"
+    ListVOName="SlubLov"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SlubCode"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Denier1"
+    ListVOName="DenierLOV"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Denier1"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Denier2"
+    ListVOName="DenierLOV"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Denier2"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DualCore"
+    ListVOName="DualCoreLov"
+    ListRangeSize="-1"
+    NullValueFlag="end"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DualCore"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_FancyYarnType2"
+    ListVOName="FancyYarnTypeLOV"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FancyYarnType2"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Multicount"
+    ListVOName="YarnTypeMulticountLov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Multicount_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Multicount"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Dtex1"
+    ListVOName="YarnTypeDtexLov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Dtex1_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Dtex1"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Dtex2"
+    ListVOName="YarnTypeDtexLov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Dtex2_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Dtex2"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Value"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="XxpmYarnType"
+    Entity="ncl.pm.model.bc.eo.XxpmYarnType"/>
+  <ViewAttribute
+    Name="YtId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="YtId"
+    EntityUsage="XxpmYarnType"
+    AliasName="YT_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FancyYarnType"
+    LOVName="LOV_FancyYarnType"
+    PrecisionRule="true"
+    EntityAttrName="FancyYarnType"
+    EntityUsage="XxpmYarnType"
+    AliasName="FANCY_YARN_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmYarnTypeView.FancyYarnType_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FytRatio"
+    PrecisionRule="true"
+    EntityAttrName="FytRatio"
+    EntityUsage="XxpmYarnType"
+    AliasName="FYT_RATIO">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmYarnTypeView.FytRatio_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SlubCode"
+    LOVName="LOV_SlubCode"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="SlubCode"
+    EntityUsage="XxpmYarnType"
+    AliasName="SLUB_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmYarnTypeView.SlubCode_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Denier1"
+    LOVName="LOV_Denier1"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="Denier1"
+    EntityUsage="XxpmYarnType"
+    AliasName="DENIER1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Denier2"
+    LOVName="LOV_Denier2"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="Denier2"
+    EntityUsage="XxpmYarnType"
+    AliasName="DENIER2">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ImId"
+    PrecisionRule="true"
+    EntityAttrName="ImId"
+    EntityUsage="XxpmYarnType"
+    AliasName="IM_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="YTResultant"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[((FytRatio != null ? FytRatio : "") + (FytRatio != null ? "% " : "") + " " + (FancyYarnType != null ? FancyYarnType : "") + " " + (Denier1 != null ? Denier1 : "") + (Denier1 != null ? (Dtex1 != null ? Dtex1 + " " : "D ") : "") + " " + (Draft1 != null ? Draft1 : "") + (Draft1 != null ? " Draft " : "") + " " + (FytRatio2 != null ? FytRatio2 : "") + (FytRatio2 != null ? "% " : "") + " " + (FancyYarnType2 != null ? FancyYarnType2 : "") + " " + (Denier2 != null ? Denier2 : "") + (Denier2 != null ? (Dtex2 != null ? Dtex2 + " " : "D ") : "") + " " + (Draft2 != null ? Draft2 : "") + (Draft2 != null ? " Draft " : "") + " " + (Multicount != null ? Multicount : "") + " " + (SlubCode != null ? "Slub" : "") + " " + (SlubCode != null ? SlubCode : "")).replaceAll("\\s+", " ").trim()]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="Denier1"/>
+      <Item
+        Value="Denier2"/>
+      <Item
+        Value="Draft1"/>
+      <Item
+        Value="Draft2"/>
+      <Item
+        Value="Dtex1"/>
+      <Item
+        Value="Dtex2"/>
+      <Item
+        Value="FancyYarnType"/>
+      <Item
+        Value="FancyYarnType2"/>
+      <Item
+        Value="FytRatio"/>
+      <Item
+        Value="FytRatio2"/>
+      <Item
+        Value="Multicount"/>
+      <Item
+        Value="SlubCode"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmYarnTypeView.YTResultant_LABEL"/>
+        <DISPLAYWIDTH
+          Value="100"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Draft1"
+    PrecisionRule="true"
+    EntityAttrName="Draft1"
+    EntityUsage="XxpmYarnType"
+    AliasName="DRAFT1">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Draft2"
+    PrecisionRule="true"
+    EntityAttrName="Draft2"
+    EntityUsage="XxpmYarnType"
+    AliasName="DRAFT2">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DualCore"
+    LOVName="LOV_DualCore"
+    PrecisionRule="true"
+    EntityAttrName="DualCore"
+    EntityUsage="XxpmYarnType"
+    AliasName="DUAL_CORE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmYarnTypeView.DualCore_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FancyYarnType2"
+    LOVName="LOV_FancyYarnType2"
+    PrecisionRule="true"
+    EntityAttrName="FancyYarnType2"
+    EntityUsage="XxpmYarnType"
+    AliasName="FANCY_YARN_TYPE2">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmYarnTypeView.FancyYarnType2_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FytRatio2"
+    PrecisionRule="true"
+    EntityAttrName="FytRatio2"
+    EntityUsage="XxpmYarnType"
+    AliasName="FYT_RATIO2">
+    <DesignTime>
+      <Attr Name="_diagramName" Value="Fancy Yarn Type2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmYarnTypeView.FytRatio2_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotYtRatio"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <RecalcCondition><![CDATA[true]]></RecalcCondition>
+    <TransientExpression><![CDATA[(FytRatio != null ? FytRatio : 0) + (FytRatio2 != null ? FytRatio2 : 0)]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="FytRatio"/>
+      <Item
+        Value="FytRatio2"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NewRow"
+    PrecisionRule="true"
+    EntityAttrName="NewRow"
+    EntityUsage="XxpmYarnType"
+    AliasName="NEW_ROW"
+    DefaultValue="1">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Multicount"
+    PrecisionRule="true"
+    EntityAttrName="Multicount"
+    EntityUsage="XxpmYarnType"
+    AliasName="MULTICOUNT"
+    LOVName="LOV_Multicount">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Dtex1"
+    PrecisionRule="true"
+    EntityAttrName="Dtex1"
+    EntityUsage="XxpmYarnType"
+    AliasName="DTEX1"
+    LOVName="LOV_Dtex1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Dtex2"
+    PrecisionRule="true"
+    EntityAttrName="Dtex2"
+    EntityUsage="XxpmYarnType"
+    AliasName="DTEX2"
+    LOVName="LOV_Dtex2">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="XxpmItemMasterSpnView"
+    ViewLink="ncl.pm.model.bc.vo.vl.XxpmYarnTypeImIdFkLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ClientRowInterface>
+    <Method
+      Name="updateYtLovsAccessor">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientRowInterface>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="ncl.pm.model.ModelBundle"/>
+  </ResourceBundle>
+  <ClientRowInterface>
+    <Method
+      Name="updateYtLovsAccessor">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientRowInterface>
+  <ClientRowInterface>
+    <Method
+      Name="updateYtLovsAccessor">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientRowInterface>
+</ViewObject>

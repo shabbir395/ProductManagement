@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="programCreationPageDef"
+                Package="pages" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <invokeAction id="BlankMadeupPage" Binds="blankMadeupPage"
+                  Refresh="prepareModel"
+                  RefreshCondition="#{adfFacesContext.postback==false}"/>
+    <variableIterator id="variables">
+      <variable Name="ExecuteWithParams_BindDescProg" Type="java.lang.String"/>
+      <variable Name="ValueSet" Type="java.lang.String"/>
+      <variable Name="VsetVal" Type="java.lang.String"/>
+    </variableIterator>
+    <iterator Binds="XxpmMadeupProgramsView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmMadeupProgramsViewIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="XxpmMadeupArticlesViewProgChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmMadeupArticlesViewProgChildIterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmMadeupArticlesViewProgChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmMadeupArticlesViewProgChildQuery"/>
+    <iterator Binds="XxpmMadeupDimensionsViewChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmMadeupDimensionsViewChildIterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmMadeupDimensionsViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmMadeupDimensionsViewChildQuery"/>
+    <iterator Binds="XxpmMadeupSetsViewChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmMadeupSetsViewChildIterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmMadeupSetsViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmMadeupSetsViewChildQuery"/>
+    <iterator Binds="XxpmMadeupSetArticlesViewSetsChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmMadeupSetArticlesViewSetsChildIterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="XxpmMadeupColorsViewChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmMadeupColorsViewChildIterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmMadeupColorsViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmMadeupColorsViewChildQuery"/>
+    <iterator Binds="XxpmMadeupCombinationsViewChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmMadeupCombinationsViewChildIterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmMadeupCombinationsViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmMadeupCombinationsViewChildQuery"/>
+    <iterator Binds="XxpmMadeupSizesViewChild" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmMadeupSizesViewChildIterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="XxpmMadeupSizesViewChildIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="XxpmMadeupSizesViewChildQuery"/>
+    <iterator Binds="XxpmAttachmentsViewChildProg" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmAttachmentsViewChildProgIterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="MadeupProgramDescView" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="MadeupProgramDescViewIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XxpmMadeupProgramsViewIterator" id="ProgId">
+      <AttrNames>
+        <Item Value="ProgId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmMadeupProgramsViewIterator" id="ProgCode">
+      <AttrNames>
+        <Item Value="ProgCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmMadeupProgramsViewIterator"
+                     id="CustomerId">
+      <AttrNames>
+        <Item Value="CustomerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmMadeupProgramsViewIterator"
+                     id="CustomerCode">
+      <AttrNames>
+        <Item Value="CustomerCode"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmMadeupProgramsViewIterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="XxpmMadeupProgramsViewIterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="XxpmMadeupProgramsViewIterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="XxpmMadeupProgramsViewIterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <listOfValues StaticList="false"
+                  IterBinding="XxpmMadeupProgramsViewIterator"
+                  Uses="LOV_CustomerName" id="CustomerName"/>
+    <attributeValues IterBinding="variables"
+                     id="BindDescProg">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindDescProg"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmMadeupProgramsViewIterator" id="ExecuteWithParams"
+            InstanceName="XxpmAppModuleDataControl.XxpmMadeupProgramsView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindDescProg"
+                 NDValue="#{bindings.ExecuteWithParams_BindDescProg}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="BindUserId" NDValue="#{PageListener.userID}"
+                 NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="XxpmMadeupProgramsViewIterator"
+            id="CreateInsertMadeupProgram"
+            InstanceName="XxpmAppModuleDataControl.XxpmMadeupProgramsView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="XxpmMadeupArticlesViewProgChildIterator"
+          id="XxpmMadeupArticlesViewProgChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmMadeupArticlesView"
+                      Name="XxpmMadeupArticlesViewProgChild0">
+        <AttrNames>
+          <Item Value="ArticleId"/>
+          <Item Value="ProgId"/>
+          <Item Value="ArticleName"/>
+          <Item Value="HemDetails"/>
+          <Item Value="Embroided"/>
+          <Item Value="EmbroideryDetails"/>
+          <Item Value="Quilted"/>
+          <Item Value="QuiltDesign"/>
+          <Item Value="QuiltType"/>
+          <Item Value="OpenStock"/>
+          <Item Value="SetArticle"/>
+          <Item Value="Finished"/>
+          <Item Value="Quantity"/>
+          <Item Value="BomGroup"/>
+          <Item Value="EbsStatus"/>
+          <Item Value="RowStatus"/>
+          <Item Value="SpecialInstructions"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XxpmMadeupArticlesViewProgChildIterator"
+                     id="ArticleName">
+      <AttrNames>
+        <Item Value="ArticleName"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxpmMadeupDimensionsViewChildIterator"
+          id="XxpmMadeupDimensionsViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmMadeupDimensionsView"
+                      Name="XxpmMadeupDimensionsViewChild0">
+        <AttrNames>
+          <Item Value="DimensionId"/>
+          <Item Value="ArticleId"/>
+          <Item Value="Parameter"/>
+          <Item Value="Uom"/>
+          <Item Value="DimensionSize1"/>
+          <Item Value="DimensionSize2"/>
+          <Item Value="DimensionSize3"/>
+          <Item Value="DimensionSize4"/>
+          <Item Value="DimensionSize5"/>
+          <Item Value="DimensionSize6"/>
+          <Item Value="DimensionSize7"/>
+          <Item Value="DimensionSize8"/>
+          <Item Value="DimensionSize9"/>
+          <Item Value="DimensionSize10"/>
+          <Item Value="DimensionSize11"/>
+          <Item Value="DimensionSize12"/>
+          <Item Value="DimensionSize13"/>
+          <Item Value="DimensionSize14"/>
+          <Item Value="DimensionSize15"/>
+          <Item Value="DimensionSize16"/>
+          <Item Value="DimensionSize17"/>
+          <Item Value="DimensionSize18"/>
+          <Item Value="DimensionSize19"/>
+          <Item Value="DimensionSize20"/>
+          <Item Value="DimensionSize21"/>
+          <Item Value="DimensionSize22"/>
+          <Item Value="DimensionSize23"/>
+          <Item Value="DimensionSize24"/>
+          <Item Value="DimensionSize25"/>
+          <Item Value="DimensionSize26"/>
+          <Item Value="DimensionSize27"/>
+          <Item Value="DimensionSize28"/>
+          <Item Value="DimensionSize29"/>
+          <Item Value="DimensionSize30"/>
+          <Item Value="EbsStatus"/>
+          <Item Value="Instructions"/>
+          <Item Value="RowStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="XxpmMadeupArticlesViewProgChildIterator"
+          StaticList="false" Uses="LOV_BomGroup" id="BomGroup"
+          DTSupportsMRU="true"/>
+    <list IterBinding="XxpmMadeupProgramsViewIterator" StaticList="false"
+          Uses="LOV_ManagerId" id="ManagerId" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="XxpmMadeupProgramsViewIterator"
+                     id="UserNameTrans">
+      <AttrNames>
+        <Item Value="UserNameTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmMadeupProgramsViewIterator" StaticList="false"
+          Uses="LOV_ThreadCount" id="ThreadCount" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmMadeupProgramsViewIterator" StaticList="false"
+          Uses="LOV_BrandName" id="BrandName" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmMadeupProgramsViewIterator" StaticList="false"
+          Uses="LOV_WeaveDesign" id="WeaveDesign" DTSupportsMRU="true"/>
+    <action id="Commit" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="XxpmMadeupProgramsViewIterator"
+                     id="ProgramResultant">
+      <AttrNames>
+        <Item Value="ProgramResultant"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxpmMadeupSetsViewChildIterator"
+          id="XxpmMadeupSetsViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmMadeupSetsView"
+                      Name="XxpmMadeupSetsViewChild0">
+        <AttrNames>
+          <Item Value="SetId"/>
+          <Item Value="ProgId"/>
+          <Item Value="SetName"/>
+          <Item Value="Segment1"/>
+          <Item Value="Segment2"/>
+          <Item Value="Segment3"/>
+          <Item Value="Segment4"/>
+          <Item Value="Segment5"/>
+          <Item Value="Segment6"/>
+          <Item Value="Segment7"/>
+          <Item Value="Description"/>
+          <Item Value="MadeupSetColor"/>
+          <Item Value="MadeupSetSize"/>
+          <Item Value="MadeupSetResultant"/>
+          <Item Value="EbsStatus"/>
+          <Item Value="RowStatus"/>
+          <Item Value="ConcateSegments"/>
+          <Item Value="Sku"/>
+          <Item Value="CustomerDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxpmMadeupSetsViewChildIterator" id="CreateInsertSets"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="XxpmMadeupSetArticlesViewSetsChildIterator"
+          id="XxpmMadeupSetArticlesViewSetsChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmMadeupSetArticlesView"
+                      Name="XxpmMadeupSetArticlesViewSetsChild0">
+        <AttrNames>
+          <Item Value="SetArticleId"/>
+          <Item Value="SetId"/>
+          <Item Value="ArticleId"/>
+          <Item Value="Quantity"/>
+          <Item Value="ProgId"/>
+          <Item Value="SetIdMaster"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxpmMadeupSetArticlesViewSetsChildIterator"
+            id="CreateInsertSetArticles" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XxpmMadeupArticlesViewProgChildIterator"
+            id="CreateInsertArticles" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action IterBinding="XxpmMadeupColorsViewChildIterator"
+            id="CreateInsertColors"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="XxpmMadeupDimensionsViewChildIterator"
+            id="CreateInsertDimensions" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="XxpmMadeupColorsViewChildIterator"
+          id="XxpmMadeupColorsViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmMadeupColorsView"
+                      Name="XxpmMadeupColorsViewChild0">
+        <AttrNames>
+          <Item Value="ColorId"/>
+          <Item Value="ProgId"/>
+          <Item Value="ColorCategory"/>
+          <Item Value="ColorCode"/>
+          <Item Value="ColorName"/>
+          <Item Value="EbsStatus"/>
+          <Item Value="RowStatus"/>
+          <Item Value="ColorCode2"/>
+          <Item Value="ColorCode3"/>
+          <Item Value="ColorCode4"/>
+          <Item Value="ColorCode5"/>
+          <Item Value="ColorCode6"/>
+          <Item Value="ColorCode7"/>
+          <Item Value="ColorCode8"/>
+          <Item Value="ColorName2"/>
+          <Item Value="ColorName3"/>
+          <Item Value="ColorName4"/>
+          <Item Value="ColorName5"/>
+          <Item Value="ColorName6"/>
+          <Item Value="ColorName7"/>
+          <Item Value="ColorName8"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XxpmMadeupCombinationsViewChildIterator"
+          id="XxpmMadeupCombinationsViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmMadeupCombinationsView"
+                      Name="XxpmMadeupCombinationsViewChild0">
+        <AttrNames>
+          <Item Value="CombId"/>
+          <Item Value="ArticleId"/>
+          <Item Value="Segment1"/>
+          <Item Value="Segment2"/>
+          <Item Value="Segment3"/>
+          <Item Value="Segment4"/>
+          <Item Value="Segment5"/>
+          <Item Value="Segment6"/>
+          <Item Value="Segment7"/>
+          <Item Value="Description"/>
+          <Item Value="Sku"/>
+          <Item Value="CustomerDesc"/>
+          <Item Value="EbsStatus"/>
+          <Item Value="RowStatus"/>
+          <Item Value="ConcateSegments"/>
+          <Item Value="Deleted"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxpmMadeupCombinationsViewChildIterator"
+            id="DeleteMadeupComb"
+            InstanceName="XxpmAppModuleDataControl.XxpmMadeupCombinationsViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="XxpmMadeupArticlesViewProgChildIterator"
+            id="DeleteMadeupArticle"
+            InstanceName="XxpmAppModuleDataControl.XxpmMadeupArticlesViewProgChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="delMadeupSetArticle"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="delMadeupSetArticle" IsViewObjectMethod="false">
+      <NamedData NDName="articleId" NDValue="" NDType="int"/>
+    </methodAction>
+    <attributeValues IterBinding="XxpmMadeupArticlesViewProgChildIterator"
+                     id="SpecialInstructions">
+      <AttrNames>
+        <Item Value="SpecialInstructions"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmMadeupDimensionsViewChildIterator"
+                     id="Instructions">
+      <AttrNames>
+        <Item Value="Instructions"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmMadeupProgramsViewIterator"
+                     id="EbsStatusPrograms">
+      <AttrNames>
+        <Item Value="EbsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxpmMadeupSizesViewChildIterator"
+          id="XxpmMadeupSizesViewChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmMadeupSizesView"
+                      Name="XxpmMadeupSizesViewChild0">
+        <AttrNames>
+          <Item Value="SizeId"/>
+          <Item Value="ProgId"/>
+          <Item Value="SizeCode"/>
+          <Item Value="SizeName"/>
+          <Item Value="EbsStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="XxpmMadeupSizesViewChildIterator" id="CreateInsertSize"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="XxpmMadeupColorsViewChildIterator"
+            id="DeleteMadeupColor"
+            InstanceName="XxpmAppModuleDataControl.XxpmMadeupColorsViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="XxpmMadeupSizesViewChildIterator" id="DeleteMadeupSize"
+            InstanceName="XxpmAppModuleDataControl.XxpmMadeupSizesViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="XxpmMadeupDimensionsViewChildIterator"
+            id="DeleteMadeupDimension"
+            InstanceName="XxpmAppModuleDataControl.XxpmMadeupDimensionsViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <attributeValues IterBinding="XxpmMadeupSetsViewChildIterator"
+                     id="EbsStatusSets">
+      <AttrNames>
+        <Item Value="EbsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmMadeupSizesViewChildIterator"
+                     id="EbsStatusSizes">
+      <AttrNames>
+        <Item Value="EbsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmMadeupColorsViewChildIterator"
+                     id="EbsStatusColors">
+      <AttrNames>
+        <Item Value="EbsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmMadeupDimensionsViewChildIterator"
+                     id="EbsStatusDimensions">
+      <AttrNames>
+        <Item Value="EbsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmMadeupCombinationsViewChildIterator"
+                     id="EbsStatusCombinations">
+      <AttrNames>
+        <Item Value="EbsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmMadeupArticlesViewProgChildIterator"
+                     id="EbsStatusArticles">
+      <AttrNames>
+        <Item Value="EbsStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindValueSet">
+      <AttrNames>
+        <Item Value="ValueSet"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindVsetVal">
+      <AttrNames>
+        <Item Value="VsetVal"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmMadeupSetArticlesViewSetsChildIterator"
+            id="deleteMadeupSetArticle"
+            InstanceName="XxpmAppModuleDataControl.XxpmMadeupSetArticlesViewSetsChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action IterBinding="XxpmMadeupSetsViewChildIterator" id="DeleteMadeupSets"
+            InstanceName="XxpmAppModuleDataControl.XxpmMadeupSetsViewChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <methodAction id="createMadeupItemInEBS"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createMadeupItemInEBS" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.createMadeupItemInEBS_XxpmAppModuleDataControl_dataProvider_createMadeupItemInEBS_result">
+      <NamedData NDName="pid" NDValue="#{bindings.ProgId.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="setXxpmAttachmentsProg"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setXxpmAttachmentsProg"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="fileCode" NDType="int"/>
+      <NamedData NDName="name" NDType="java.lang.String"/>
+      <NamedData NDName="path" NDType="java.lang.String"/>
+      <NamedData NDName="ext" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="XxpmAttachmentsViewChildProgIterator"
+          id="XxpmAttachmentsViewChildProg">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAttachmentsView"
+                      Name="XxpmAttachmentsViewChildProg0">
+        <AttrNames>
+          <Item Value="AtchId"/>
+          <Item Value="ImId"/>
+          <Item Value="FileCode"/>
+          <Item Value="FileName"/>
+          <Item Value="Path"/>
+          <Item Value="FileExt"/>
+          <Item Value="ProgId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="getMaxAtchCode"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="getMaxAtchCode" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.getMaxAtchCode_XxpmAppModuleDataControl_dataProvider_getMaxAtchCode_result">
+      <NamedData NDName="type" NDValue="2" NDType="int"/>
+    </methodAction>
+    <listOfValues StaticList="false" Uses="LOV_ProgName"
+                  IterBinding="MadeupProgramDescViewIterator" id="ProgNameLov"/>
+    <methodAction id="blankMadeupPage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="blankMadeupPage" IsViewObjectMethod="false"/>
+    <action id="Rollback" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <attributeValues IterBinding="XxpmMadeupCombinationsViewChildIterator"
+                     id="Deleted">
+      <AttrNames>
+        <Item Value="Deleted"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="deleteMadeupCombs"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="deleteMadeupCombs" IsViewObjectMethod="false"/>
+    <methodAction id="copymadeupSetItem"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copymadeupSetItem" IsViewObjectMethod="false"/>
+    <methodAction id="addVsetVal"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addVsetVal" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.addVsetVal_XxpmAppModuleDataControl_dataProvider_addVsetVal_result">
+      <NamedData NDName="prefix" NDValue="24" NDType="java.lang.String"/>
+      <NamedData NDName="vSet" NDValue="#{bindings.ValueSet}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="value" NDValue="#{bindings.VsetVal}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="XxpmMadeupProgramsViewIterator"
+                  id="updateMadeupProgLovsAccessor"
+                  InstanceName="bindings.XxpmMadeupProgramsViewIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateMadeupProgLovsAccessor"
+                  IsViewObjectMethod="false" IsLocalObjectReference="true"/>
+    <methodAction IterBinding="XxpmMadeupArticlesViewProgChildIterator"
+                  id="updateMadeupArticleLovsAccessor"
+                  InstanceName="bindings.XxpmMadeupArticlesViewProgChildIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateMadeupArticleLovsAccessor"
+                  IsViewObjectMethod="false" IsLocalObjectReference="true"/>
+    <methodAction id="genMadeupComb"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="genMadeupComb" IsViewObjectMethod="false">
+      <NamedData NDName="pid" NDValue="#{bindings.ProgId.inputValue}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="artId" NDValue="#{bindings.ArticleId.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="XxpmMadeupArticlesViewProgChildIterator"
+                     id="ArticleId">
+      <AttrNames>
+        <Item Value="ArticleId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmMadeupProgramsViewIterator"
+            id="setCurrentRowWithKeyValueProgram"
+            InstanceName="XxpmAppModuleDataControl.XxpmMadeupProgramsView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="XxpmMadeupArticlesViewProgChildIterator"
+            id="setCurrentRowWithKeyValueArticle"
+            InstanceName="XxpmAppModuleDataControl.XxpmMadeupArticlesViewProgChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

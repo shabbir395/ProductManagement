@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="accessoriesReportPageDef"
+                Package="pages">
+  <parameters/>
+  <executables>
+    <invokeAction id="BlankAccessoriesReportPage"
+                  Binds="blankAccessoriesReportPage" Refresh="prepareModel"
+                  RefreshCondition="#{adfFacesContext.postback==false}"/>
+    <variableIterator id="variables">
+      <variable Name="ExecuteWithParams_BindProgName" Type="String"/>
+      <variable Name="ExecuteWithParams_BindAccCategory" Type="String"/>
+    </variableIterator>
+    <iterator Binds="AccessoriesExportToExcalView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="AccessoriesExportToExcalViewIterator"/>
+    <searchRegion Binds="AccessoriesExportToExcalViewIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="AccessoriesExportToExcalViewQuery"/>
+    <iterator Binds="MadeupAllProgramsView" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="MadeupAllProgramsViewIterator"/>
+    <iterator Binds="AccCategoriesView" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="AccCategoriesViewIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AccessoriesExportToExcalViewIterator"
+          id="AccessoriesExportToExcalView">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.misc.AccessoriesExportToExcalView"
+                      Name="AccessoriesExportToExcalView0">
+        <AttrNames>
+          <Item Value="ProgName"/>
+          <Item Value="ConcatenatedSegments"/>
+          <Item Value="Description"/>
+          <Item Value="AccAccessoryType"/>
+          <Item Value="ImId"/>
+          <Item Value="AccListPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="variables"
+                     id="BindProgName">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindProgName"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" Uses="LOV_ProgName"
+                  IterBinding="MadeupAllProgramsViewIterator" id="ProgName"/>
+    <action IterBinding="AccessoriesExportToExcalViewIterator"
+            id="ExecuteWithParams"
+            InstanceName="XxpmAppModuleDataControl.AccessoriesExportToExcalView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindProgName" NDType="java.lang.String"/>
+      <NamedData NDName="BindAccCategory" NDType="java.lang.String"/>
+    </action>
+    <listOfValues StaticList="false" Uses="LOV_Category"
+                  IterBinding="AccCategoriesViewIterator" id="Category"/>
+    <attributeValues IterBinding="variables"
+                     id="BindAccCategory">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindAccCategory"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="blankAccessoriesReportPage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="blankAccessoriesReportPage"
+                  IsViewObjectMethod="false"/>
+  </bindings>
+</pageDefinition>

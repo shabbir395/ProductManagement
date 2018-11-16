@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="poRcvStatusReportPageDef" Package="pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PoStatusFilterView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="PoStatusFilterViewIterator"/>
+    <iterator Binds="PoRcvStatusView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="PoRcvStatusViewIterator"/>
+    <searchRegion Binds="PoRcvStatusViewIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="PoRcvStatusViewQuery"/>
+  </executables>
+  <bindings>
+    <list IterBinding="PoStatusFilterViewIterator" StaticList="false"
+          Uses="LOV_ProgId" id="ProgId" DTSupportsMRU="true"/>
+    <list IterBinding="PoStatusFilterViewIterator" StaticList="false"
+          Uses="LOV_SoHeaderId" id="SoHeaderId" DTSupportsMRU="true"/>
+    <tree IterBinding="PoRcvStatusViewIterator" id="PoRcvStatusView">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.misc.PoRcvStatusView"
+                      Name="PoRcvStatusView0">
+        <AttrNames>
+          <Item Value="PoNum"/>
+          <Item Value="PoLineId"/>
+          <Item Value="SoHeaderId"/>
+          <Item Value="ItemCode"/>
+          <Item Value="ItemDescription"/>
+          <Item Value="Uom"/>
+          <Item Value="UnitPrice"/>
+          <Item Value="OrderedQuantity"/>
+          <Item Value="AcceptedQuantity"/>
+          <Item Value="VendorName"/>
+          <Item Value="QuantityReceived"/>
+          <Item Value="QuantityRejected"/>
+          <Item Value="QuantityBalance"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="updateRemarksIntoPoLine"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateRemarksIntoPoLine"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="lineId" NDType="java.lang.String"/>
+      <NamedData NDName="remarks" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="PoRcvStatusViewIterator" id="Remarks">
+      <AttrNames>
+        <Item Value="Remarks"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="PoRcvStatusViewIterator" id="ExecuteWithParams"
+            InstanceName="XxpmAppModuleDataControl.PoRcvStatusView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindSoHeaderId" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

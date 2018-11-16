@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XxpmSetBomView"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  SelectList="XxpmSetBom.SET_BOM_ID, 
+       XxpmSetBom.PROG_ID, 
+       XxpmSetBom.SET_ID, 
+       XxpmSetBom.BOM_NUMBER, 
+       XxpmSetBom.FOLDER_CODE, 
+       XXPM_GET_COLOR_DESC(XxpmMadeupSets.SEGMENT4) AS COLOR_NAME, 
+       XXPM_GET_SIZE_DESC(XxpmMadeupSets.SEGMENT5) AS SIZE_NAME, 
+       FndUserCB.USER_NAME, 
+       FndUserCB.ROWID, 
+       XxpmMadeupPrograms.MANAGER_ID, 
+       XxpmMadeupPrograms.PROG_ID AS PROG_ID1, 
+       XxpmMadeupPrograms.PROG_CODE, 
+       XxpmMadeupPrograms.CUSTOMER_ID, 
+       XxpmMadeupSets.SEGMENT4, 
+       XxpmMadeupSets.SEGMENT5, 
+       XxpmMadeupSets.SET_ID AS SET_ID1, 
+       XxpmMadeupPrograms.USER_ID, 
+       XxpmSetBom.BOM_LOG, 
+       XxpmSetBom.EBS_STATUS"
+  FromList="XXPM_SET_BOM XxpmSetBom, FND_USER FndUserCB, XXPM_MADEUP_PROGRAMS XxpmMadeupPrograms, XXPM_MADEUP_SETS XxpmMadeupSets"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="((XxpmMadeupPrograms.USER_ID = FndUserCB.USER_ID) AND (XxpmSetBom.PROG_ID = XxpmMadeupPrograms.PROG_ID(+))) AND (XxpmSetBom.SET_ID = XxpmMadeupSets.SET_ID(+))"
+  ComponentClass="ncl.pm.model.bc.vo.XxpmSetBomViewImpl"
+  RowClass="ncl.pm.model.bc.vo.XxpmSetBomViewRowImpl"
+  OrderBy="SET_BOM_ID"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="11">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="BindBomNum"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="BomProgramsLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.BomProgramsLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BomSetsLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.BomSetsLov">
+    <ParameterMap>
+      <PIMap Variable="BindProgId">
+        <TransientExpression><![CDATA[ProgId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="BindSetId">
+        <TransientExpression><![CDATA[SetId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="ItemColorsLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ItemColorsLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ItemSizeLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ItemSizeLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="FndUserView"
+    ViewObjectName="ncl.pm.model.bc.vo.FndUserView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="MadeupAllProgramsLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.MadeupAllProgramsLov"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_SetId"
+    ListVOName="BomSetsLov"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SetId"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ColorTrans"/>
+      <Item Value="SizeTrans"/>
+      <Item Value="ConcatenatedSegments"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="SetId"/>
+      <Item Value="Segment4"/>
+      <Item Value="Segment5"/>
+      <Item Value="ConcatenatedSegments"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ManagerId"
+    ListVOName="FndUserView"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ManagerId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UserName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ProgramName"
+    ListVOName="BomProgramsLov"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_ProgramName_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProgramName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="CustomerNameTrans"/>
+      <Item Value="ProgId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProgName"/>
+      <Item Value="CustomerName"/>
+      <Item Value="ProgId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProgName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <EntityUsage
+    Name="XxpmSetBom"
+    Entity="ncl.pm.model.bc.eo.XxpmSetBom"/>
+  <EntityUsage
+    Name="FndUserCB"
+    Entity="ncl.pm.model.bc.eo.FndUser"
+    Association="ncl.pm.model.bc.eo.asc.XxpmMadeupProgramsUserIdFkAssoc"
+    AssociationEnd="ncl.pm.model.bc.eo.asc.XxpmMadeupProgramsUserIdFkAssoc.FndUser"
+    SourceUsage="ncl.pm.model.bc.vo.XxpmSetBomView.XxpmMadeupPrograms"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="ncl.pm.model.bc.eo.XxpmMadeupPrograms.UserId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="ncl.pm.model.bc.eo.FndUser.UserId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="XxpmMadeupPrograms"
+    Entity="ncl.pm.model.bc.eo.XxpmMadeupPrograms"
+    Association="ncl.pm.model.bc.eo.asc.SetBomProgIdFkAssoc"
+    AssociationEnd="ncl.pm.model.bc.eo.asc.SetBomProgIdFkAssoc.XxpmMadeupPrograms"
+    SourceUsage="ncl.pm.model.bc.vo.XxpmSetBomView.XxpmSetBom"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="ncl.pm.model.bc.eo.XxpmSetBom.ProgId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="ncl.pm.model.bc.eo.XxpmMadeupPrograms.ProgId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="XxpmMadeupSets"
+    Entity="ncl.pm.model.bc.eo.XxpmMadeupSets"
+    Association="ncl.pm.model.bc.eo.asc.SetBomSetIdFkAssoc"
+    AssociationEnd="ncl.pm.model.bc.eo.asc.SetBomSetIdFkAssoc.XxpmMadeupSets"
+    SourceUsage="ncl.pm.model.bc.vo.XxpmSetBomView.XxpmSetBom"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="ncl.pm.model.bc.eo.XxpmSetBom.SetId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="ncl.pm.model.bc.eo.XxpmMadeupSets.SetId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="SetBomId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SetBomId"
+    EntityUsage="XxpmSetBom"
+    AliasName="SET_BOM_ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="ProgId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProgId"
+    EntityUsage="XxpmSetBom"
+    AliasName="PROG_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SetId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SetId"
+    EntityUsage="XxpmSetBom"
+    AliasName="SET_ID"
+    LOVName="LOV_SetId">
+    <Dependencies>
+      <Item
+        Value="ProgId"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BomNumber"
+    PrecisionRule="true"
+    EntityAttrName="BomNumber"
+    EntityUsage="XxpmSetBom"
+    AliasName="BOM_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FolderCode"
+    PrecisionRule="true"
+    EntityAttrName="FolderCode"
+    EntityUsage="XxpmSetBom"
+    AliasName="FOLDER_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustomerNameTrans"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[ProgId != null ? MadeupAllProgramsLov.findByKey(key(ProgId),1)[0].getAttribute("CustomerName") : ""]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="CustomerId"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ColorTrans"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOR_NAME"
+    SQLType="VARCHAR"
+    Precision="255"
+    Expression="XXPM_GET_COLOR_DESC(XxpmMadeupSets.SEGMENT4)">
+    <Dependencies>
+      <Item
+        Value="Segment4Sets"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SizeTrans"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SIZE_NAME"
+    SQLType="VARCHAR"
+    Precision="255"
+    Expression="XXPM_GET_SIZE_DESC(XxpmMadeupSets.SEGMENT5)">
+    <Dependencies>
+      <Item
+        Value="Segment5Sets"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UserName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserName"
+    EntityUsage="FndUserCB"
+    AliasName="USER_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="FndUserCB"
+    AliasName="ROWID">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ManagerId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ManagerId"
+    EntityUsage="XxpmMadeupPrograms"
+    AliasName="MANAGER_ID"
+    LOVName="LOV_ManagerId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProgIdMadeupProg"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="ProgId"
+    EntityUsage="XxpmMadeupPrograms"
+    AliasName="PROG_ID1">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProgCode"
+    PrecisionRule="true"
+    EntityAttrName="ProgCode"
+    EntityUsage="XxpmMadeupPrograms"
+    AliasName="PROG_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustomerId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustomerId"
+    EntityUsage="XxpmMadeupPrograms"
+    AliasName="CUSTOMER_ID"/>
+  <ViewAttribute
+    Name="ProgCodeDesc"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Segment4Sets"
+    PrecisionRule="true"
+    EntityAttrName="Segment4"
+    EntityUsage="XxpmMadeupSets"
+    AliasName="SEGMENT4">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Segment5Sets"
+    PrecisionRule="true"
+    EntityAttrName="Segment5"
+    EntityUsage="XxpmMadeupSets"
+    AliasName="SEGMENT5">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SetIdSets"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="SetId"
+    EntityUsage="XxpmMadeupSets"
+    AliasName="SET_ID1">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UserIdPrograms"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UserId"
+    EntityUsage="XxpmMadeupPrograms"
+    AliasName="USER_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RowStatus"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BomLog"
+    PrecisionRule="true"
+    EntityAttrName="BomLog"
+    EntityUsage="XxpmSetBom"
+    AliasName="BOM_LOG"/>
+  <ViewAttribute
+    Name="ProgramName"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    LOVName="LOV_ProgramName">
+    <TransientExpression><![CDATA[ProgId != null ? MadeupAllProgramsLov.findByKey(key(ProgId),1)[0].getAttribute("ProgName") : ""]]></TransientExpression>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EbsStatus"
+    PrecisionRule="true"
+    EntityAttrName="EbsStatus"
+    EntityUsage="XxpmSetBom"
+    AliasName="EBS_STATUS"/>
+  <ViewAttribute
+    Name="ConcatenatedSegments"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmSetBomView.ConcatenatedSegments_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="XxpmSetBomViewCriteria"
+    ViewObjectName="ncl.pm.model.bc.vo.XxpmSetBomView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow10"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="XxpmSetBomViewCriteria_vcrow10_BomNumber"
+        ViewAttribute="BomNumber"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":BindBomNum"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="SetBomId"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="XxpmSetBomArticlesView"
+    ViewLink="ncl.pm.model.bc.vo.vl.ArticlesSetBomIdFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="XxpmSetBomAccessoriesView"
+    ViewLink="ncl.pm.model.bc.vo.vl.SetBomAccessoryBomIdFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="ncl.pm.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

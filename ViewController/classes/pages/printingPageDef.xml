@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="printingPageDef" Package="pages"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <invokeAction id="BlankPrnPage" Binds="blankPrnPage"
+                  Refresh="prepareModel"
+                  RefreshCondition="#{adfFacesContext.postback==false}"/>
+    <variableIterator id="variables">
+      <variable Name="ExecuteWithParams_BindDescPrn" Type="java.lang.String"/>
+      <variable Name="VsetVal" Type="java.lang.String"/>
+      <variable Name="ValueSet" Type="java.lang.String"/>
+    </variableIterator>
+    <iterator Binds="XxpmItemMasterPrnView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmItemMasterPrnViewIterator" ChangeEventPolicy="ppr"/>
+    <iterator id="PrintingItemDescViewIterator" Binds="PrintingItemDescView"
+              DataControl="XxpmAppModuleDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="XxpmItemMasterPrnViewIterator" id="Segment2">
+      <AttrNames>
+        <Item Value="Segment2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmItemMasterPrnViewIterator"
+                     id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="XxpmItemMasterPrnViewIterator"
+                  Uses="LOV_TransWeavingDesc" id="TransWeavingDesc"/>
+    <attributeValues IterBinding="XxpmItemMasterPrnViewIterator"
+                     id="EngravedNum">
+      <AttrNames>
+        <Item Value="EngravedNum"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="XxpmItemMasterPrnViewIterator" StaticList="false"
+          Uses="LOV_FinishType" id="FinishType" DTSupportsMRU="true"/>
+    <list IterBinding="XxpmItemMasterPrnViewIterator" StaticList="false"
+          Uses="LOV_Category" id="Category" DTSupportsMRU="true"/>
+    <button IterBinding="XxpmItemMasterPrnViewIterator" StaticList="false"
+            Uses="LOV_BaseDye" id="BaseDye" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="BaseDye"/>
+      </AttrNames>
+    </button>
+    <attributeValues IterBinding="XxpmItemMasterPrnViewIterator"
+                     id="PrintingResultant">
+      <AttrNames>
+        <Item Value="PrintingResultant"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmItemMasterPrnViewIterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="XxpmItemMasterPrnViewIterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="XxpmItemMasterPrnViewIterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="XxpmItemMasterPrnViewIterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="variables"
+                     id="BindDescPrn">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_BindDescPrn"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="XxpmItemMasterPrnViewIterator" id="ExecuteWithParams"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterPrnView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="BindDescPrn"
+                 NDValue="#{bindings.ExecuteWithParams_BindDescPrn}"
+                 NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="XxpmItemMasterPrnViewIterator"
+            id="CreateInsertItemMasterPrn"
+            InstanceName="XxpmAppModuleDataControl.XxpmItemMasterPrnView"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <action id="Rollback" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="false" Action="rollbackTransaction"/>
+    <listOfValues StaticList="false" Uses="LOV_Description"
+                  IterBinding="PrintingItemDescViewIterator"
+                  id="PrnDescriptionLov"/>
+    <methodAction id="blankPrnPage"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="blankPrnPage" IsViewObjectMethod="false"/>
+    <methodAction id="copyPrnItem"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copyPrnItem" IsViewObjectMethod="false"/>
+    <list IterBinding="XxpmItemMasterPrnViewIterator" StaticList="false"
+          Uses="LOV_Segment3" id="Segment3" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="XxpmItemMasterPrnViewIterator" id="RowStatus">
+      <AttrNames>
+        <Item Value="RowStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="XxpmItemMasterPrnViewIterator"
+                  Uses="LOV_PrnFinishWidthDesc" id="PrnFinishWidthDesc"/>
+    <listOfValues StaticList="false" IterBinding="XxpmItemMasterPrnViewIterator"
+                  Uses="LOV_PrnColor" id="PrnColor"/>
+    <attributeValues IterBinding="variables" id="BindVsetVal">
+      <AttrNames>
+        <Item Value="VsetVal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="BindValueSet">
+      <AttrNames>
+        <Item Value="ValueSet"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="addVsetVal"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="addVsetVal" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.addVsetVal_XxpmAppModuleDataControl_dataProvider_addVsetVal_result">
+      <NamedData NDName="prefix" NDValue="20" NDType="java.lang.String"/>
+      <NamedData NDName="vSet" NDValue="#{bindings.ValueSet}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="value" NDValue="#{bindings.VsetVal}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="XxpmItemMasterPrnViewIterator"
+                  id="updatePrnLovsAccessor"
+                  InstanceName="bindings.XxpmItemMasterPrnViewIterator.currentRow"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updatePrnLovsAccessor" IsViewObjectMethod="false"
+                  IsLocalObjectReference="true"/>
+    <methodAction id="copyEBSItemUpdateStatus"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copyEBSItemUpdateStatus"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.copyEBSItemUpdateStatus_XxpmAppModuleDataControl_dataProvider_copyEBSItemUpdateStatus_result">
+      <NamedData NDName="imId" NDType="java.lang.String"/>
+      <NamedData NDName="s3" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

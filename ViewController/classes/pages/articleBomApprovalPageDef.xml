@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="articleBomApprovalPageDef"
+                Package="pages" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="XxpmArticleBomReadOnlyView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmArticleBomReadOnlyViewIterator"/>
+    <iterator Binds="XxpmArticleBomFabricViewReadOnlyChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmArticleBomFabricViewReadOnlyChildIterator"/>
+    <iterator Binds="XxpmArticleBomAccessoriesViewReadOnlyChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmArticleBomAccessoriesViewReadOnlyChildIterator"/>
+    <iterator Binds="XxpmAbFabricColorsViewReadOnlyChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmAbFabricColorsViewReadOnlyChildIterator"/>
+    <iterator Binds="XxpmAbFabricSizesViewReadOnlyChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmAbFabricSizesViewReadOnlyChildIterator"/>
+    <iterator Binds="XxpmAbAccessoriesColorsViewReadOnlyChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmAbAccessoriesColorsViewReadOnlyChildIterator"/>
+    <iterator Binds="XxpmAbAccessoriesSizesViewReadOnlyChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="XxpmAbAccessoriesSizesViewReadOnlyChildIterator"/>
+    <iterator Binds="MadeupCombDetailsLovReadOnlyChild" RangeSize="10"
+              DataControl="XxpmAppModuleDataControl"
+              id="MadeupCombDetailsLovReadOnlyChildIterator"/>
+  </executables>
+  <bindings>
+    <action id="Commit" DataControl="XxpmAppModuleDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="ArtBomNum">
+      <AttrNames>
+        <Item Value="ArtBomNum"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="CustomerNameTrans">
+      <AttrNames>
+        <Item Value="CustomerNameTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="ProgManagerTrans">
+      <AttrNames>
+        <Item Value="ProgManagerTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="BomGroupTrans">
+      <AttrNames>
+        <Item Value="BomGroupTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="ApprovalStatus">
+      <AttrNames>
+        <Item Value="ApprovalStatus"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="ArticleName">
+      <AttrNames>
+        <Item Value="ArticleName"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="XxpmArticleBomFabricViewReadOnlyChildIterator"
+          id="XxpmArticleBomFabricViewReadOnlyChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmArticleBomFabricView"
+                      Name="XxpmArticleBomFabricViewReadOnlyChild0">
+        <AttrNames>
+          <Item Value="ArtBomFabId"/>
+          <Item Value="ArtBomId"/>
+          <Item Value="Consumption"/>
+          <Item Value="Description"/>
+          <Item Value="ImId"/>
+          <Item Value="ItemColor"/>
+          <Item Value="ItemSize"/>
+          <Item Value="Segment2"/>
+          <Item Value="SubInv"/>
+          <Item Value="Uom"/>
+          <Item Value="Wastage"/>
+          <Item Value="Active"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XxpmArticleBomAccessoriesViewReadOnlyChildIterator"
+          id="XxpmArticleBomAccessoriesViewReadOnlyChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView"
+                      Name="XxpmArticleBomAccessoriesViewReadOnlyChild0">
+        <AttrNames>
+          <Item Value="ArtBomAccId"/>
+          <Item Value="AccColor"/>
+          <Item Value="ArtBomId"/>
+          <Item Value="Consumption"/>
+          <Item Value="Description"/>
+          <Item Value="ImId"/>
+          <Item Value="Segment2"/>
+          <Item Value="SubInv"/>
+          <Item Value="Uom"/>
+          <Item Value="Wastage"/>
+          <Item Value="Active"/>
+          <Item Value="AccColorTrans"/>
+          <Item Value="AccSizeTrans"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XxpmAbFabricColorsViewReadOnlyChildIterator"
+          id="XxpmAbFabricColorsViewReadOnlyChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAbFabricColorsView"
+                      Name="XxpmAbFabricColorsViewReadOnlyChild0">
+        <AttrNames>
+          <Item Value="AbFabColorId"/>
+          <Item Value="ArtBomFabId"/>
+          <Item Value="ColorCode"/>
+          <Item Value="ColorDesc"/>
+          <Item Value="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XxpmAbFabricSizesViewReadOnlyChildIterator"
+          id="XxpmAbFabricSizesViewReadOnlyChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAbFabricSizesView"
+                      Name="XxpmAbFabricSizesViewReadOnlyChild0">
+        <AttrNames>
+          <Item Value="AbFabSizeId"/>
+          <Item Value="ArtBomFabId"/>
+          <Item Value="Selected"/>
+          <Item Value="SizeCode"/>
+          <Item Value="SizeDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XxpmAbAccessoriesColorsViewReadOnlyChildIterator"
+          id="XxpmAbAccessoriesColorsViewReadOnlyChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAbAccessoriesColorsView"
+                      Name="XxpmAbAccessoriesColorsViewReadOnlyChild0">
+        <AttrNames>
+          <Item Value="AbAccColorId"/>
+          <Item Value="ArtBomAccId"/>
+          <Item Value="ColorCode"/>
+          <Item Value="ColorDesc"/>
+          <Item Value="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="XxpmAbAccessoriesSizesViewReadOnlyChildIterator"
+          id="XxpmAbAccessoriesSizesViewReadOnlyChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.XxpmAbAccessoriesSizesView"
+                      Name="XxpmAbAccessoriesSizesViewReadOnlyChild0">
+        <AttrNames>
+          <Item Value="AbAccSizeId"/>
+          <Item Value="ArtBomAccId"/>
+          <Item Value="Selected"/>
+          <Item Value="SizeCode"/>
+          <Item Value="SizeDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="RejectReason">
+      <AttrNames>
+        <Item Value="RejectReason"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="ApprovalFlag">
+      <AttrNames>
+        <Item Value="ApprovalFlag"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="ArtBomId">
+      <AttrNames>
+        <Item Value="ArtBomId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="articleBomProc"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="articleBomProc" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.articleBomProc_XxpmAppModuleDataControl_dataProvider_articleBomProc_result">
+      <NamedData NDName="bomId" NDValue="#{bindings.ArtBomId.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="MadeupCombDetailsLovReadOnlyChildIterator"
+          id="MadeupCombDetailsLovReadOnlyChild">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.lov.MadeupCombDetailsLov"
+                      Name="MadeupCombDetailsLovReadOnlyChild0">
+        <AttrNames>
+          <Item Value="CombId"/>
+          <Item Value="ArticleId"/>
+          <Item Value="ArticleName"/>
+          <Item Value="ColorCode"/>
+          <Item Value="CombColor"/>
+          <Item Value="CombEbsDesc"/>
+          <Item Value="CombPmDesc"/>
+          <Item Value="CombSize"/>
+          <Item Value="ConcatenatedSegments"/>
+          <Item Value="PrimaryUnitOfMeasure"/>
+          <Item Value="SizeCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="ProgName">
+      <AttrNames>
+        <Item Value="ProgName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="CreatorName">
+      <AttrNames>
+        <Item Value="CreatorName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
