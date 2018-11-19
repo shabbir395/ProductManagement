@@ -41,8 +41,7 @@
       <Item Value="Program"/>
       <Item Value="SetName"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT BOM_NUMBER FROM XXPM_SET_BOM]]>

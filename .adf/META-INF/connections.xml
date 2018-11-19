@@ -1,19 +1,19 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <References xmlns="http://xmlns.oracle.com/adf/jndi">
-   <Reference name="APPS" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="APPS" xmlns="">
+   <Reference name="ebs" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="ebs" xmlns="">
       <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
       <RefAddresses>
          <StringRefAddr addrType="sid">
-            <Contents>ebs</Contents>
+            <Contents>erp</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="subtype">
             <Contents>oraJDBC</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="port">
-            <Contents>1523</Contents>
+            <Contents>1527</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="hostname">
-            <Contents>192.168.0.127</Contents>
+            <Contents>192.168.0.30</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="user">
             <Contents>apps</Contents>

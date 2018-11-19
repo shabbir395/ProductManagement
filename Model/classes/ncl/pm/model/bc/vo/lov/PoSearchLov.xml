@@ -58,8 +58,7 @@
       <Item Value="CustomerName"/>
       <Item Value="ProgName"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_SoHeaderId"
@@ -133,12 +132,12 @@
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.lov.PoSearchLov.ProgName_LABEL"/>
         <DISPLAYWIDTH
           Value="30"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

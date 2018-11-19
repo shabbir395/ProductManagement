@@ -69,8 +69,7 @@
       <Item Value="ItemCode"/>
       <Item Value="Description"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="XxpmWarp"
@@ -134,12 +133,12 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmWarpView.Segment2_LABEL"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <DISPLAYWIDTH
           Value="10"/>
         <AUTOSUBMIT
           Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

@@ -142,8 +142,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ProgName"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="XxpmSetBom"

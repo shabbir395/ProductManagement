@@ -60,8 +60,7 @@
     Type="java.lang.String"/>
   <ViewAccessor
     Name="MadeupProgDetailsLov"
-    ViewObjectName="ncl.pm.model.bc.vo.lov.MadeupProgDetailsLov"
-    RowLevelBinds="false">
+    ViewObjectName="ncl.pm.model.bc.vo.lov.MadeupProgDetailsLov">
     <ParameterMap>
       <PIMap Variable="BindProgId">
         <TransientExpression><![CDATA[ProgId]]></TransientExpression>
@@ -70,24 +69,22 @@
   </ViewAccessor>
   <ViewAccessor
     Name="MadeupArticlesDetailsLov"
-    ViewObjectName="ncl.pm.model.bc.vo.lov.MadeupArticlesDetailsLov"
-    RowLevelBinds="false">
+    ViewObjectName="ncl.pm.model.bc.vo.lov.MadeupArticlesDetailsLov">
     <ViewCriteriaUsage
       Name="MadeupArticlesDetailsLovCriteria"
       FullName="ncl.pm.model.bc.vo.lov.MadeupArticlesDetailsLov.MadeupArticlesDetailsLovCriteria"/>
     <ParameterMap>
-      <PIMap Variable="BindProgId">
-        <TransientExpression><![CDATA[ProgId]]></TransientExpression>
-      </PIMap>
       <PIMap Variable="BindArticleId">
         <TransientExpression><![CDATA[ArticleId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="BindProgId">
+        <TransientExpression><![CDATA[ProgId]]></TransientExpression>
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
   <ViewAccessor
     Name="FndUserView"
-    ViewObjectName="ncl.pm.model.bc.vo.FndUserView"
-    RowLevelBinds="false"/>
+    ViewObjectName="ncl.pm.model.bc.vo.FndUserView"/>
   <ListBinding
     Name="LOV_ProgName"
     ListVOName="MadeupProgDetailsLov"
@@ -113,7 +110,8 @@
       <Item Value="ProgName"/>
       <Item Value="CustomerName"/>
     </AttrArray>
-    <DisplayCriteria/>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
   </ListBinding>
   <ListBinding
     Name="LOV_ArticleId"

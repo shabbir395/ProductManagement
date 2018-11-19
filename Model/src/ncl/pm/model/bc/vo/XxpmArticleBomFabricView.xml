@@ -37,8 +37,7 @@
     ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomFablov"/>
   <ViewAccessor
     Name="ArticleBomItemSubInvLov"
-    ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomItemSubInvLov"
-    RowLevelBinds="false">
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomItemSubInvLov">
     <ViewCriteriaUsage
       Name="ArticleBomItemSubInvLovCriteria"
       FullName="ncl.pm.model.bc.vo.lov.ArticleBomItemSubInvLov.ArticleBomItemSubInvLovCriteria"/>

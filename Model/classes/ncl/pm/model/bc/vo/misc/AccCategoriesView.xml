@@ -39,8 +39,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT DISTINCT ACC_ACCESSORY_TYPE CATEGORY FROM XXPM_ITEM_MASTER WHERE SEGMENT1 = '14']]>

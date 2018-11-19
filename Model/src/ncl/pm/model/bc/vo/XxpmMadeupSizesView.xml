@@ -54,8 +54,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="XxpmMadeupSizes"
@@ -95,12 +94,12 @@
     LOVName="LOV_SizeName">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <AUTOSUBMIT
           Value="true"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmMadeupSizesView.SizeName_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

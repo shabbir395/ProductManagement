@@ -150,7 +150,7 @@
                            marginEnd="100px">
                 <af:outputText value="#{bindings.ArtBomId.inputValue}" id="ot1"
                                rendered="false"/>
-                <af:inputListOfValues id="progNameId"
+                <af:inputListOfValues id="ilov4"
                                       popupTitle="Search and Select: #{bindings.ProgName.hints.label}"
                                       value="#{bindings.ProgName.inputValue}"
                                       label="#{bindings.ProgName.hints.label}"
@@ -172,7 +172,7 @@
                               columns="#{bindings.ProgId.hints.displayWidth}"
                               maximumLength="#{bindings.ProgId.hints.precision}"
                               shortDesc="#{bindings.ProgId.hints.tooltip}"
-                              partialTriggers="progNameId" id="it6"
+                              partialTriggers="ilov4" id="it6"
                               rendered="false">
                   <f:validator binding="#{bindings.ProgId.validator}"/>
                   <af:convertNumber groupingUsed="false"
@@ -276,7 +276,7 @@
                                     required="#{bindings.ArticleId.hints.mandatory}"
                                     shortDesc="#{bindings.ArticleId.hints.tooltip}"
                                     id="soc1" simple="true" autoSubmit="true"
-                                    partialTriggers="progNameId ctb5 ctb6 ctb7 ctb10"
+                                    partialTriggers="ilov4 ctb5 ctb6 ctb7 ctb10"
                                     disabled="#{bindings.ProgName.inputValue == null || (bindings.RowStatus.inputValue != 0 && bindings.RowStatus.inputValue != -1)}"
                                     valueChangeListener="#{ViewActions.articleBomArticleVCL}"
                                     binding="#{ViewActions.articleBomArticleId}">

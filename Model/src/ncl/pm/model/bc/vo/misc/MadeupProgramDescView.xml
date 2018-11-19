@@ -47,8 +47,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ProgName"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT PROG_NAME

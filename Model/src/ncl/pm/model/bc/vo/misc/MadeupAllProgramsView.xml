@@ -43,8 +43,7 @@
       <Item Value="ThreadCount"/>
       <Item Value="WeaveDesign"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT PROG_NAME

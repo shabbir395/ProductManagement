@@ -97,8 +97,7 @@
       <Item Value="Segment2"/>
       <Item Value="Description"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_Active"
@@ -153,8 +152,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="XxpmSetBomAccessories"

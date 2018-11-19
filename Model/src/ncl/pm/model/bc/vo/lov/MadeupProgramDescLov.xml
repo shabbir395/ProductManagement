@@ -125,8 +125,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CustomerName"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT P.PROG_ID,

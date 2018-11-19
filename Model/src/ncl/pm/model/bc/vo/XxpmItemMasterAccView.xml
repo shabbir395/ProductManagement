@@ -1832,8 +1832,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Description"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="XxpmItemMaster"
@@ -4353,10 +4352,10 @@
     LOVName="LOV_ProgramNameDesc">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <AUTOSUBMIT
           Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

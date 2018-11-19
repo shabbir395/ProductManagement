@@ -227,8 +227,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="XxpmItemMaster"
@@ -683,10 +682,10 @@
     LOVName="LOV_DyeColorNameTrans">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <AUTOSUBMIT
           Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -796,6 +795,13 @@
     <PropertiesBundle
       PropertiesFile="ncl.pm.model.ModelBundle"/>
   </ResourceBundle>
+  <ClientRowInterface>
+    <Method
+      Name="updateSpnLovsAccessor">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientRowInterface>
   <ClientRowInterface>
     <Method
       Name="updateSpnLovsAccessor">

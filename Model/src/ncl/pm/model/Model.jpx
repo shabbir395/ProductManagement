@@ -10,7 +10,7 @@
    <DesignTime>
       <Attr Name="_jprName" Value="../../../../Model.jpr" />
       <Attr Name="_appModuleNames0" Value="ncl.pm.model.bc.am.XxpmAppModule" />
-      <Attr Name="_NamedConnection" Value="APPS" />
+      <Attr Name="_NamedConnection" Value="ebs" />
    </DesignTime>
    <Containee
       Name="am"

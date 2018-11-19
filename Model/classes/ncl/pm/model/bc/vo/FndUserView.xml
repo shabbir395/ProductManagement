@@ -68,8 +68,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="UserName"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="FndUser"

@@ -46,8 +46,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="VendorName"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT   SP.VENDOR_ID, SP.VENDOR_NAME

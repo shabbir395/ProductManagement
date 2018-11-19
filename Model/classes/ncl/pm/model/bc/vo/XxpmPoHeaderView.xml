@@ -75,8 +75,7 @@
       <Item Value="ProgName"/>
       <Item Value="CustomerName"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_SoHeaderId"
@@ -158,10 +157,10 @@
     SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <AUTOSUBMIT
           Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

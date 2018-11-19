@@ -39,8 +39,7 @@
   </DesignTime>
   <ViewAccessor
     Name="ItemColorsLov"
-    ViewObjectName="ncl.pm.model.bc.vo.lov.ItemColorsLov"
-    RowLevelBinds="false">
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ItemColorsLov">
     <ParameterMap>
       <PIMap Variable="BindModule1">
         <TransientExpression><![CDATA['D']]></TransientExpression>
@@ -52,8 +51,7 @@
   </ViewAccessor>
   <ViewAccessor
     Name="ArticleBomItemSubInvLov"
-    ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomItemSubInvLov"
-    RowLevelBinds="false">
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomItemSubInvLov">
     <ViewCriteriaUsage
       Name="ArticleBomItemSubInvLovCriteria"
       FullName="ncl.pm.model.bc.vo.lov.ArticleBomItemSubInvLov.ArticleBomItemSubInvLovCriteria"/>
@@ -65,8 +63,7 @@
   </ViewAccessor>
   <ViewAccessor
     Name="ArticleBomAcclov"
-    ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomAcclov"
-    RowLevelBinds="false">
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomAcclov">
     <ViewCriteriaUsage
       Name="ArticleBomAcclovCriteria"
       FullName="ncl.pm.model.bc.vo.lov.ArticleBomAcclov.ArticleBomAcclovCriteria"/>
@@ -81,8 +78,7 @@
     ViewObjectName="ncl.pm.model.bc.vo.lov.YesNoIntlov"/>
   <ViewAccessor
     Name="ItemSizeLov"
-    ViewObjectName="ncl.pm.model.bc.vo.lov.ItemSizeLov"
-    RowLevelBinds="false">
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ItemSizeLov">
     <ParameterMap>
       <PIMap Variable="BindModule1">
         <TransientExpression><![CDATA['D']]></TransientExpression>

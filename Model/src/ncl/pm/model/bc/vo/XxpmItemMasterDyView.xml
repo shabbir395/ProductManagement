@@ -139,8 +139,7 @@ AND XxpmItemMaster.ITEM_STATUS_FLAG = 1"
       <Item Value="ItemCode"/>
       <Item Value="Description"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_Category"
@@ -198,8 +197,7 @@ AND XxpmItemMaster.ITEM_STATUS_FLAG = 1"
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_DyFinishWidthDesc"
@@ -221,8 +219,7 @@ AND XxpmItemMaster.ITEM_STATUS_FLAG = 1"
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_DyeStandard"
@@ -493,10 +490,10 @@ AND XxpmItemMaster.ITEM_STATUS_FLAG = 1"
     SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <AUTOSUBMIT
           Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

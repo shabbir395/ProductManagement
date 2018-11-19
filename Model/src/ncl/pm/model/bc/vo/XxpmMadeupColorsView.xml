@@ -66,8 +66,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_ColorCategory"
@@ -107,8 +106,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_ColorName3"
@@ -130,8 +128,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_ColorName4"
@@ -153,8 +150,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_ColorName5"
@@ -176,8 +172,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_ColorName6"
@@ -199,8 +194,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_ColorName7"
@@ -222,8 +216,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_ColorName8"
@@ -245,8 +238,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="XxpmMadeupColors"
@@ -416,12 +408,12 @@
     LOVName="LOV_ColorName">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmMadeupColorsView.ColorName_LABEL"/>
         <AUTOSUBMIT
           Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -439,10 +431,10 @@
       <SchemaBasedProperties>
         <AUTOSUBMIT
           Value="true"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmMadeupColorsView.ColorName2_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -460,10 +452,10 @@
       <SchemaBasedProperties>
         <AUTOSUBMIT
           Value="true"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmMadeupColorsView.ColorName3_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -481,10 +473,10 @@
       <SchemaBasedProperties>
         <AUTOSUBMIT
           Value="true"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmMadeupColorsView.ColorName4_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -502,10 +494,10 @@
       <SchemaBasedProperties>
         <AUTOSUBMIT
           Value="true"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmMadeupColorsView.ColorName5_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -523,10 +515,10 @@
       <SchemaBasedProperties>
         <AUTOSUBMIT
           Value="true"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmMadeupColorsView.ColorName6_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -544,10 +536,10 @@
       <SchemaBasedProperties>
         <AUTOSUBMIT
           Value="true"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmMadeupColorsView.ColorName7_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -565,10 +557,10 @@
       <SchemaBasedProperties>
         <AUTOSUBMIT
           Value="true"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmMadeupColorsView.ColorName8_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

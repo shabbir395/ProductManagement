@@ -164,8 +164,7 @@ AND XxpmItemMaster.ITEM_STATUS_FLAG = 1"
       <Item Value="ItemCode"/>
       <Item Value="Description"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_BaseDye"
@@ -223,8 +222,7 @@ AND XxpmItemMaster.ITEM_STATUS_FLAG = 1"
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_PrnFinishWidthDesc"
@@ -246,8 +244,7 @@ AND XxpmItemMaster.ITEM_STATUS_FLAG = 1"
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Display"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <EntityUsage
     Name="XxpmItemMaster"

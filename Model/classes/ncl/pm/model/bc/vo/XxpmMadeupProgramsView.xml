@@ -110,8 +110,7 @@
       <Item Value="CustomerName"/>
       <Item Value="CustomerCode"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_ManagerId"
@@ -291,10 +290,10 @@
     SQLType="VARCHAR">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <AUTOSUBMIT
           Value="true"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -571,6 +570,13 @@
     <PropertiesBundle
       PropertiesFile="ncl.pm.model.ModelBundle"/>
   </ResourceBundle>
+  <ClientRowInterface>
+    <Method
+      Name="updateMadeupProgLovsAccessor">
+      <Return
+        Type="void"/>
+    </Method>
+  </ClientRowInterface>
   <ClientRowInterface>
     <Method
       Name="updateMadeupProgLovsAccessor">

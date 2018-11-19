@@ -41,8 +41,7 @@
       <Item Value="ProgName"/>
       <Item Value="OrderNumber"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT PO_HEADER_ID FROM XXPM_PO_HEADER]]>

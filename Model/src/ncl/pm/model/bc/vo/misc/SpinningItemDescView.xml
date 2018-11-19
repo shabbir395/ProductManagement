@@ -41,8 +41,7 @@
       <Item Value="ItemCode"/>
       <Item Value="Description"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT   DESCRIPTION

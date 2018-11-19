@@ -75,8 +75,7 @@
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="VendorName"/>
     </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
+    <DisplayCriteria/>
   </ListBinding>
   <ListBinding
     Name="LOV_VendorSiteId"
@@ -372,10 +371,10 @@
       <SchemaBasedProperties>
         <AUTOSUBMIT
           Value="true"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmPoLinesView.VendorName_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
