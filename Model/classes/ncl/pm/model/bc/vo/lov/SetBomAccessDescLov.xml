@@ -10,7 +10,10 @@
   CustomQuery="true"
   PageIterMode="Full"
   UseGlueCode="false"
-  OrderBy='"SEGMENT2"'>
+  OrderBy='"SEGMENT2"'
+  QueryHint="FIRST_ROWS_26"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="26">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>

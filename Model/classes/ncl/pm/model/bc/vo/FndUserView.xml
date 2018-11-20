@@ -40,7 +40,10 @@
   PageIterMode="Full"
   UseGlueCode="false"
   OrderBy="FndUser.USER_NAME"
-  Where="NVL(FndUser.END_DATE, TRUNC(SYSDATE) + 1) > TRUNC(SYSDATE)">
+  Where="NVL(FndUser.END_DATE, TRUNC(SYSDATE) + 1) > TRUNC(SYSDATE)"
+  FetchMode="FETCH_AS_NEEDED"
+  FetchSize="26"
+  QueryHint="FIRST_ROWS_26">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
   </DesignTime>

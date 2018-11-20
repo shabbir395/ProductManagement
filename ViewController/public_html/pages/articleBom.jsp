@@ -341,7 +341,7 @@
           </af:panelGridLayout>
         </af:panelGroupLayout>
         <af:spacer width="10" height="10" id="spacer1"/>
-        <af:showDetail disclosed="true" id="sd1">
+        <af:showDetail id="sd1">
           <af:panelCollection id="pc1" styleClass="AFStretchWidth"
                               rendered="true">
             <af:table value="#{bindings.MadeupCombDetailsLovChild.collectionModel}"

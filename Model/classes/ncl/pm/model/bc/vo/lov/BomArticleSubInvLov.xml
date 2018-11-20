@@ -10,7 +10,9 @@
   CustomQuery="true"
   FetchMode="FETCH_AS_NEEDED"
   PageIterMode="Full"
-  UseGlueCode="false">
+  UseGlueCode="false"
+  QueryHint="FIRST_ROWS_26"
+  FetchSize="26">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
