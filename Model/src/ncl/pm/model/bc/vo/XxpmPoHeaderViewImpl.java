@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import ncl.pm.model.bc.view.xxpmJC.ModelActions;
 
 import oracle.jbo.Row;
+import oracle.jbo.domain.DBSequence;
 import oracle.jbo.server.ViewObjectImpl;
 import oracle.jbo.server.ViewRowImpl;
 import oracle.jbo.server.ViewRowSetImpl;
@@ -43,10 +44,21 @@ public class XxpmPoHeaderViewImpl extends ViewObjectImpl {
     protected ViewRowImpl createRowFromResultSet(Object qc,
                                                  ResultSet resultSet) {
         ViewRowImpl value = super.createRowFromResultSet(qc, resultSet);
-        if(value != null){
+        if (value != null) {
+            Integer poId =
+                new Integer(((DBSequence)value.getAttribute("PoHeaderId")).getSequenceNumber().toString());
+            System.out.println("PO ID: " + poId);
             Integer progId = (Integer)value.getAttribute("ProgId");
-            value.setAttribute("ProgName", ma.getProgramName(this.getDBTransaction(), progId));
-            value.setAttribute("CustomerName", ma.getProgramCustomerName(this.getDBTransaction(), progId));
+            value.setAttribute("ProgName",
+                               ma.getProgramName(this.getDBTransaction(),
+                                                 progId));
+            value.setAttribute("CustomerName",
+                               ma.getProgramCustomerName(this.getDBTransaction(),
+                                                         progId));
+            String progManager =
+                ma.isProgManager(this.getDBTransaction(), poId);
+            System.out.println("Prog. Manager: " + progManager);
+            value.setAttribute("IsProgManager", Integer.parseInt(progManager));
         }
         return value;
     }
@@ -58,7 +70,7 @@ public class XxpmPoHeaderViewImpl extends ViewObjectImpl {
         long value = super.getQueryHitCount(viewRowSet);
         return value;
     }
-    
+
     public void insertRow(Row row) {
         Row lastRow = this.last();
         if (lastRow != null) {
@@ -68,7 +80,7 @@ public class XxpmPoHeaderViewImpl extends ViewObjectImpl {
         } else
             super.insertRow(row);
     }
-    
+
     ModelActions ma = new ModelActions();
 
     /**

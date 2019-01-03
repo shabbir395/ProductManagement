@@ -279,8 +279,7 @@
                         selectedRowKeys="#{bindings.XxpmSetBomArticlesViewChild.collectionModel.selectedRow}"
                         selectionListener="#{bindings.XxpmSetBomArticlesViewChild.collectionModel.makeCurrent}"
                         rowSelection="single" id="t2"
-                        contentDelivery="immediate"
-                        autoHeightRows="25">
+                        contentDelivery="immediate" autoHeightRows="25">
                 <af:column id="c17" rendered="false">
                   <af:outputText value="#{row.BomArticleId}" id="ot3"/>
                 </af:column>
@@ -349,17 +348,19 @@
                            filterable="true" sortable="false"
                            headerText="#{bindings.XxpmSetBomArticlesViewChild.hints.SubInventory.label}"
                            id="c2" align="center">
-                  <af:selectOneChoice value="#{row.bindings.SubInventory.inputValue}"
-                                      label="#{row.bindings.SubInventory.label}"
-                                      required="#{bindings.XxpmSetBomArticlesViewChild.hints.SubInventory.mandatory}"
-                                      shortDesc="#{bindings.XxpmSetBomArticlesViewChild.hints.SubInventory.tooltip}"
-                                      id="soc5"
-                                      disabled="#{row.bindings.EbsStatus.inputValue == 1 ? true : false}"
-                                      autoSubmit="true"
-                                      contentStyle="min-width:100%;">
-                    <f:selectItems value="#{row.bindings.SubInventory.items}"
-                                   id="si5"/>
-                  </af:selectOneChoice>
+                  <af:inputListOfValues id="subInventoryId"
+                                        popupTitle="Search and Select: #{bindings.XxpmSetBomArticlesViewChild.hints.SubInventory.label}"
+                                        label="#{row.bindings.SubInventory.label}"
+                                        value="#{row.bindings.SubInventory.inputValue}"
+                                        model="#{row.bindings.SubInventory.listOfValuesModel}"
+                                        required="#{bindings.XxpmSetBomArticlesViewChild.hints.SubInventory.mandatory}"
+                                        disabled="#{row.bindings.EbsStatus.inputValue == 1 ? true : false}"
+                                        contentStyle="min-width:100%;"
+                                        columns="#{bindings.XxpmSetBomArticlesViewChild.hints.SubInventory.displayWidth}"
+                                        shortDesc="#{bindings.XxpmSetBomArticlesViewChild.hints.SubInventory.tooltip}"
+                                        autoSubmit="true">
+                    <f:validator binding="#{row.bindings.SubInventory.validator}"/>
+                  </af:inputListOfValues>
                 </af:column>
                 <af:column sortProperty="#{bindings.XxpmSetBomArticlesViewChild.hints.ConsumptionTrans.name}"
                            filterable="true" sortable="false"
@@ -389,8 +390,7 @@
             </af:panelCollection>
           </af:showDetailItem>
           <af:showDetailItem text="Accessory" id="pc2" stretchChildren="first">
-            <af:panelCollection id="pc3"
-                                styleClass="AFStretchWidth">
+            <af:panelCollection id="pc3" styleClass="AFStretchWidth">
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t5">
@@ -531,18 +531,18 @@
                            filterable="true" sortable="true"
                            headerText="#{bindings.XxpmSetBomAccessoriesViewChild.hints.SubInventory.label}"
                            id="c15" align="center">
-                  <af:selectOneChoice value="#{row.bindings.SubInventory.inputValue}"
-                                      label="#{row.bindings.SubInventory.label}"
-                                      required="#{bindings.XxpmSetBomAccessoriesViewChild.hints.SubInventory.mandatory}"
-                                      shortDesc="#{bindings.XxpmSetBomAccessoriesViewChild.hints.SubInventory.tooltip}"
-                                      id="soc8"
-                                      disabled="#{row.bindings.EbsStatus.inputValue == 1 ? true : false}"
-                                      autoSubmit="true"
-                                      contentStyle="min-width:100%;"
-                                      partialTriggers="ilov4">
-                    <f:selectItems value="#{row.bindings.SubInventory.items}"
-                                   id="si8"/>
-                  </af:selectOneChoice>
+                  <af:inputListOfValues id="inputListOfValues1"
+                                        popupTitle="Search and Select: #{bindings.XxpmSetBomAccessoriesViewChild.hints.SubInventory.label}"
+                                        value="#{row.bindings.SubInventory.inputValue}"
+                                        model="#{row.bindings.SubInventory.listOfValuesModel}"
+                                        required="#{bindings.XxpmSetBomAccessoriesViewChild.hints.SubInventory.mandatory}"
+                                        disabled="#{row.bindings.EbsStatus.inputValue == 1 ? true : false}"
+                                        columns="#{bindings.XxpmSetBomAccessoriesViewChild.hints.SubInventory.displayWidth}"
+                                        shortDesc="#{bindings.XxpmSetBomAccessoriesViewChild.hints.SubInventory.tooltip}"
+                                        autoSubmit="true"
+                                        partialTriggers="ilov4">
+                    <f:validator binding="#{row.bindings.SubInventory.validator}"/>
+                  </af:inputListOfValues>
                 </af:column>
                 <af:column sortProperty="#{bindings.XxpmSetBomAccessoriesViewChild.hints.Consumption.name}"
                            filterable="true" sortable="true"
@@ -608,8 +608,7 @@
             <af:resetActionListener/>
           </af:commandToolbarButton>
           <af:spacer width="10" height="10" id="spacer1"/>
-          <af:commandToolbarButton text="Generate BOM"
-                                   id="ctb12"
+          <af:commandToolbarButton text="Generate BOM" id="ctb12"
                                    actionListener="#{ViewActions.createSetBomAL}"
                                    immediate="true">
             <af:resetActionListener/>

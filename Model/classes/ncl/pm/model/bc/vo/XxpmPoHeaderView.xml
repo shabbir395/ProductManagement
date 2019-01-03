@@ -221,6 +221,22 @@
     EntityAttrName="EbsStatus"
     EntityUsage="XxpmPoHeader"
     AliasName="EBS_STATUS"/>
+  <ViewAttribute
+    Name="IsProgManager"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="XxpmPoHeaderViewCriteria"
     ViewObjectName="ncl.pm.model.bc.vo.XxpmPoHeaderView"

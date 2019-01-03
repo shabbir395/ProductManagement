@@ -167,7 +167,7 @@ public class ModelActions {
                 e.printStackTrace();
             }
         }
-//        Logger.adfLogger.warning("Program name -----> " + result);
+        //        Logger.adfLogger.warning("Program name -----> " + result);
         return result;
     }
 
@@ -450,7 +450,7 @@ public class ModelActions {
             stmt.executeUpdate();
             Logger.adfLogger.warning("msg == " + stmt.getString("MSG"));
             Logger.adfLogger.warning("SUCCESS MSG == " +
-                               stmt.getString("SUCCESS_MSG"));
+                                     stmt.getString("SUCCESS_MSG"));
             successMsg = new Number(stmt.getInt("SUCCESS_MSG"));
         } catch (Exception e1) {
             // TODO: Add catch code
@@ -582,7 +582,8 @@ public class ModelActions {
                 e.printStackTrace();
             }
         }
-        Logger.adfLogger.warning("itemCategoryAssignment result ===== " + result);
+        Logger.adfLogger.warning("itemCategoryAssignment result ===== " +
+                                 result);
         return result;
     }
 
@@ -616,7 +617,8 @@ public class ModelActions {
                 e.printStackTrace();
             }
         }
-        Logger.adfLogger.warning("itemDefaultCategoryUpdate result ===== " + result);
+        Logger.adfLogger.warning("itemDefaultCategoryUpdate result ===== " +
+                                 result);
         return result;
     }
 
@@ -684,6 +686,32 @@ public class ModelActions {
         try {
             stmt.registerOutParameter("RESULT", Types.VARCHAR);
             stmt.setString("P_LINE_ID", lineId);
+            stmt.execute();
+            result = stmt.getString("RESULT");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+            } catch (Exception e) {
+                // TODO: Add catch code
+                e.printStackTrace();
+            }
+        }
+        Logger.adfLogger.warning("PO Number -----> " + result);
+        return result;
+    }
+
+    public String isProgManager(DBTransaction conn, Integer poHeaderId) {
+        String result = "";
+        String sql =
+            "BEGIN :RESULT := XXPM_IS_PROG_MGR_FUNC ( :PHID, :USR); END;";
+        CallableStatement stmt = conn.createCallableStatement(sql, 0);
+        try {
+            stmt.registerOutParameter("RESULT", Types.VARCHAR);
+            stmt.setInt("PHID", poHeaderId);
+            stmt.setString("USR",
+                           (String)ADFContext.getCurrent().getSessionScope().get("userID"));
             stmt.execute();
             result = stmt.getString("RESULT");
         } catch (SQLException e) {

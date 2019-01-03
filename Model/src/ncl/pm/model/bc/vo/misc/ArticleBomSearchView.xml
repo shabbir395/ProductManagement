@@ -42,6 +42,7 @@
       <Item Value="BomNo"/>
       <Item Value="Program"/>
       <Item Value="Article"/>
+      <Item Value="Version"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>

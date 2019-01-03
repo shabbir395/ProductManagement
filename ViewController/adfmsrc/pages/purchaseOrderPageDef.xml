@@ -241,5 +241,18 @@
             Action="setCurrentRowWithKeyValue">
       <NamedData NDName="rowKey" NDType="java.lang.String"/>
     </action>
+    <action IterBinding="XxpmPoLinesViewFabChildIterator" id="ExecuteFab"
+            InstanceName="XxpmAppModuleDataControl.XxpmPoLinesViewFabChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action IterBinding="XxpmPoLinesViewAccChildIterator" id="ExecuteAcc"
+            InstanceName="XxpmAppModuleDataControl.XxpmPoLinesViewAccChild"
+            DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <attributeValues IterBinding="XxpmPoHeaderViewIterator" id="IsProgManager">
+      <AttrNames>
+        <Item Value="IsProgManager"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

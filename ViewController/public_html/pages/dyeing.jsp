@@ -178,7 +178,7 @@
                                     columns="#{bindings.WvDescription.hints.displayWidth}"
                                     shortDesc="#{bindings.WvDescription.hints.tooltip}"
                                     simple="true" autoSubmit="true"
-                                    contentStyle="width:600px;">
+                                    contentStyle="width:1100px;">
                 <f:validator binding="#{bindings.WvDescription.validator}"/>
               </af:inputListOfValues>
             </af:gridCell>
@@ -354,7 +354,7 @@
                             shortDesc="#{bindings.DyeingResultant.hints.tooltip}"
                             id="it2" disabled="true"
                             partialTriggers="ilov2 ilov4 soc1 soc2 soc3 it3 ilov3 it4"
-                            contentStyle="width:600px;" autoSubmit="true">
+                            contentStyle="width:1100px;" autoSubmit="true">
                 <f:validator binding="#{bindings.DyeingResultant.validator}"/>
               </af:inputText>
             </af:gridCell>

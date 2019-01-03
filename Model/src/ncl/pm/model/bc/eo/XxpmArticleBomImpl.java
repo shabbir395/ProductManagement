@@ -43,7 +43,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setArtBomId((DBSequence)value);
             }
-        },
+        }
+        ,
         ArtBomNum {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getArtBomNum();
@@ -52,7 +53,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setArtBomNum((String)value);
             }
-        },
+        }
+        ,
         ProgId {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getProgId();
@@ -61,7 +63,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setProgId((Integer)value);
             }
-        },
+        }
+        ,
         ArticleId {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getArticleId();
@@ -70,7 +73,28 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setArticleId((Integer)value);
             }
-        },
+        }
+        ,
+        ArtBomVersion {
+            public Object get(XxpmArticleBomImpl obj) {
+                return obj.getArtBomVersion();
+            }
+
+            public void put(XxpmArticleBomImpl obj, Object value) {
+                obj.setArtBomVersion((Number)value);
+            }
+        }
+        ,
+        ArtBomVersionDesc {
+            public Object get(XxpmArticleBomImpl obj) {
+                return obj.getArtBomVersionDesc();
+            }
+
+            public void put(XxpmArticleBomImpl obj, Object value) {
+                obj.setArtBomVersionDesc((String)value);
+            }
+        }
+        ,
         CreatedBy {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getCreatedBy();
@@ -79,7 +103,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setCreatedBy((String)value);
             }
-        },
+        }
+        ,
         CreationDate {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getCreationDate();
@@ -88,7 +113,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setCreationDate((Date)value);
             }
-        },
+        }
+        ,
         LastUpdatedBy {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getLastUpdatedBy();
@@ -97,7 +123,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setLastUpdatedBy((String)value);
             }
-        },
+        }
+        ,
         LastUpdateDate {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getLastUpdateDate();
@@ -106,7 +133,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setLastUpdateDate((Date)value);
             }
-        },
+        }
+        ,
         RespId {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getRespId();
@@ -115,7 +143,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setRespId((String)value);
             }
-        },
+        }
+        ,
         ReqApprDate {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getReqApprDate();
@@ -124,7 +153,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setReqApprDate((Date)value);
             }
-        },
+        }
+        ,
         ApprovalStatus {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getApprovalStatus();
@@ -133,7 +163,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setApprovalStatus((String)value);
             }
-        },
+        }
+        ,
         ApprovalDate {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getApprovalDate();
@@ -142,7 +173,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setApprovalDate((Date)value);
             }
-        },
+        }
+        ,
         RejectReason {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getRejectReason();
@@ -151,7 +183,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setRejectReason((String)value);
             }
-        },
+        }
+        ,
         ApprovalFlag {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getApprovalFlag();
@@ -160,7 +193,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setApprovalFlag((Integer)value);
             }
-        },
+        }
+        ,
         BomLog {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getBomLog();
@@ -169,7 +203,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setBomLog((ClobDomain)value);
             }
-        },
+        }
+        ,
         EbsStatus {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getEbsStatus();
@@ -178,7 +213,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setEbsStatus((Integer)value);
             }
-        },
+        }
+        ,
         XxpmArticleBomAccessories {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getXxpmArticleBomAccessories();
@@ -187,7 +223,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        },
+        }
+        ,
         XxpmArticleBomFabric {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getXxpmArticleBomFabric();
@@ -196,7 +233,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        },
+        }
+        ,
         XxpmMadeupPrograms {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getXxpmMadeupPrograms();
@@ -205,7 +243,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setXxpmMadeupPrograms((XxpmMadeupProgramsImpl)value);
             }
-        },
+        }
+        ,
         XxpmMadeupArticles {
             public Object get(XxpmArticleBomImpl obj) {
                 return obj.getXxpmMadeupArticles();
@@ -214,7 +253,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
             public void put(XxpmArticleBomImpl obj, Object value) {
                 obj.setXxpmMadeupArticles((XxpmMadeupArticlesImpl)value);
             }
-        };
+        }
+        ;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -248,29 +288,24 @@ public class XxpmArticleBomImpl extends EntityImpl {
     public static final int ARTBOMNUM = AttributesEnum.ArtBomNum.index();
     public static final int PROGID = AttributesEnum.ProgId.index();
     public static final int ARTICLEID = AttributesEnum.ArticleId.index();
+    public static final int ARTBOMVERSION = AttributesEnum.ArtBomVersion.index();
+    public static final int ARTBOMVERSIONDESC = AttributesEnum.ArtBomVersionDesc.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
-    public static final int LASTUPDATEDBY =
-        AttributesEnum.LastUpdatedBy.index();
-    public static final int LASTUPDATEDATE =
-        AttributesEnum.LastUpdateDate.index();
+    public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
+    public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
     public static final int RESPID = AttributesEnum.RespId.index();
     public static final int REQAPPRDATE = AttributesEnum.ReqApprDate.index();
-    public static final int APPROVALSTATUS =
-        AttributesEnum.ApprovalStatus.index();
+    public static final int APPROVALSTATUS = AttributesEnum.ApprovalStatus.index();
     public static final int APPROVALDATE = AttributesEnum.ApprovalDate.index();
     public static final int REJECTREASON = AttributesEnum.RejectReason.index();
     public static final int APPROVALFLAG = AttributesEnum.ApprovalFlag.index();
     public static final int BOMLOG = AttributesEnum.BomLog.index();
     public static final int EBSSTATUS = AttributesEnum.EbsStatus.index();
-    public static final int XXPMARTICLEBOMACCESSORIES =
-        AttributesEnum.XxpmArticleBomAccessories.index();
-    public static final int XXPMARTICLEBOMFABRIC =
-        AttributesEnum.XxpmArticleBomFabric.index();
-    public static final int XXPMMADEUPPROGRAMS =
-        AttributesEnum.XxpmMadeupPrograms.index();
-    public static final int XXPMMADEUPARTICLES =
-        AttributesEnum.XxpmMadeupArticles.index();
+    public static final int XXPMARTICLEBOMACCESSORIES = AttributesEnum.XxpmArticleBomAccessories.index();
+    public static final int XXPMARTICLEBOMFABRIC = AttributesEnum.XxpmArticleBomFabric.index();
+    public static final int XXPMMADEUPPROGRAMS = AttributesEnum.XxpmMadeupPrograms.index();
+    public static final int XXPMMADEUPARTICLES = AttributesEnum.XxpmMadeupArticles.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -284,8 +319,7 @@ public class XxpmArticleBomImpl extends EntityImpl {
      */
     public static synchronized EntityDefImpl getDefinitionObject() {
         if (mDefinitionObject == null) {
-            mDefinitionObject =
-                    EntityDefImpl.findDefObject("ncl.pm.model.bc.eo.XxpmArticleBom");
+            mDefinitionObject = EntityDefImpl.findDefObject("ncl.pm.model.bc.eo.XxpmArticleBom");
         }
         return mDefinitionObject;
     }
@@ -533,6 +567,38 @@ public class XxpmArticleBomImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for ArtBomVersion, using the alias name ArtBomVersion.
+     * @return the ArtBomVersion
+     */
+    public Number getArtBomVersion() {
+        return (Number)getAttributeInternal(ARTBOMVERSION);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ArtBomVersion.
+     * @param value value to set the ArtBomVersion
+     */
+    public void setArtBomVersion(Number value) {
+        setAttributeInternal(ARTBOMVERSION, value);
+    }
+
+    /**
+     * Gets the attribute value for ArtBomVersionDesc, using the alias name ArtBomVersionDesc.
+     * @return the ArtBomVersionDesc
+     */
+    public String getArtBomVersionDesc() {
+        return (String)getAttributeInternal(ARTBOMVERSIONDESC);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ArtBomVersionDesc.
+     * @param value value to set the ArtBomVersionDesc
+     */
+    public void setArtBomVersionDesc(String value) {
+        setAttributeInternal(ARTBOMVERSIONDESC, value);
+    }
+
+    /**
      * Gets the attribute value for LastUpdatedBy, using the alias name LastUpdatedBy.
      * @return the LastUpdatedBy
      */
@@ -558,10 +624,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
      */
     protected Object getAttrInvokeAccessor(int index,
                                            AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) &&
-            (index < AttributesEnum.count())) {
-            return AttributesEnum.staticValues()[index -
-                AttributesEnum.firstIndex()].get(this);
+        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
+            return AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].get(this);
         }
         return super.getAttrInvokeAccessor(index, attrDef);
     }
@@ -576,10 +640,8 @@ public class XxpmArticleBomImpl extends EntityImpl {
      */
     protected void setAttrInvokeAccessor(int index, Object value,
                                          AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) &&
-            (index < AttributesEnum.count())) {
-            AttributesEnum.staticValues()[index -
-                AttributesEnum.firstIndex()].put(this, value);
+        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
+            AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].put(this, value);
             return;
         }
         super.setAttrInvokeAccessor(index, value, attrDef);
@@ -630,13 +692,14 @@ public class XxpmArticleBomImpl extends EntityImpl {
         setAttributeInternal(XXPMMADEUPARTICLES, value);
     }
 
+
     /**
      * @param artBomId key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(DBSequence artBomId) {
-        return new Key(new Object[] { artBomId });
+        return new Key(new Object[]{artBomId});
     }
 
     /**

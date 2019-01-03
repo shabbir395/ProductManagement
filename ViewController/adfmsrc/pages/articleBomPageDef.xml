@@ -6,6 +6,9 @@
   <executables>
     <variableIterator id="variables">
       <variable Name="ExecuteWithParams_BindArtBomNum" Type="String"/>
+      <variable Name="VersionDescVariable" Type="java.lang.String"
+                DefaultValue="New Version" IsNotNull="true"/>
+      <variable Name="VersionVar" Type="java.lang.Integer"/>
     </variableIterator>
     <iterator Binds="XxpmArticleBomView" RangeSize="1"
               DataControl="XxpmAppModuleDataControl"
@@ -65,6 +68,14 @@
     <iterator id="ArticleBomCombSizesViewIterator"
               Binds="ArticleBomCombSizesView"
               DataControl="XxpmAppModuleDataControl" RangeSize="10"/>
+    <iterator Binds="ArticleBomForSpecificProgramView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="ArticleBomForSpecificProgramViewIterator"/>
+    <searchRegion Binds="ArticleBomForSpecificProgramViewIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="ArticleBomForSpecificProgramViewQuery"/>
+    <iterator id="ArticleBomVersionsLovIterator" Binds="ArticleBomVersionsLov"
+              DataControl="XxpmAppModuleDataControl" RangeSize="25"/>
   </executables>
   <bindings>
     <listOfValues StaticList="false" IterBinding="XxpmArticleBomViewIterator"
@@ -373,5 +384,42 @@
             InstanceName="XxpmAppModuleDataControl.XxpmArticleBomFabricViewChild"
             DataControl="XxpmAppModuleDataControl" RequiresUpdateModel="true"
             Action="createInsertRow"/>
+    <tree IterBinding="ArticleBomForSpecificProgramViewIterator"
+          id="ArticleBomForSpecificProgramView">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.misc.ArticleBomForSpecificProgramView"
+                      Name="ArticleBomForSpecificProgramView0">
+        <AttrNames>
+          <Item Value="ArticleName"/>
+          <Item Value="ArticleBomVersion"/>
+          <Item Value="ArticleBomVersionTrans"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="variables" id="VersionDesc">
+      <AttrNames>
+        <Item Value="VersionDescVariable"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="createArticleBomVersion"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createArticleBomVersion"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="boms" NDType="java.lang.String"/>
+      <NamedData NDName="versionDesc" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator"
+                     id="ArtBomVersion">
+      <AttrNames>
+        <Item Value="ArtBomVersion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomViewIterator"
+                     id="ArtBomVersionDesc">
+      <AttrNames>
+        <Item Value="ArtBomVersionDesc"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

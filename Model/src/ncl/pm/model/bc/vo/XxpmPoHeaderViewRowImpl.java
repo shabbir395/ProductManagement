@@ -101,6 +101,16 @@ public class XxpmPoHeaderViewRowImpl extends ViewRowImpl implements XxpmPoHeader
             }
         }
         ,
+        IsProgManager {
+            public Object get(XxpmPoHeaderViewRowImpl obj) {
+                return obj.getIsProgManager();
+            }
+
+            public void put(XxpmPoHeaderViewRowImpl obj, Object value) {
+                obj.setIsProgManager((Integer)value);
+            }
+        }
+        ,
         XxpmPoLinesView {
             public Object get(XxpmPoHeaderViewRowImpl obj) {
                 return obj.getXxpmPoLinesView();
@@ -158,6 +168,7 @@ public class XxpmPoHeaderViewRowImpl extends ViewRowImpl implements XxpmPoHeader
         }
     }
 
+
     public static final int POHEADERID = AttributesEnum.PoHeaderId.index();
     public static final int PROGID = AttributesEnum.ProgId.index();
     public static final int PROGNAME = AttributesEnum.ProgName.index();
@@ -166,6 +177,7 @@ public class XxpmPoHeaderViewRowImpl extends ViewRowImpl implements XxpmPoHeader
     public static final int PROGNAMEMP = AttributesEnum.ProgNameMP.index();
     public static final int PROGIDMP = AttributesEnum.ProgIdMP.index();
     public static final int EBSSTATUS = AttributesEnum.EbsStatus.index();
+    public static final int ISPROGMANAGER = AttributesEnum.IsProgManager.index();
     public static final int XXPMPOLINESVIEW = AttributesEnum.XxpmPoLinesView.index();
     public static final int POMADEUPPROGRAMSLOV = AttributesEnum.PoMadeupProgramsLov.index();
     public static final int POSOHEADERLOV = AttributesEnum.poSoHeaderLov.index();
@@ -318,6 +330,22 @@ public class XxpmPoHeaderViewRowImpl extends ViewRowImpl implements XxpmPoHeader
      */
     public void setEbsStatus(Integer value) {
         setAttributeInternal(EBSSTATUS, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute IsProgManager.
+     * @return the IsProgManager
+     */
+    public Integer getIsProgManager() {
+        return (Integer) getAttributeInternal(ISPROGMANAGER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute IsProgManager.
+     * @param value value to set the  IsProgManager
+     */
+    public void setIsProgManager(Integer value) {
+        setAttributeInternal(ISPROGMANAGER, value);
     }
 
     /**

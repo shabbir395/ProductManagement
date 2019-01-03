@@ -20,10 +20,6 @@
         ResId="ncl.pm.model.bc.vo.lov.PoSearchSoHeaderIdLov_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <Variable
-    Name="BindProgId"
-    Kind="viewcriteria"
-    Type="java.lang.Integer"/>
   <SQLQuery>
     <![CDATA[SELECT DISTINCT P.PROG_ID, H.SO_HEADER_ID, O.ORDER_NUMBER
   FROM XXPM_PO_HEADER H, OE_ORDER_HEADERS_ALL O, XXPM_MADEUP_PROGRAMS P
@@ -74,43 +70,6 @@
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
-  <ViewCriteria
-    Name="PoSearchSoHeaderIdLovCriteria"
-    ViewObjectName="ncl.pm.model.bc.vo.lov.PoSearchSoHeaderIdLov"
-    Conjunction="AND">
-    <Properties>
-      <CustomProperties>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-        <Property
-          Name="autoExecute"
-          Value="false"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-      </CustomProperties>
-    </Properties>
-    <ViewCriteriaRow
-      Name="vcrow27"
-      UpperColumns="1">
-      <ViewCriteriaItem
-        Name="ProgId"
-        ViewAttribute="ProgId"
-        Operator="="
-        Conjunction="AND"
-        Value=":BindProgId"
-        GenerateIsNullClauseForBindVars="false"
-        IsBindVarValue="true"
-        Required="Optional"/>
-    </ViewCriteriaRow>
-  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="ProgId"/>
     <Item Value="SoHeaderId"/>

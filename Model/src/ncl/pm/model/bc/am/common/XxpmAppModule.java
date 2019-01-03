@@ -102,4 +102,6 @@ public interface XxpmAppModule extends ApplicationModule {
     void updateRemarksIntoPoLine(String lineId, String remarks);
 
     int setBomProc(String bomId);
+
+    void createArticleBomVersion(String boms, String versionDesc);
 }

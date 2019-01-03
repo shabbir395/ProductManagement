@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.sql.Types;
 
 import java.util.Date;
-
 import java.util.concurrent.TimeUnit;
 
 import ncl.pm.model.bc.am.common.XxpmAppModule;
@@ -17,15 +16,37 @@ import ncl.pm.model.bc.vo.XxpmAbFabricSizesViewImpl;
 import ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesViewImpl;
 import ncl.pm.model.bc.vo.XxpmArticleBomFabricViewImpl;
 import ncl.pm.model.bc.vo.XxpmArticleBomViewImpl;
+import ncl.pm.model.bc.vo.XxpmItemMasterDyViewImpl;
+import ncl.pm.model.bc.vo.XxpmItemMasterPrnViewImpl;
+import ncl.pm.model.bc.vo.XxpmItemMasterSpnViewImpl;
+import ncl.pm.model.bc.vo.XxpmItemMasterWvViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupArticlesViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupColorsViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupCombinationsViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupDimensionsViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupProgramsViewImpl;
 import ncl.pm.model.bc.vo.XxpmMadeupSetArticlesViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupSetsViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupSizesViewImpl;
+import ncl.pm.model.bc.vo.XxpmPoHeaderViewImpl;
 import ncl.pm.model.bc.vo.XxpmPoLinesViewImpl;
 import ncl.pm.model.bc.vo.XxpmSetBomAccessoriesViewImpl;
 import ncl.pm.model.bc.vo.XxpmSetBomArticlesViewImpl;
 import ncl.pm.model.bc.vo.XxpmSetBomViewImpl;
+import ncl.pm.model.bc.vo.XxpmWarpViewImpl;
+import ncl.pm.model.bc.vo.XxpmWeftViewImpl;
 import ncl.pm.model.bc.vo.XxpmYarnBlendViewImpl;
+import ncl.pm.model.bc.vo.XxpmYarnTypeViewImpl;
+import ncl.pm.model.bc.vo.lov.ArticleBomAcclovImpl;
+import ncl.pm.model.bc.vo.lov.ArticleBomFablovImpl;
+import ncl.pm.model.bc.vo.lov.ItemColorsLovImpl;
+import ncl.pm.model.bc.vo.lov.ItemSizeLovImpl;
 import ncl.pm.model.bc.vo.lov.MadeupArticlesDetailsLovImpl;
 import ncl.pm.model.bc.vo.lov.MadeupProgDetailsLovImpl;
 import ncl.pm.model.bc.vo.lov.VendorsLovImpl;
+
+import ncl.pm.model.bc.vo.lov.WeavingItemDescLovImpl;
+import ncl.pm.model.bc.vo.misc.MadeupCombinationsExportToExcelViewImpl;
 
 import oracle.adf.share.ADFContext;
 
@@ -1000,6 +1021,22 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
      */
     public ViewObjectImpl getVendorSitesLov() {
         return (ViewObjectImpl)findViewObject("VendorSitesLov");
+    }
+
+    /**
+     * Container's getter for ArticleBomForSpecificProgramView.
+     * @return ArticleBomForSpecificProgramView
+     */
+    public ViewObjectImpl getArticleBomForSpecificProgramView() {
+        return (ViewObjectImpl)findViewObject("ArticleBomForSpecificProgramView");
+    }
+
+    /**
+     * Container's getter for ArticleBomVersionsLov.
+     * @return ArticleBomVersionsLov
+     */
+    public ViewObjectImpl getArticleBomVersionsLov() {
+        return (ViewObjectImpl)findViewObject("ArticleBomVersionsLov");
     }
 
 
@@ -2474,5 +2511,27 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
                 e.printStackTrace();
             }
         }
+    }
+
+    public void createArticleBomVersion(String boms, String versionDesc) {
+        String sql =
+            "BEGIN   XXPM_ARTICLE_BOM_PKG.CREATE_ART_BOM_VERSION_PROC ( :P_BOM, :P_USER, :P_RESP_ID, :P_VERSION_DESC); END;";
+        CallableStatement stmt =
+            getDBTransaction().createCallableStatement(sql, 0);
+        try {
+            stmt.setString("P_BOM", boms);
+            stmt.setString("P_USER", this.getUserInfo(1));
+            stmt.setString("P_RESP_ID", this.getUserInfo(2));
+            stmt.setString("P_VERSION_DESC", versionDesc);
+            stmt.executeUpdate();
+        } catch (Exception e) {
+        } finally {
+            try {
+                stmt.close();
+            } catch (Exception e) {
+                // TODO: Add catch code
+                e.printStackTrace();
+            }
+        } 
     }
 }

@@ -167,6 +167,26 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             }
         }
         ,
+        ArtBomVersion {
+            public Object get(XxpmArticleBomViewRowImpl obj) {
+                return obj.getArtBomVersion();
+            }
+
+            public void put(XxpmArticleBomViewRowImpl obj, Object value) {
+                obj.setArtBomVersion((Number)value);
+            }
+        }
+        ,
+        ArtBomVersionDesc {
+            public Object get(XxpmArticleBomViewRowImpl obj) {
+                return obj.getArtBomVersionDesc();
+            }
+
+            public void put(XxpmArticleBomViewRowImpl obj, Object value) {
+                obj.setArtBomVersionDesc((String)value);
+            }
+        }
+        ,
         CreatedBy {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getCreatedBy();
@@ -481,6 +501,8 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
     public static final int ARTICLENAME = AttributesEnum.ArticleName.index();
     public static final int BOMGROUP = AttributesEnum.BomGroup.index();
     public static final int BOMGROUPTRANS = AttributesEnum.BomGroupTrans.index();
+    public static final int ARTBOMVERSION = AttributesEnum.ArtBomVersion.index();
+    public static final int ARTBOMVERSIONDESC = AttributesEnum.ArtBomVersionDesc.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATORNAME = AttributesEnum.CreatorName.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
@@ -1073,6 +1095,38 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      */
     public void setBomGroupTrans(String value) {
         setAttributeInternal(BOMGROUPTRANS, value);
+    }
+
+    /**
+     * Gets the attribute value for ART_BOM_VERSION using the alias name ArtBomVersion.
+     * @return the ART_BOM_VERSION
+     */
+    public Number getArtBomVersion() {
+        return (Number) getAttributeInternal(ARTBOMVERSION);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for ART_BOM_VERSION using the alias name ArtBomVersion.
+     * @param value value to set the ART_BOM_VERSION
+     */
+    public void setArtBomVersion(Number value) {
+        setAttributeInternal(ARTBOMVERSION, value);
+    }
+
+    /**
+     * Gets the attribute value for ART_BOM_VERSION_DESC using the alias name ArtBomVersionDesc.
+     * @return the ART_BOM_VERSION_DESC
+     */
+    public String getArtBomVersionDesc() {
+        return (String) getAttributeInternal(ARTBOMVERSIONDESC);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for ART_BOM_VERSION_DESC using the alias name ArtBomVersionDesc.
+     * @param value value to set the ART_BOM_VERSION_DESC
+     */
+    public void setArtBomVersionDesc(String value) {
+        setAttributeInternal(ARTBOMVERSIONDESC, value);
     }
 
     /**

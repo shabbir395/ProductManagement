@@ -179,7 +179,7 @@
                                     columns="#{bindings.TransWeavingDesc.hints.displayWidth}"
                                     shortDesc="#{bindings.TransWeavingDesc.hints.tooltip}"
                                     simple="true" autoSubmit="true"
-                                    contentStyle="width:600px;">
+                                    contentStyle="width:1100px;">
                 <f:validator binding="#{bindings.TransWeavingDesc.validator}"/>
               </af:inputListOfValues>
             </af:gridCell>
@@ -331,7 +331,7 @@
                             maximumLength="#{bindings.PrintingResultant.hints.precision}"
                             shortDesc="#{bindings.PrintingResultant.hints.tooltip}"
                             id="it2" disabled="true"
-                            contentStyle="width:600px;" autoSubmit="true"
+                            contentStyle="width:1100px;" autoSubmit="true"
                             partialTriggers="transWeavingDescId ilov2 ilov3 it3 soc2 soc4 sbc1">
                 <f:validator binding="#{bindings.PrintingResultant.validator}"/>
               </af:inputText>

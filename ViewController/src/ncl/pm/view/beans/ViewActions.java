@@ -9,10 +9,12 @@ import java.io.OutputStream;
 
 import java.text.SimpleDateFormat;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 
+import java.util.List;
 import java.util.logging.Level;
 
 import javax.el.ELContext;
@@ -26,6 +28,7 @@ import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
+import javax.faces.model.SelectItem;
 import javax.faces.validator.ValidatorException;
 
 import ncl.pm.model.bc.view.xxpmJC.Logger;
@@ -46,6 +49,7 @@ import oracle.adf.view.rich.component.rich.nav.RichCommandToolbarButton;
 import oracle.adf.view.rich.component.rich.output.RichOutputText;
 import oracle.adf.view.rich.context.AdfFacesContext;
 import oracle.adf.view.rich.event.DialogEvent;
+import oracle.adf.view.rich.event.PopupFetchEvent;
 import oracle.adf.view.rich.util.ResetUtils;
 
 import oracle.binding.AttributeBinding;
@@ -54,6 +58,7 @@ import oracle.binding.OperationBinding;
 
 import oracle.jbo.JboException;
 import oracle.jbo.Row;
+import oracle.jbo.RowSet;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.RowQualifier;
@@ -257,6 +262,7 @@ public class ViewActions {
     private String expPOFabToExcelFileName;
     private String expPOAccToExcelFileName;
     private String expPORcvStatusReportFileName;
+    private RichSelectOneChoice articleBomVersionBinding;
 
     public ViewActions() {
         //        super();
@@ -4937,5 +4943,108 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
                 this.commitAcc(actionEvent);
             }
         }
+    }
+
+    public void createArticleBomVersionAL(ActionEvent actionEvent) {
+        execOper("createArticleBomVersion");
+    }
+
+    public void artBomVersionPopupFetchListener(PopupFetchEvent popupFetchEvent) {
+        ViewObject artBomVo = this.getVO("XxpmArticleBomViewIterator");
+        Row currRow = (artBomVo != null ? artBomVo.getCurrentRow() : null);
+        if (currRow != null) {
+            Integer progId =
+                new Integer(String.valueOf(currRow.getAttribute("ProgId")));
+            ViewObject versionVo =
+                this.getVO("ArticleBomForSpecificProgramViewIterator");
+            versionVo.setNamedWhereClauseParam("BindProgId", progId);
+            versionVo.executeQuery();
+
+        }
+    }
+
+    public void createVersionDL(DialogEvent de) {
+        if (de.getOutcome().equals(DialogEvent.Outcome.ok)) {
+            ViewObject artBomVo = this.getVO("XxpmArticleBomViewIterator");
+            RowSet bomRs = artBomVo.createRowSet(null);
+            bomRs.setNamedWhereClauseParam("BindArtBomNum", null);
+            bomRs.executeQuery();
+            ViewObject versionVo =
+                this.getVO("ArticleBomForSpecificProgramViewIterator");
+            RowSetIterator versionRsi = versionVo.createRowSetIterator(null);
+            String where = "";
+            while (versionRsi.hasNext()) {
+                Row row = versionRsi.next();
+                Integer articleId =
+                    Integer.valueOf(row.getAttribute("ArticleId").toString());
+                Integer version =
+                    Integer.valueOf(row.getAttribute("ArticleBomVersion").toString());
+                System.out.println("Version: " +
+                                   this.getValueFrmExpression("#{row.bindings.ArticleBomVersion.attributeValue}"));
+                Row[] bomFilteredRows =
+                    bomRs.getFilteredRows("ArticleId", articleId);
+                if (bomFilteredRows.length > 0) {
+                    for (Row bomFilteredRow : bomFilteredRows) {
+                        Integer bomVersion =
+                            Integer.valueOf(bomFilteredRow.getAttribute("ArtBomVersion").toString());
+                        if (bomVersion == version) {
+                            Integer artBomId =
+                                Integer.valueOf(bomFilteredRow.getAttribute("ArtBomId").toString());
+                            where += (artBomId + ",");
+                        }
+                    }
+                }
+            }
+            versionRsi.closeRowSetIterator();
+            if (where != null && where.length() > 0) {
+                where = "(" + where.substring(0, where.length() - 1) + ")";
+                System.out.println("Where: " + where);
+                AttributeBinding attr =
+                    (AttributeBinding)bc.getControlBinding("VersionDesc");
+                String versionDesc = String.valueOf(attr.getInputValue());
+                System.out.println("Version Desc: " + versionDesc);
+                OperationBinding op =
+                    bc.getOperationBinding("createArticleBomVersion");
+                op.getParamsMap().put("boms", where);
+                op.getParamsMap().put("versionDesc", versionDesc);
+                op.execute();
+                if (op.getErrors().isEmpty()) {
+                    this.execOper("Commit");
+                    this.showMessage("Version created successfully.");
+                }
+            }
+        }
+    }
+
+    public void articleBomVersionDropDownVLC(ValueChangeEvent vce) {
+        //        ViewObject lovVo = this.getVO("ArticleBomVersionsLovIterator");
+        //        System.out.println("Value: " + vce.getNewValue());
+        //        Row lovRow =
+        //            lovVo.getRowAtRangeIndex(Integer.valueOf(vce.getNewValue().toString()));
+        //        Integer version =
+        //            Integer.valueOf(lovRow.getAttribute("ArtBomVersion").toString());
+        //        System.out.println("Version: " + version);
+        //        AttributeBinding attr =
+        //            (AttributeBinding)bc.getControlBinding("Version");
+        //        attr.setInputValue(version);
+    }
+
+    public void setArticleBomVersionBinding(RichSelectOneChoice articleBomVersionBinding) {
+        if (articleBomVersionBinding != null &&
+            articleBomVersionBinding.getValue() == null) {
+            articleBomVersionBinding.setValue(0);
+        }
+        this.articleBomVersionBinding = articleBomVersionBinding;
+    }
+
+    public RichSelectOneChoice getArticleBomVersionBinding() {
+        return articleBomVersionBinding;
+    }
+
+    public void refreshPO(ActionEvent actionEvent) {
+        //        ViewObject vo = this.getVO("XxpmPoHeaderViewIterator");
+        //        vo.executeQuery();
+        this.execOper("ExecuteFab");
+        this.execOper("ExecuteAcc");
     }
 }

@@ -91,7 +91,7 @@
   <ListBinding
     Name="LOV_SubInv"
     ListVOName="ArticleBomItemSubInvLov"
-    ListRangeSize="-1"
+    ListRangeSize="10"
     NullValueFlag="none"
     NullValueId="LOV_SubInv_LOVUIHints_NullValueId"
     MRUCount="0">
@@ -311,13 +311,14 @@
     PrecisionRule="true"
     EntityAttrName="AccColor"
     EntityUsage="XxpmArticleBomAccessories"
-    AliasName="ACC_COLOR">
+    AliasName="ACC_COLOR"
+    DefaultValue="00000">
     <Properties>
       <SchemaBasedProperties>
-        <AUTOSUBMIT
-          Value="true"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView.AccColor_LABEL"/>
+        <AUTOSUBMIT
+          Value="true"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -409,10 +410,10 @@
       <SchemaBasedProperties>
         <AUTOSUBMIT
           Value="true"/>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesView.SubInv_LABEL"/>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

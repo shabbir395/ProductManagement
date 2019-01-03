@@ -1094,7 +1094,7 @@
                             maximumLength="#{bindings.WeaveResultant.hints.precision}"
                             shortDesc="#{bindings.WeaveResultant.hints.tooltip}"
                             id="it45" autoSubmit="true" simple="true"
-                            disabled="true" contentStyle="width:70px;">
+                            disabled="true" contentStyle="width:250px;">
                 <f:validator binding="#{bindings.WeaveResultant.validator}"/>
               </af:inputText>
             </af:gridCell>

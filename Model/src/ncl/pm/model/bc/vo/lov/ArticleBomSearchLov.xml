@@ -27,10 +27,12 @@
     ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomSearchLov"
     RowLevelBinds="true"/>
   <SQLQuery>
-    <![CDATA[SELECT B.ART_BOM_NUM BOM_NO, P.PROG_NAME PROGRAM, A.ARTICLE_NAME ARTICLE
+    <![CDATA[SELECT B.ART_BOM_NUM BOM_NO
+      ,P.PROG_NAME PROGRAM
+      ,A.ARTICLE_NAME ARTICLE
+      ,B.ART_BOM_VERSION_DESC VERSION
   FROM XXPM_ARTICLE_BOM B, XXPM_MADEUP_ARTICLES A, XXPM_MADEUP_PROGRAMS P
- WHERE B.ARTICLE_ID = A.ARTICLE_ID
-   AND B.PROG_ID = P.PROG_ID]]>
+ WHERE B.ARTICLE_ID = A.ARTICLE_ID AND B.PROG_ID = P.PROG_ID]]>
   </SQLQuery>
   <ViewAttribute
     Name="BomNo"
@@ -88,6 +90,27 @@
     ColumnType="VARCHAR2"
     AliasName="ARTICLE"
     Expression="ARTICLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="15"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Version"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VERSION"
+    Expression="VERSION"
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="240"/>

@@ -101,6 +101,31 @@
     </Properties>
   </Attribute>
   <Attribute
+    Name="ArtBomVersion"
+    IsUnique="true"
+    ColumnName="ART_BOM_VERSION"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XXPM_ARTICLE_BOM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ArtBomVersionDesc"
+    IsUnique="true"
+    Precision="240"
+    ColumnName="ART_BOM_VERSION_DESC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XXPM_ARTICLE_BOM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
     Name="CreatedBy"
     Precision="30"
     ColumnName="CREATED_BY"
@@ -336,6 +361,30 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="ncl.pm.model.bc.eo.XxpmArticleBom.ProgId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxpmArticleBomUk1">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXPM_ARTICLE_BOM_UK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ncl.pm.model.bc.eo.XxpmArticleBom.ProgId"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmArticleBom.ArticleId"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmArticleBom.ArtBomVersion"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XxpmArticleBomUk2">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="XXPM_ARTICLE_BOM_UK2"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="ncl.pm.model.bc.eo.XxpmArticleBom.ProgId"/>
+      <Item Value="ncl.pm.model.bc.eo.XxpmArticleBom.ArticleId"/>
+      <Item Value=""/>
     </AttrArray>
   </Key>
   <Key

@@ -15,6 +15,8 @@
        XxpmArticleBom.ARTICLE_ID, 
        XxpmMadeupArticles.ARTICLE_NAME AS ARTICLE_NAME1, 
        XxpmMadeupArticles.BOM_GROUP AS BOM_GROUP1, 
+       XxpmArticleBom.ART_BOM_VERSION, 
+       XxpmArticleBom.ART_BOM_VERSION_DESC, 
        XxpmArticleBom.CREATED_BY, 
        XXPM_GET_USER_NAME_FUNC(XxpmArticleBom.CREATED_BY) AS CREATOR_NAME, 
        XxpmArticleBom.CREATION_DATE, 
@@ -448,6 +450,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ArtBomVersion"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="ArtBomVersion"
+    EntityUsage="XxpmArticleBom"
+    AliasName="ART_BOM_VERSION"
+    DefaultValue="1"/>
+  <ViewAttribute
+    Name="ArtBomVersionDesc"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="ArtBomVersionDesc"
+    EntityUsage="XxpmArticleBom"
+    AliasName="ART_BOM_VERSION_DESC"
+    DefaultValue="Default Version"/>
   <ViewAttribute
     Name="CreatedBy"
     LOVName="LOV_CreatedBy"

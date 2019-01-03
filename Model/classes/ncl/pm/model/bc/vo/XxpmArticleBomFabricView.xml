@@ -85,7 +85,7 @@
   <ListBinding
     Name="LOV_SubInv"
     ListVOName="ArticleBomItemSubInvLov"
-    ListRangeSize="-1"
+    ListRangeSize="10"
     NullValueFlag="none"
     NullValueId="LOV_SubInv_LOVUIHints_NullValueId"
     MRUCount="0">
@@ -302,7 +302,7 @@
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmArticleBomFabricView.SubInv_LABEL"/>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

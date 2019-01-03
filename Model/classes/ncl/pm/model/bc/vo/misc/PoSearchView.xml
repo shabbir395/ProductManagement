@@ -38,7 +38,6 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CustomerName"/>
-      <Item Value="ProgName"/>
       <Item Value="OrderNumber"/>
     </AttrArray>
     <DisplayCriteria/>

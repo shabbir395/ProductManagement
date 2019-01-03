@@ -7,7 +7,7 @@
 <f:view>
   <af:document id="d1" title="Purchase Order">
     <af:messages id="m1"/>
-    <af:form id="f1">
+    <af:form id="f1" partialTriggers="ctb2">
       <af:panelStretchLayout id="panelStretchLayout5" startWidth="0px"
                              endWidth="0px" topHeight="0px" bottomHeight="0px"
                              dimensionsFrom="children">
@@ -29,7 +29,7 @@
           </af:panelGroupLayout>
         </f:facet>
       </af:panelStretchLayout>
-      <af:panelFormLayout id="pfl3">
+      <af:panelFormLayout id="pfl3" partialTriggers="ctb20">
         <af:panelGroupLayout id="pgl22" layout="vertical"
                              partialTriggers="ctb1 ctb2 ctb3 ctb4 ctb5">
           <af:panelGroupLayout id="pgl2"
@@ -93,9 +93,15 @@
             <af:spacer width="10" height="10" id="spacer6"/>
             <af:commandToolbarButton text="Attachments" partialSubmit="true"
                                      id="commandToolbarButton4"/>
+            <af:spacer width="10" height="10" id="spacer9"/>
+            <af:commandToolbarButton text="Refresh"
+                                     id="ctb20"
+                                     actionListener="#{ViewActions.refreshPO}"/>
             <af:spacer width="10" height="10" id="spacer4"/>
             <af:commandToolbarButton text="Re-Calculate Values" id="ctb8"
-                                     actionListener="#{ViewActions.refreshPoLines}"/>
+                                     actionListener="#{ViewActions.refreshPoLines}"
+                                     disabled='#{bindings.IsProgManager.inputValue > 0 ? false : true}'
+                                     partialTriggers="ilov1 cb1 ctb1 ctb2 ctb3 ctb4"/>
             <af:popup id="bomLogPopup" contentDelivery="lazyUncached">
               <af:dialog id="d3" type="ok" resize="on">
                 <af:inputText value="#{bindings.BomLog.inputValue}"

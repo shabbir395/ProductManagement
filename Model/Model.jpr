@@ -242,7 +242,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../../../ext_jar/fndext/fndext.jar" jar-entry=""/>
+                  <url protocol="jar" path="file:/ext_jar/fndext/fndext.jar!/"/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="Fndext.jar"/>

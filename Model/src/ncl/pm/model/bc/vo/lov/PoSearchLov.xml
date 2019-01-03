@@ -20,46 +20,9 @@
     </SchemaBasedProperties>
   </Properties>
   <ViewAccessor
-    Name="PoSearchProgramsLov"
-    ViewObjectName="ncl.pm.model.bc.vo.lov.PoSearchProgramsLov"
-    RowLevelBinds="true"/>
-  <ViewAccessor
     Name="PoSearchSoHeaderIdLov"
-    ViewObjectName="ncl.pm.model.bc.vo.lov.PoSearchSoHeaderIdLov">
-    <ViewCriteriaUsage
-      Name="PoSearchSoHeaderIdLovCriteria"
-      FullName="ncl.pm.model.bc.vo.lov.PoSearchSoHeaderIdLov.PoSearchSoHeaderIdLovCriteria"/>
-    <ParameterMap>
-      <PIMap Variable="BindProgId">
-        <TransientExpression><![CDATA[ProgId]]></TransientExpression>
-      </PIMap>
-    </ParameterMap>
-  </ViewAccessor>
-  <ListBinding
-    Name="LOV_ProgName"
-    ListVOName="PoSearchProgramsLov"
-    ListRangeSize="10"
-    NullValueFlag="none"
-    NullValueId="LOV_ProgName_LOVUIHints_NullValueId"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="ProgName"/>
-    </AttrArray>
-    <AttrArray Name="DerivedAttrNames">
-      <Item Value="ProgId"/>
-      <Item Value="CustomerName"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="ProgName"/>
-      <Item Value="ProgId"/>
-      <Item Value="CustomerName"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="CustomerName"/>
-      <Item Value="ProgName"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
+    ViewObjectName="ncl.pm.model.bc.vo.lov.PoSearchSoHeaderIdLov"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_SoHeaderId"
     ListVOName="PoSearchSoHeaderIdLov"
@@ -80,8 +43,6 @@
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT H.PO_HEADER_ID,
-       P.PROG_NAME,
-       P.PROG_ID,
        V.CUSTOMER_NAME,
        H.SO_HEADER_ID,
        O.ORDER_NUMBER
@@ -103,54 +64,6 @@
     ColumnType="NUMBER"
     AliasName="PO_HEADER_ID"
     Expression="PO_HEADER_ID"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="ProgName"
-    IsUpdateable="false"
-    LOVName="LOV_ProgName"
-    IsPersistent="false"
-    IsNotNull="true"
-    PrecisionRule="true"
-    Precision="255"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="PROG_NAME"
-    Expression="PROG_NAME"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="240"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="ncl.pm.model.bc.vo.lov.PoSearchLov.ProgName_LABEL"/>
-        <DISPLAYWIDTH
-          Value="30"/>
-        <CONTROLTYPE
-          Value="input_text_lov"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="ProgId"
-    IsUpdateable="false"
-    IsPersistent="false"
-    IsNotNull="true"
-    PrecisionRule="true"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    AliasName="PROG_ID"
-    Expression="PROG_ID"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
@@ -201,10 +114,6 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
-    <Dependencies>
-      <Item
-        Value="ProgName"/>
-    </Dependencies>
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

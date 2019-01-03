@@ -95,6 +95,13 @@
             <af:commandToolbarButton text="View Log" id="ctb9">
               <af:showPopupBehavior popupId="bomLogPopup" triggerType="action"/>
             </af:commandToolbarButton>
+            <af:spacer width="10" height="10" id="spacer12"/>
+            <af:commandButton text="New Version" id="cb2" partialSubmit="true"
+                              actionListener="#{ViewActions.createArticleBomVersionAL}"
+                              rendered="false">
+              <af:showPopupBehavior popupId="versionPopup"
+                                    triggerType="action"/>
+            </af:commandButton>
             <af:popup id="bomLogPopup" contentDelivery="lazyUncached">
               <af:dialog id="d3" type="ok" resize="on">
                 <af:inputText value="#{bindings.BomLog.inputValue}"
@@ -110,6 +117,69 @@
                 </af:inputText>
                 <af:outputFormatted value="#{bindings.BomLog.inputValue}"
                                     id="of2" styleClass="PreWrap"/>
+              </af:dialog>
+            </af:popup>
+            <af:popup id="versionPopup"
+                      popupFetchListener="#{ViewActions.artBomVersionPopupFetchListener}">
+              <af:dialog id="d4" inlineStyle="width:350px;"
+                         dialogListener="#{ViewActions.createVersionDL}">
+                <af:panelGroupLayout id="pgl7" layout="vertical">
+                  <af:inputText label="Version Desc." id="it8"
+                                value="#{bindings.VersionDesc.inputValue}"
+                                autoSubmit="true" showRequired="true"
+                                required="true"
+                                requiredMessageDetail="Version Desc. must be entered with unique value."/>
+                  <af:panelGroupLayout id="pgl2" layout="scroll">
+                    <af:table value="#{bindings.ArticleBomForSpecificProgramView.collectionModel}"
+                              var="row"
+                              rows="#{bindings.ArticleBomForSpecificProgramView.rangeSize}"
+                              emptyText="#{bindings.ArticleBomForSpecificProgramView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              fetchSize="#{bindings.ArticleBomForSpecificProgramView.rangeSize}"
+                              rowBandingInterval="0"
+                              filterModel="#{bindings.ArticleBomForSpecificProgramViewQuery.queryDescriptor}"
+                              queryListener="#{bindings.ArticleBomForSpecificProgramViewQuery.processQuery}"
+                              filterVisible="true" varStatus="vs"
+                              selectedRowKeys="#{bindings.ArticleBomForSpecificProgramView.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.ArticleBomForSpecificProgramView.collectionModel.makeCurrent}"
+                              rowSelection="single" id="t3"
+                              styleClass="AFStretchWidth">
+                      <af:column sortProperty="#{bindings.ArticleBomForSpecificProgramView.hints.ArticleName.name}"
+                                 filterable="true" sortable="true"
+                                 headerText="#{bindings.ArticleBomForSpecificProgramView.hints.ArticleName.label}"
+                                 id="c61" width="200" align="center"
+                                 inlineStyle="text-align:left;">
+                        <af:outputFormatted value="#{row.bindings.ArticleName.inputValue}"
+                                            id="of7"/>
+                      </af:column>
+                      <af:column headerText="#{bindings.ArticleBomForSpecificProgramView.hints.ArticleBomVersion.label}"
+                                 id="c62" align="center">
+                        <af:selectOneChoice value="#{row.bindings.ArticleBomVersion.inputValue}"
+                                            label="#{row.bindings.ArticleBomVersion.label}"
+                                            required="#{bindings.ArticleBomForSpecificProgramView.hints.ArticleBomVersion.mandatory}"
+                                            shortDesc="#{bindings.ArticleBomForSpecificProgramView.hints.ArticleBomVersion.tooltip}"
+                                            id="soc2" autoSubmit="true"
+                                            valueChangeListener="#{ViewActions.articleBomVersionDropDownVLC}"
+                                            binding="#{ViewActions.articleBomVersionBinding}">
+                          <f:selectItems id="si2"
+                                         value="#{row.bindings.ArticleBomVersion.items}"/>
+                        </af:selectOneChoice>
+                      </af:column>
+                      <af:column id="c63" rendered="false">
+                        <af:inputText value="#{row.bindings.ArticleBomVersionTrans.inputValue}"
+                                      label="#{bindings.ArticleBomForSpecificProgramView.hints.ArticleBomVersionTrans.label}"
+                                      required="#{bindings.ArticleBomForSpecificProgramView.hints.ArticleBomVersionTrans.mandatory}"
+                                      columns="#{bindings.ArticleBomForSpecificProgramView.hints.ArticleBomVersionTrans.displayWidth}"
+                                      maximumLength="#{bindings.ArticleBomForSpecificProgramView.hints.ArticleBomVersionTrans.precision}"
+                                      shortDesc="#{bindings.ArticleBomForSpecificProgramView.hints.ArticleBomVersionTrans.tooltip}"
+                                      id="it23" partialTriggers="soc2">
+                          <f:validator binding="#{row.bindings.ArticleBomVersionTrans.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.ArticleBomForSpecificProgramView.hints.ArticleBomVersionTrans.format}"/>
+                        </af:inputText>
+                      </af:column>
+                    </af:table>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
               </af:dialog>
             </af:popup>
           </af:panelGroupLayout>
@@ -172,8 +242,7 @@
                               columns="#{bindings.ProgId.hints.displayWidth}"
                               maximumLength="#{bindings.ProgId.hints.precision}"
                               shortDesc="#{bindings.ProgId.hints.tooltip}"
-                              partialTriggers="ilov4" id="it6"
-                              rendered="false">
+                              partialTriggers="ilov4" id="it6" rendered="false">
                   <f:validator binding="#{bindings.ProgId.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.ProgId.format}"/>
@@ -316,13 +385,11 @@
                   <f:validator binding="#{bindings.ApprovalStatus.validator}"/>
                 </af:inputText>
                 <af:resource type="javascript">
-                  
                   function onPopupOpened(event) {
                       var popup = event.getSource();
                       popup.cancel = function () {
                       };
                   }
-                
                 </af:resource>
                 <af:popup id="popup1">
                   <af:clientListener method="onPopupOpened" type="popupOpened"/>
@@ -336,6 +403,20 @@
                                         inlineStyle="font-weight:bold;"/>
                   </af:dialog>
                 </af:popup>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="dontCare" id="gridCell11">
+                <af:outputFormatted value="Article BOM Version"
+                                    id="outputFormatted11"/>
+              </af:gridCell>
+              <af:gridCell marginStart="5px" width="dontCare" id="gridCell12">
+                <af:outputFormatted value="#{bindings.ArtBomVersion.inputValue}"
+                                    id="of8">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.ArtBomVersion.format}"/>
+                </af:outputFormatted>
+                <af:outputText value=" - " id="ot28"/>
+                <af:outputFormatted value="#{bindings.ArtBomVersionDesc.inputValue}"
+                                    id="of9"/>
               </af:gridCell>
             </af:gridRow>
           </af:panelGridLayout>
@@ -480,8 +561,7 @@
                           filterVisible="true" varStatus="vs"
                           selectedRowKeys="#{bindings.XxpmArticleBomFabricViewChild.collectionModel.selectedRow}"
                           selectionListener="#{bindings.XxpmArticleBomFabricViewChild.collectionModel.makeCurrent}"
-                          id="t2"
-                          binding="#{ViewActions.articleBomFabricTable}"
+                          id="t2" binding="#{ViewActions.articleBomFabricTable}"
                           inlineStyle="width:920px;" rowSelection="single"
                           autoHeightRows="7">
                   <af:column sortProperty="#{bindings.XxpmArticleBomFabricViewChild.hints.ArtBomFabId.name}"
@@ -614,17 +694,20 @@
                              headerText="#{bindings.XxpmArticleBomFabricViewChild.hints.SubInv.label}"
                              id="c25" align="center" width="100"
                              filterable="true">
-                    <af:selectOneChoice value="#{row.bindings.SubInv.inputValue}"
-                                        label="#{row.bindings.SubInv.label}"
-                                        required="#{bindings.XxpmArticleBomFabricViewChild.hints.SubInv.mandatory}"
-                                        shortDesc="#{bindings.XxpmArticleBomFabricViewChild.hints.SubInv.tooltip}"
-                                        id="soc3" autoSubmit="true"
-                                        partialTriggers="segment2Id"
-                                        disabled="#{row.bindings.Segment2.inputValue == null || row.EbsStatus == 1 ? true : false}"
-                                        contentStyle="background-color:InfoBackground;">
-                      <f:selectItems value="#{row.bindings.SubInv.items}"
-                                     id="si3"/>
-                    </af:selectOneChoice>
+                    <af:inputListOfValues id="subInvId"
+                                          popupTitle="Search and Select: #{bindings.XxpmArticleBomFabricViewChild.hints.SubInv.label}"
+                                          label="#{row.bindings.SubInv.label}"
+                                          value="#{row.bindings.SubInv.inputValue}"
+                                          model="#{row.bindings.SubInv.listOfValuesModel}"
+                                          required="#{bindings.XxpmArticleBomFabricViewChild.hints.SubInv.mandatory}"
+                                          partialTriggers="segment2Id"
+                                          disabled="#{row.bindings.Segment2.inputValue == null || row.EbsStatus == 1 ? true : false}"
+                                          contentStyle="background-color:InfoBackground;"
+                                          columns="#{bindings.XxpmArticleBomFabricViewChild.hints.SubInv.displayWidth}"
+                                          shortDesc="#{bindings.XxpmArticleBomFabricViewChild.hints.SubInv.tooltip}"
+                                          autoSubmit="true">
+                      <f:validator binding="#{row.bindings.SubInv.validator}"/>
+                    </af:inputListOfValues>
                   </af:column>
                   <af:column sortProperty="#{bindings.XxpmArticleBomFabricViewChild.hints.Consumption.name}"
                              sortable="true"
@@ -997,17 +1080,20 @@
                              headerText="#{bindings.XxpmArticleBomAccessoriesViewChild.hints.SubInv.label}"
                              id="c37" align="center" width="100"
                              filterable="true">
-                    <af:selectOneChoice value="#{row.bindings.SubInv.inputValue}"
-                                        label="#{row.bindings.SubInv.label}"
-                                        required="#{bindings.XxpmArticleBomAccessoriesViewChild.hints.SubInv.mandatory}"
-                                        shortDesc="#{bindings.XxpmArticleBomAccessoriesViewChild.hints.SubInv.tooltip}"
-                                        id="soc6" autoSubmit="true"
-                                        partialTriggers="inputListOfValues1"
-                                        disabled="#{row.bindings.Segment2.inputValue == null || row.EbsStatus == 1 ? true : false}"
-                                        contentStyle="background-color:InfoBackground;">
-                      <f:selectItems value="#{row.bindings.SubInv.items}"
-                                     id="si6"/>
-                    </af:selectOneChoice>
+                    <af:inputListOfValues id="inputListOfValues2"
+                                          popupTitle="Search and Select: #{bindings.XxpmArticleBomAccessoriesViewChild.hints.SubInv.label}"
+                                          label="#{row.bindings.SubInv.label}"
+                                          value="#{row.bindings.SubInv.inputValue}"
+                                          model="#{row.bindings.SubInv.listOfValuesModel}"
+                                          required="#{bindings.XxpmArticleBomAccessoriesViewChild.hints.SubInv.mandatory}"
+                                          partialTriggers="inputListOfValues1"
+                                          disabled="#{row.bindings.Segment2.inputValue == null || row.EbsStatus == 1 ? true : false}"
+                                          contentStyle="background-color:InfoBackground;"
+                                          columns="#{bindings.XxpmArticleBomAccessoriesViewChild.hints.SubInv.displayWidth}"
+                                          shortDesc="#{bindings.XxpmArticleBomAccessoriesViewChild.hints.SubInv.tooltip}"
+                                          autoSubmit="true">
+                      <f:validator binding="#{row.bindings.SubInv.validator}"/>
+                    </af:inputListOfValues>
                   </af:column>
                   <af:column sortProperty="#{bindings.XxpmArticleBomAccessoriesViewChild.hints.Consumption.name}"
                              sortable="true"

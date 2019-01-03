@@ -9,7 +9,8 @@
   ComponentClass="ncl.pm.model.bc.am.XxpmAppModuleImpl"
   ComponentInterface="ncl.pm.model.bc.am.common.XxpmAppModule"
   ClientProxyName="ncl.pm.model.bc.am.client.XxpmAppModuleClient"
-  ClearCacheOnRollback="true">
+  ClearCacheOnRollback="true"
+  LoadComponentsLazily="true">
   <DesignTime>
     <Attr Name="_deployType" Value="0"/>
     <Attr Name="_isCodegen" Value="true"/>
@@ -308,6 +309,16 @@
   <ViewUsage
     Name="VendorSitesLov"
     ViewObjectName="ncl.pm.model.bc.vo.lov.VendorSitesLov"/>
+  <ViewUsage
+    Name="ArticleBomForSpecificProgramView"
+    ViewObjectName="ncl.pm.model.bc.vo.misc.ArticleBomForSpecificProgramView">
+    <ViewCriteriaUsage
+      Name="ArticleBomForSpecificProgramViewCriteria"
+      FullName="ncl.pm.model.bc.vo.misc.ArticleBomForSpecificProgramView.ArticleBomForSpecificProgramViewCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="ArticleBomVersionsLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomVersionsLov"/>
   <ViewLinkUsage
     Name="XxpmYarnBlendImIdFkLink"
     ViewLinkObjectName="ncl.pm.model.bc.vo.vl.XxpmYarnBlendImIdFkLink"
@@ -848,6 +859,17 @@
         Type="int"/>
       <Parameter
         Name="bomId"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="createArticleBomVersion">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="boms"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="versionDesc"
         Type="java.lang.String"/>
     </Method>
   </ClientInterface>

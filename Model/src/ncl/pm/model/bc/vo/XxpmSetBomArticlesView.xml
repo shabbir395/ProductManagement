@@ -49,7 +49,7 @@
   <ListBinding
     Name="LOV_SubInventory"
     ListVOName="BomArticleSubInvLov"
-    ListRangeSize="-1"
+    ListRangeSize="10"
     NullValueFlag="none"
     NullValueId="LOV_SubInventory_LOVUIHints_NullValueId"
     MRUCount="0">
@@ -144,7 +144,7 @@
         <LABEL
           ResId="ncl.pm.model.bc.vo.XxpmSetBomArticlesView.SubInventory_LABEL"/>
         <CONTROLTYPE
-          Value="choice"/>
+          Value="input_text_lov"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

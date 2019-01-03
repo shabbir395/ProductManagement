@@ -1,11 +1,11 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="ncl.pm.model.bc.am.XxpmAppModule">
-      <AppModuleConfig name="1672C0C6AF5" user="apps" JDBCName="ebs" password="mskiz145" DeployPlatform="LOCAL" jbo.project="ncl.pm.model.Model" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" BC4JConfigName="XxpmAppModuleLocal" ApplicationName="ncl.pm.model.bc.am.XxpmAppModule" DBconnection="jdbc:oracle:thin:@192.168.0.30:1527:erp">
+      <AppModuleConfig name="16812737FB2" DBconnection="java:comp/env/jdbc/ebsDS" ApplicationName="ncl.pm.model.bc.am.XxpmAppModule" DeployPlatform="LOCAL" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="ebs" BC4JConfigName="XxpmAppModuleLocal" jbo.project="ncl.pm.model.Model">
          <Database jbo.locking.mode="optimistic" jbo.TypeMapEntries="Oracle" jbo.SQLBuilder="Oracle"/>
          <Security AppModuleJndiName="ncl.pm.model.bc.am.XxpmAppModule"/>
          <Tester FullProxyInterfaceName="ncl.pm.model.bc.am.common.XxpmAppModule"/>
-         <Custom LastUsedConfiguration="XxpmAppModuleLocal"/>
+         <Custom LastUsedConfiguration="XxpmAppModuleLocal" JDBCDataSource="java:comp/env/jdbc/ebsDS"/>
       </AppModuleConfig>
    </AppModuleConfigBag>
 </BC4JConfig>
