@@ -254,5 +254,13 @@
         <Item Value="IsProgManager"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="saleOrderBomsStatus"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="saleOrderBomsStatus" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.saleOrderBomsStatus_XxpmAppModuleDataControl_dataProvider_saleOrderBomsStatus_result">
+      <NamedData NDName="hid" NDValue="" NDType="java.lang.Integer"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

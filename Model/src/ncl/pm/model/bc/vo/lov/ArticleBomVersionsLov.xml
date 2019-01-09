@@ -29,7 +29,7 @@
       ,B.PROG_ID
       ,B.ARTICLE_ID
       ,B.ART_BOM_VERSION
-      ,B.ART_BOM_VERSION_DESC
+      ,B.ART_BOM_VERSION || ' - ' || B.ART_BOM_VERSION_DESC ART_BOM_VERSION_DESC
   FROM XXPM_ARTICLE_BOM B]]>
   </SQLQuery>
   <ViewAttribute

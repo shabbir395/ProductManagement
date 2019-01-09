@@ -672,7 +672,7 @@ public class ModelActions {
         return result;
     }
 
-    public void showError(DBTransaction conn, String err) {
+    public static void showError(DBTransaction conn, String err) {
         JboException jboException = new JboException(err);
         jboException.setSeverity(JboException.SEVERITY_ERROR);
         conn.addWarning(jboException);
@@ -712,6 +712,56 @@ public class ModelActions {
             stmt.setInt("PHID", poHeaderId);
             stmt.setString("USR",
                            (String)ADFContext.getCurrent().getSessionScope().get("userID"));
+            stmt.execute();
+            result = stmt.getString("RESULT");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+            } catch (Exception e) {
+                // TODO: Add catch code
+                e.printStackTrace();
+            }
+        }
+        Logger.adfLogger.warning("PO Number -----> " + result);
+        return result;
+    }
+
+    public static Integer maxArticleBomVersion(DBTransaction conn,
+                                               Integer progId) {
+        Integer result = null;
+        String sql =
+            "BEGIN :RESULT := XXPM_ARTICLE_BOM_PKG.GET_MAX_ART_BOM_VERSION_FUNC(:PROG); END;";
+        CallableStatement stmt = conn.createCallableStatement(sql, 0);
+        try {
+            stmt.registerOutParameter("RESULT", Types.INTEGER);
+            stmt.setInt("PROG", progId);
+            stmt.execute();
+            result = stmt.getInt("RESULT");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+            } catch (Exception e) {
+                // TODO: Add catch code
+                e.printStackTrace();
+            }
+        }
+        Logger.adfLogger.warning("PO Number -----> " + result);
+        return result;
+    }
+
+    public static String articleBomVersionDesc(DBTransaction conn,
+                                               Integer progId) {
+        String result = "";
+        String sql =
+            "BEGIN :RESULT := XXPM_ARTICLE_BOM_PKG.GET_ART_BOM_VERSION_DESC_FUNC(:PROG); END;";
+        CallableStatement stmt = conn.createCallableStatement(sql, 0);
+        try {
+            stmt.registerOutParameter("RESULT", Types.VARCHAR);
+            stmt.setInt("PROG", progId);
             stmt.execute();
             result = stmt.getString("RESULT");
         } catch (SQLException e) {

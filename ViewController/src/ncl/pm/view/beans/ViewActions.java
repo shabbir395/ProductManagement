@@ -37,6 +37,7 @@ import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
+import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputListOfValues;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
@@ -60,6 +61,7 @@ import oracle.jbo.JboException;
 import oracle.jbo.Row;
 import oracle.jbo.RowSet;
 import oracle.jbo.RowSetIterator;
+import oracle.jbo.ValidationException;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.RowQualifier;
 import oracle.jbo.server.ViewObjectImpl;
@@ -4235,6 +4237,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public void execInsertPoLinesWithValues(Integer type, Integer soVal,
                                             Integer transType) {
+        OperationBinding op = bc.getOperationBinding("saleOrderBomsStatus");
         Integer soHeaderId = null;
 
         ViewObject vo = getVO("XxpmPoHeaderViewIterator");
@@ -4253,8 +4256,15 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
                 Logger.adfLogger.warning("So Header ID = " + soHeaderId);
                 Logger.adfLogger.warning("PO ID = " +
                                          curRow.getAttribute("PoHeaderId"));
-
-                OperationBinding op = bc.getOperationBinding("insertPoLines");
+                ////////////////////////
+                op.getParamsMap().put("hid", soHeaderId);
+                Integer result = Integer.valueOf(op.execute().toString());
+                if (result < 1) {
+                    this.showError("Some or All boms for this sale order are not approved");
+                    return;
+                }
+                ////////////////////////
+                op = bc.getOperationBinding("insertPoLines");
                 op.getParamsMap().put("prog", curRow.getAttribute("ProgId"));
                 op.getParamsMap().put("hid", soHeaderId);
                 op.getParamsMap().put("poId",
@@ -4945,9 +4955,9 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         }
     }
 
-    public void createArticleBomVersionAL(ActionEvent actionEvent) {
-        execOper("createArticleBomVersion");
-    }
+    //    public void createArticleBomVersionAL(ActionEvent actionEvent) {
+    //        execOper("createArticleBomVersion");
+    //    }
 
     public void artBomVersionPopupFetchListener(PopupFetchEvent popupFetchEvent) {
         ViewObject artBomVo = this.getVO("XxpmArticleBomViewIterator");
@@ -4962,6 +4972,66 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
         }
     }
+
+    //    public void createVerionAL(ActionEvent ae) {
+    //
+    //        ViewObject artBomVo = this.getVO("XxpmArticleBomViewIterator");
+    //        RowSet bomRs = artBomVo.createRowSet(null);
+    //        bomRs.setNamedWhereClauseParam("BindArtBomNum", null);
+    //        bomRs.executeQuery();
+    //        ViewObject versionVo =
+    //            this.getVO("ArticleBomForSpecificProgramViewIterator");
+    //        RowSetIterator versionRsi = versionVo.createRowSetIterator(null);
+    //        String where = "";
+    //        while (versionRsi.hasNext()) {
+    //            Row row = versionRsi.next();
+    //            Integer articleId =
+    //                Integer.valueOf(row.getAttribute("ArticleId").toString());
+    //            Integer version =
+    //                Integer.valueOf(row.getAttribute("ArticleBomVersion").toString());
+    //            System.out.println("Version: " +
+    //                               this.getValueFrmExpression("#{row.bindings.ArticleBomVersion.attributeValue}"));
+    //            Row[] bomFilteredRows =
+    //                bomRs.getFilteredRows("ArticleId", articleId);
+    //            if (bomFilteredRows.length > 0) {
+    //                for (Row bomFilteredRow : bomFilteredRows) {
+    //                    Integer bomVersion =
+    //                        Integer.valueOf(bomFilteredRow.getAttribute("ArtBomVersion").toString());
+    //                    if (bomVersion == version) {
+    //                        Integer artBomId =
+    //                            Integer.valueOf(bomFilteredRow.getAttribute("ArtBomId").toString());
+    //                        where += (artBomId + ",");
+    //                    }
+    //                }
+    //            }
+    //        }
+    //        versionRsi.closeRowSetIterator();
+    //        if (where != null && where.length() > 0) {
+    //            where = "(" + where.substring(0, where.length() - 1) + ")";
+    //            System.out.println("Where: " + where);
+    //            AttributeBinding attr =
+    //                (AttributeBinding)bc.getControlBinding("VersionDesc");
+    //            String versionDesc = String.valueOf(attr.getInputValue());
+    //            System.out.println("Version Desc: " + versionDesc);
+    //            OperationBinding op =
+    //                bc.getOperationBinding("createArticleBomVersion");
+    //            op.getParamsMap().put("boms", where);
+    //            op.getParamsMap().put("versionDesc", versionDesc);
+    //            Integer result = new Integer(String.valueOf(op.execute()));
+    //            if (result > 0) {
+    //                FacesMessage msg =
+    //                    new FacesMessage(FacesMessage.SEVERITY_ERROR, null,
+    //                                     "Duplicate version description entered");
+    //                throw new ValidatorException(msg);
+    //            }
+    //            if (op.getErrors().isEmpty()) {
+    //                RichPopup popup = getArtVersionPopup();
+    //                popup.hide();
+    //                this.execOper("Commit");
+    //                this.showMessage("Version created successfully.");
+    //            }
+    //        }
+    //    }
 
     public void createVersionDL(DialogEvent de) {
         if (de.getOutcome().equals(DialogEvent.Outcome.ok)) {
@@ -5007,7 +5077,10 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
                     bc.getOperationBinding("createArticleBomVersion");
                 op.getParamsMap().put("boms", where);
                 op.getParamsMap().put("versionDesc", versionDesc);
-                op.execute();
+                Integer result = new Integer(String.valueOf(op.execute()));
+                if (result > 0) {
+                    throw new ValidationException("\n\nDuplicate version description entered\n\n");
+                }
                 if (op.getErrors().isEmpty()) {
                     this.execOper("Commit");
                     this.showMessage("Version created successfully.");
@@ -5046,5 +5119,9 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         //        vo.executeQuery();
         this.execOper("ExecuteFab");
         this.execOper("ExecuteAcc");
+    }
+
+    public void createArticleBomVersionAL(ActionEvent actionEvent) {
+        // Add event code here...
     }
 }

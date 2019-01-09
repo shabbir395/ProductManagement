@@ -2254,6 +2254,29 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
         return result;
     }
 
+    public Integer saleOrderBomsStatus(Integer hid) {
+        Integer result = null;
+        String sql = "BEGIN :RESULT := XXPM_SO_BOMS_STATUS(:HID); END;";
+        CallableStatement stmt =
+            this.getDBTransaction().createCallableStatement(sql, 0);
+        try {
+            stmt.registerOutParameter("RESULT", Types.INTEGER);
+            stmt.setInt("HID", hid);
+            stmt.execute();
+            result = stmt.getInt("RESULT");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+            } catch (Exception e) {
+                // TODO: Add catch code
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
     public void insertPoLines(Integer prog, Integer hid, Integer poId,
                               Integer transType) {
         String query =
@@ -2513,18 +2536,22 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
         }
     }
 
-    public void createArticleBomVersion(String boms, String versionDesc) {
+    public Integer createArticleBomVersion(String boms, String versionDesc) {
+        Integer result = null;
         String sql =
-            "BEGIN   XXPM_ARTICLE_BOM_PKG.CREATE_ART_BOM_VERSION_PROC ( :P_BOM, :P_USER, :P_RESP_ID, :P_VERSION_DESC); END;";
+            "BEGIN   XXPM_ARTICLE_BOM_PKG.CREATE_ART_BOM_VERSION_PROC ( ?, ?, ?, ?, ?); END;";
         CallableStatement stmt =
             getDBTransaction().createCallableStatement(sql, 0);
         try {
-            stmt.setString("P_BOM", boms);
-            stmt.setString("P_USER", this.getUserInfo(1));
-            stmt.setString("P_RESP_ID", this.getUserInfo(2));
-            stmt.setString("P_VERSION_DESC", versionDesc);
-            stmt.executeUpdate();
+            stmt.registerOutParameter(5, Types.VARCHAR);
+            stmt.setString(1, boms);
+            stmt.setString(2, this.getUserInfo(1));
+            stmt.setString(3, this.getUserInfo(2));
+            stmt.setString(4, versionDesc);
+            stmt.execute();
+            result = stmt.getInt(5);
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             try {
                 stmt.close();
@@ -2532,6 +2559,7 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
                 // TODO: Add catch code
                 e.printStackTrace();
             }
-        } 
+        }
+        return result;
     }
 }

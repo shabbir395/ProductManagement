@@ -35,8 +35,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setArtBomId((DBSequence)value);
             }
-        }
-        ,
+        },
         ArtBomNum {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getArtBomNum();
@@ -45,8 +44,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setArtBomNum((String)value);
             }
-        }
-        ,
+        },
         ProgId {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getProgId();
@@ -55,8 +53,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setProgId((Integer)value);
             }
-        }
-        ,
+        },
         ProgName {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getProgName();
@@ -65,8 +62,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setProgName((String)value);
             }
-        }
-        ,
+        },
         ProgNameMaster {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getProgNameMaster();
@@ -75,8 +71,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setProgNameMaster((String)value);
             }
-        }
-        ,
+        },
         CustomerName {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getCustomerName();
@@ -85,8 +80,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setCustomerName((String)value);
             }
-        }
-        ,
+        },
         CustomerNameTrans {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getCustomerNameTrans();
@@ -95,8 +89,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setCustomerNameTrans((String)value);
             }
-        }
-        ,
+        },
         ProgManager {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getProgManager();
@@ -105,8 +98,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setProgManager((String)value);
             }
-        }
-        ,
+        },
         ProgManagerTrans {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getProgManagerTrans();
@@ -115,8 +107,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setProgManagerTrans((String)value);
             }
-        }
-        ,
+        },
         ArticleId {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getArticleId();
@@ -125,8 +116,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setArticleId((Integer)value);
             }
-        }
-        ,
+        },
         ArticleNameMaster {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getArticleNameMaster();
@@ -135,8 +125,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setArticleNameMaster((String)value);
             }
-        }
-        ,
+        },
         ArticleName {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getArticleName();
@@ -145,8 +134,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setArticleName((String)value);
             }
-        }
-        ,
+        },
         BomGroup {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getBomGroup();
@@ -155,8 +143,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setBomGroup((String)value);
             }
-        }
-        ,
+        },
         BomGroupTrans {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getBomGroupTrans();
@@ -165,18 +152,16 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setBomGroupTrans((String)value);
             }
-        }
-        ,
+        },
         ArtBomVersion {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getArtBomVersion();
             }
 
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
-                obj.setArtBomVersion((Number)value);
+                obj.setArtBomVersion((Integer)value);
             }
-        }
-        ,
+        },
         ArtBomVersionDesc {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getArtBomVersionDesc();
@@ -185,8 +170,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setArtBomVersionDesc((String)value);
             }
-        }
-        ,
+        },
         CreatedBy {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getCreatedBy();
@@ -195,8 +179,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setCreatedBy((String)value);
             }
-        }
-        ,
+        },
         CreatorName {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getCreatorName();
@@ -205,8 +188,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setCreatorName((String)value);
             }
-        }
-        ,
+        },
         CreationDate {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getCreationDate();
@@ -215,8 +197,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setCreationDate((Date)value);
             }
-        }
-        ,
+        },
         LastUpdatedBy {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getLastUpdatedBy();
@@ -225,8 +206,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setLastUpdatedBy((String)value);
             }
-        }
-        ,
+        },
         LastUpdateDate {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getLastUpdateDate();
@@ -235,8 +215,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setLastUpdateDate((Date)value);
             }
-        }
-        ,
+        },
         RespId {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getRespId();
@@ -245,8 +224,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setRespId((String)value);
             }
-        }
-        ,
+        },
         ApprovalDate {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getApprovalDate();
@@ -255,8 +233,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setApprovalDate((Date)value);
             }
-        }
-        ,
+        },
         ApprovalStatus {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getApprovalStatus();
@@ -265,8 +242,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setApprovalStatus((String)value);
             }
-        }
-        ,
+        },
         ReqApprDate {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getReqApprDate();
@@ -275,8 +251,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setReqApprDate((Date)value);
             }
-        }
-        ,
+        },
         RejectReason {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getRejectReason();
@@ -285,8 +260,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setRejectReason((String)value);
             }
-        }
-        ,
+        },
         ApprovalFlag {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getApprovalFlag();
@@ -295,8 +269,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setApprovalFlag((Integer)value);
             }
-        }
-        ,
+        },
         RowStatus {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getRowStatus();
@@ -305,8 +278,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setRowStatus((Integer)value);
             }
-        }
-        ,
+        },
         BomLog {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getBomLog();
@@ -315,8 +287,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setBomLog((ClobDomain)value);
             }
-        }
-        ,
+        },
         EbsStatus {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getEbsStatus();
@@ -325,8 +296,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setEbsStatus((Integer)value);
             }
-        }
-        ,
+        },
         ProgIdMaster {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getProgIdMaster();
@@ -335,8 +305,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setProgIdMaster((DBSequence)value);
             }
-        }
-        ,
+        },
         ArticleIdMaster {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getArticleIdMaster();
@@ -345,8 +314,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setArticleIdMaster((DBSequence)value);
             }
-        }
-        ,
+        },
         CustomerId {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getCustomerId();
@@ -355,8 +323,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setCustomerId((Integer)value);
             }
-        }
-        ,
+        },
         RowID {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getRowID();
@@ -365,8 +332,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setRowID((RowID)value);
             }
-        }
-        ,
+        },
         CustomerIdMP {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getCustomerIdMP();
@@ -375,8 +341,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setCustomerIdMP((Number)value);
             }
-        }
-        ,
+        },
         UserIdFND {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getUserIdFND();
@@ -385,8 +350,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setUserIdFND((Number)value);
             }
-        }
-        ,
+        },
         UserIdMP {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getUserIdMP();
@@ -395,8 +359,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setUserIdMP((Number)value);
             }
-        }
-        ,
+        },
         XxpmArticleBomAccessoriesView {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getXxpmArticleBomAccessoriesView();
@@ -405,8 +368,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmArticleBomFabricView {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getXxpmArticleBomFabricView();
@@ -415,8 +377,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         MadeupCombDetailsLov {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getMadeupCombDetailsLov();
@@ -425,8 +386,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         MadeupProgDetailsLov {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getMadeupProgDetailsLov();
@@ -435,8 +395,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         MadeupArticlesDetailsLov {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getMadeupArticlesDetailsLov();
@@ -445,8 +404,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         FndUserView {
             public Object get(XxpmArticleBomViewRowImpl obj) {
                 return obj.getFndUserView();
@@ -455,8 +413,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
             public void put(XxpmArticleBomViewRowImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ;
+        };
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -491,26 +448,36 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
     public static final int ARTBOMNUM = AttributesEnum.ArtBomNum.index();
     public static final int PROGID = AttributesEnum.ProgId.index();
     public static final int PROGNAME = AttributesEnum.ProgName.index();
-    public static final int PROGNAMEMASTER = AttributesEnum.ProgNameMaster.index();
+    public static final int PROGNAMEMASTER =
+        AttributesEnum.ProgNameMaster.index();
     public static final int CUSTOMERNAME = AttributesEnum.CustomerName.index();
-    public static final int CUSTOMERNAMETRANS = AttributesEnum.CustomerNameTrans.index();
+    public static final int CUSTOMERNAMETRANS =
+        AttributesEnum.CustomerNameTrans.index();
     public static final int PROGMANAGER = AttributesEnum.ProgManager.index();
-    public static final int PROGMANAGERTRANS = AttributesEnum.ProgManagerTrans.index();
+    public static final int PROGMANAGERTRANS =
+        AttributesEnum.ProgManagerTrans.index();
     public static final int ARTICLEID = AttributesEnum.ArticleId.index();
-    public static final int ARTICLENAMEMASTER = AttributesEnum.ArticleNameMaster.index();
+    public static final int ARTICLENAMEMASTER =
+        AttributesEnum.ArticleNameMaster.index();
     public static final int ARTICLENAME = AttributesEnum.ArticleName.index();
     public static final int BOMGROUP = AttributesEnum.BomGroup.index();
-    public static final int BOMGROUPTRANS = AttributesEnum.BomGroupTrans.index();
-    public static final int ARTBOMVERSION = AttributesEnum.ArtBomVersion.index();
-    public static final int ARTBOMVERSIONDESC = AttributesEnum.ArtBomVersionDesc.index();
+    public static final int BOMGROUPTRANS =
+        AttributesEnum.BomGroupTrans.index();
+    public static final int ARTBOMVERSION =
+        AttributesEnum.ArtBomVersion.index();
+    public static final int ARTBOMVERSIONDESC =
+        AttributesEnum.ArtBomVersionDesc.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATORNAME = AttributesEnum.CreatorName.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
-    public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
-    public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
+    public static final int LASTUPDATEDBY =
+        AttributesEnum.LastUpdatedBy.index();
+    public static final int LASTUPDATEDATE =
+        AttributesEnum.LastUpdateDate.index();
     public static final int RESPID = AttributesEnum.RespId.index();
     public static final int APPROVALDATE = AttributesEnum.ApprovalDate.index();
-    public static final int APPROVALSTATUS = AttributesEnum.ApprovalStatus.index();
+    public static final int APPROVALSTATUS =
+        AttributesEnum.ApprovalStatus.index();
     public static final int REQAPPRDATE = AttributesEnum.ReqApprDate.index();
     public static final int REJECTREASON = AttributesEnum.RejectReason.index();
     public static final int APPROVALFLAG = AttributesEnum.ApprovalFlag.index();
@@ -518,17 +485,23 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
     public static final int BOMLOG = AttributesEnum.BomLog.index();
     public static final int EBSSTATUS = AttributesEnum.EbsStatus.index();
     public static final int PROGIDMASTER = AttributesEnum.ProgIdMaster.index();
-    public static final int ARTICLEIDMASTER = AttributesEnum.ArticleIdMaster.index();
+    public static final int ARTICLEIDMASTER =
+        AttributesEnum.ArticleIdMaster.index();
     public static final int CUSTOMERID = AttributesEnum.CustomerId.index();
     public static final int ROWID = AttributesEnum.RowID.index();
     public static final int CUSTOMERIDMP = AttributesEnum.CustomerIdMP.index();
     public static final int USERIDFND = AttributesEnum.UserIdFND.index();
     public static final int USERIDMP = AttributesEnum.UserIdMP.index();
-    public static final int XXPMARTICLEBOMACCESSORIESVIEW = AttributesEnum.XxpmArticleBomAccessoriesView.index();
-    public static final int XXPMARTICLEBOMFABRICVIEW = AttributesEnum.XxpmArticleBomFabricView.index();
-    public static final int MADEUPCOMBDETAILSLOV = AttributesEnum.MadeupCombDetailsLov.index();
-    public static final int MADEUPPROGDETAILSLOV = AttributesEnum.MadeupProgDetailsLov.index();
-    public static final int MADEUPARTICLESDETAILSLOV = AttributesEnum.MadeupArticlesDetailsLov.index();
+    public static final int XXPMARTICLEBOMACCESSORIESVIEW =
+        AttributesEnum.XxpmArticleBomAccessoriesView.index();
+    public static final int XXPMARTICLEBOMFABRICVIEW =
+        AttributesEnum.XxpmArticleBomFabricView.index();
+    public static final int MADEUPCOMBDETAILSLOV =
+        AttributesEnum.MadeupCombDetailsLov.index();
+    public static final int MADEUPPROGDETAILSLOV =
+        AttributesEnum.MadeupProgDetailsLov.index();
+    public static final int MADEUPARTICLESDETAILSLOV =
+        AttributesEnum.MadeupArticlesDetailsLov.index();
     public static final int FNDUSERVIEW = AttributesEnum.FndUserView.index();
 
     /**
@@ -624,6 +597,10 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      */
     public void setProgId(Integer value) {
         setAttributeInternal(PROGID, value);
+        setArtBomVersion(ModelActions.maxArticleBomVersion(getDBTransaction(),
+                                                           value));
+        setArtBomVersionDesc(ModelActions.articleBomVersionDesc(getDBTransaction(),
+                                                                value));
     }
 
     /**
@@ -648,7 +625,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the USER_NAME
      */
     public String getProgManager() {
-        return (String) getAttributeInternal(XxpmArticleBomViewRowImpl.PROGMANAGER);
+        return (String)getAttributeInternal(XxpmArticleBomViewRowImpl.PROGMANAGER);
     }
 
     /**
@@ -681,7 +658,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the ARTICLE_NAME
      */
     public String getArticleNameMaster() {
-        return (String) getAttributeInternal(XxpmArticleBomViewRowImpl.ARTICLENAMEMASTER);
+        return (String)getAttributeInternal(XxpmArticleBomViewRowImpl.ARTICLENAMEMASTER);
     }
 
     /**
@@ -689,7 +666,8 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @param value value to set the ARTICLE_NAME
      */
     public void setArticleNameMaster(String value) {
-        setAttributeInternal(XxpmArticleBomViewRowImpl.ARTICLENAMEMASTER, value);
+        setAttributeInternal(XxpmArticleBomViewRowImpl.ARTICLENAMEMASTER,
+                             value);
     }
 
 
@@ -878,7 +856,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the BOM_LOG
      */
     public ClobDomain getBomLog() {
-        return (ClobDomain) getAttributeInternal(BOMLOG);
+        return (ClobDomain)getAttributeInternal(BOMLOG);
     }
 
     /**
@@ -894,7 +872,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the EBS_STATUS
      */
     public Integer getEbsStatus() {
-        return (Integer) getAttributeInternal(EBSSTATUS);
+        return (Integer)getAttributeInternal(EBSSTATUS);
     }
 
     /**
@@ -910,7 +888,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the PROG_NAME
      */
     public String getProgNameMaster() {
-        return (String) getAttributeInternal(PROGNAMEMASTER);
+        return (String)getAttributeInternal(PROGNAMEMASTER);
     }
 
     /**
@@ -958,7 +936,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the CUSTOMER_ID
      */
     public Integer getCustomerId() {
-        return (Integer) getAttributeInternal(CUSTOMERID);
+        return (Integer)getAttributeInternal(CUSTOMERID);
     }
 
     /**
@@ -974,7 +952,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the ROWID
      */
     public RowID getRowID() {
-        return (RowID) getAttributeInternal(ROWID);
+        return (RowID)getAttributeInternal(ROWID);
     }
 
     /**
@@ -990,7 +968,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the CUSTOMER_ID
      */
     public Number getCustomerIdMP() {
-        return (Number) getAttributeInternal(CUSTOMERIDMP);
+        return (Number)getAttributeInternal(CUSTOMERIDMP);
     }
 
     /**
@@ -1006,7 +984,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the USER_ID
      */
     public Number getUserIdFND() {
-        return (Number) getAttributeInternal(USERIDFND);
+        return (Number)getAttributeInternal(USERIDFND);
     }
 
     /**
@@ -1022,7 +1000,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the USER_ID
      */
     public Number getUserIdMP() {
-        return (Number) getAttributeInternal(USERIDMP);
+        return (Number)getAttributeInternal(USERIDMP);
     }
 
     /**
@@ -1038,7 +1016,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the ArticleName
      */
     public String getArticleName() {
-        return (String) getAttributeInternal(ARTICLENAME);
+        return (String)getAttributeInternal(ARTICLENAME);
     }
 
     /**
@@ -1054,7 +1032,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the CustomerNameTrans
      */
     public String getCustomerNameTrans() {
-        return (String) getAttributeInternal(CUSTOMERNAMETRANS);
+        return (String)getAttributeInternal(CUSTOMERNAMETRANS);
     }
 
     /**
@@ -1070,7 +1048,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the ProgManagerTrans
      */
     public String getProgManagerTrans() {
-        return (String) getAttributeInternal(PROGMANAGERTRANS);
+        return (String)getAttributeInternal(PROGMANAGERTRANS);
     }
 
     /**
@@ -1086,7 +1064,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the BomGroupTrans
      */
     public String getBomGroupTrans() {
-        return (String) getAttributeInternal(BOMGROUPTRANS);
+        return (String)getAttributeInternal(BOMGROUPTRANS);
     }
 
     /**
@@ -1101,15 +1079,15 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * Gets the attribute value for ART_BOM_VERSION using the alias name ArtBomVersion.
      * @return the ART_BOM_VERSION
      */
-    public Number getArtBomVersion() {
-        return (Number) getAttributeInternal(ARTBOMVERSION);
+    public Integer getArtBomVersion() {
+        return (Integer)getAttributeInternal(ARTBOMVERSION);
     }
 
     /**
      * Sets <code>value</code> as attribute value for ART_BOM_VERSION using the alias name ArtBomVersion.
      * @param value value to set the ART_BOM_VERSION
      */
-    public void setArtBomVersion(Number value) {
+    public void setArtBomVersion(Integer value) {
         setAttributeInternal(ARTBOMVERSION, value);
     }
 
@@ -1118,7 +1096,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the ART_BOM_VERSION_DESC
      */
     public String getArtBomVersionDesc() {
-        return (String) getAttributeInternal(ARTBOMVERSIONDESC);
+        return (String)getAttributeInternal(ARTBOMVERSIONDESC);
     }
 
     /**
@@ -1134,7 +1112,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the BOM_GROUP
      */
     public String getBomGroup() {
-        return (String) getAttributeInternal(XxpmArticleBomViewRowImpl.BOMGROUP);
+        return (String)getAttributeInternal(XxpmArticleBomViewRowImpl.BOMGROUP);
     }
 
     /**
@@ -1174,7 +1152,7 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      * @return the CUSTOMER_NAME
      */
     public String getCustomerName() {
-        return (String) getAttributeInternal(XxpmArticleBomViewRowImpl.CUSTOMERNAME);
+        return (String)getAttributeInternal(XxpmArticleBomViewRowImpl.CUSTOMERNAME);
     }
 
     /**
@@ -1237,8 +1215,10 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      */
     protected Object getAttrInvokeAccessor(int index,
                                            AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
-            return AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].get(this);
+        if ((index >= AttributesEnum.firstIndex()) &&
+            (index < AttributesEnum.count())) {
+            return AttributesEnum.staticValues()[index -
+                AttributesEnum.firstIndex()].get(this);
         }
         return super.getAttrInvokeAccessor(index, attrDef);
     }
@@ -1253,8 +1233,10 @@ public class XxpmArticleBomViewRowImpl extends ViewRowImpl {
      */
     protected void setAttrInvokeAccessor(int index, Object value,
                                          AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
-            AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].put(this, value);
+        if ((index >= AttributesEnum.firstIndex()) &&
+            (index < AttributesEnum.count())) {
+            AttributesEnum.staticValues()[index -
+                AttributesEnum.firstIndex()].put(this, value);
             return;
         }
         super.setAttrInvokeAccessor(index, value, attrDef);

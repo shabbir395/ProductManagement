@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
    <AppModuleConfigBag ApplicationName="ncl.pm.model.bc.am.XxpmAppModule">
-      <AppModuleConfig name="16812737FB2" DBconnection="java:comp/env/jdbc/ebsDS" ApplicationName="ncl.pm.model.bc.am.XxpmAppModule" DeployPlatform="LOCAL" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="ebs" BC4JConfigName="XxpmAppModuleLocal" jbo.project="ncl.pm.model.Model">
+      <AppModuleConfig name="1682EAF1A10" DBconnection="java:comp/env/jdbc/ebsDS" ApplicationName="ncl.pm.model.bc.am.XxpmAppModule" DeployPlatform="LOCAL" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="ebs" BC4JConfigName="XxpmAppModuleLocal" jbo.project="ncl.pm.model.Model">
          <Database jbo.locking.mode="optimistic" jbo.TypeMapEntries="Oracle" jbo.SQLBuilder="Oracle"/>
          <Security AppModuleJndiName="ncl.pm.model.bc.am.XxpmAppModule"/>
          <Tester FullProxyInterfaceName="ncl.pm.model.bc.am.common.XxpmAppModule"/>

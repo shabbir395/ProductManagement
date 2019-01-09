@@ -400,15 +400,6 @@
         <Item Value="VersionDescVariable"/>
       </AttrNames>
     </attributeValues>
-    <methodAction id="createArticleBomVersion"
-                  InstanceName="XxpmAppModuleDataControl.dataProvider"
-                  DataControl="XxpmAppModuleDataControl"
-                  RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="createArticleBomVersion"
-                  IsViewObjectMethod="false">
-      <NamedData NDName="boms" NDType="java.lang.String"/>
-      <NamedData NDName="versionDesc" NDType="java.lang.String"/>
-    </methodAction>
     <attributeValues IterBinding="XxpmArticleBomViewIterator"
                      id="ArtBomVersion">
       <AttrNames>
@@ -421,5 +412,15 @@
         <Item Value="ArtBomVersionDesc"/>
       </AttrNames>
     </attributeValues>
+    <methodAction id="createArticleBomVersion"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="createArticleBomVersion"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.createArticleBomVersion_XxpmAppModuleDataControl_dataProvider_createArticleBomVersion_result">
+      <NamedData NDName="boms" NDType="java.lang.String"/>
+      <NamedData NDName="versionDesc" NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

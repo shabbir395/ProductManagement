@@ -81,7 +81,7 @@ public class XxpmArticleBomImpl extends EntityImpl {
             }
 
             public void put(XxpmArticleBomImpl obj, Object value) {
-                obj.setArtBomVersion((Number)value);
+                obj.setArtBomVersion((Integer)value);
             }
         }
         ,
@@ -241,7 +241,7 @@ public class XxpmArticleBomImpl extends EntityImpl {
             }
 
             public void put(XxpmArticleBomImpl obj, Object value) {
-                obj.setXxpmMadeupPrograms((XxpmMadeupProgramsImpl)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ,
@@ -251,7 +251,7 @@ public class XxpmArticleBomImpl extends EntityImpl {
             }
 
             public void put(XxpmArticleBomImpl obj, Object value) {
-                obj.setXxpmMadeupArticles((XxpmMadeupArticlesImpl)value);
+                obj.setAttributeInternal(index(), value);
             }
         }
         ;
@@ -570,15 +570,15 @@ public class XxpmArticleBomImpl extends EntityImpl {
      * Gets the attribute value for ArtBomVersion, using the alias name ArtBomVersion.
      * @return the ArtBomVersion
      */
-    public Number getArtBomVersion() {
-        return (Number)getAttributeInternal(ARTBOMVERSION);
+    public Integer getArtBomVersion() {
+        return (Integer)getAttributeInternal(ARTBOMVERSION);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for ArtBomVersion.
      * @param value value to set the ArtBomVersion
      */
-    public void setArtBomVersion(Number value) {
+    public void setArtBomVersion(Integer value) {
         setAttributeInternal(ARTBOMVERSION, value);
     }
 
@@ -648,6 +648,15 @@ public class XxpmArticleBomImpl extends EntityImpl {
     }
 
     /**
+     * @param artBomId key constituent
+
+     * @return a Key object based on given key constituents.
+     */
+    public static Key createPrimaryKey(DBSequence artBomId) {
+        return new Key(new Object[]{artBomId});
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getXxpmArticleBomAccessories() {
@@ -692,15 +701,6 @@ public class XxpmArticleBomImpl extends EntityImpl {
         setAttributeInternal(XXPMMADEUPARTICLES, value);
     }
 
-
-    /**
-     * @param artBomId key constituent
-
-     * @return a Key object based on given key constituents.
-     */
-    public static Key createPrimaryKey(DBSequence artBomId) {
-        return new Key(new Object[]{artBomId});
-    }
 
     /**
      * Add attribute defaulting logic in this method.

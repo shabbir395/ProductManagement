@@ -862,9 +862,17 @@
         Type="java.lang.String"/>
     </Method>
     <Method
+      Name="saleOrderBomsStatus">
+      <Return
+        Type="java.lang.Integer"/>
+      <Parameter
+        Name="hid"
+        Type="java.lang.Integer"/>
+    </Method>
+    <Method
       Name="createArticleBomVersion">
       <Return
-        Type="void"/>
+        Type="java.lang.Integer"/>
       <Parameter
         Name="boms"
         Type="java.lang.String"/>

@@ -452,20 +452,16 @@
   </ViewAttribute>
   <ViewAttribute
     Name="ArtBomVersion"
-    IsUnique="true"
     PrecisionRule="true"
     EntityAttrName="ArtBomVersion"
     EntityUsage="XxpmArticleBom"
-    AliasName="ART_BOM_VERSION"
-    DefaultValue="1"/>
+    AliasName="ART_BOM_VERSION"/>
   <ViewAttribute
     Name="ArtBomVersionDesc"
-    IsUnique="true"
     PrecisionRule="true"
     EntityAttrName="ArtBomVersionDesc"
     EntityUsage="XxpmArticleBom"
-    AliasName="ART_BOM_VERSION_DESC"
-    DefaultValue="Default Version"/>
+    AliasName="ART_BOM_VERSION_DESC"/>
   <ViewAttribute
     Name="CreatedBy"
     LOVName="LOV_CreatedBy"

@@ -103,5 +103,8 @@ public interface XxpmAppModule extends ApplicationModule {
 
     int setBomProc(String bomId);
 
-    void createArticleBomVersion(String boms, String versionDesc);
+
+    Integer saleOrderBomsStatus(Integer hid);
+
+    Integer createArticleBomVersion(String boms, String versionDesc);
 }

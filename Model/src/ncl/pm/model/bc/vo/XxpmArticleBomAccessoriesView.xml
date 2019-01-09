@@ -11,7 +11,6 @@
        XxpmArticleBomAccessories.IM_ID, 
        XxpmArticleBomAccessories.SEGMENT2, 
        XxpmArticleBomAccessories.ACC_COLOR, 
-       XXPM_GET_COLOR_DESC(XxpmArticleBomAccessories.ACC_COLOR) AS COLOR_DESC, 
        XxpmArticleBomAccessories.ACC_SIZE, 
        XxpmArticleBomAccessories.SUB_INV, 
        XxpmArticleBomAccessories.CONSUMPTION, 
@@ -332,7 +331,12 @@
     SQLType="VARCHAR"
     LOVName="LOV_AccColorTrans"
     Precision="255"
-    Expression="XXPM_GET_COLOR_DESC(XxpmArticleBomAccessories.ACC_COLOR)">
+    IsSelected="false">
+    <TransientExpression><![CDATA[AccColor!=null ? ItemColorsLov.findByKey(key(AccColor),1)[0].getAttribute("Display") : ""]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="AccColor"/>
+    </Dependencies>
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -367,8 +371,13 @@
     AliasName="SIZE_DESC"
     SQLType="VARCHAR"
     Precision="255"
-    LOVName="LOV_AccSizeTrans">
+    LOVName="LOV_AccSizeTrans"
+    IsSelected="false">
     <TransientExpression><![CDATA[AccSize!=null ? ItemSizeLov.findByKey(key(AccSize),1)[0].getAttribute("Display") : ""]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="AccSize"/>
+    </Dependencies>
     <Properties>
       <SchemaBasedProperties>
         <LABEL

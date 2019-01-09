@@ -96,9 +96,7 @@
               <af:showPopupBehavior popupId="bomLogPopup" triggerType="action"/>
             </af:commandToolbarButton>
             <af:spacer width="10" height="10" id="spacer12"/>
-            <af:commandButton text="New Version" id="cb2" partialSubmit="true"
-                              actionListener="#{ViewActions.createArticleBomVersionAL}"
-                              rendered="false">
+            <af:commandButton text="New Version" id="cb2" partialSubmit="true">
               <af:showPopupBehavior popupId="versionPopup"
                                     triggerType="action"/>
             </af:commandButton>
@@ -129,6 +127,7 @@
                                 autoSubmit="true" showRequired="true"
                                 required="true"
                                 requiredMessageDetail="Version Desc. must be entered with unique value."/>
+                  <af:message id="m2" for="it8"/>
                   <af:panelGroupLayout id="pgl2" layout="scroll">
                     <af:table value="#{bindings.ArticleBomForSpecificProgramView.collectionModel}"
                               var="row"
@@ -410,13 +409,13 @@
               </af:gridCell>
               <af:gridCell marginStart="5px" width="dontCare" id="gridCell12">
                 <af:outputFormatted value="#{bindings.ArtBomVersion.inputValue}"
-                                    id="of8">
+                                    id="of8" partialTriggers="ilov4">
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.ArtBomVersion.format}"/>
                 </af:outputFormatted>
                 <af:outputText value=" - " id="ot28"/>
                 <af:outputFormatted value="#{bindings.ArtBomVersionDesc.inputValue}"
-                                    id="of9"/>
+                                    id="of9" partialTriggers="ilov4"/>
               </af:gridCell>
             </af:gridRow>
           </af:panelGridLayout>

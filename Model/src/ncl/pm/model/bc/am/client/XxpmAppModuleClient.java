@@ -18,6 +18,14 @@ public class XxpmAppModuleClient extends ApplicationModuleImpl implements XxpmAp
     }
 
 
+    public Integer createArticleBomVersion() {
+        Object _ret =
+            this.riInvokeExportedMethod(this, "createArticleBomVersion", null,
+                                        null);
+        return (Integer)_ret;
+    }
+
+
     public void blankSpnPage() {
         Object _ret = this.riInvokeExportedMethod(this,"blankSpnPage",null,null);
         return;
@@ -260,15 +268,15 @@ public class XxpmAppModuleClient extends ApplicationModuleImpl implements XxpmAp
         return ((Integer)_ret).intValue();
     }
 
-    public void createArticleBomVersion() {
+    public Integer saleOrderBomsStatus(Integer hid) {
         Object _ret =
-            this.riInvokeExportedMethod(this,"createArticleBomVersion",null,null);
-        return;
+            this.riInvokeExportedMethod(this,"saleOrderBomsStatus",new String [] {"java.lang.Integer"},new Object[] {hid});
+        return (Integer)_ret;
     }
 
-    public void createArticleBomVersion(String boms, String versionDesc) {
+    public Integer createArticleBomVersion(String boms, String versionDesc) {
         Object _ret =
             this.riInvokeExportedMethod(this,"createArticleBomVersion",new String [] {"java.lang.String","java.lang.String"},new Object[] {boms, versionDesc});
-        return;
+        return (Integer)_ret;
     }
 }
