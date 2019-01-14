@@ -404,7 +404,7 @@
                 </af:popup>
               </af:gridCell>
               <af:gridCell marginStart="5px" width="dontCare" id="gridCell11">
-                <af:outputFormatted value="Article BOM Version"
+                <af:outputFormatted value="BOM Version"
                                     id="outputFormatted11"/>
               </af:gridCell>
               <af:gridCell marginStart="5px" width="dontCare" id="gridCell12">

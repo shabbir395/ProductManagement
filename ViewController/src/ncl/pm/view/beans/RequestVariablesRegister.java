@@ -1,8 +1,10 @@
 package ncl.pm.view.beans;
 
-import ncl.pm.model.bc.view.xxpmJC.Logger;
+import java.util.logging.Logger;
 
 public class RequestVariablesRegister {
+    Logger logger = Logger.getLogger(this.getClass().getName());
+
     public RequestVariablesRegister() {
         //super();
     }
@@ -18,7 +20,7 @@ public class RequestVariablesRegister {
     }
 
     public void setArtBomNum(String artBomId) {
-        Logger.adfLogger.warning("artBomId = " + artBomId);
+        logger.warning("artBomId = " + artBomId);
         this.artBomNum = artBomId;
     }
 

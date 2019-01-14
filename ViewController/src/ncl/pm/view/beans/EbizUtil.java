@@ -6,11 +6,12 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 //import java.util.logging.Logger;
 
-import ncl.pm.model.bc.view.xxpmJC.Logger;
+import java.util.logging.Logger;
 
 import oracle.apps.fnd.ext.common.EBiz;
 
 public class EbizUtil {
+    private static Logger logger = Logger.getLogger(EbizUtil.class.getName());
     //    private static final Logger logger =
     //        Logger.getLogger(EbizUtil.class.getName());
     private static EBiz INSTANCE = null;
@@ -29,21 +30,20 @@ public class EbizUtil {
             //INSTANCE =new EBiz(connection,"1B713AE1DB76742DE050A8C01F0044FF15026417822445607976106053743325"); //prod server id
 
         } catch (SQLException e) {
-            Logger.adfLogger.setLevel(Level.SEVERE);
-            Logger.adfLogger.warning("SQLException while creating EBiz instance -->",
-                                     e);
+            logger.setLevel(Level.SEVERE);
+            logger.warning("SQLException while creating EBiz instance -->" +
+                           e);
             throw new RuntimeException(e);
         } catch (Exception e) {
-            Logger.adfLogger.setLevel(Level.SEVERE);
-            Logger.adfLogger.warning("Exception while creating EBiz instance -->",
-                                     e);
+            logger.setLevel(Level.SEVERE);
+            logger.warning("Exception while creating EBiz instance -->" + e);
             throw new RuntimeException(e);
         } finally {
             if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException e) {
-                    Logger.adfLogger.warning("EbizUtil.java: Connection Closed , Usage: Getting EBIZ Instance");
+                    logger.warning("EbizUtil.java: Connection Closed , Usage: Getting EBIZ Instance");
                 }
             }
         }

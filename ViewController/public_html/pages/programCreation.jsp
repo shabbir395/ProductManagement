@@ -140,8 +140,7 @@
                            sortable="true"
                            headerText="#{bindings.XxpmAttachmentsViewChildProg.hints.FileName.label}"
                            id="c22" width="250" rendered="true" align="center">
-                  <af:inputText
-                                label="#{bindings.XxpmAttachmentsViewChildProg.hints.FileName.label}"
+                  <af:inputText label="#{bindings.XxpmAttachmentsViewChildProg.hints.FileName.label}"
                                 required="#{bindings.XxpmAttachmentsViewChildProg.hints.FileName.mandatory}"
                                 columns="#{bindings.XxpmAttachmentsViewChildProg.hints.FileName.displayWidth}"
                                 maximumLength="#{bindings.XxpmAttachmentsViewChildProg.hints.FileName.precision}"
@@ -195,7 +194,8 @@
                                endWidth="0px" topHeight="0px" bottomHeight="0px"
                                dimensionsFrom="children">
           <f:facet name="center">
-            <af:outputFormatted value="Program Information" id="outputFormatted11"
+            <af:outputFormatted value="Program Information"
+                                id="outputFormatted11"
                                 inlineStyle="font-size:small; vertical-align:top;"/>
           </f:facet>
         </af:panelStretchLayout>
@@ -246,8 +246,7 @@
                             maximumLength="#{bindings.CustomerCode.hints.precision}"
                             shortDesc="#{bindings.CustomerCode.hints.tooltip}"
                             id="it15" autoSubmit="true" simple="true"
-                            contentStyle="width:94px;"
-                            disabled="true"
+                            contentStyle="width:94px;" disabled="true"
                             partialTriggers="ctb6">
                 <f:validator binding="#{bindings.CustomerCode.validator}"/>
               </af:inputText>
@@ -371,7 +370,8 @@
                               rowSelection="single" id="t6"
                               partialTriggers="::ctb8"
                               contentDelivery="immediate"
-                              autoHeightRows="#{bindings.XxpmMadeupSetsViewChildIterator.estimatedRowCount}" styleClass="AFStretchWidth"
+                              autoHeightRows="#{bindings.XxpmMadeupSetsViewChildIterator.estimatedRowCount}"
+                              styleClass="AFStretchWidth"
                               columnStretching="column:c64">
                       <af:column id="c119" align="center" headerText="Sr#"
                                  width="30">
@@ -820,7 +820,8 @@
                                endWidth="0px" topHeight="0px" bottomHeight="0px"
                                dimensionsFrom="children">
           <f:facet name="center">
-            <af:outputFormatted value="Articles Information" id="outputFormatted17"
+            <af:outputFormatted value="Articles Information"
+                                id="outputFormatted17"
                                 inlineStyle="font-size:small; vertical-align:top;"/>
           </f:facet>
         </af:panelStretchLayout>
@@ -1046,8 +1047,7 @@
                                            disabled="#{!bindings.CreateInsertColors.enabled}"
                                            id="ctb11"
                                            icon="/Images/add-icon 12x12.png"/>
-                  <af:commandToolbarButton
-                                           id="ctb17"
+                  <af:commandToolbarButton id="ctb17"
                                            icon="/Images/del-icon 12x12.png"
                                            disabled="#{bindings.EbsStatusColors.inputValue == '1' || bindings.XxpmMadeupColorsViewChildIterator.estimatedRowCount < 1 ? true : false}">
                     <af:showPopupBehavior popupId="delMadeupColorPopup"
@@ -1067,8 +1067,7 @@
                         filterVisible="true" varStatus="vs"
                         selectedRowKeys="#{bindings.XxpmMadeupColorsViewChild.collectionModel.selectedRow}"
                         selectionListener="#{bindings.XxpmMadeupColorsViewChild.collectionModel.makeCurrent}"
-                        rowSelection="single" id="t8"
-                        partialTriggers="::ctb11"
+                        rowSelection="single" id="t8" partialTriggers="::ctb11"
                         styleClass="AFStretchWidth" contentDelivery="immediate"
                         autoHeightRows="#{bindings.XxpmMadeupColorsViewChildIterator.estimatedRowCount}">
                 <af:column sortProperty="#{bindings.XxpmMadeupColorsViewChild.hints.ColorId.name}"
@@ -1355,8 +1354,7 @@
                                            disabled="#{!bindings.CreateInsertSize.enabled}"
                                            id="ctb16"
                                            icon="/Images/add-icon 12x12.png"/>
-                  <af:commandToolbarButton
-                                           id="ctb18"
+                  <af:commandToolbarButton id="ctb18"
                                            icon="/Images/del-icon 12x12.png"
                                            disabled="#{bindings.EbsStatusSizes.inputValue == '1' || bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount < 1 ? true : false}">
                     <af:showPopupBehavior popupId="delMadeupSizePopup"
@@ -1376,9 +1374,8 @@
                         filterVisible="true" varStatus="vs"
                         selectedRowKeys="#{bindings.XxpmMadeupSizesViewChild.collectionModel.selectedRow}"
                         selectionListener="#{bindings.XxpmMadeupSizesViewChild.collectionModel.makeCurrent}"
-                        rowSelection="single" id="t16"
-                        partialTriggers="::ctb16" styleClass="AFStretchWidth"
-                        contentDelivery="immediate"
+                        rowSelection="single" id="t16" partialTriggers="::ctb16"
+                        styleClass="AFStretchWidth" contentDelivery="immediate"
                         autoHeightRows="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount}">
                 <af:column sortProperty="#{bindings.XxpmMadeupSizesViewChild.hints.SizeId.name}"
                            filterable="true" sortable="true"
@@ -1504,8 +1501,7 @@
                                                disabled="#{!bindings.CreateInsertDimensions.enabled}"
                                                id="ctb12"
                                                icon="/Images/add-icon 12x12.png"/>
-                      <af:commandToolbarButton
-                                               id="ctb19"
+                      <af:commandToolbarButton id="ctb19"
                                                icon="/Images/del-icon 12x12.png"
                                                disabled="#{bindings.EbsStatusDimensions.inputValue == '1' || bindings.XxpmMadeupDimensionsViewChildIterator.estimatedRowCount < 1 ? true : false}">
                         <af:showPopupBehavior popupId="delMadeupDimensionPopup"
@@ -1528,7 +1524,8 @@
                             rowSelection="single" id="t2"
                             styleClass="AFStretchWidth"
                             contentDelivery="immediate"
-                            autoHeightRows="#{bindings.XxpmMadeupDimensionsViewChild.estimatedRowCount}" partialTriggers="::ctb12">
+                            autoHeightRows="#{bindings.XxpmMadeupDimensionsViewChild.estimatedRowCount}"
+                            partialTriggers="::ctb12">
                     <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionId.name}"
                                filterable="true" sortable="true"
                                headerText="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionId.label}"
@@ -1752,7 +1749,7 @@
                     <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize10.name}"
                                filterable="true" sortable="true"
                                headerText="#{ViewActions.dimSize10Title}"
-id="c35" align="center"
+                               id="c35" align="center"
                                rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 10 ? true : false}"
                                partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
                       <af:inputText value="#{row.bindings.DimensionSize10.inputValue}"
@@ -2174,18 +2171,17 @@ id="c35" align="center"
                         <af:showPopupBehavior popupId="::delMadeupComb"
                                               triggerType="action"/>
                       </af:commandToolbarButton>
-                      <af:commandToolbarButton
-                                               id="ctb21"
+                      <af:commandToolbarButton id="ctb21"
                                                icon="/Images/excel 12x12.png">
-                                               <af:setPropertyListener from="true"
-                                                       to="#{pageFlowScope.hideColumn}"
-                                                       type="action"/>
+                        <af:setPropertyListener from="true"
+                                                to="#{pageFlowScope.hideColumn}"
+                                                type="action"/>
                         <af:exportCollectionActionListener type="excelHTML"
                                                            exportedId="t9"
                                                            filename="#{ViewActions.combExpToExcelFileName}.xls"/>
-                      <af:setPropertyListener from="false"
-                                                       to="#{pageFlowScope.hideColumn}"
-                                                       type="action"/>
+                        <af:setPropertyListener from="false"
+                                                to="#{pageFlowScope.hideColumn}"
+                                                type="action"/>
                       </af:commandToolbarButton>
                     </af:toolbar>
                   </f:facet>
@@ -2200,7 +2196,8 @@ id="c35" align="center"
                             queryListener="#{bindings.XxpmMadeupCombinationsViewChildQuery.processQuery}"
                             filterVisible="true" varStatus="vs"
                             selectedRowKeys="#{bindings.XxpmMadeupCombinationsViewChild.collectionModel.selectedRow}"
-                            selectionListener="#{bindings.XxpmMadeupCombinationsViewChild.collectionModel.makeCurrent}" id="t9"
+                            selectionListener="#{bindings.XxpmMadeupCombinationsViewChild.collectionModel.makeCurrent}"
+                            id="t9"
                             autoHeightRows="#{bindings.XxpmMadeupCombinationsViewChild.estimatedRowCount}"
                             columnStretching="column:c79"
                             styleClass="AFStretchWidth"

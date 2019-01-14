@@ -3,8 +3,8 @@ package ncl.pm.model.bc.eo;
 import java.math.BigDecimal;
 
 import java.util.Calendar;
+import java.util.logging.Logger;
 
-import ncl.pm.model.bc.view.xxpmJC.Logger;
 import ncl.pm.model.bc.view.xxpmJC.ModelActions;
 
 import oracle.adf.share.ADFContext;
@@ -31,6 +31,7 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XxpmItemMasterImpl extends EntityImpl {
+    Logger logger = Logger.getLogger(this.getClass().getName());
     private static EntityDefImpl mDefinitionObject;
 
     /**
@@ -45,8 +46,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setSegment2((String)value);
             }
-        }
-        ,
+        },
         Description {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getDescription();
@@ -55,8 +55,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setDescription((String)value);
             }
-        }
-        ,
+        },
         YarnCount {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getYarnCount();
@@ -65,8 +64,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setYarnCount((Number)value);
             }
-        }
-        ,
+        },
         YarnPlies {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getYarnPlies();
@@ -75,8 +73,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setYarnPlies((String)value);
             }
-        }
-        ,
+        },
         YarnType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getYarnType();
@@ -85,8 +82,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setYarnType((String)value);
             }
-        }
-        ,
+        },
         MeasuringSystem {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getMeasuringSystem();
@@ -95,8 +91,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setMeasuringSystem((String)value);
             }
-        }
-        ,
+        },
         YarnStatus {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getYarnStatus();
@@ -105,8 +100,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setYarnStatus((String)value);
             }
-        }
-        ,
+        },
         Segment1 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getSegment1();
@@ -115,8 +109,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setSegment1((String)value);
             }
-        }
-        ,
+        },
         ImId {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getImId();
@@ -125,8 +118,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setImId((DBSequence)value);
             }
-        }
-        ,
+        },
         EbsItemId {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getEbsItemId();
@@ -135,8 +127,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setEbsItemId((Number)value);
             }
-        }
-        ,
+        },
         ItemStatusFlag {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getItemStatusFlag();
@@ -145,8 +136,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setItemStatusFlag((Integer)value);
             }
-        }
-        ,
+        },
         Segment3 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getSegment3();
@@ -155,8 +145,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setSegment3((String)value);
             }
-        }
-        ,
+        },
         Segment4 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getSegment4();
@@ -165,8 +154,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setSegment4((String)value);
             }
-        }
-        ,
+        },
         Segment5 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getSegment5();
@@ -175,8 +163,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setSegment5((String)value);
             }
-        }
-        ,
+        },
         Segment6 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getSegment6();
@@ -185,8 +172,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setSegment6((String)value);
             }
-        }
-        ,
+        },
         Segment7 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getSegment7();
@@ -195,8 +181,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setSegment7((String)value);
             }
-        }
-        ,
+        },
         Ends {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getEnds();
@@ -205,8 +190,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setEnds((Number)value);
             }
-        }
-        ,
+        },
         Picks {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getPicks();
@@ -215,8 +199,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setPicks((Number)value);
             }
-        }
-        ,
+        },
         Width {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getWidth();
@@ -225,8 +208,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setWidth((Number)value);
             }
-        }
-        ,
+        },
         Weave {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getWeave();
@@ -235,8 +217,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setWeave((String)value);
             }
-        }
-        ,
+        },
         Direction {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getDirection();
@@ -245,8 +226,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setDirection((String)value);
             }
-        }
-        ,
+        },
         Design {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getDesign();
@@ -255,8 +235,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setDesign((String)value);
             }
-        }
-        ,
+        },
         FabBlendType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getFabBlendType();
@@ -265,8 +244,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setFabBlendType((String)value);
             }
-        }
-        ,
+        },
         Insertion {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getInsertion();
@@ -275,8 +253,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setInsertion((String)value);
             }
-        }
-        ,
+        },
         SelvedgeType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getSelvedgeType();
@@ -285,8 +262,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setSelvedgeType((String)value);
             }
-        }
-        ,
+        },
         WeaveSize {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getWeaveSize();
@@ -295,8 +271,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setWeaveSize((String)value);
             }
-        }
-        ,
+        },
         YarnOutput {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getYarnOutput();
@@ -305,8 +280,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setYarnOutput((String)value);
             }
-        }
-        ,
+        },
         BaseImId {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBaseImId();
@@ -315,8 +289,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBaseImId((Number)value);
             }
-        }
-        ,
+        },
         FinishType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getFinishType();
@@ -325,8 +298,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setFinishType((String)value);
             }
-        }
-        ,
+        },
         EngravedNum {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getEngravedNum();
@@ -335,8 +307,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setEngravedNum((String)value);
             }
-        }
-        ,
+        },
         Category {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCategory();
@@ -345,8 +316,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCategory((String)value);
             }
-        }
-        ,
+        },
         BaseDye {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBaseDye();
@@ -355,8 +325,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBaseDye((String)value);
             }
-        }
-        ,
+        },
         FolderCode {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getFolderCode();
@@ -365,8 +334,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setFolderCode((Integer)value);
             }
-        }
-        ,
+        },
         BgGusset {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgGusset();
@@ -375,8 +343,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgGusset((Number)value);
             }
-        }
-        ,
+        },
         BgFlap {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgFlap();
@@ -385,8 +352,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgFlap((Number)value);
             }
-        }
-        ,
+        },
         BgBagDimensions {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgBagDimensions();
@@ -395,8 +361,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgBagDimensions((String)value);
             }
-        }
-        ,
+        },
         BgPrintType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgPrintType();
@@ -405,8 +370,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgPrintType((String)value);
             }
-        }
-        ,
+        },
         BgBagType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgBagType();
@@ -415,8 +379,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgBagType((String)value);
             }
-        }
-        ,
+        },
         BgBtnMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgBtnMaterial();
@@ -425,8 +388,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgBtnMaterial((String)value);
             }
-        }
-        ,
+        },
         BgBtnColor {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgBtnColor();
@@ -435,8 +397,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgBtnColor((String)value);
             }
-        }
-        ,
+        },
         BgZipSize {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgZipSize();
@@ -445,8 +406,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgZipSize((BigDecimal)value);
             }
-        }
-        ,
+        },
         BgZipColor {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgZipColor();
@@ -455,8 +415,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgZipColor((String)value);
             }
-        }
-        ,
+        },
         BgZipMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgZipMaterial();
@@ -465,8 +424,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgZipMaterial((String)value);
             }
-        }
-        ,
+        },
         BgBagMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgBagMaterial();
@@ -475,8 +433,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgBagMaterial((String)value);
             }
-        }
-        ,
+        },
         BgMaterialSpecs {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgMaterialSpecs();
@@ -485,8 +442,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgMaterialSpecs((String)value);
             }
-        }
-        ,
+        },
         BgMaterialGuage {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgMaterialGuage();
@@ -495,8 +451,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgMaterialGuage((String)value);
             }
-        }
-        ,
+        },
         BgBagPocket {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgBagPocket();
@@ -505,8 +460,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgBagPocket((String)value);
             }
-        }
-        ,
+        },
         BgFpLength {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgFpLength();
@@ -515,8 +469,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgFpLength((Number)value);
             }
-        }
-        ,
+        },
         BgFpWidth {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgFpWidth();
@@ -525,8 +478,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgFpWidth((Number)value);
             }
-        }
-        ,
+        },
         BgBpLength {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgBpLength();
@@ -535,8 +487,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgBpLength((Number)value);
             }
-        }
-        ,
+        },
         BgBpWidth {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBgBpWidth();
@@ -545,8 +496,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBgBpWidth((Number)value);
             }
-        }
-        ,
+        },
         InsInsertType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getInsInsertType();
@@ -555,8 +505,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setInsInsertType((String)value);
             }
-        }
-        ,
+        },
         InsGusset {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getInsGusset();
@@ -565,8 +514,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setInsGusset((Number)value);
             }
-        }
-        ,
+        },
         InsDimensions {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getInsDimensions();
@@ -575,8 +523,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setInsDimensions((String)value);
             }
-        }
-        ,
+        },
         InsMaterialGsm {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getInsMaterialGsm();
@@ -585,8 +532,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setInsMaterialGsm((String)value);
             }
-        }
-        ,
+        },
         InsPaperType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getInsPaperType();
@@ -595,8 +541,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setInsPaperType((String)value);
             }
-        }
-        ,
+        },
         InsLamination {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getInsLamination();
@@ -605,8 +550,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setInsLamination((String)value);
             }
-        }
-        ,
+        },
         InsVarnish {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getInsVarnish();
@@ -615,8 +559,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setInsVarnish((String)value);
             }
-        }
-        ,
+        },
         InsFixType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getInsFixType();
@@ -625,8 +568,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setInsFixType((String)value);
             }
-        }
-        ,
+        },
         StfStifnerType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStfStifnerType();
@@ -635,8 +577,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStfStifnerType((String)value);
             }
-        }
-        ,
+        },
         StfGusset1 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStfGusset1();
@@ -645,8 +586,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStfGusset1((Number)value);
             }
-        }
-        ,
+        },
         StfGusset2 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStfGusset2();
@@ -655,8 +595,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStfGusset2((Number)value);
             }
-        }
-        ,
+        },
         StfPly {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStfPly();
@@ -665,8 +604,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStfPly((String)value);
             }
-        }
-        ,
+        },
         StfMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStfMaterial();
@@ -675,8 +613,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStfMaterial((String)value);
             }
-        }
-        ,
+        },
         CrtCartonType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtCartonType();
@@ -685,8 +622,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtCartonType((String)value);
             }
-        }
-        ,
+        },
         CrtPrintedType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtPrintedType();
@@ -695,8 +631,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtPrintedType((String)value);
             }
-        }
-        ,
+        },
         CrtOutWidth {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtOutWidth();
@@ -705,8 +640,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtOutWidth((Number)value);
             }
-        }
-        ,
+        },
         CrtOutLength {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtOutLength();
@@ -715,8 +649,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtOutLength((Number)value);
             }
-        }
-        ,
+        },
         CrtOutHeight {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtOutHeight();
@@ -725,8 +658,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtOutHeight((Number)value);
             }
-        }
-        ,
+        },
         CrtOutUom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtOutUom();
@@ -735,8 +667,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtOutUom((String)value);
             }
-        }
-        ,
+        },
         CrtOutDimensions {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtOutDimensions();
@@ -745,8 +676,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtOutDimensions((String)value);
             }
-        }
-        ,
+        },
         CrtInnWidth {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtInnWidth();
@@ -755,8 +685,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtInnWidth((Number)value);
             }
-        }
-        ,
+        },
         CrtInnLength {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtInnLength();
@@ -765,8 +694,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtInnLength((Number)value);
             }
-        }
-        ,
+        },
         CrtInnHeight {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtInnHeight();
@@ -775,8 +703,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtInnHeight((Number)value);
             }
-        }
-        ,
+        },
         CrtInnUom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtInnUom();
@@ -785,8 +712,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtInnUom((String)value);
             }
-        }
-        ,
+        },
         CrtInnDimensions {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtInnDimensions();
@@ -795,8 +721,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtInnDimensions((String)value);
             }
-        }
-        ,
+        },
         CrtPly {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtPly();
@@ -805,8 +730,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtPly((String)value);
             }
-        }
-        ,
+        },
         CrtMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtMaterial();
@@ -815,8 +739,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtMaterial((String)value);
             }
-        }
-        ,
+        },
         CrtPrintType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtPrintType();
@@ -825,8 +748,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtPrintType((String)value);
             }
-        }
-        ,
+        },
         CrtEct {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtEct();
@@ -835,8 +757,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtEct((String)value);
             }
-        }
-        ,
+        },
         CrtBusting {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtBusting();
@@ -845,8 +766,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtBusting((String)value);
             }
-        }
-        ,
+        },
         LblLableType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLblLableType();
@@ -855,8 +775,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLblLableType((String)value);
             }
-        }
-        ,
+        },
         LblPlainLength {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLblPlainLength();
@@ -865,8 +784,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLblPlainLength((Number)value);
             }
-        }
-        ,
+        },
         LblPlainWidth {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLblPlainWidth();
@@ -875,8 +793,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLblPlainWidth((Number)value);
             }
-        }
-        ,
+        },
         LblPlainSwingMargin {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLblPlainSwingMargin();
@@ -885,8 +802,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLblPlainSwingMargin((String)value);
             }
-        }
-        ,
+        },
         LblPlainSize {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLblPlainSize();
@@ -895,8 +811,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLblPlainSize((String)value);
             }
-        }
-        ,
+        },
         LblFoldLength {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLblFoldLength();
@@ -905,8 +820,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLblFoldLength((Number)value);
             }
-        }
-        ,
+        },
         LblFoldWidth {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLblFoldWidth();
@@ -915,8 +829,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLblFoldWidth((Number)value);
             }
-        }
-        ,
+        },
         LblFoldSwingMargin {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLblFoldSwingMargin();
@@ -925,8 +838,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLblFoldSwingMargin((String)value);
             }
-        }
-        ,
+        },
         LblFoldSize {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLblFoldSize();
@@ -935,8 +847,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLblFoldSize((String)value);
             }
-        }
-        ,
+        },
         LblFoldingType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLblFoldingType();
@@ -945,8 +856,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLblFoldingType((String)value);
             }
-        }
-        ,
+        },
         LblMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLblMaterial();
@@ -955,8 +865,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLblMaterial((String)value);
             }
-        }
-        ,
+        },
         ZipMaterialType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getZipMaterialType();
@@ -965,8 +874,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setZipMaterialType((String)value);
             }
-        }
-        ,
+        },
         ZipTeethType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getZipTeethType();
@@ -975,8 +883,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setZipTeethType((String)value);
             }
-        }
-        ,
+        },
         ZipUom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getZipUom();
@@ -985,8 +892,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setZipUom((String)value);
             }
-        }
-        ,
+        },
         ThrThreadUsage {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getThrThreadUsage();
@@ -995,8 +901,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setThrThreadUsage((String)value);
             }
-        }
-        ,
+        },
         ThrThreadType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getThrThreadType();
@@ -1005,8 +910,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setThrThreadType((String)value);
             }
-        }
-        ,
+        },
         ThrMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getThrMaterial();
@@ -1015,8 +919,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setThrMaterial((String)value);
             }
-        }
-        ,
+        },
         ThrTexSizePly {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getThrTexSizePly();
@@ -1025,8 +928,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setThrTexSizePly((String)value);
             }
-        }
-        ,
+        },
         ElsElasticType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getElsElasticType();
@@ -1035,8 +937,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setElsElasticType((String)value);
             }
-        }
-        ,
+        },
         ElsCordType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getElsCordType();
@@ -1045,8 +946,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setElsCordType((String)value);
             }
-        }
-        ,
+        },
         ElsRatio {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getElsRatio();
@@ -1055,8 +955,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setElsRatio((String)value);
             }
-        }
-        ,
+        },
         CtcMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCtcMaterial();
@@ -1065,8 +964,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCtcMaterial((String)value);
             }
-        }
-        ,
+        },
         CtcDiaThickness {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCtcDiaThickness();
@@ -1075,8 +973,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCtcDiaThickness((String)value);
             }
-        }
-        ,
+        },
         FusMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getFusMaterial();
@@ -1085,8 +982,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setFusMaterial((String)value);
             }
-        }
-        ,
+        },
         FusGsm {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getFusGsm();
@@ -1095,8 +991,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setFusGsm((String)value);
             }
-        }
-        ,
+        },
         NwvGsm {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getNwvGsm();
@@ -1105,8 +1000,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setNwvGsm((Integer)value);
             }
-        }
-        ,
+        },
         NwvMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getNwvMaterial();
@@ -1115,8 +1009,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setNwvMaterial((String)value);
             }
-        }
-        ,
+        },
         WdGsm {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getWdGsm();
@@ -1125,8 +1018,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setWdGsm((String)value);
             }
-        }
-        ,
+        },
         WdLoaft {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getWdLoaft();
@@ -1135,8 +1027,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setWdLoaft((String)value);
             }
-        }
-        ,
+        },
         WdMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getWdMaterial();
@@ -1145,8 +1036,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setWdMaterial((String)value);
             }
-        }
-        ,
+        },
         WdRatio {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getWdRatio();
@@ -1155,8 +1045,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setWdRatio((String)value);
             }
-        }
-        ,
+        },
         BfMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBfMaterial();
@@ -1165,8 +1054,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBfMaterial((String)value);
             }
-        }
-        ,
+        },
         BfMaterialType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBfMaterialType();
@@ -1175,8 +1063,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBfMaterialType((String)value);
             }
-        }
-        ,
+        },
         BtnButtonSize {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBtnButtonSize();
@@ -1185,8 +1072,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBtnButtonSize((String)value);
             }
-        }
-        ,
+        },
         BtnHolesNum {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBtnHolesNum();
@@ -1195,8 +1081,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBtnHolesNum((Integer)value);
             }
-        }
-        ,
+        },
         BtnButtonType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBtnButtonType();
@@ -1205,8 +1090,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBtnButtonType((String)value);
             }
-        }
-        ,
+        },
         BtnButtonMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBtnButtonMaterial();
@@ -1215,8 +1099,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBtnButtonMaterial((String)value);
             }
-        }
-        ,
+        },
         BtnButtonColor {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBtnButtonColor();
@@ -1225,8 +1108,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBtnButtonColor((String)value);
             }
-        }
-        ,
+        },
         PprPaperColor {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getPprPaperColor();
@@ -1235,8 +1117,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setPprPaperColor((String)value);
             }
-        }
-        ,
+        },
         PprPaperMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getPprPaperMaterial();
@@ -1245,8 +1126,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setPprPaperMaterial((String)value);
             }
-        }
-        ,
+        },
         StkStickerType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStkStickerType();
@@ -1255,8 +1135,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStkStickerType((String)value);
             }
-        }
-        ,
+        },
         StkMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStkMaterial();
@@ -1265,8 +1144,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStkMaterial((String)value);
             }
-        }
-        ,
+        },
         StkPeelableType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStkPeelableType();
@@ -1275,8 +1153,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStkPeelableType((String)value);
             }
-        }
-        ,
+        },
         StkPerforatedType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStkPerforatedType();
@@ -1285,8 +1162,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStkPerforatedType((String)value);
             }
-        }
-        ,
+        },
         StkColor {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStkColor();
@@ -1295,8 +1171,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStkColor((String)value);
             }
-        }
-        ,
+        },
         StkText {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStkText();
@@ -1305,8 +1180,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStkText((String)value);
             }
-        }
-        ,
+        },
         SgItem {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getSgItem();
@@ -1315,8 +1189,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setSgItem((String)value);
             }
-        }
-        ,
+        },
         SgWeight {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getSgWeight();
@@ -1325,8 +1198,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setSgWeight((Number)value);
             }
-        }
-        ,
+        },
         TpColor {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getTpColor();
@@ -1335,8 +1207,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setTpColor((String)value);
             }
-        }
-        ,
+        },
         TpMaterialType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getTpMaterialType();
@@ -1345,8 +1216,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setTpMaterialType((String)value);
             }
-        }
-        ,
+        },
         LacType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLacType();
@@ -1355,8 +1225,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLacType((String)value);
             }
-        }
-        ,
+        },
         LacMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLacMaterial();
@@ -1365,8 +1234,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLacMaterial((String)value);
             }
-        }
-        ,
+        },
         LacUom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLacUom();
@@ -1375,8 +1243,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLacUom((String)value);
             }
-        }
-        ,
+        },
         LacColor {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLacColor();
@@ -1385,8 +1252,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLacColor((String)value);
             }
-        }
-        ,
+        },
         EyColor {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getEyColor();
@@ -1395,8 +1261,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setEyColor((String)value);
             }
-        }
-        ,
+        },
         EyMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getEyMaterial();
@@ -1405,8 +1270,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setEyMaterial((String)value);
             }
-        }
-        ,
+        },
         EyFinish {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getEyFinish();
@@ -1415,8 +1279,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setEyFinish((String)value);
             }
-        }
-        ,
+        },
         HngMaterialCombination {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getHngMaterialCombination();
@@ -1425,8 +1288,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setHngMaterialCombination((String)value);
             }
-        }
-        ,
+        },
         HngThickness {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getHngThickness();
@@ -1435,8 +1297,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setHngThickness((Number)value);
             }
-        }
-        ,
+        },
         HngThicknessUom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getHngThicknessUom();
@@ -1445,8 +1306,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setHngThicknessUom((String)value);
             }
-        }
-        ,
+        },
         HngHookType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getHngHookType();
@@ -1455,8 +1315,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setHngHookType((String)value);
             }
-        }
-        ,
+        },
         StrDescription {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getStrDescription();
@@ -1465,8 +1324,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setStrDescription((String)value);
             }
-        }
-        ,
+        },
         TapMaterial {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getTapMaterial();
@@ -1475,8 +1333,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setTapMaterial((String)value);
             }
-        }
-        ,
+        },
         TapPrintText {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getTapPrintText();
@@ -1485,8 +1342,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setTapPrintText((String)value);
             }
-        }
-        ,
+        },
         AccHeight {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccHeight();
@@ -1495,8 +1351,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccHeight((Number)value);
             }
-        }
-        ,
+        },
         AccHeightUom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccHeightUom();
@@ -1505,8 +1360,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccHeightUom((String)value);
             }
-        }
-        ,
+        },
         AccLength {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccLength();
@@ -1515,8 +1369,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccLength((Number)value);
             }
-        }
-        ,
+        },
         AccLengthUom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccLengthUom();
@@ -1525,8 +1378,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccLengthUom((String)value);
             }
-        }
-        ,
+        },
         AccLength1 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccLength1();
@@ -1535,8 +1387,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccLength1((Number)value);
             }
-        }
-        ,
+        },
         AccLength1Uom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccLength1Uom();
@@ -1545,8 +1396,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccLength1Uom((String)value);
             }
-        }
-        ,
+        },
         AccLength2 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccLength2();
@@ -1555,8 +1405,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccLength2((Number)value);
             }
-        }
-        ,
+        },
         AccLength2Uom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccLength2Uom();
@@ -1565,8 +1414,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccLength2Uom((String)value);
             }
-        }
-        ,
+        },
         AccWidth {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccWidth();
@@ -1575,8 +1423,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccWidth((Number)value);
             }
-        }
-        ,
+        },
         AccWidthUom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccWidthUom();
@@ -1585,8 +1432,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccWidthUom((String)value);
             }
-        }
-        ,
+        },
         AccWidth1 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccWidth1();
@@ -1595,8 +1441,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccWidth1((Number)value);
             }
-        }
-        ,
+        },
         AccWidth1Uom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccWidth1Uom();
@@ -1605,8 +1450,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccWidth1Uom((String)value);
             }
-        }
-        ,
+        },
         AccWidth2 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccWidth2();
@@ -1615,8 +1459,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccWidth2((Number)value);
             }
-        }
-        ,
+        },
         AccWidth2Uom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccWidth2Uom();
@@ -1625,8 +1468,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccWidth2Uom((String)value);
             }
-        }
-        ,
+        },
         AccDiameter {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccDiameter();
@@ -1635,8 +1477,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccDiameter((Number)value);
             }
-        }
-        ,
+        },
         AccDiameterUom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccDiameterUom();
@@ -1645,8 +1486,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccDiameterUom((String)value);
             }
-        }
-        ,
+        },
         AccListPrice {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccListPrice();
@@ -1655,8 +1495,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccListPrice((BigDecimal)value);
             }
-        }
-        ,
+        },
         AccWastage {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccWastage();
@@ -1665,8 +1504,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccWastage((BigDecimal)value);
             }
-        }
-        ,
+        },
         AccRemarks {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccRemarks();
@@ -1675,8 +1513,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccRemarks((String)value);
             }
-        }
-        ,
+        },
         AccAccessoryType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccAccessoryType();
@@ -1685,8 +1522,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccAccessoryType((String)value);
             }
-        }
-        ,
+        },
         CtcItemType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCtcItemType();
@@ -1695,8 +1531,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCtcItemType((String)value);
             }
-        }
-        ,
+        },
         WarpContraction {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getWarpContraction();
@@ -1705,8 +1540,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setWarpContraction((Number)value);
             }
-        }
-        ,
+        },
         WeftContraction {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getWeftContraction();
@@ -1715,8 +1549,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setWeftContraction((Number)value);
             }
-        }
-        ,
+        },
         CreatedBy {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCreatedBy();
@@ -1725,8 +1558,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCreatedBy((String)value);
             }
-        }
-        ,
+        },
         CreationDate {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCreationDate();
@@ -1735,8 +1567,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCreationDate((Date)value);
             }
-        }
-        ,
+        },
         LastUpdatedBy {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLastUpdatedBy();
@@ -1745,8 +1576,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLastUpdatedBy((String)value);
             }
-        }
-        ,
+        },
         LastUpdateDate {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getLastUpdateDate();
@@ -1755,8 +1585,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setLastUpdateDate((Date)value);
             }
-        }
-        ,
+        },
         RespId {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getRespId();
@@ -1765,8 +1594,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setRespId((String)value);
             }
-        }
-        ,
+        },
         Segment3Value {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getSegment3Value();
@@ -1775,8 +1603,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setSegment3Value((String)value);
             }
-        }
-        ,
+        },
         AccSize {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccSize();
@@ -1785,8 +1612,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccSize((String)value);
             }
-        }
-        ,
+        },
         AccSizeDesc {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccSizeDesc();
@@ -1795,8 +1621,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccSizeDesc((String)value);
             }
-        }
-        ,
+        },
         MinOrderQty {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getMinOrderQty();
@@ -1805,8 +1630,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setMinOrderQty((Number)value);
             }
-        }
-        ,
+        },
         AccItemUom {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccItemUom();
@@ -1815,8 +1639,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccItemUom((String)value);
             }
-        }
-        ,
+        },
         Dyed {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getDyed();
@@ -1825,8 +1648,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setDyed((String)value);
             }
-        }
-        ,
+        },
         DyeColor {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getDyeColor();
@@ -1835,8 +1657,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setDyeColor((String)value);
             }
-        }
-        ,
+        },
         RefLotNum {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getRefLotNum();
@@ -1845,8 +1666,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setRefLotNum((String)value);
             }
-        }
-        ,
+        },
         DyeCode {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getDyeCode();
@@ -1855,8 +1675,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setDyeCode((String)value);
             }
-        }
-        ,
+        },
         DyeStandard {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getDyeStandard();
@@ -1865,8 +1684,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setDyeStandard((String)value);
             }
-        }
-        ,
+        },
         WvFabricBlend {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getWvFabricBlend();
@@ -1875,8 +1693,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setWvFabricBlend((String)value);
             }
-        }
-        ,
+        },
         AccCustVal {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getAccCustVal();
@@ -1885,8 +1702,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAccCustVal((String)value);
             }
-        }
-        ,
+        },
         InsText {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getInsText();
@@ -1895,8 +1711,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setInsText((String)value);
             }
-        }
-        ,
+        },
         CrtText {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getCrtText();
@@ -1905,8 +1720,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setCrtText((String)value);
             }
-        }
-        ,
+        },
         XxpmYarnBlend {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmYarnBlend();
@@ -1915,8 +1729,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmYarnType {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmYarnType();
@@ -1925,8 +1738,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmWarp {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmWarp();
@@ -1935,8 +1747,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmWeft {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmWeft();
@@ -1945,8 +1756,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmItemMaster {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmItemMaster();
@@ -1955,8 +1765,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         BaseImIdXxpmItemMaster {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBaseImIdXxpmItemMaster();
@@ -1965,8 +1774,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBaseImIdXxpmItemMaster((XxpmItemMasterImpl)value);
             }
-        }
-        ,
+        },
         XxpmWarp1 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmWarp1();
@@ -1975,8 +1783,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmAttachments {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmAttachments();
@@ -1985,8 +1792,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmWeft1 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmWeft1();
@@ -1995,8 +1801,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmYarnType1 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmYarnType1();
@@ -2005,8 +1810,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmItemMaster1 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmItemMaster1();
@@ -2015,8 +1819,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         BaseImIdXxpmItemMaster1 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getBaseImIdXxpmItemMaster1();
@@ -2025,8 +1828,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setBaseImIdXxpmItemMaster1((XxpmItemMasterImpl)value);
             }
-        }
-        ,
+        },
         XxpmYarnBlend1 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmYarnBlend1();
@@ -2035,8 +1837,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmArticleBomAccessories {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmArticleBomAccessories();
@@ -2045,8 +1846,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmWeft2 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmWeft2();
@@ -2055,8 +1855,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmWeft3 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmWeft3();
@@ -2065,8 +1864,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmArticleBomFabric {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmArticleBomFabric();
@@ -2075,8 +1873,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmWarp2 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmWarp2();
@@ -2085,8 +1882,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmWarp3 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmWarp3();
@@ -2095,8 +1891,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmAttachments1 {
             public Object get(XxpmItemMasterImpl obj) {
                 return obj.getXxpmAttachments1();
@@ -2105,8 +1900,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
             public void put(XxpmItemMasterImpl obj, Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ;
+        };
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -2147,12 +1941,14 @@ public class XxpmItemMasterImpl extends EntityImpl {
     public static final int YARNCOUNT = AttributesEnum.YarnCount.index();
     public static final int YARNPLIES = AttributesEnum.YarnPlies.index();
     public static final int YARNTYPE = AttributesEnum.YarnType.index();
-    public static final int MEASURINGSYSTEM = AttributesEnum.MeasuringSystem.index();
+    public static final int MEASURINGSYSTEM =
+        AttributesEnum.MeasuringSystem.index();
     public static final int YARNSTATUS = AttributesEnum.YarnStatus.index();
     public static final int SEGMENT1 = AttributesEnum.Segment1.index();
     public static final int IMID = AttributesEnum.ImId.index();
     public static final int EBSITEMID = AttributesEnum.EbsItemId.index();
-    public static final int ITEMSTATUSFLAG = AttributesEnum.ItemStatusFlag.index();
+    public static final int ITEMSTATUSFLAG =
+        AttributesEnum.ItemStatusFlag.index();
     public static final int SEGMENT3 = AttributesEnum.Segment3.index();
     public static final int SEGMENT4 = AttributesEnum.Segment4.index();
     public static final int SEGMENT5 = AttributesEnum.Segment5.index();
@@ -2177,75 +1973,102 @@ public class XxpmItemMasterImpl extends EntityImpl {
     public static final int FOLDERCODE = AttributesEnum.FolderCode.index();
     public static final int BGGUSSET = AttributesEnum.BgGusset.index();
     public static final int BGFLAP = AttributesEnum.BgFlap.index();
-    public static final int BGBAGDIMENSIONS = AttributesEnum.BgBagDimensions.index();
+    public static final int BGBAGDIMENSIONS =
+        AttributesEnum.BgBagDimensions.index();
     public static final int BGPRINTTYPE = AttributesEnum.BgPrintType.index();
     public static final int BGBAGTYPE = AttributesEnum.BgBagType.index();
-    public static final int BGBTNMATERIAL = AttributesEnum.BgBtnMaterial.index();
+    public static final int BGBTNMATERIAL =
+        AttributesEnum.BgBtnMaterial.index();
     public static final int BGBTNCOLOR = AttributesEnum.BgBtnColor.index();
     public static final int BGZIPSIZE = AttributesEnum.BgZipSize.index();
     public static final int BGZIPCOLOR = AttributesEnum.BgZipColor.index();
-    public static final int BGZIPMATERIAL = AttributesEnum.BgZipMaterial.index();
-    public static final int BGBAGMATERIAL = AttributesEnum.BgBagMaterial.index();
-    public static final int BGMATERIALSPECS = AttributesEnum.BgMaterialSpecs.index();
-    public static final int BGMATERIALGUAGE = AttributesEnum.BgMaterialGuage.index();
+    public static final int BGZIPMATERIAL =
+        AttributesEnum.BgZipMaterial.index();
+    public static final int BGBAGMATERIAL =
+        AttributesEnum.BgBagMaterial.index();
+    public static final int BGMATERIALSPECS =
+        AttributesEnum.BgMaterialSpecs.index();
+    public static final int BGMATERIALGUAGE =
+        AttributesEnum.BgMaterialGuage.index();
     public static final int BGBAGPOCKET = AttributesEnum.BgBagPocket.index();
     public static final int BGFPLENGTH = AttributesEnum.BgFpLength.index();
     public static final int BGFPWIDTH = AttributesEnum.BgFpWidth.index();
     public static final int BGBPLENGTH = AttributesEnum.BgBpLength.index();
     public static final int BGBPWIDTH = AttributesEnum.BgBpWidth.index();
-    public static final int INSINSERTTYPE = AttributesEnum.InsInsertType.index();
+    public static final int INSINSERTTYPE =
+        AttributesEnum.InsInsertType.index();
     public static final int INSGUSSET = AttributesEnum.InsGusset.index();
-    public static final int INSDIMENSIONS = AttributesEnum.InsDimensions.index();
-    public static final int INSMATERIALGSM = AttributesEnum.InsMaterialGsm.index();
+    public static final int INSDIMENSIONS =
+        AttributesEnum.InsDimensions.index();
+    public static final int INSMATERIALGSM =
+        AttributesEnum.InsMaterialGsm.index();
     public static final int INSPAPERTYPE = AttributesEnum.InsPaperType.index();
-    public static final int INSLAMINATION = AttributesEnum.InsLamination.index();
+    public static final int INSLAMINATION =
+        AttributesEnum.InsLamination.index();
     public static final int INSVARNISH = AttributesEnum.InsVarnish.index();
     public static final int INSFIXTYPE = AttributesEnum.InsFixType.index();
-    public static final int STFSTIFNERTYPE = AttributesEnum.StfStifnerType.index();
+    public static final int STFSTIFNERTYPE =
+        AttributesEnum.StfStifnerType.index();
     public static final int STFGUSSET1 = AttributesEnum.StfGusset1.index();
     public static final int STFGUSSET2 = AttributesEnum.StfGusset2.index();
     public static final int STFPLY = AttributesEnum.StfPly.index();
     public static final int STFMATERIAL = AttributesEnum.StfMaterial.index();
-    public static final int CRTCARTONTYPE = AttributesEnum.CrtCartonType.index();
-    public static final int CRTPRINTEDTYPE = AttributesEnum.CrtPrintedType.index();
+    public static final int CRTCARTONTYPE =
+        AttributesEnum.CrtCartonType.index();
+    public static final int CRTPRINTEDTYPE =
+        AttributesEnum.CrtPrintedType.index();
     public static final int CRTOUTWIDTH = AttributesEnum.CrtOutWidth.index();
     public static final int CRTOUTLENGTH = AttributesEnum.CrtOutLength.index();
     public static final int CRTOUTHEIGHT = AttributesEnum.CrtOutHeight.index();
     public static final int CRTOUTUOM = AttributesEnum.CrtOutUom.index();
-    public static final int CRTOUTDIMENSIONS = AttributesEnum.CrtOutDimensions.index();
+    public static final int CRTOUTDIMENSIONS =
+        AttributesEnum.CrtOutDimensions.index();
     public static final int CRTINNWIDTH = AttributesEnum.CrtInnWidth.index();
     public static final int CRTINNLENGTH = AttributesEnum.CrtInnLength.index();
     public static final int CRTINNHEIGHT = AttributesEnum.CrtInnHeight.index();
     public static final int CRTINNUOM = AttributesEnum.CrtInnUom.index();
-    public static final int CRTINNDIMENSIONS = AttributesEnum.CrtInnDimensions.index();
+    public static final int CRTINNDIMENSIONS =
+        AttributesEnum.CrtInnDimensions.index();
     public static final int CRTPLY = AttributesEnum.CrtPly.index();
     public static final int CRTMATERIAL = AttributesEnum.CrtMaterial.index();
     public static final int CRTPRINTTYPE = AttributesEnum.CrtPrintType.index();
     public static final int CRTECT = AttributesEnum.CrtEct.index();
     public static final int CRTBUSTING = AttributesEnum.CrtBusting.index();
     public static final int LBLLABLETYPE = AttributesEnum.LblLableType.index();
-    public static final int LBLPLAINLENGTH = AttributesEnum.LblPlainLength.index();
-    public static final int LBLPLAINWIDTH = AttributesEnum.LblPlainWidth.index();
-    public static final int LBLPLAINSWINGMARGIN = AttributesEnum.LblPlainSwingMargin.index();
+    public static final int LBLPLAINLENGTH =
+        AttributesEnum.LblPlainLength.index();
+    public static final int LBLPLAINWIDTH =
+        AttributesEnum.LblPlainWidth.index();
+    public static final int LBLPLAINSWINGMARGIN =
+        AttributesEnum.LblPlainSwingMargin.index();
     public static final int LBLPLAINSIZE = AttributesEnum.LblPlainSize.index();
-    public static final int LBLFOLDLENGTH = AttributesEnum.LblFoldLength.index();
+    public static final int LBLFOLDLENGTH =
+        AttributesEnum.LblFoldLength.index();
     public static final int LBLFOLDWIDTH = AttributesEnum.LblFoldWidth.index();
-    public static final int LBLFOLDSWINGMARGIN = AttributesEnum.LblFoldSwingMargin.index();
+    public static final int LBLFOLDSWINGMARGIN =
+        AttributesEnum.LblFoldSwingMargin.index();
     public static final int LBLFOLDSIZE = AttributesEnum.LblFoldSize.index();
-    public static final int LBLFOLDINGTYPE = AttributesEnum.LblFoldingType.index();
+    public static final int LBLFOLDINGTYPE =
+        AttributesEnum.LblFoldingType.index();
     public static final int LBLMATERIAL = AttributesEnum.LblMaterial.index();
-    public static final int ZIPMATERIALTYPE = AttributesEnum.ZipMaterialType.index();
+    public static final int ZIPMATERIALTYPE =
+        AttributesEnum.ZipMaterialType.index();
     public static final int ZIPTEETHTYPE = AttributesEnum.ZipTeethType.index();
     public static final int ZIPUOM = AttributesEnum.ZipUom.index();
-    public static final int THRTHREADUSAGE = AttributesEnum.ThrThreadUsage.index();
-    public static final int THRTHREADTYPE = AttributesEnum.ThrThreadType.index();
+    public static final int THRTHREADUSAGE =
+        AttributesEnum.ThrThreadUsage.index();
+    public static final int THRTHREADTYPE =
+        AttributesEnum.ThrThreadType.index();
     public static final int THRMATERIAL = AttributesEnum.ThrMaterial.index();
-    public static final int THRTEXSIZEPLY = AttributesEnum.ThrTexSizePly.index();
-    public static final int ELSELASTICTYPE = AttributesEnum.ElsElasticType.index();
+    public static final int THRTEXSIZEPLY =
+        AttributesEnum.ThrTexSizePly.index();
+    public static final int ELSELASTICTYPE =
+        AttributesEnum.ElsElasticType.index();
     public static final int ELSCORDTYPE = AttributesEnum.ElsCordType.index();
     public static final int ELSRATIO = AttributesEnum.ElsRatio.index();
     public static final int CTCMATERIAL = AttributesEnum.CtcMaterial.index();
-    public static final int CTCDIATHICKNESS = AttributesEnum.CtcDiaThickness.index();
+    public static final int CTCDIATHICKNESS =
+        AttributesEnum.CtcDiaThickness.index();
     public static final int FUSMATERIAL = AttributesEnum.FusMaterial.index();
     public static final int FUSGSM = AttributesEnum.FusGsm.index();
     public static final int NWVGSM = AttributesEnum.NwvGsm.index();
@@ -2255,24 +2078,35 @@ public class XxpmItemMasterImpl extends EntityImpl {
     public static final int WDMATERIAL = AttributesEnum.WdMaterial.index();
     public static final int WDRATIO = AttributesEnum.WdRatio.index();
     public static final int BFMATERIAL = AttributesEnum.BfMaterial.index();
-    public static final int BFMATERIALTYPE = AttributesEnum.BfMaterialType.index();
-    public static final int BTNBUTTONSIZE = AttributesEnum.BtnButtonSize.index();
+    public static final int BFMATERIALTYPE =
+        AttributesEnum.BfMaterialType.index();
+    public static final int BTNBUTTONSIZE =
+        AttributesEnum.BtnButtonSize.index();
     public static final int BTNHOLESNUM = AttributesEnum.BtnHolesNum.index();
-    public static final int BTNBUTTONTYPE = AttributesEnum.BtnButtonType.index();
-    public static final int BTNBUTTONMATERIAL = AttributesEnum.BtnButtonMaterial.index();
-    public static final int BTNBUTTONCOLOR = AttributesEnum.BtnButtonColor.index();
-    public static final int PPRPAPERCOLOR = AttributesEnum.PprPaperColor.index();
-    public static final int PPRPAPERMATERIAL = AttributesEnum.PprPaperMaterial.index();
-    public static final int STKSTICKERTYPE = AttributesEnum.StkStickerType.index();
+    public static final int BTNBUTTONTYPE =
+        AttributesEnum.BtnButtonType.index();
+    public static final int BTNBUTTONMATERIAL =
+        AttributesEnum.BtnButtonMaterial.index();
+    public static final int BTNBUTTONCOLOR =
+        AttributesEnum.BtnButtonColor.index();
+    public static final int PPRPAPERCOLOR =
+        AttributesEnum.PprPaperColor.index();
+    public static final int PPRPAPERMATERIAL =
+        AttributesEnum.PprPaperMaterial.index();
+    public static final int STKSTICKERTYPE =
+        AttributesEnum.StkStickerType.index();
     public static final int STKMATERIAL = AttributesEnum.StkMaterial.index();
-    public static final int STKPEELABLETYPE = AttributesEnum.StkPeelableType.index();
-    public static final int STKPERFORATEDTYPE = AttributesEnum.StkPerforatedType.index();
+    public static final int STKPEELABLETYPE =
+        AttributesEnum.StkPeelableType.index();
+    public static final int STKPERFORATEDTYPE =
+        AttributesEnum.StkPerforatedType.index();
     public static final int STKCOLOR = AttributesEnum.StkColor.index();
     public static final int STKTEXT = AttributesEnum.StkText.index();
     public static final int SGITEM = AttributesEnum.SgItem.index();
     public static final int SGWEIGHT = AttributesEnum.SgWeight.index();
     public static final int TPCOLOR = AttributesEnum.TpColor.index();
-    public static final int TPMATERIALTYPE = AttributesEnum.TpMaterialType.index();
+    public static final int TPMATERIALTYPE =
+        AttributesEnum.TpMaterialType.index();
     public static final int LACTYPE = AttributesEnum.LacType.index();
     public static final int LACMATERIAL = AttributesEnum.LacMaterial.index();
     public static final int LACUOM = AttributesEnum.LacUom.index();
@@ -2280,11 +2114,14 @@ public class XxpmItemMasterImpl extends EntityImpl {
     public static final int EYCOLOR = AttributesEnum.EyColor.index();
     public static final int EYMATERIAL = AttributesEnum.EyMaterial.index();
     public static final int EYFINISH = AttributesEnum.EyFinish.index();
-    public static final int HNGMATERIALCOMBINATION = AttributesEnum.HngMaterialCombination.index();
+    public static final int HNGMATERIALCOMBINATION =
+        AttributesEnum.HngMaterialCombination.index();
     public static final int HNGTHICKNESS = AttributesEnum.HngThickness.index();
-    public static final int HNGTHICKNESSUOM = AttributesEnum.HngThicknessUom.index();
+    public static final int HNGTHICKNESSUOM =
+        AttributesEnum.HngThicknessUom.index();
     public static final int HNGHOOKTYPE = AttributesEnum.HngHookType.index();
-    public static final int STRDESCRIPTION = AttributesEnum.StrDescription.index();
+    public static final int STRDESCRIPTION =
+        AttributesEnum.StrDescription.index();
     public static final int TAPMATERIAL = AttributesEnum.TapMaterial.index();
     public static final int TAPPRINTTEXT = AttributesEnum.TapPrintText.index();
     public static final int ACCHEIGHT = AttributesEnum.AccHeight.index();
@@ -2292,9 +2129,11 @@ public class XxpmItemMasterImpl extends EntityImpl {
     public static final int ACCLENGTH = AttributesEnum.AccLength.index();
     public static final int ACCLENGTHUOM = AttributesEnum.AccLengthUom.index();
     public static final int ACCLENGTH1 = AttributesEnum.AccLength1.index();
-    public static final int ACCLENGTH1UOM = AttributesEnum.AccLength1Uom.index();
+    public static final int ACCLENGTH1UOM =
+        AttributesEnum.AccLength1Uom.index();
     public static final int ACCLENGTH2 = AttributesEnum.AccLength2.index();
-    public static final int ACCLENGTH2UOM = AttributesEnum.AccLength2Uom.index();
+    public static final int ACCLENGTH2UOM =
+        AttributesEnum.AccLength2Uom.index();
     public static final int ACCWIDTH = AttributesEnum.AccWidth.index();
     public static final int ACCWIDTHUOM = AttributesEnum.AccWidthUom.index();
     public static final int ACCWIDTH1 = AttributesEnum.AccWidth1.index();
@@ -2302,20 +2141,27 @@ public class XxpmItemMasterImpl extends EntityImpl {
     public static final int ACCWIDTH2 = AttributesEnum.AccWidth2.index();
     public static final int ACCWIDTH2UOM = AttributesEnum.AccWidth2Uom.index();
     public static final int ACCDIAMETER = AttributesEnum.AccDiameter.index();
-    public static final int ACCDIAMETERUOM = AttributesEnum.AccDiameterUom.index();
+    public static final int ACCDIAMETERUOM =
+        AttributesEnum.AccDiameterUom.index();
     public static final int ACCLISTPRICE = AttributesEnum.AccListPrice.index();
     public static final int ACCWASTAGE = AttributesEnum.AccWastage.index();
     public static final int ACCREMARKS = AttributesEnum.AccRemarks.index();
-    public static final int ACCACCESSORYTYPE = AttributesEnum.AccAccessoryType.index();
+    public static final int ACCACCESSORYTYPE =
+        AttributesEnum.AccAccessoryType.index();
     public static final int CTCITEMTYPE = AttributesEnum.CtcItemType.index();
-    public static final int WARPCONTRACTION = AttributesEnum.WarpContraction.index();
-    public static final int WEFTCONTRACTION = AttributesEnum.WeftContraction.index();
+    public static final int WARPCONTRACTION =
+        AttributesEnum.WarpContraction.index();
+    public static final int WEFTCONTRACTION =
+        AttributesEnum.WeftContraction.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
-    public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
-    public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
+    public static final int LASTUPDATEDBY =
+        AttributesEnum.LastUpdatedBy.index();
+    public static final int LASTUPDATEDATE =
+        AttributesEnum.LastUpdateDate.index();
     public static final int RESPID = AttributesEnum.RespId.index();
-    public static final int SEGMENT3VALUE = AttributesEnum.Segment3Value.index();
+    public static final int SEGMENT3VALUE =
+        AttributesEnum.Segment3Value.index();
     public static final int ACCSIZE = AttributesEnum.AccSize.index();
     public static final int ACCSIZEDESC = AttributesEnum.AccSizeDesc.index();
     public static final int MINORDERQTY = AttributesEnum.MinOrderQty.index();
@@ -2325,30 +2171,42 @@ public class XxpmItemMasterImpl extends EntityImpl {
     public static final int REFLOTNUM = AttributesEnum.RefLotNum.index();
     public static final int DYECODE = AttributesEnum.DyeCode.index();
     public static final int DYESTANDARD = AttributesEnum.DyeStandard.index();
-    public static final int WVFABRICBLEND = AttributesEnum.WvFabricBlend.index();
+    public static final int WVFABRICBLEND =
+        AttributesEnum.WvFabricBlend.index();
     public static final int ACCCUSTVAL = AttributesEnum.AccCustVal.index();
     public static final int INSTEXT = AttributesEnum.InsText.index();
     public static final int CRTTEXT = AttributesEnum.CrtText.index();
-    public static final int XXPMYARNBLEND = AttributesEnum.XxpmYarnBlend.index();
+    public static final int XXPMYARNBLEND =
+        AttributesEnum.XxpmYarnBlend.index();
     public static final int XXPMYARNTYPE = AttributesEnum.XxpmYarnType.index();
     public static final int XXPMWARP = AttributesEnum.XxpmWarp.index();
     public static final int XXPMWEFT = AttributesEnum.XxpmWeft.index();
-    public static final int XXPMITEMMASTER = AttributesEnum.XxpmItemMaster.index();
-    public static final int BASEIMIDXXPMITEMMASTER = AttributesEnum.BaseImIdXxpmItemMaster.index();
+    public static final int XXPMITEMMASTER =
+        AttributesEnum.XxpmItemMaster.index();
+    public static final int BASEIMIDXXPMITEMMASTER =
+        AttributesEnum.BaseImIdXxpmItemMaster.index();
     public static final int XXPMWARP1 = AttributesEnum.XxpmWarp1.index();
-    public static final int XXPMATTACHMENTS = AttributesEnum.XxpmAttachments.index();
+    public static final int XXPMATTACHMENTS =
+        AttributesEnum.XxpmAttachments.index();
     public static final int XXPMWEFT1 = AttributesEnum.XxpmWeft1.index();
-    public static final int XXPMYARNTYPE1 = AttributesEnum.XxpmYarnType1.index();
-    public static final int XXPMITEMMASTER1 = AttributesEnum.XxpmItemMaster1.index();
-    public static final int BASEIMIDXXPMITEMMASTER1 = AttributesEnum.BaseImIdXxpmItemMaster1.index();
-    public static final int XXPMYARNBLEND1 = AttributesEnum.XxpmYarnBlend1.index();
-    public static final int XXPMARTICLEBOMACCESSORIES = AttributesEnum.XxpmArticleBomAccessories.index();
+    public static final int XXPMYARNTYPE1 =
+        AttributesEnum.XxpmYarnType1.index();
+    public static final int XXPMITEMMASTER1 =
+        AttributesEnum.XxpmItemMaster1.index();
+    public static final int BASEIMIDXXPMITEMMASTER1 =
+        AttributesEnum.BaseImIdXxpmItemMaster1.index();
+    public static final int XXPMYARNBLEND1 =
+        AttributesEnum.XxpmYarnBlend1.index();
+    public static final int XXPMARTICLEBOMACCESSORIES =
+        AttributesEnum.XxpmArticleBomAccessories.index();
     public static final int XXPMWEFT2 = AttributesEnum.XxpmWeft2.index();
     public static final int XXPMWEFT3 = AttributesEnum.XxpmWeft3.index();
-    public static final int XXPMARTICLEBOMFABRIC = AttributesEnum.XxpmArticleBomFabric.index();
+    public static final int XXPMARTICLEBOMFABRIC =
+        AttributesEnum.XxpmArticleBomFabric.index();
     public static final int XXPMWARP2 = AttributesEnum.XxpmWarp2.index();
     public static final int XXPMWARP3 = AttributesEnum.XxpmWarp3.index();
-    public static final int XXPMATTACHMENTS1 = AttributesEnum.XxpmAttachments1.index();
+    public static final int XXPMATTACHMENTS1 =
+        AttributesEnum.XxpmAttachments1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -2362,7 +2220,8 @@ public class XxpmItemMasterImpl extends EntityImpl {
      */
     public static synchronized EntityDefImpl getDefinitionObject() {
         if (mDefinitionObject == null) {
-            mDefinitionObject = EntityDefImpl.findDefObject("ncl.pm.model.bc.eo.XxpmItemMaster");
+            mDefinitionObject =
+                    EntityDefImpl.findDefObject("ncl.pm.model.bc.eo.XxpmItemMaster");
         }
         return mDefinitionObject;
     }
@@ -5370,8 +5229,10 @@ public class XxpmItemMasterImpl extends EntityImpl {
      */
     protected Object getAttrInvokeAccessor(int index,
                                            AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
-            return AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].get(this);
+        if ((index >= AttributesEnum.firstIndex()) &&
+            (index < AttributesEnum.count())) {
+            return AttributesEnum.staticValues()[index -
+                AttributesEnum.firstIndex()].get(this);
         }
         return super.getAttrInvokeAccessor(index, attrDef);
     }
@@ -5386,8 +5247,10 @@ public class XxpmItemMasterImpl extends EntityImpl {
      */
     protected void setAttrInvokeAccessor(int index, Object value,
                                          AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
-            AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].put(this, value);
+        if ((index >= AttributesEnum.firstIndex()) &&
+            (index < AttributesEnum.count())) {
+            AttributesEnum.staticValues()[index -
+                AttributesEnum.firstIndex()].put(this, value);
             return;
         }
         super.setAttrInvokeAccessor(index, value, attrDef);
@@ -5569,7 +5432,7 @@ public class XxpmItemMasterImpl extends EntityImpl {
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(DBSequence imId) {
-        return new Key(new Object[]{imId});
+        return new Key(new Object[] { imId });
     }
 
     /**
@@ -5705,7 +5568,8 @@ public class XxpmItemMasterImpl extends EntityImpl {
                     this.setDescription("");
                 }
                 ma.showError(this.getDBTransaction(),
-                             "There is an error in doDML method of XxpmItemMasterImpl. Class: " + e1.getClass());
+                             "There is an error in doDML method of XxpmItemMasterImpl. Class: " +
+                             e1.getClass());
                 return;
             }
         } else {
@@ -5718,8 +5582,8 @@ public class XxpmItemMasterImpl extends EntityImpl {
         //if (this.getSegment1() != ("14")) {
         if (operation == DML_INSERT) {
 
-            Logger.adfLogger.warning("operation value -----> " + operation);
-            Logger.adfLogger.warning("Segment2 value -----> " + s2);
+            logger.warning("operation value -----> " + operation);
+            logger.warning("Segment2 value -----> " + s2);
 
             /* isFlexValCreated =
                         ma.createFlexValue(this.getDBTransaction(), "NC_INV_ITEM_CODE",
@@ -5739,23 +5603,23 @@ public class XxpmItemMasterImpl extends EntityImpl {
             }
 
         } else if (operation == DML_UPDATE) {
-            Logger.adfLogger.warning("operation value -----> " + operation);
-            Logger.adfLogger.warning("Segment2 value -----> " + s2);
+            logger.warning("operation value -----> " + operation);
+            logger.warning("Segment2 value -----> " + s2);
 
             /* isFlexValCreated =
                         ma.createFlexValue(this.getDBTransaction(), "NC_INV_ITEM_CODE",
                                            s1, s2, dsc); */
             if (isFlexValCreated == 1) {
-                Logger.adfLogger.warning("Item updation msg -----> " +
-                                         ma.updateEBSItem(this.getDBTransaction(),
-                                                          Integer.parseInt(getImId().toString())));
+                logger.warning("Item updation msg -----> " +
+                               ma.updateEBSItem(this.getDBTransaction(),
+                                                Integer.parseInt(getImId().toString())));
                 isFlexValCreated = 0;
             }
 
         }
         //}
 
-        Logger.adfLogger.warning("ImId -----> " + getImId());
+        logger.warning("ImId -----> " + getImId());
     }
 
     private RowIterator newXxpmAttachments;

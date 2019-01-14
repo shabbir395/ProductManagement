@@ -3,11 +3,7 @@ package ncl.pm.model.bc.vo.lov;
 import java.sql.ResultSet;
 
 import ncl.pm.model.bc.generic.GenericViewObjectImpl;
-import ncl.pm.model.bc.view.xxpmJC.Logger;
 
-import oracle.jbo.CriteriaClauses;
-import oracle.jbo.ViewCriteria;
-import oracle.jbo.server.ViewObjectImpl;
 import oracle.jbo.server.ViewRowImpl;
 import oracle.jbo.server.ViewRowSetImpl;
 

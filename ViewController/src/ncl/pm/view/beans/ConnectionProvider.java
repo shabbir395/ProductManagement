@@ -9,9 +9,11 @@ import javax.naming.NamingException;
 
 import javax.sql.DataSource;
 
-import ncl.pm.model.bc.view.xxpmJC.Logger;
+import java.util.logging.Logger;
 
 public class ConnectionProvider {
+    private static Logger logger =
+        Logger.getLogger(ConnectionProvider.class.getName());
     private static DataSource myDS = null;
     static {
         try {
@@ -22,9 +24,9 @@ public class ConnectionProvider {
             if (ctx != null)
                 ctx.close();
         } catch (NamingException ne) {
-            Logger.adfLogger.warning("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-            Logger.adfLogger.warning("ConnectionProvider.java: " + ne.getMessage());
-            Logger.adfLogger.warning("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            logger.warning("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            logger.warning("ConnectionProvider.java: " + ne.getMessage());
+            logger.warning("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
             //ne.printStackTrace();//ideally you should log it
             //throw new RuntimeException(ne);
         }
@@ -46,9 +48,9 @@ public class ConnectionProvider {
         try {
             state = (myDS.getConnection() == null ? "is null" : "is not null");
         } catch (SQLException e) {
-            Logger.adfLogger.warning("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
-            Logger.adfLogger.warning("ConnectionProvider.java: " + e.getMessage());
-            Logger.adfLogger.warning("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+            logger.warning("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+            logger.warning("ConnectionProvider.java: " + e.getMessage());
+            logger.warning("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
         }
         return state;
     }

@@ -6,9 +6,9 @@ import java.sql.Types;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 import ncl.pm.model.bc.am.common.XxpmAppModule;
-import ncl.pm.model.bc.view.xxpmJC.Logger;
 import ncl.pm.model.bc.vo.XxpmAbAccessoriesColorsViewImpl;
 import ncl.pm.model.bc.vo.XxpmAbAccessoriesSizesViewImpl;
 import ncl.pm.model.bc.vo.XxpmAbFabricColorsViewImpl;
@@ -16,37 +16,15 @@ import ncl.pm.model.bc.vo.XxpmAbFabricSizesViewImpl;
 import ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesViewImpl;
 import ncl.pm.model.bc.vo.XxpmArticleBomFabricViewImpl;
 import ncl.pm.model.bc.vo.XxpmArticleBomViewImpl;
-import ncl.pm.model.bc.vo.XxpmItemMasterDyViewImpl;
-import ncl.pm.model.bc.vo.XxpmItemMasterPrnViewImpl;
-import ncl.pm.model.bc.vo.XxpmItemMasterSpnViewImpl;
-import ncl.pm.model.bc.vo.XxpmItemMasterWvViewImpl;
-import ncl.pm.model.bc.vo.XxpmMadeupArticlesViewImpl;
-import ncl.pm.model.bc.vo.XxpmMadeupColorsViewImpl;
-import ncl.pm.model.bc.vo.XxpmMadeupCombinationsViewImpl;
-import ncl.pm.model.bc.vo.XxpmMadeupDimensionsViewImpl;
-import ncl.pm.model.bc.vo.XxpmMadeupProgramsViewImpl;
 import ncl.pm.model.bc.vo.XxpmMadeupSetArticlesViewImpl;
-import ncl.pm.model.bc.vo.XxpmMadeupSetsViewImpl;
-import ncl.pm.model.bc.vo.XxpmMadeupSizesViewImpl;
-import ncl.pm.model.bc.vo.XxpmPoHeaderViewImpl;
 import ncl.pm.model.bc.vo.XxpmPoLinesViewImpl;
 import ncl.pm.model.bc.vo.XxpmSetBomAccessoriesViewImpl;
 import ncl.pm.model.bc.vo.XxpmSetBomArticlesViewImpl;
 import ncl.pm.model.bc.vo.XxpmSetBomViewImpl;
-import ncl.pm.model.bc.vo.XxpmWarpViewImpl;
-import ncl.pm.model.bc.vo.XxpmWeftViewImpl;
 import ncl.pm.model.bc.vo.XxpmYarnBlendViewImpl;
-import ncl.pm.model.bc.vo.XxpmYarnTypeViewImpl;
-import ncl.pm.model.bc.vo.lov.ArticleBomAcclovImpl;
-import ncl.pm.model.bc.vo.lov.ArticleBomFablovImpl;
-import ncl.pm.model.bc.vo.lov.ItemColorsLovImpl;
-import ncl.pm.model.bc.vo.lov.ItemSizeLovImpl;
 import ncl.pm.model.bc.vo.lov.MadeupArticlesDetailsLovImpl;
 import ncl.pm.model.bc.vo.lov.MadeupProgDetailsLovImpl;
 import ncl.pm.model.bc.vo.lov.VendorsLovImpl;
-
-import ncl.pm.model.bc.vo.lov.WeavingItemDescLovImpl;
-import ncl.pm.model.bc.vo.misc.MadeupCombinationsExportToExcelViewImpl;
 
 import oracle.adf.share.ADFContext;
 
@@ -69,6 +47,8 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
      */
     public XxpmAppModuleImpl() {
     }
+
+    Logger logger = Logger.getLogger(this.getClass().getName());
 
     /**
      * Container's getter for XxpmItemMasterSpnView.
@@ -1085,9 +1065,9 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
             "BEGIN XXPM_ADD_VSET_VAL_PROC(:D_PREFIX, :D_VSET_NAME, :D_VALUE, :D_ERR); END;";
         CallableStatement stmt =
             this.getDBTransaction().createCallableStatement(query, 0);
-        Logger.adfLogger.warning("prefix ===== " + prefix);
-        Logger.adfLogger.warning("vSet ===== " + vSet);
-        Logger.adfLogger.warning("vSet value ===== " + value);
+        logger.warning("prefix ===== " + prefix);
+        logger.warning("vSet ===== " + vSet);
+        logger.warning("vSet value ===== " + value);
         try {
             stmt.setString("D_PREFIX", prefix);
             stmt.setString("D_VSET_NAME", vSet);
@@ -1106,7 +1086,7 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
                 e.printStackTrace();
             }
         }
-        Logger.adfLogger.warning("Result for addVsetVal ===== " + result);
+        logger.warning("Result for addVsetVal ===== " + result);
         return result;
     }
 
@@ -1193,8 +1173,6 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
         setXxpmAttachments(this.getXxpmAttachmentsViewChildProg(), fileCode,
                            name, path, ext);
     }
-
-    Logger logger = new Logger();
 
     /* public Object NVL(Object input, Object output) {
         Object result = "";
@@ -1947,17 +1925,16 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
             stmt.registerOutParameter("MSG", Types.VARCHAR);
             stmt.registerOutParameter("SUCCESS_MSG", Types.INTEGER);
             stmt.executeUpdate();
-            logger.doLogging("msg == " + stmt.getString("MSG"));
-            Logger.adfLogger.warning("msg == " + stmt.getString("MSG"));
-            logger.doLogging("SUCCESS MSG == " + stmt.getInt("SUCCESS_MSG"));
-            Logger.adfLogger.warning("SUCCESS MSG == " +
-                                     stmt.getInt("SUCCESS_MSG"));
+            logger.info("msg == " + stmt.getString("MSG"));
+            logger.warning("msg == " + stmt.getString("MSG"));
+            logger.info("SUCCESS MSG == " + stmt.getInt("SUCCESS_MSG"));
+            logger.warning("SUCCESS MSG == " + stmt.getInt("SUCCESS_MSG"));
             successMsg = stmt.getInt("SUCCESS_MSG");
         } catch (Exception e1) {
             // TODO: Add catch code
-            Logger.adfLogger.warning("msg == ADF Error");
+            logger.warning("msg == ADF Error");
             successMsg = 0;
-            logger.doLogging(e1.getMessage());
+            logger.info(e1.getMessage());
             e1.printStackTrace();
         } finally {
             try {
@@ -2001,7 +1978,7 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
             stmt.registerOutParameter("MSG", Types.VARCHAR);
             stmt.registerOutParameter("ERR", Types.VARCHAR);
             stmt.executeUpdate();
-            Logger.adfLogger.warning("MSG ===== " + stmt.getString("MSG"));
+            logger.warning("MSG ===== " + stmt.getString("MSG"));
             result = stmt.getString("ERR");
         } catch (SQLException e) {
             result = "SQL Error in ADF method.";
@@ -2018,8 +1995,7 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
                 e.printStackTrace();
             }
         }
-        Logger.adfLogger.warning("createMadeupItemInEBS result ===== " +
-                                 result);
+        logger.warning("createMadeupItemInEBS result ===== " + result);
         return result;
     }
 
@@ -2165,7 +2141,7 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
     //        try {
     //            stmt.execute();
     //        } catch (SQLException e) {
-    //            logger.doLogging("insertAccItemIntoEbs result ===== " +
+    //            logger.info("insertAccItemIntoEbs result ===== " +
     //                             e.getMessage());
     //        } finally {
     //            try {
@@ -2225,9 +2201,9 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
             stmt.setString(1, bomId);
             stmt.setString(2, getUserInfo(1));
             stmt.setString(3, getUserInfo(2));
-            Logger.adfLogger.warning("BOM = " + bomId);
-            Logger.adfLogger.warning("V_USER = " + getUserInfo(1));
-            Logger.adfLogger.warning("V_RESP = " + getUserInfo(2));
+            logger.warning("BOM = " + bomId);
+            logger.warning("V_USER = " + getUserInfo(1));
+            logger.warning("V_RESP = " + getUserInfo(2));
             stmt.execute();
             successMsg = stmt.getInt(4);
         } catch (Exception e) {
@@ -2246,11 +2222,11 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
 
     public int articleBomProc(String bomId) {
         int result = 0;
-        Logger.adfLogger.warning("createArticleBom method of Article BOM started at " +
-                                 new Date());
+        logger.warning("createArticleBom method of Article BOM started at " +
+                       new Date());
         result = createArticleBom(bomId);
-        Logger.adfLogger.warning("createArticleBom method of Article BOM end at " +
-                                 new Date());
+        logger.warning("createArticleBom method of Article BOM end at " +
+                       new Date());
         return result;
     }
 
@@ -2315,11 +2291,11 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
             stmt.setInt("P_SET_BOM_ID", setBomId);
             stmt.setString("SEG4", s4);
             stmt.setString("SEG5", s5);
-            Logger.adfLogger.warning("P_PROG_ID ===== " + progId);
-            Logger.adfLogger.warning("P_SET_ID ===== " + setId);
-            Logger.adfLogger.warning("P_SET_BOM_ID ===== " + setBomId);
-            Logger.adfLogger.warning("SEG4 ===== " + s4);
-            Logger.adfLogger.warning("SEG5 ===== " + s5);
+            logger.warning("P_PROG_ID ===== " + progId);
+            logger.warning("P_SET_ID ===== " + setId);
+            logger.warning("P_SET_BOM_ID ===== " + setBomId);
+            logger.warning("SEG4 ===== " + s4);
+            logger.warning("SEG5 ===== " + s5);
             stmt.executeUpdate();
         } catch (Exception e) {
         } finally {
@@ -2359,7 +2335,7 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
     //        try {
     //            stmt.execute();
     //        } catch (SQLException e) {
-    //            logger.doLogging("insertAccItemIntoEbs result ===== " +
+    //            logger.info("insertAccItemIntoEbs result ===== " +
     //                             e.getMessage());
     //        } finally {
     //            try {
@@ -2383,9 +2359,9 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
             stmt.setString(1, bomId);
             stmt.setString(2, getUserInfo(1));
             stmt.setString(3, getUserInfo(2));
-            Logger.adfLogger.warning("BOM = " + bomId);
-            Logger.adfLogger.warning("V_USER = " + getUserInfo(1));
-            Logger.adfLogger.warning("V_RESP = " + getUserInfo(2));
+            logger.warning("BOM = " + bomId);
+            logger.warning("V_USER = " + getUserInfo(1));
+            logger.warning("V_RESP = " + getUserInfo(2));
             stmt.execute();
             successMsg = stmt.getInt(4);
         } catch (Exception e) {
@@ -2405,23 +2381,21 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
     public int setBomProc(String bomId) {
         int result = 0;
         long startTime = System.currentTimeMillis();
-        Logger.adfLogger.warning("updateSetAccColors method of Set BOM started at " +
-                                 new Date());
+        logger.warning("updateSetAccColors method of Set BOM started at " +
+                       new Date());
         updateSetAccColors(bomId);
-        Logger.adfLogger.warning("updateSetAccColors method of Set BOM end " +
-                                 new Date());
+        logger.warning("updateSetAccColors method of Set BOM end " +
+                       new Date());
         //        insertSetAccItemIntoEbs();
 
-        Logger.adfLogger.warning("createSetBom method of Set BOM started at " +
-                                 new Date());
+        logger.warning("createSetBom method of Set BOM started at " +
+                       new Date());
         result = createSetBom(bomId);
-        Logger.adfLogger.warning("createSetBom method of Set BOM end at " +
-                                 new Date());
+        logger.warning("createSetBom method of Set BOM end at " + new Date());
         long endTime = System.currentTimeMillis();
-        Logger.adfLogger.warning("Total time for setBomProc: " +
-                                 TimeUnit.MILLISECONDS.toSeconds(endTime -
-                                                                 startTime) +
-                                 " seconds.");
+        logger.warning("Total time for setBomProc: " +
+                       TimeUnit.MILLISECONDS.toSeconds(endTime - startTime) +
+                       " seconds.");
         return result;
     }
 
@@ -2433,11 +2407,11 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
             int ebsStatus =
                 (curRow.getAttribute("EbsStatus") != null ? (Integer)curRow.getAttribute("EbsStatus") :
                  0);
-            Logger.adfLogger.warning("ebsStatus = " + ebsStatus);
+            logger.warning("ebsStatus = " + ebsStatus);
             int delStatus =
                 (curRow.getAttribute("Deleted") != null ? (Integer)curRow.getAttribute("Deleted") :
                  0);
-            Logger.adfLogger.warning("delStatus = " + delStatus);
+            logger.warning("delStatus = " + delStatus);
             if (ebsStatus == 0 && delStatus == 1) {
                 curRow.remove();
             }
@@ -2489,14 +2463,14 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
                 e.printStackTrace();
             }
         }
-        Logger.adfLogger.warning("Active user agent -----> " + result);
+        logger.warning("Active user agent -----> " + result);
         return result;
     }
 
     public void executePoLinesAccCatQuery(String accCat) {
         ViewObject vo = this.getXxpmPoLinesViewAccChild();
         String where = "ACC_CAT IN (" + (accCat != null ? accCat : "''") + ")";
-        Logger.adfLogger.warning("where = " + where);
+        logger.warning("where = " + where);
         vo.setWhereClause(where);
         vo.executeQuery();
         //vo.setWhereClause(null);

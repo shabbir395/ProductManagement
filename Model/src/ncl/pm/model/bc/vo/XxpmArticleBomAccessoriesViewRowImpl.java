@@ -5,9 +5,9 @@ import java.sql.SQLException;
 
 import java.sql.Types;
 
-import ncl.pm.model.bc.eo.XxpmArticleBomAccessoriesImpl;
+import java.util.logging.Logger;
 
-import ncl.pm.model.bc.view.xxpmJC.Logger;
+import ncl.pm.model.bc.eo.XxpmArticleBomAccessoriesImpl;
 
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
@@ -23,6 +23,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
+    Logger logger = Logger.getLogger(this.getClass().getName());
+
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -36,8 +38,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setArtBomAccId((DBSequence)value);
             }
-        }
-        ,
+        },
         ArtBomId {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getArtBomId();
@@ -47,8 +48,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setArtBomId((Number)value);
             }
-        }
-        ,
+        },
         ImId {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getImId();
@@ -58,8 +58,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setImId((Integer)value);
             }
-        }
-        ,
+        },
         Segment2 {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getSegment2();
@@ -69,8 +68,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setSegment2((String)value);
             }
-        }
-        ,
+        },
         Description {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getDescription();
@@ -80,8 +78,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setDescription((String)value);
             }
-        }
-        ,
+        },
         AccColor {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getAccColor();
@@ -91,8 +88,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAccColor((String)value);
             }
-        }
-        ,
+        },
         AccColorTrans {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getAccColorTrans();
@@ -102,8 +98,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAccColorTrans((String)value);
             }
-        }
-        ,
+        },
         AccSize {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getAccSize();
@@ -113,8 +108,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAccSize((String)value);
             }
-        }
-        ,
+        },
         AccSizeTrans {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getAccSizeTrans();
@@ -124,8 +118,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAccSizeTrans((String)value);
             }
-        }
-        ,
+        },
         Uom {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getUom();
@@ -135,8 +128,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setUom((String)value);
             }
-        }
-        ,
+        },
         SubInv {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getSubInv();
@@ -146,8 +138,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setSubInv((String)value);
             }
-        }
-        ,
+        },
         Consumption {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getConsumption();
@@ -157,8 +148,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setConsumption((Number)value);
             }
-        }
-        ,
+        },
         MeterConeConversion {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getMeterConeConversion();
@@ -168,8 +158,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setMeterConeConversion((Number)value);
             }
-        }
-        ,
+        },
         Wastage {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getWastage();
@@ -179,8 +168,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setWastage((Number)value);
             }
-        }
-        ,
+        },
         Active {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getActive();
@@ -190,8 +178,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setActive((Integer)value);
             }
-        }
-        ,
+        },
         EbsStatus {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getEbsStatus();
@@ -201,8 +188,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setEbsStatus((Integer)value);
             }
-        }
-        ,
+        },
         ColorChkbox {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getColorChkbox();
@@ -212,8 +198,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setColorChkbox((Integer)value);
             }
-        }
-        ,
+        },
         SizeChkbox {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getSizeChkbox();
@@ -223,8 +208,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setSizeChkbox((Integer)value);
             }
-        }
-        ,
+        },
         XxpmAbAccessoriesColorsView {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getXxpmAbAccessoriesColorsView();
@@ -234,8 +218,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmAbAccessoriesSizesView {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getXxpmAbAccessoriesSizesView();
@@ -245,8 +228,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         XxpmArticleBomView {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getXxpmArticleBomView();
@@ -256,8 +238,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         ItemColorsLov {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getItemColorsLov();
@@ -267,8 +248,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         ArticleBomItemSubInvLov {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getArticleBomItemSubInvLov();
@@ -278,8 +258,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         ArticleBomAcclov {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getArticleBomAcclov();
@@ -289,8 +268,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         YesNoIntlov {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getYesNoIntlov();
@@ -300,8 +278,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ,
+        },
         ItemSizeLov {
             public Object get(XxpmArticleBomAccessoriesViewRowImpl obj) {
                 return obj.getItemSizeLov();
@@ -311,8 +288,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                             Object value) {
                 obj.setAttributeInternal(index(), value);
             }
-        }
-        ;
+        };
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -349,24 +325,32 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
     public static final int SEGMENT2 = AttributesEnum.Segment2.index();
     public static final int DESCRIPTION = AttributesEnum.Description.index();
     public static final int ACCCOLOR = AttributesEnum.AccColor.index();
-    public static final int ACCCOLORTRANS = AttributesEnum.AccColorTrans.index();
+    public static final int ACCCOLORTRANS =
+        AttributesEnum.AccColorTrans.index();
     public static final int ACCSIZE = AttributesEnum.AccSize.index();
     public static final int ACCSIZETRANS = AttributesEnum.AccSizeTrans.index();
     public static final int UOM = AttributesEnum.Uom.index();
     public static final int SUBINV = AttributesEnum.SubInv.index();
     public static final int CONSUMPTION = AttributesEnum.Consumption.index();
-    public static final int METERCONECONVERSION = AttributesEnum.MeterConeConversion.index();
+    public static final int METERCONECONVERSION =
+        AttributesEnum.MeterConeConversion.index();
     public static final int WASTAGE = AttributesEnum.Wastage.index();
     public static final int ACTIVE = AttributesEnum.Active.index();
     public static final int EBSSTATUS = AttributesEnum.EbsStatus.index();
     public static final int COLORCHKBOX = AttributesEnum.ColorChkbox.index();
     public static final int SIZECHKBOX = AttributesEnum.SizeChkbox.index();
-    public static final int XXPMABACCESSORIESCOLORSVIEW = AttributesEnum.XxpmAbAccessoriesColorsView.index();
-    public static final int XXPMABACCESSORIESSIZESVIEW = AttributesEnum.XxpmAbAccessoriesSizesView.index();
-    public static final int XXPMARTICLEBOMVIEW = AttributesEnum.XxpmArticleBomView.index();
-    public static final int ITEMCOLORSLOV = AttributesEnum.ItemColorsLov.index();
-    public static final int ARTICLEBOMITEMSUBINVLOV = AttributesEnum.ArticleBomItemSubInvLov.index();
-    public static final int ARTICLEBOMACCLOV = AttributesEnum.ArticleBomAcclov.index();
+    public static final int XXPMABACCESSORIESCOLORSVIEW =
+        AttributesEnum.XxpmAbAccessoriesColorsView.index();
+    public static final int XXPMABACCESSORIESSIZESVIEW =
+        AttributesEnum.XxpmAbAccessoriesSizesView.index();
+    public static final int XXPMARTICLEBOMVIEW =
+        AttributesEnum.XxpmArticleBomView.index();
+    public static final int ITEMCOLORSLOV =
+        AttributesEnum.ItemColorsLov.index();
+    public static final int ARTICLEBOMITEMSUBINVLOV =
+        AttributesEnum.ArticleBomItemSubInvLov.index();
+    public static final int ARTICLEBOMACCLOV =
+        AttributesEnum.ArticleBomAcclov.index();
     public static final int YESNOINTLOV = AttributesEnum.YesNoIntlov.index();
     public static final int ITEMSIZELOV = AttributesEnum.ItemSizeLov.index();
 
@@ -655,7 +639,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
      * @return the AccSizeTrans
      */
     public String getAccSizeTrans() {
-        return (String) getAttributeInternal(ACCSIZETRANS);
+        return (String)getAttributeInternal(ACCSIZETRANS);
     }
 
     /**
@@ -671,7 +655,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
      * @return the AccColorTrans
      */
     public String getAccColorTrans() {
-        return (String) getAttributeInternal(ACCCOLORTRANS);
+        return (String)getAttributeInternal(ACCCOLORTRANS);
     }
 
     /**
@@ -687,7 +671,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
      * @return the ACC_SIZE
      */
     public String getAccSize() {
-        return (String) getAttributeInternal(ACCSIZE);
+        return (String)getAttributeInternal(ACCSIZE);
     }
 
     /**
@@ -771,8 +755,10 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
      */
     protected Object getAttrInvokeAccessor(int index,
                                            AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
-            return AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].get(this);
+        if ((index >= AttributesEnum.firstIndex()) &&
+            (index < AttributesEnum.count())) {
+            return AttributesEnum.staticValues()[index -
+                AttributesEnum.firstIndex()].get(this);
         }
         return super.getAttrInvokeAccessor(index, attrDef);
     }
@@ -787,8 +773,10 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
      */
     protected void setAttrInvokeAccessor(int index, Object value,
                                          AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
-            AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].put(this, value);
+        if ((index >= AttributesEnum.firstIndex()) &&
+            (index < AttributesEnum.count())) {
+            AttributesEnum.staticValues()[index -
+                AttributesEnum.firstIndex()].put(this, value);
             return;
         }
         super.setAttrInvokeAccessor(index, value, attrDef);
@@ -816,7 +804,7 @@ public class XxpmArticleBomAccessoriesViewRowImpl extends ViewRowImpl {
                 }
             }
         }
-        Logger.adfLogger.warning("Acc Sub Inv: " + result);
+        logger.warning("Acc Sub Inv: " + result);
         return result;
     }
 }

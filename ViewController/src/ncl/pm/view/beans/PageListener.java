@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import ncl.pm.model.bc.view.xxpmJC.Logger;
+import java.util.logging.Logger;
 
 import oracle.adf.controller.v2.lifecycle.Lifecycle;
 import oracle.adf.controller.v2.lifecycle.PagePhaseEvent;
@@ -32,6 +32,7 @@ import weblogic.nodemanager.server.UserInfo;
 
 
 public class PageListener implements PagePhaseListener {
+    Logger logger = Logger.getLogger(this.getClass().getName());
     public static String userName = null;
     public static String userID = null;
     public static String responsibiltyID = null;
@@ -44,39 +45,39 @@ public class PageListener implements PagePhaseListener {
 
 
     public PageListener() {
-        Logger.adfLogger.warning("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-        Logger.adfLogger.warning("@       PagePhaseListener Created              @");
-        Logger.adfLogger.warning("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        logger.warning("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        logger.warning("@       PagePhaseListener Created              @");
+        logger.warning("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
     }
 
     public void afterPhase(PagePhaseEvent pagePhaseEvent) {
 
         //       int id = pagePhaseEvent.getPhaseId();
         //       if (id == Lifecycle.PREPARE_RENDER_ID) {
-        //           Logger.adfLogger.warning("Prepare render id");
+        //           logger.warning("Prepare render id");
         //       }
         //        if (id ==Lifecycle.PREPARE_MODEL_ID) {
-        //            Logger.adfLogger.warning("Prepare model id");
+        //            logger.warning("Prepare model id");
         //        }
         //
         //
         //        if (id == Lifecycle.APPLY_INPUT_VALUES_ID) {
-        //            Logger.adfLogger.warning("apply input values id");
+        //            logger.warning("apply input values id");
         //        }
         //        if (id == Lifecycle.VALIDATE_MODEL_UPDATES_ID) {
-        //            Logger.adfLogger.warning("validate model updates id");
+        //            logger.warning("validate model updates id");
         //        }
         //        if (id == Lifecycle.PROCESS_COMPONENT_EVENTS_ID) {
-        //            Logger.adfLogger.warning("Process component event id");
+        //            logger.warning("Process component event id");
         //        }
         //        if (id == Lifecycle.VALIDATE_INPUT_VALUES_ID) {
-        //            Logger.adfLogger.warning("validate input values id");
+        //            logger.warning("validate input values id");
         //        }
         //        if (id == Lifecycle.INIT_CONTEXT_ID) {
-        //            Logger.adfLogger.warning("init context");
+        //            logger.warning("init context");
         //        }
         //        if (id == Lifecycle.PROCESS_UPDATE_MODEL_ID) {
-        //            Logger.adfLogger.warning("process update model id");
+        //            logger.warning("process update model id");
         //        }
 
 
@@ -88,18 +89,18 @@ public class PageListener implements PagePhaseListener {
             //                        if (!wrappedRequest.getConnection().isClosed()){
             //                            wrappedRequest.getConnection().close();
             //                            if (wrappedRequest.getConnection().isClosed()) {
-            //                                Logger.adfLogger.warning("PageListener.java: Connection Closed in afterPhase()");
+            //                                logger.warning("PageListener.java: Connection Closed in afterPhase()");
             //                            }else{
-            //                                Logger.adfLogger.warning("PageListener.java: Unable to Close the connectin in afterPhase()");
+            //                                logger.warning("PageListener.java: Unable to Close the connectin in afterPhase()");
             //                            }
             //                        }else{
-            //                            Logger.adfLogger.warning("PageListener.java: Connection is already closed in afterPhase()");
+            //                            logger.warning("PageListener.java: Connection is already closed in afterPhase()");
             //                        }
             //                    } catch (SQLException e) {
             //                        //try {
             //                            //response.sendRedirect("errorPage.jsp");
             //                            runJavaScriptCode("alert(\"Error Occured,Please Contact M.I.S Department\"+);");
-            //                        Logger.adfLogger.warning("PageListener.java: "+e.getMessage());
+            //                        logger.warning("PageListener.java: "+e.getMessage());
             //                        //} catch (IOException f) {
             //                        //}
             //                    }
@@ -110,7 +111,7 @@ public class PageListener implements PagePhaseListener {
     }
 
     public void print(String message) {
-        Logger.adfLogger.warning("PageListener: " + message);
+        logger.warning("PageListener: " + message);
     }
 
     public void beforePhase(PagePhaseEvent pagePhaseEvent) {
@@ -152,7 +153,7 @@ public class PageListener implements PagePhaseListener {
 
                     /* HttpSession httpSession = wrappedRequest.getSession(true);
                         String currentUser = (String)httpSession.getAttribute("currentUser");
-                        Logger.adfLogger.warning("Current user ===== " + currentUser);
+                        logger.warning("Current user ===== " + currentUser);
                         setUserName(currentUser); */
 
                     if (!icxCookieStatus.equals(CookieStatus.VALID)) {
@@ -205,30 +206,26 @@ public class PageListener implements PagePhaseListener {
                         } */
 
                     //}
-                    /* Logger.adfLogger.warning("Username = " +
+                    /* logger.warning("Username = " +
                                        sess.getAttribute("userName") +
                                        " , UserID = " +
                                        sess.getAttribute("userID") +
                                        " , RespID: " +
                                        sess.getAttribute("respID")); */
-                    Logger logger = new Logger();
-                    logger.doLogging("Username = " +
-                                     sess.getAttribute("userName") +
-                                     " , UserID = " +
-                                     sess.getAttribute("userID") +
-                                     " , RespID: " +
-                                     sess.getAttribute("respID"));
+                    logger.info("Username = " + sess.getAttribute("userName") +
+                                " , UserID = " + sess.getAttribute("userID") +
+                                " , RespID: " + sess.getAttribute("respID"));
                     //Logger logger = new Logger();
                     //logger.logDebugStmt("PageListener.java: "+" Connection Established",sess.getAttribute("userName").toString());
 
                     String formattedDate = sdf.format(new Date());
-                    Logger.adfLogger.warning("PageListener.java: " +
-                                       " Connection Established " +
-                                       sess.getAttribute("userName").toString() +
-                                       " : " +
-                                       sess.getAttribute("userID").toString() +
-                                       " - " + sess.getAttribute("respID") +
-                                       " " + formattedDate);
+                    logger.warning("PageListener.java: " +
+                                   " Connection Established " +
+                                   sess.getAttribute("userName").toString() +
+                                   " : " +
+                                   sess.getAttribute("userID").toString() +
+                                   " - " + sess.getAttribute("respID") + " " +
+                                   formattedDate);
 
                     // writing user logs on to a file
                     /* Logger infoLogger = new Logger();
@@ -237,9 +234,9 @@ public class PageListener implements PagePhaseListener {
                 } else {
                     /* Logger stmtLogger = new Logger();
                         stmtLogger.logDebugStmt("PageListener.java: "+" EBS Session is null",request.getSession().getAttribute("userName").toString()); */
-                    //                    Logger.adfLogger.warning(("PageListener.java: "+" EBS Session is null " + request.getSession().getAttribute("userName").toString()));
+                    //                    logger.warning(("PageListener.java: "+" EBS Session is null " + request.getSession().getAttribute("userName").toString()));
                     //session.invalidate();
-                    Logger.adfLogger.warning("PageListener.java: EBS Session is null");
+                    logger.warning("PageListener.java: EBS Session is null");
                     //response.sendRedirect("http://prodapp.nishat.net:8001");
                     //response.sendRedirect("http://erpclone1.nishat.net:8006");
                     response.sendRedirect(agent + "AppsLocalLogin.jsp");
@@ -248,9 +245,9 @@ public class PageListener implements PagePhaseListener {
 
                 }
             } catch (Exception ob) {
-                Logger.adfLogger.warning("**************************************************************************");
-                Logger.adfLogger.warning("PageListener.java: " + ob.getMessage());
-                Logger.adfLogger.warning("**************************************************************************");
+                logger.warning("**************************************************************************");
+                logger.warning("PageListener.java: " + ob.getMessage());
+                logger.warning("**************************************************************************");
                 ob.printStackTrace();
                 //                try {
                 //                    Logger logger = new Logger();
@@ -268,19 +265,19 @@ public class PageListener implements PagePhaseListener {
                             logger.logDebugStmt("\n", request.getSession().getAttribute("userName").toString()); */
 
                         String formattedDate = sdf.format(new Date());
-                        Logger.adfLogger.warning("PageListener.java: " +
-                                           " Connection Closed for user " +
-                                           request.getSession().getAttribute("userName").toString() +
-                                           " : " +
-                                           request.getSession().getAttribute("userID").toString() +
-                                           " - " +
-                                           request.getSession().getAttribute("respID") +
-                                           " " + formattedDate);
+                        logger.warning("PageListener.java: " +
+                                       " Connection Closed for user " +
+                                       request.getSession().getAttribute("userName").toString() +
+                                       " : " +
+                                       request.getSession().getAttribute("userID").toString() +
+                                       " - " +
+                                       request.getSession().getAttribute("respID") +
+                                       " " + formattedDate);
                     }
                 } catch (Exception e) {
-                    Logger.adfLogger.warning("**************************************************************************");
-                    Logger.adfLogger.warning("PageListener.java: " + e.getMessage());
-                    Logger.adfLogger.warning("**************************************************************************");
+                    logger.warning("**************************************************************************");
+                    logger.warning("PageListener.java: " + e.getMessage());
+                    logger.warning("**************************************************************************");
                     e.printStackTrace();
                     //                    Logger logger = new Logger();
                     //                    try{

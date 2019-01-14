@@ -11,7 +11,8 @@ import java.util.Collections;
 
 import ncl.pm.model.bc.eo.XxpmItemMasterImpl;
 
-import ncl.pm.model.bc.view.xxpmJC.Logger;
+import java.util.logging.Logger;
+
 import ncl.pm.model.bc.vo.common.XxpmItemMasterWvViewRow;
 
 import oracle.jbo.JboException;
@@ -31,6 +32,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XxpmItemMasterWvViewRowImpl extends ViewRowImpl implements XxpmItemMasterWvViewRow {
+    Logger logger = Logger.getLogger(this.getClass().getName());
+
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -989,7 +992,7 @@ public class XxpmItemMasterWvViewRowImpl extends ViewRowImpl implements XxpmItem
         if (rowCount < 1)
             lcmStatus = true;
         while (lcmStatus == false) {
-            Logger.adfLogger.warning("lcm -----> " + lcm);
+            logger.warning("lcm -----> " + lcm);
             for (int j = 0; j < voRows.length; j++) {
                 if (lcm % voRows[j] == 0) {
                     lcmStatus = true;
@@ -1209,20 +1212,18 @@ public class XxpmItemMasterWvViewRowImpl extends ViewRowImpl implements XxpmItem
             stmt.setString("WARP_GSM", warpGSM);
             stmt.setString("WEFT_GSM", weftGSM);
             stmt.setString("FABRIC_GSM", fabricGSM);
-            Logger.adfLogger.warning("WARP_ID ===== " + warpId);
-            Logger.adfLogger.warning("WEFT_ID ===== " + weftId);
-            Logger.adfLogger.warning("WARP_ROWS ===== " +
-                                     this.getWarpRowCount());
-            Logger.adfLogger.warning("WEFT_ROWS ===== " +
-                                     this.getWeftRowCount());
-            Logger.adfLogger.warning("WARP_GSM ===== " + warpGSM);
-            Logger.adfLogger.warning("WEFT_GSM ===== " + weftGSM);
-            Logger.adfLogger.warning("FABRIC_GSM ===== " + fabricGSM);
+            logger.warning("WARP_ID ===== " + warpId);
+            logger.warning("WEFT_ID ===== " + weftId);
+            logger.warning("WARP_ROWS ===== " + this.getWarpRowCount());
+            logger.warning("WEFT_ROWS ===== " + this.getWeftRowCount());
+            logger.warning("WARP_GSM ===== " + warpGSM);
+            logger.warning("WEFT_GSM ===== " + weftGSM);
+            logger.warning("FABRIC_GSM ===== " + fabricGSM);
             stmt.execute();
             result = stmt.getString("RESULT");
-            Logger.adfLogger.warning("result ===== " + result);
+            logger.warning("result ===== " + result);
         } catch (Exception e) {
-            Logger.adfLogger.warning("result ===== error");
+            logger.warning("result ===== error");
             e.printStackTrace();
         } finally {
             try {
@@ -1285,7 +1286,7 @@ public class XxpmItemMasterWvViewRowImpl extends ViewRowImpl implements XxpmItem
         if (result != null && result.length() > 1) {
             result = result.substring(0, result.length() - 1);
         }
-        //        Logger.adfLogger.warning("Total rows in XxpmWarpView are: " +
+        //        logger.warning("Total rows in XxpmWarpView are: " +
         //                           ri.getRowCount());
         return result;
     }
@@ -1331,7 +1332,7 @@ public class XxpmItemMasterWvViewRowImpl extends ViewRowImpl implements XxpmItem
         if (result != null && result.length() > 1) {
             result = result.substring(0, result.length() - 1);
         }
-        //        Logger.adfLogger.warning("Total rows in XxpmWeftView are: " +
+        //        logger.warning("Total rows in XxpmWeftView are: " +
         //                           ri.getRowCount());
         return result;
     }

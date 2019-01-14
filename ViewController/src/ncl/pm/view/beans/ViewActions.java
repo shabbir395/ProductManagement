@@ -9,13 +9,9 @@ import java.io.OutputStream;
 
 import java.text.SimpleDateFormat;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
-
-import java.util.List;
-import java.util.logging.Level;
 
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
@@ -28,16 +24,14 @@ import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
-import javax.faces.model.SelectItem;
 import javax.faces.validator.ValidatorException;
 
-import ncl.pm.model.bc.view.xxpmJC.Logger;
+import java.util.logging.Logger;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.share.ADFContext;
-import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputListOfValues;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
@@ -80,6 +74,7 @@ import org.apache.myfaces.trinidad.util.Service;
 
 
 public class ViewActions {
+    Logger logger = Logger.getLogger(this.getClass().getName());
     private RichSelectOneChoice denier1;
     private RichSelectOneChoice denier2;
     private RichCommandToolbarButton spnAddButtonProp;
@@ -270,7 +265,6 @@ public class ViewActions {
         //        super();
     }
 
-    Logger logger = new Logger();
     BindingContainer bc =
         BindingContext.getCurrent().getCurrentBindingsEntry();
 
@@ -426,7 +420,7 @@ public class ViewActions {
             id = "0";
         }
 
-        Logger.adfLogger.warning("Spinning item ID ===== " + id);
+        logger.warning("Spinning item ID ===== " + id);
         OperationBinding op = bc.getOperationBinding("chkSpnItmUsage");
         op.getParamsMap().put("vId", id);
         result = (Integer)op.execute();
@@ -440,7 +434,7 @@ public class ViewActions {
         execOper("CreateInsertYT");
         getVO("XxpmYarnTypeViewChildIterator").getCurrentRow().setAttribute("NewRow",
                                                                             1);
-        Logger.adfLogger.warning("Insert master button pressed.");
+        logger.warning("Insert master button pressed.");
         this.spnAddButtonProp.setDisabled(true);
     }
 
@@ -454,7 +448,7 @@ public class ViewActions {
         }
         int error = 0;
         ViewObject itm = getVO("XxpmItemMasterSpnViewIterator");
-        //        Logger.adfLogger.warning("itm EstimatedRowCount " +
+        //        logger.warning("itm EstimatedRowCount " +
         //                           itm.getEstimatedRowCount());
         Row curMRow = itm.getCurrentRow();
 
@@ -522,9 +516,9 @@ public class ViewActions {
                 if (error == 1) {
 
                 } else {
-                    Logger.adfLogger.warning("Save button error -----> " +
-                                             op.getErrors());
-                    /* Logger.adfLogger.warning("Row status -----> " + rowStatus);
+                    logger.warning("Save button error -----> " +
+                                   op.getErrors());
+                    /* logger.warning("Row status -----> " + rowStatus);
                     if (NVL(rowStatus, 5) == 0 || NVL(rowStatus, 5) == -1) {
                         showMessage("Item has been created successfully.");
                     } else if (NVL(rowStatus, 5) == 2) {
@@ -538,18 +532,18 @@ public class ViewActions {
         }
 
         this.spnAddButtonProp.setDisabled(false);
-        Logger.adfLogger.warning("Save button pressed.");
+        logger.warning("Save button pressed.");
     }
 
     public void commitSpn(ActionEvent actionEvent) {
         commitActionSpn();
-        Logger.adfLogger.warning("Save button pressed.");
+        logger.warning("Save button pressed.");
     }
 
     public void rollbackSpn(ActionEvent actionEvent) {
         execOper("blankSpnPage");
         this.spnAddButtonProp.setDisabled(false);
-        Logger.adfLogger.warning("Rollback button pressed.");
+        logger.warning("Rollback button pressed.");
     }
 
     public void insertYarnBlend(ActionEvent actionEvent) {
@@ -561,7 +555,7 @@ public class ViewActions {
             return;
         }
         execOper("CreateInsertYB");
-        Logger.adfLogger.warning("Insert yarn blend button pressed.");
+        logger.warning("Insert yarn blend button pressed.");
     }
 
     public void insertYarnType(ActionEvent actionEvent) {
@@ -573,7 +567,7 @@ public class ViewActions {
             //insertRowAtLast("XxpmYarnTypeViewChildIterator");
             execOper("CreateInsertYT");
         }
-        Logger.adfLogger.warning("Insert yarn type button pressed.");
+        logger.warning("Insert yarn type button pressed.");
     }
 
     public void setDenier1(RichSelectOneChoice denier1) {
@@ -596,7 +590,7 @@ public class ViewActions {
         ViewObject vo = getVO("XxpmYarnTypeViewChildIterator");
         Row curRow = vo.getCurrentRow();
         if (vce.getNewValue().equals(0)) {
-            Logger.adfLogger.warning("FYT Value is null.");
+            logger.warning("FYT Value is null.");
             curRow.setAttribute("FytRatio", null);
             curRow.setAttribute("Denier1", null);
             curRow.setAttribute("Draft1", null);
@@ -641,7 +635,7 @@ public class ViewActions {
 
     public void searchAction(String var, String val,
                              RichInputListOfValues lov) {
-        Logger.adfLogger.warning("Search item value -----> " + val);
+        logger.warning("Search item value -----> " + val);
         this.execOper("Rollback");
         OperationBinding executeWithParams =
             bc.getOperationBinding("ExecuteWithParams");
@@ -704,8 +698,8 @@ public class ViewActions {
     }
 
     public void searchItemProgButton(ActionEvent ae) {
-        Logger.adfLogger.warning("Selected user ===== " +
-                                 ADFContext.getCurrent().getSessionScope().get("userID"));
+        logger.warning("Selected user ===== " +
+                       ADFContext.getCurrent().getSessionScope().get("userID"));
         searchAction("BindDescProg", "", this.searchLovProg);
     }
 
@@ -766,14 +760,14 @@ public class ViewActions {
 
     public void insertWarp(ActionEvent ae) {
         execOper("CreateInsertWarp");
-        Logger.adfLogger.warning("Insert warp button pressed.");
+        logger.warning("Insert warp button pressed.");
     }
 
     public void insertMasterWvItem(ActionEvent ae) {
         execOper("CreateInsertItemMasterWv");
         execOper("CreateInsertWarp");
         execOper("CreateInsertWeft");
-        Logger.adfLogger.warning("Insert weaving item button pressed.");
+        logger.warning("Insert weaving item button pressed.");
     }
 
     public void commitWv(ActionEvent ae) {
@@ -818,12 +812,11 @@ public class ViewActions {
         OperationBinding op = bc.getOperationBinding("Commit");
         op.execute();
         if (op.getErrors().isEmpty()) {
-            Logger.adfLogger.warning("Save button error -----> " +
-                                     op.getErrors());
+            logger.warning("Save button error -----> " + op.getErrors());
             if (error == 1) {
 
             } else {
-                /* Logger.adfLogger.warning("Row status -----> " + rowStatus);
+                /* logger.warning("Row status -----> " + rowStatus);
                 if (NVL(rowStatus, 5) == 0 || NVL(rowStatus, 5) == -1) {
                     showMessage("Item has been created successfully.");
                 } else if (NVL(rowStatus, 5) == 2) {
@@ -834,17 +827,17 @@ public class ViewActions {
                 showSaveMessage("itemCreationMsg");
             }
         }
-        Logger.adfLogger.warning("commit weaving item button pressed.");
+        logger.warning("commit weaving item button pressed.");
     }
 
     public void rollbackWv(ActionEvent ae) {
         execOper("blankWvPage");
-        Logger.adfLogger.warning("Rollback weaving button pressed.");
+        logger.warning("Rollback weaving button pressed.");
     }
 
     public void insertWeft(ActionEvent ae) {
         execOper("CreateInsertWeft");
-        Logger.adfLogger.warning("Insert weft button pressed.");
+        logger.warning("Insert weft button pressed.");
     }
 
     public void addWarpAttrsPartialTrigger() {
@@ -871,8 +864,8 @@ public class ViewActions {
             DCIteratorBinding dcib =
                 (DCIteratorBinding)bc.get("XxpmMadeupSetArticlesViewSetsChildIterator");
             Row[] saRows = dcib.getAllRowsInRange();
-            Logger.adfLogger.warning("XxpmMadeupSetArticlesViewSetsChildIterator rows are: " +
-                                     saRows.length);
+            logger.warning("XxpmMadeupSetArticlesViewSetsChildIterator rows are: " +
+                           saRows.length);
             for (int i = 0; i < saRows.length; i++) {
                 saRows[i].remove();
             }
@@ -917,7 +910,7 @@ public class ViewActions {
 
     public void insertMasterDyItem(ActionEvent ae) {
         execOper("CreateInsertItemMasterDy");
-        Logger.adfLogger.warning("Insert dyeing item button pressed.");
+        logger.warning("Insert dyeing item button pressed.");
     }
 
     public void commitDy(ActionEvent ae) {
@@ -929,7 +922,7 @@ public class ViewActions {
         OperationBinding op = bc.getOperationBinding("Commit");
         op.execute();
         if (op.getErrors().isEmpty()) {
-            /* Logger.adfLogger.warning("Row status -----> " + rowStatus);
+            /* logger.warning("Row status -----> " + rowStatus);
             if (NVL(rowStatus, 5) == 0 || NVL(rowStatus, 5) == -1) {
                 showMessage("Item has been created successfully.");
             } else if (NVL(rowStatus, 5) == 2) {
@@ -984,12 +977,12 @@ public class ViewActions {
                 Row curRow = vo.getCurrentRow();
                 if (curRow != null) {
                     folderCode = (Integer)curRow.getAttribute("FolderCode");
-                    Logger.adfLogger.warning("Folder Code: " + folderCode);
+                    logger.warning("Folder Code: " + folderCode);
                 } else {
-                    Logger.adfLogger.warning("Current row is null");
+                    logger.warning("Current row is null");
                 }
             } else {
-                Logger.adfLogger.warning("View Object is null");
+                logger.warning("View Object is null");
             }
 
             fileCode =
@@ -1001,10 +994,9 @@ public class ViewActions {
                 // create directory on the server
                 boolean createdRoot = ftpClient.makeDirectory(path);
                 if (createdRoot) {
-                    Logger.adfLogger.warning("CREATED the directory: " + path);
+                    logger.warning("CREATED the directory: " + path);
                 } else {
-                    Logger.adfLogger.warning("COULD NOT create the directory: " +
-                                             path);
+                    logger.warning("COULD NOT create the directory: " + path);
                 }
 
                 // All uploaded files will be stored in below path
@@ -1012,16 +1004,15 @@ public class ViewActions {
                 // create directory on the server
                 boolean created = ftpClient.makeDirectory(path);
                 if (created) {
-                    Logger.adfLogger.warning("CREATED the directory: " + path);
+                    logger.warning("CREATED the directory: " + path);
                 } else {
-                    Logger.adfLogger.warning("COULD NOT create the directory: " +
-                                             path);
+                    logger.warning("COULD NOT create the directory: " + path);
                 }
                 path +=
                         "/" + fileCode + this.getExtension(myfile.getFilename());
                 InputStream inputStream = null;
                 try {
-                    Logger.adfLogger.warning("Start uploading file");
+                    logger.warning("Start uploading file");
                     OutputStream out = ftpClient.storeFileStream(path);
                     inputStream = myfile.getInputStream();
                     byte[] buffer = new byte[8192];
@@ -1034,7 +1025,7 @@ public class ViewActions {
                     out.close();
                     boolean completed = ftpClient.completePendingCommand();
                     if (completed) {
-                        Logger.adfLogger.warning("The file is uploaded successfully.");
+                        logger.warning("The file is uploaded successfully.");
                     }
                 } catch (Exception ex) {
                     // handle exception
@@ -1048,7 +1039,7 @@ public class ViewActions {
 
             }
         } catch (IOException ex) {
-            Logger.adfLogger.warning("Error: " + ex.getMessage());
+            logger.warning("Error: " + ex.getMessage());
             ex.printStackTrace();
         } finally {
             try {
@@ -1078,12 +1069,11 @@ public class ViewActions {
             e.printStackTrace();
         }
         if (dirFlag) {
-            Logger.adfLogger.warning("Directory " + uploadDir +
-                                     " created successfully.");
+            logger.warning("Directory " + uploadDir +
+                           " created successfully.");
             ;
         } else
-            Logger.adfLogger.warning("Directory " + uploadDir +
-                                     " already exists.");
+            logger.warning("Directory " + uploadDir + " already exists.");
 
         fileCode = (Integer)bc.getOperationBinding("getMaxAtchCode").execute();
         if (myfile == null) {
@@ -1124,7 +1114,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
             UploadedFile fileVal = (UploadedFile)vce.getNewValue();
             //Upload File to path- Return actual server path
             String path = uploadFileFTP(fileVal, iter);
-            Logger.adfLogger.warning(fileVal.getContentType());
+            logger.warning(fileVal.getContentType());
             //Method to insert data in table to keep track of uploaded files
             OperationBinding ob = bc.getOperationBinding(oper);
             ob.getParamsMap().put("name", fileVal.getFilename());
@@ -1166,7 +1156,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     }
 
     public void showPopup(String popup) {
-        Logger.adfLogger.warning("actionEvent start.");
+        logger.warning("actionEvent start.");
         String popupId = popup;
         FacesContext context = FacesContext.getCurrentInstance();
         StringBuilder script = new StringBuilder();
@@ -1176,13 +1166,13 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         script.append("var popup = AdfPage.PAGE.findComponent('" + popupId +
                       "'); ").append("popup.show();");
         extRenderKitSrvc.addScript(context, String.valueOf(script));
-        Logger.adfLogger.warning("actionEvent end.");
+        logger.warning("actionEvent end.");
     }
 
     public void addYarnPliesVset(ActionEvent actionEvent) {
         ((AttributeBinding)bc.getControlBinding("BindValueSet")).setInputValue("XXPM_INV_YARN_PLIES");
-        Logger.adfLogger.warning("Value set id ===== " +
-                                 ((AttributeBinding)bc.getControlBinding("BindValueSet")).getInputValue());
+        logger.warning("Value set id ===== " +
+                       ((AttributeBinding)bc.getControlBinding("BindValueSet")).getInputValue());
         showPopup("AddValPopup");
     }
 
@@ -1264,7 +1254,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public void insertMasterPrnItem(ActionEvent ae) {
         execOper("CreateInsertItemMasterPrn");
-        Logger.adfLogger.warning("Insert Printing item button pressed.");
+        logger.warning("Insert Printing item button pressed.");
     }
 
     public void commitPrn(ActionEvent ae) {
@@ -1276,7 +1266,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         OperationBinding op = bc.getOperationBinding("Commit");
         op.execute();
         if (op.getErrors().isEmpty()) {
-            /* Logger.adfLogger.warning("Row status -----> " + rowStatus);
+            /* logger.warning("Row status -----> " + rowStatus);
             if (NVL(rowStatus, 5) == 0 || NVL(rowStatus, 5) == -1) {
                 showMessage("Item has been created successfully.");
             } else if (NVL(rowStatus, 5) == 2) {
@@ -1291,24 +1281,24 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public void rollbackDy(ActionEvent ae) {
         execOper("blankDyPage");
-        Logger.adfLogger.warning("Rollback printing button pressed.");
+        logger.warning("Rollback printing button pressed.");
     }
 
     public void rollbackPrn(ActionEvent ae) {
         execOper("blankPrnPage");
-        Logger.adfLogger.warning("Rollback printing button pressed.");
+        logger.warning("Rollback printing button pressed.");
     }
 
     public void rollbackAcc(ActionEvent ae) {
         execOper("blankAccPage");
-        Logger.adfLogger.warning("Rollback accessories button pressed.");
+        logger.warning("Rollback accessories button pressed.");
     }
 
     public void rollbackMadeup(ActionEvent ae) {
         /* execOper("Rollback");
         clearPage("XxpmItemMasterWvViewIterator"); */
         execOper("blankMadeupPage");
-        Logger.adfLogger.warning("Rollback weaving button pressed.");
+        logger.warning("Rollback weaving button pressed.");
     }
 
     public void setYarnPlies(RichSelectOneChoice yarnPlies) {
@@ -1808,8 +1798,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     public void denier1VCL(ValueChangeEvent vce) {
         ViewObject vo = getVO("XxpmYarnTypeViewChildIterator");
         Row curRow = vo.getCurrentRow();
-        Logger.adfLogger.warning("Denier1 index value ===== " +
-                                 vce.getNewValue());
+        logger.warning("Denier1 index value ===== " + vce.getNewValue());
         if (vce.getNewValue().equals(0)) {
             curRow.setAttribute("Draft1", "");
             //this.draft1.setValue("");
@@ -1821,8 +1810,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     public void denier2VCL(ValueChangeEvent vce) {
         ViewObject vo = getVO("XxpmYarnTypeViewChildIterator");
         Row curRow = vo.getCurrentRow();
-        Logger.adfLogger.warning("Denier2 index value ===== " +
-                                 vce.getNewValue());
+        logger.warning("Denier2 index value ===== " + vce.getNewValue());
         if (vce.getNewValue().equals(0)) {
             curRow.setAttribute("Draft2", "");
             //this.draft2.setValue("");
@@ -1848,7 +1836,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     }
 
     public void dualCoreVCL(ValueChangeEvent vce) {
-        Logger.adfLogger.warning("Dual core ===== " + vce.getNewValue());
+        logger.warning("Dual core ===== " + vce.getNewValue());
         ViewObject vo = getVO("XxpmYarnTypeViewChildIterator");
         Row curRow = vo.getCurrentRow();
         if (vce.getNewValue().equals(false)) {
@@ -1880,7 +1868,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         ViewObject vo = getVO("XxpmYarnTypeViewChildIterator");
         Row curRow = vo.getCurrentRow();
         if (vce.getNewValue().equals(0)) {
-            Logger.adfLogger.warning("FYT2 Value is null.");
+            logger.warning("FYT2 Value is null.");
             curRow.setAttribute("FytRatio2", "");
             curRow.setAttribute("Denier2", "");
             curRow.setAttribute("Draft2", "");
@@ -2146,7 +2134,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         OperationBinding op = bc.getOperationBinding("Commit");
         op.execute();
         if (op.getErrors().isEmpty()) {
-            /* Logger.adfLogger.warning("Row status -----> " + rowStatus);
+            /* logger.warning("Row status -----> " + rowStatus);
             if (NVL(rowStatus, 5) == 0 || NVL(rowStatus, 5) == -1) {
                 showMessage("Item has been created successfully.");
             } else if (NVL(rowStatus, 5) == 2) {
@@ -2410,7 +2398,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     }
 
     public void uploadFileAccVCL(ValueChangeEvent vce) {
-        Logger.adfLogger.warning("Attachment started.");
+        logger.warning("Attachment started.");
         uploadFileVCL(vce, "XxpmItemMasterAccViewIterator",
                       "setXxpmAttachmentsAcc");
     }
@@ -2526,29 +2514,27 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
             Row curRow = vo.getCurrentRow();
             if (curRow != null) {
                 String s3 = (String)curRow.getAttribute("Segment3Value");
-                Logger.adfLogger.warning("Segment3Value ===== " + s3);
+                logger.warning("Segment3Value ===== " + s3);
                 if (s3 != null) {
                     if (s3.equals("4") || s3.equals("5")) {
                         showError("Item with all statuses already exists.");
                     } else {
                         String s1 = (String)curRow.getAttribute("Segment1");
-                        Logger.adfLogger.warning("Segment1 ===== " + s1);
+                        logger.warning("Segment1 ===== " + s1);
                         if (s1 != null) {
                             String reqS3 = null;
                             if (s1.equals("17") || s1.equals("18")) {
-                                Logger.adfLogger.warning("testing reqS3 = " +
-                                                         (s3.equals("2") ?
-                                                          "1" : "2"));
+                                logger.warning("testing reqS3 = " +
+                                               (s3.equals("2") ? "1" : "2"));
                                 reqS3 = (s3.equals("2") ? "1" : "2");
                                 ;
                             } else if (s1.equals("19") || s1.equals("20")) {
-                                Logger.adfLogger.warning("testing reqS3 = " +
-                                                         (s3.equals("2") ?
-                                                          "3" : "2"));
+                                logger.warning("testing reqS3 = " +
+                                               (s3.equals("2") ? "3" : "2"));
                                 reqS3 = (s3.equals("2") ? "3" : "2");
                                 ;
                             }
-                            Logger.adfLogger.warning("ReqS3 ===== " + reqS3);
+                            logger.warning("ReqS3 ===== " + reqS3);
                             OperationBinding copyItemOper =
                                 bc.getOperationBinding("copyEBSItemUpdateStatus");
                             copyItemOper.getParamsMap().put("imId",
@@ -2614,9 +2600,12 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public String getDimSizeTitle(int indx) {
         String result = null;
-        ViewObject vo = getVO("XxpmMadeupSizesViewChildIterator");
+        ViewObjectImpl vo =
+            (ViewObjectImpl)getVO("XxpmMadeupSizesViewChildIterator");
         if (vo != null) {
-            Row curRow = vo.getRowAtRangeIndex(indx);
+            RowQualifier rq = new RowQualifier("1=1");
+            Row[] rows = vo.getFilteredRows(rq);
+            Row curRow = rows[indx];
             if (curRow != null) {
                 result =
                         (curRow.getAttribute("SizeName") != null ? (String)curRow.getAttribute("SizeName") :
@@ -2961,8 +2950,8 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
                 ResetUtils.reset(this.madeupThreadCount);
                 ResetUtils.reset(this.madeupBrandName);
                 if (madeupArticlesVo.getEstimatedRowCount() > 0) {
-                    Logger.adfLogger.warning("updateMadeupArticleLovsAccessor started.");
-                    //                    Logger.adfLogger.warning("madeupArticlesVo rows are: " +
+                    logger.warning("updateMadeupArticleLovsAccessor started.");
+                    //                    logger.warning("madeupArticlesVo rows are: " +
                     //                                       madeupArticlesVo.getEstimatedRowCount());
                     execOper("updateMadeupArticleLovsAccessor");
                     ResetUtils.reset(this.madeupArticleBomGroup);
@@ -2992,16 +2981,16 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public void addMadeupThreadCountVset(ActionEvent actionEvent) {
         ((AttributeBinding)bc.getControlBinding("BindValueSet")).setInputValue("XXPM_MADEUP_THREAD_COUNT");
-        Logger.adfLogger.warning("Value set id ===== " +
-                                 ((AttributeBinding)bc.getControlBinding("BindValueSet")).getInputValue());
+        logger.warning("Value set id ===== " +
+                       ((AttributeBinding)bc.getControlBinding("BindValueSet")).getInputValue());
         showPopup("AddValPopup");
         ;
     }
 
     public void addMadeupBrandNameVset(ActionEvent actionEvent) {
         ((AttributeBinding)bc.getControlBinding("BindValueSet")).setInputValue("XXPM_MADEUP_BRAND_NAME");
-        Logger.adfLogger.warning("Value set id ===== " +
-                                 ((AttributeBinding)bc.getControlBinding("BindValueSet")).getInputValue());
+        logger.warning("Value set id ===== " +
+                       ((AttributeBinding)bc.getControlBinding("BindValueSet")).getInputValue());
         showPopup("AddValPopup");
         ;
     }
@@ -3572,26 +3561,26 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public void insertAcc(ActionEvent actionEvent) {
         execOper("CreateInsert");
-        Logger.adfLogger.warning("Accessory insert button pressed.");
+        logger.warning("Accessory insert button pressed.");
     }
 
     public void insertArticleBom(ActionEvent actionEvent) {
         execOper("CreateInsertArticleBom");
-        Logger.adfLogger.warning("CreateInsertArticleBom button pressed.");
+        logger.warning("CreateInsertArticleBom button pressed.");
         this.articleBomAddButtonProp.setDisabled(true);
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.articleBomAddButtonProp);
     }
 
     public void commitArticleBom(ActionEvent actionEvent) {
         execOper("Commit");
-        Logger.adfLogger.warning("commitArticleBom button pressed.");
+        logger.warning("commitArticleBom button pressed.");
         this.articleBomAddButtonProp.setDisabled(false);
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.articleBomAddButtonProp);
     }
 
     public void rollbackArticleBom(ActionEvent actionEvent) {
         execOper("blankArtBomPage");
-        Logger.adfLogger.warning("rollbackArticleBom button pressed.");
+        logger.warning("rollbackArticleBom button pressed.");
         this.articleBomAddButtonProp.setDisabled(false);
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.articleBomAddButtonProp);
     }
@@ -3636,8 +3625,8 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     public void selectAllChkBoxVCL(ValueChangeEvent vce, String iter,
                                    String attr) {
         //vce.getComponent().processUpdates(FacesContext.getCurrentInstance());
-        Logger.adfLogger.warning("old value = " + vce.getOldValue() +
-                                 " and new value = " + vce.getNewValue());
+        logger.warning("old value = " + vce.getOldValue() +
+                       " and new value = " + vce.getNewValue());
         ;
         if (vce.getOldValue() != null || !vce.getNewValue().equals(false)) {
             boolean isSelected = ((Boolean)vce.getNewValue()).booleanValue();
@@ -3758,8 +3747,8 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         //setValueToExpression("#{bindings.ArticleId.inputValue}", vce.getNewValue());
         ViewObject fabVo = getVO("XxpmArticleBomFabricViewChildIterator");
         ViewObject accVo = getVO("XxpmArticleBomAccessoriesViewChildIterator");
-        //        Logger.adfLogger.warning("Fab rows: " + fabVo.getEstimatedRowCount());
-        //        Logger.adfLogger.warning("Acc rows: " + accVo.getEstimatedRowCount());
+        //        logger.warning("Fab rows: " + fabVo.getEstimatedRowCount());
+        //        logger.warning("Acc rows: " + accVo.getEstimatedRowCount());
         if (fabVo.getEstimatedRowCount() > 0 ||
             accVo.getEstimatedRowCount() > 0) {
             ADFContext.getCurrent().getSessionScope().put("articleOldVal",
@@ -3771,16 +3760,16 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     public void articleBomArticleDL(DialogEvent de) {
         if (de.getOutcome().equals(DialogEvent.Outcome.yes)) {
             execOper("updateArticleBomDetails");
-            Logger.adfLogger.warning("Article Bom Article Outcome ===== Yes.");
+            logger.warning("Article Bom Article Outcome ===== Yes.");
         } else {
             getVO("XxpmArticleBomViewIterator").getCurrentRow().setAttribute("ArticleId",
                                                                              ADFContext.getCurrent().getSessionScope().get("articleOldVal"));
-            Logger.adfLogger.warning("Article ID ===== " +
+            logger.warning("Article ID ===== " +
                     //                               ADFContext.getCurrent().getSessionScope().get("articleOldVal"));
                     ADFContext.getCurrent().getSessionScope().put("articleOldVal",
                                                                   null));
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.articleBomArticleId);
-            Logger.adfLogger.warning("Article Bom Article Outcome ===== No.");
+            logger.warning("Article Bom Article Outcome ===== No.");
         }
     }
 
@@ -3801,13 +3790,13 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     }
 
     public void articleBomStatus(String status) {
-        Logger.adfLogger.warning("status ===== " + status);
+        logger.warning("status ===== " + status);
         ViewObject vo = getVO("XxpmArticleBomReadOnlyViewIterator");
         if ("Approved".equals(status)) {
             int result = 0;
             OperationBinding op = bc.getOperationBinding("articleBomProc");
             result = (Integer)op.execute();
-            Logger.adfLogger.warning("Result ===== " + result);
+            logger.warning("Result ===== " + result);
             if (result == 0) {
                 showError("There is an error in BOM approval. For more information please view log.");
                 return;
@@ -3903,8 +3892,8 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public void addMadeupArticleBomGroupVset(ActionEvent actionEvent) {
         ((AttributeBinding)bc.getControlBinding("BindValueSet")).setInputValue("XXPM_ARTICLE_BOM_GROUP");
-        Logger.adfLogger.warning("Value set id ===== " +
-                                 ((AttributeBinding)bc.getControlBinding("BindValueSet")).getInputValue());
+        logger.warning("Value set id ===== " +
+                       ((AttributeBinding)bc.getControlBinding("BindValueSet")).getInputValue());
         showPopup("AddValPopup");
         ;
     }
@@ -4187,21 +4176,21 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public void insertPoHeader(ActionEvent actionEvent) {
         execOper("CreateInsertPoHeader");
-        Logger.adfLogger.warning("insertPoHeader button pressed.");
+        logger.warning("insertPoHeader button pressed.");
         this.poAddButtonProp.setDisabled(true);
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.poAddButtonProp);
     }
 
     public void commitPo(ActionEvent actionEvent) {
         execOper("Commit");
-        Logger.adfLogger.warning("commitPo button pressed.");
+        logger.warning("commitPo button pressed.");
         this.poAddButtonProp.setDisabled(false);
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.poAddButtonProp);
     }
 
     public void rollbackPo(ActionEvent actionEvent) {
         execOper("blankPoPage");
-        Logger.adfLogger.warning("rollbackPo button pressed.");
+        logger.warning("rollbackPo button pressed.");
         this.poAddButtonProp.setDisabled(false);
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.poAddButtonProp);
     }
@@ -4209,9 +4198,9 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     public void poSoHeaderIdVCL(ValueChangeEvent vce) {
         ViewObject fabLinesVo = getVO("XxpmPoLinesViewFabChildIterator");
         ViewObject accLinesVo = getVO("XxpmPoLinesViewAccChildIterator");
-        //        Logger.adfLogger.warning("PO Lines Fab view rows: " +
+        //        logger.warning("PO Lines Fab view rows: " +
         //                           fabLinesVo.getEstimatedRowCount());
-        //        Logger.adfLogger.warning("PO Lines Fab view rows: " +
+        //        logger.warning("PO Lines Fab view rows: " +
         //                           accLinesVo.getEstimatedRowCount());
         if (fabLinesVo.getEstimatedRowCount() > 0 ||
             accLinesVo.getEstimatedRowCount() > 0) {
@@ -4221,8 +4210,8 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         } else {
             setValueToExpression("#{bindings.SoHeaderId.inputValue}",
                                  vce.getNewValue());
-            Logger.adfLogger.warning("So Header ID ===== " +
-                                     getValueFrmExpression("#{bindings.SoHeaderId.attributeValue}"));
+            logger.warning("So Header ID ===== " +
+                           getValueFrmExpression("#{bindings.SoHeaderId.attributeValue}"));
             execOper("Commit");
             ;
             execInsertPoLinesWithValues(2,
@@ -4244,8 +4233,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         if (vo != null) {
             Row curRow = vo.getCurrentRow();
             if (curRow != null) {
-                Logger.adfLogger.warning("Prog ID = " +
-                                         curRow.getAttribute("ProgId"));
+                logger.warning("Prog ID = " + curRow.getAttribute("ProgId"));
 
                 if (type == 1) {
                     soHeaderId = (Integer)curRow.getAttribute("SoHeaderId");
@@ -4253,9 +4241,8 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
                     soHeaderId = soVal;
                 }
 
-                Logger.adfLogger.warning("So Header ID = " + soHeaderId);
-                Logger.adfLogger.warning("PO ID = " +
-                                         curRow.getAttribute("PoHeaderId"));
+                logger.warning("So Header ID = " + soHeaderId);
+                logger.warning("PO ID = " + curRow.getAttribute("PoHeaderId"));
                 ////////////////////////
                 op.getParamsMap().put("hid", soHeaderId);
                 Integer result = Integer.valueOf(op.execute().toString());
@@ -4278,16 +4265,16 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     public void soHeaderIdDL(DialogEvent de) {
         if (de.getOutcome().equals(DialogEvent.Outcome.yes)) {
             execInsertPoLinesWithValues(1, null, 2);
-            Logger.adfLogger.warning("SO Header ID Dialog Outcome ===== Yes.");
+            logger.warning("SO Header ID Dialog Outcome ===== Yes.");
         } else {
             getVO("XxpmPoHeaderViewIterator").getCurrentRow().setAttribute("SoHeaderId",
                                                                            ADFContext.getCurrent().getSessionScope().get("soHeaderIdOldVal"));
-            Logger.adfLogger.warning("SO Header ID ===== " +
+            logger.warning("SO Header ID ===== " +
                     //                               ADFContext.getCurrent().getSessionScope().get("soHeaderIdOldVal"));
                     ADFContext.getCurrent().getSessionScope().put("soHeaderIdOldVal",
                                                                   null));
             AdfFacesContext.getCurrentInstance().addPartialTarget(this.poSoHeaderId);
-            Logger.adfLogger.warning("SO Header ID Dialog Outcome ===== No.");
+            logger.warning("SO Header ID Dialog Outcome ===== No.");
         }
         execOper("Commit");
         execOper("updatePoHeaderLovsAccessor");
@@ -4396,7 +4383,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public void rollbackSetBom(ActionEvent ae) {
         execOper("blankSetBomPage");
-        Logger.adfLogger.warning("Rollback printing button pressed.");
+        logger.warning("Rollback printing button pressed.");
     }
 
     public void createSetBomAL(ActionEvent actionEvent) {
@@ -4412,7 +4399,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
             //            OperationBinding op = bc.getOperationBinding("createSetBom");
             OperationBinding op = bc.getOperationBinding("setBomProc");
             result = (Integer)op.execute();
-            Logger.adfLogger.warning("Result ===== " + result);
+            logger.warning("Result ===== " + result);
             //        execWithParamsSetCurRow("XxpmSetBomViewIterator");
             vo.executeQuery();
             if (curRow != null) {
@@ -4530,8 +4517,8 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
                                      vce.getNewValue());
                 curRow.setAttribute("VendorSiteId",
                                     (Integer)bc.getOperationBinding("getDefaultValForVendorSiteIdFab").execute());
-                Logger.adfLogger.warning("Vendor site id = " +
-                                         bc.getOperationBinding("getDefaultValForVendorSiteIdFab").execute());
+                logger.warning("Vendor site id = " +
+                               bc.getOperationBinding("getDefaultValForVendorSiteIdFab").execute());
 
                 ;
             }
@@ -4547,8 +4534,8 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
                                      vce.getNewValue());
                 curRow.setAttribute("VendorSiteId",
                                     (Integer)bc.getOperationBinding("getDefaultValForVendorSiteIdAcc").execute());
-                Logger.adfLogger.warning("Vendor site id = " +
-                                         bc.getOperationBinding("getDefaultValForVendorSiteIdAcc").execute());
+                logger.warning("Vendor site id = " +
+                               bc.getOperationBinding("getDefaultValForVendorSiteIdAcc").execute());
 
             }
         }
@@ -4594,7 +4581,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         Date curDate = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("E dd-MM-yyyy hh.mm.ss a");
 
-        Logger.adfLogger.warning("Current Date: " + ft.format(curDate));
+        logger.warning("Current Date: " + ft.format(curDate));
         return result + " " + ft.format(curDate);
     }
 
@@ -4614,7 +4601,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
             result =
                     catBuf.length() > 0 ? result.substring(0, result.length() -
                                                            1) : "''";
-            Logger.adfLogger.warning("accCatTypeVCL resutl = " + result);
+            logger.warning("accCatTypeVCL resutl = " + result);
             OperationBinding op =
                 bc.getOperationBinding("executePoLinesAccCatQuery");
             op.getParamsMap().put("accCat", result);
@@ -4634,9 +4621,9 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         if (catBuf != null) {
             result = catBuf.toString();
             result = result.substring(0, result.length() - 1);
-            Logger.adfLogger.warning("accCatTypeVCL resutl = " + result);
+            logger.warning("accCatTypeVCL resutl = " + result);
         } else {
-            Logger.adfLogger.warning("accCatTypeVCL resutl = null");
+            logger.warning("accCatTypeVCL resutl = null");
         }
 
     } */
@@ -4675,14 +4662,14 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     }
 
     /*     public void articleBomFabSegment2VCL(ValueChangeEvent vce) {
-        Logger.adfLogger.warning("vce.getNewValue: " + vce.getNewValue());
+        logger.warning("vce.getNewValue: " + vce.getNewValue());
         if (vce.getNewValue() != null) {
             ViewObject vo = getVO("XxpmArticleBomFabricViewChildIterator");
             if (vo != null) {
                 Row curRow = vo.getCurrentRow();
                 if (curRow != null) {
                     //curRow.setAttribute("SubInv", "Dyed Fbr");
-                    Logger.adfLogger.warning("Sub Inv Oper. Val: " +
+                    logger.warning("Sub Inv Oper. Val: " +
                                        bc.getOperationBinding("getDefaultValForSubInvFab"));
                     curRow.setAttribute("SubInv",
                                         bc.getOperationBinding("getDefaultValForSubInvFab"));
@@ -4756,7 +4743,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public void articleListReportParamsVCL(ValueChangeEvent vce) {
         OperationBinding op = bc.getOperationBinding("ExecuteWithParams");
-        /* Logger.adfLogger.warning("New Val: " + vce.getNewValue());
+        /* logger.warning("New Val: " + vce.getNewValue());
         op.getParamsMap().put("BindProgName", vce.getNewValue()); */
         op.execute();
     }
@@ -4805,7 +4792,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         Date curDate = new Date();
         SimpleDateFormat ft = new SimpleDateFormat("E dd-MM-yyyy hh.mm.ss a");
 
-        Logger.adfLogger.warning("Current Date: " + ft.format(curDate));
+        logger.warning("Current Date: " + ft.format(curDate));
         return result + " " + ft.format(curDate);
     }
 
@@ -4818,7 +4805,7 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         //                //                setValueToExpression("#{bindings.SoHeaderId.inputValue}", sid);
         //                sid =
         //getValueFrmExpression("#{bindings.SoHeaderId.attributeValue}");
-        //                Logger.adfLogger.warning("sid: " + sid);
+        //                logger.warning("sid: " + sid);
         //                OperationBinding op =
         //                    bc.getOperationBinding("ExecuteWithParams");
         //                op.getParamsMap().put("BindSoHeaderId", sid);
@@ -4827,8 +4814,8 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         //        }
 
         getValueFrmExpression("#{bindings.SoHeaderId.attributeValue}");
-        Logger.adfLogger.warning("sid: " +
-                                 getValueFrmExpression("#{bindings.SoHeaderId.attributeValue}"));
+        logger.warning("sid: " +
+                       getValueFrmExpression("#{bindings.SoHeaderId.attributeValue}"));
         OperationBinding op = bc.getOperationBinding("ExecuteWithParams");
         op.getParamsMap().put("BindSoHeaderId",
                               getValueFrmExpression("#{bindings.SoHeaderId.attributeValue}"));
@@ -4864,21 +4851,21 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     //    public void madeupSetsDL(DialogEvent de) {
     //        ViewObject vo = getVO("XxpmMadeupSetsViewChildIterator");
     //        Row curRow = vo.getCurrentRow();
-    //        Logger.adfLogger.warning("SetName: " + curRow.getAttribute("SetName"));
-    //        Logger.adfLogger.warning("MadeupSetColor: " +
+    //        logger.warning("SetName: " + curRow.getAttribute("SetName"));
+    //        logger.warning("MadeupSetColor: " +
     //                           curRow.getAttribute("MadeupSetColor"));
-    //        Logger.adfLogger.warning("MadeupSetSize: " +
+    //        logger.warning("MadeupSetSize: " +
     //                           curRow.getAttribute("MadeupSetSize"));
-    //        Logger.adfLogger.warning("Sku: " + curRow.getAttribute("Sku"));
-    //        Logger.adfLogger.warning("CustomerDesc: " +
+    //        logger.warning("Sku: " + curRow.getAttribute("Sku"));
+    //        logger.warning("CustomerDesc: " +
     //                           curRow.getAttribute("CustomerDesc"));
     //        ////////////////////
     //        if (de.getOutcome().equals(DialogEvent.Outcome.ok)) {
     //            execOper("Commit");
-    //            Logger.adfLogger.warning("Commit executed on madeupSetsDL");
+    //            logger.warning("Commit executed on madeupSetsDL");
     //        } else {
     //            execOper("Rollback");
-    //            Logger.adfLogger.warning("Rollback executed on madeupSetsDL");
+    //            logger.warning("Rollback executed on madeupSetsDL");
     //        }
     //    }
 

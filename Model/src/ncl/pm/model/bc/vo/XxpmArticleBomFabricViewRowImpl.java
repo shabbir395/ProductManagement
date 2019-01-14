@@ -3,7 +3,7 @@ package ncl.pm.model.bc.vo;
 import ncl.pm.model.bc.eo.XxpmArticleBomFabricImpl;
 
 
-import ncl.pm.model.bc.view.xxpmJC.Logger;
+import java.util.logging.Logger;
 
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
@@ -19,6 +19,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XxpmArticleBomFabricViewRowImpl extends ViewRowImpl {
+    Logger logger = Logger.getLogger(this.getClass().getName());
+
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -628,7 +630,7 @@ public class XxpmArticleBomFabricViewRowImpl extends ViewRowImpl {
                 }
             }
         }
-        Logger.adfLogger.warning("Fab Sub Inv: " + result);
+        logger.warning("Fab Sub Inv: " + result);
         return result;
     }
 }

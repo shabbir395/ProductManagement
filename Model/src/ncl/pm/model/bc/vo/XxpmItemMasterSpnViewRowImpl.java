@@ -7,7 +7,8 @@ import java.util.Collections;
 import ncl.pm.model.bc.eo.XxpmItemMasterImpl;
 
 
-import ncl.pm.model.bc.view.xxpmJC.Logger;
+import java.util.logging.Logger;
+
 import ncl.pm.model.bc.vo.common.XxpmItemMasterSpnViewRow;
 
 import oracle.jbo.Row;
@@ -25,6 +26,8 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class XxpmItemMasterSpnViewRowImpl extends ViewRowImpl implements XxpmItemMasterSpnViewRow {
+    Logger logger = Logger.getLogger(this.getClass().getName());
+
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
@@ -899,13 +902,13 @@ public class XxpmItemMasterSpnViewRowImpl extends ViewRowImpl implements XxpmIte
             }
             i++;
         }
-        Logger.adfLogger.warning("ctnArray List before sorting: " + ctnArray);
+        logger.warning("ctnArray List before sorting: " + ctnArray);
         Collections.sort(ctnArray);
-        Logger.adfLogger.warning("ctnArray List after sorting: " + ctnArray);
+        logger.warning("ctnArray List after sorting: " + ctnArray);
 
-        Logger.adfLogger.warning("fbrArray List before sorting: " + fbrArray);
+        logger.warning("fbrArray List before sorting: " + fbrArray);
         Collections.sort(fbrArray);
-        Logger.adfLogger.warning("fbrArray List after sorting: " + fbrArray);
+        logger.warning("fbrArray List after sorting: " + fbrArray);
 
         for (int j = 0; j < ctnArray.size(); j++) {
             if (ctnArray.get(j) != null && ctnArray.get(j).length() > 0) {
@@ -919,7 +922,7 @@ public class XxpmItemMasterSpnViewRowImpl extends ViewRowImpl implements XxpmIte
                 }
             }
         }
-        Logger.adfLogger.warning("pct: " + cotton);
+        logger.warning("pct: " + cotton);
 
         for (int j = 0; j < fbrArray.size(); j++) {
             if (fbrArray.get(j) != null && fbrArray.get(j).length() > 0) {
@@ -933,10 +936,10 @@ public class XxpmItemMasterSpnViewRowImpl extends ViewRowImpl implements XxpmIte
                 }
             }
         }
-        Logger.adfLogger.warning("pct2: " + cotton);
+        logger.warning("pct2: " + cotton);
 
         result = cotton + fiber;
-         Logger.adfLogger.warning("YB Resultant -----> " + result);
+        logger.warning("YB Resultant -----> " + result);
         return result;
     }
 
@@ -961,14 +964,14 @@ public class XxpmItemMasterSpnViewRowImpl extends ViewRowImpl implements XxpmIte
         while (ytIter.hasNext()) {
             ytRow = ytIter.next();
             if (ytRow != null) {
-                 Logger.adfLogger.warning("ytRow is not null");
+                logger.warning("ytRow is not null");
                 dualCore =
                         (ytRow.getAttribute("DualCore") != null ? (String)ytRow.getAttribute("DualCore") :
                          "");
             }
         }
 
-        Logger.adfLogger.warning("dualCore val ===== " + dualCore);
+        logger.warning("dualCore val ===== " + dualCore);
         result =
                 (getMasterResultant() != null ? getMasterResultant() : "") + " " +
                 dualCore + " " + this.getYbResultantSum() +
