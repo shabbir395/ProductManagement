@@ -163,6 +163,14 @@
                 <f:validator binding="#{bindings.ApprovalStatus.validator}"/>
               </af:inputText>
             </af:gridCell>
+            <af:gridCell marginStart="5px" width="dontCare" id="gridCell11">
+              <af:outputFormatted value="Bom Version" id="outputFormatted5"/>
+            </af:gridCell>
+            <af:gridCell marginStart="5px" width="dontCare" id="gridCell12">
+              <af:outputFormatted value="#{bindings.ArtBomVersion.inputValue}" id="of1"/>
+              <af:outputText value=" - " id="ot44"/>
+              <af:outputFormatted value="#{bindings.ArtBomVersionDesc.inputValue}" id="of2"/>
+            </af:gridCell>
           </af:gridRow>
         </af:panelGridLayout>
         <af:showDetail disclosed="true" id="sd1">

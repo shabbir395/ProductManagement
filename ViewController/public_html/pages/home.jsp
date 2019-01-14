@@ -14,6 +14,22 @@
                     <af:image source="/Images/TitleTemplate.jpg" id="i1"/>
                 </f:facet>
             </af:panelStretchLayout>
+            <af:panelStretchLayout id="psl3" startWidth="0px" endWidth="0px"
+                                   topHeight="0px" bottomHeight="0px"
+                                   inlineStyle="background-color:rgb(33,127,188); text-align:right;"
+                                   dimensionsFrom="children">
+                <f:facet name="bottom"/>
+                <f:facet name="center">
+                    <af:panelGroupLayout id="pgl4" layout="scroll">
+                        <af:goLink text="Home" id="gl1"
+                                   destination="http://prodapp.nishat.net:8001/OA_HTML/OA.jsp?OAFunc=OAHOMEPAGE"
+                                   inlineStyle="color:white; font-weight:bold;"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="start"/>
+                <f:facet name="end"/>
+                <f:facet name="top"/>
+            </af:panelStretchLayout>
             <af:panelGroupLayout id="pgl2" layout="horizontal" valign="top">
                 <af:toolbar id="t1">
                     <af:panelGroupLayout id="pgl1" layout="vertical">

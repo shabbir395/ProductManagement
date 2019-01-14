@@ -220,5 +220,17 @@
         <Item Value="CreatorName"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="ArtBomVersion">
+      <AttrNames>
+        <Item Value="ArtBomVersion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XxpmArticleBomReadOnlyViewIterator"
+                     id="ArtBomVersionDesc">
+      <AttrNames>
+        <Item Value="ArtBomVersionDesc"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
