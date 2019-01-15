@@ -87,7 +87,7 @@
                                           action="accessoriesReport"
                                           styleClass="AFStretchWidth"/>
                         <af:separator id="separator2"/>
-                        <af:commandButton text="PO Receiving Status Report"
+                        <af:commandButton text="Accessory Receiving Status Report"
                                           id="commandButton2"
                                           partialSubmit="true"
                                           action="poRcvStatus"
