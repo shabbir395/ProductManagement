@@ -90,6 +90,12 @@
             <af:showPopupBehavior popupId="attachmentPopup"
                                   triggerType="action"/>
           </af:commandToolbarButton>
+          <af:spacer width="10" height="10" id="spacer10"/>
+          <af:commandToolbarButton text="Copy Items to Program"
+                                   partialSubmit="true"
+                                   id="commandToolbarButton2">
+            <af:showPopupBehavior popupId="p1" triggerType="action"/>
+          </af:commandToolbarButton>
           <af:popup id="attachmentPopup" contentDelivery="lazyUncached">
             <af:dialog id="attachmentDialog" type="ok" title="File Attachment"
                        contentWidth="300" contentHeight="200">
@@ -182,7 +188,35 @@
               </af:table>
             </af:dialog>
           </af:popup>
+          <af:popup id="p1">
+            <af:dialog id="d3"
+                       dialogListener="#{ViewActions.copyAccFromProgramToProgramDE}">
+              <af:panelFormLayout id="pfl1">
+                <f:facet name="footer"/>
+                <af:selectOneChoice label="From Program" id="soc60"
+                                    autoSubmit="true"
+                                    value="#{bindings.FromProgram.inputValue}"
+                                    valuePassThru="true" showRequired="true"
+                                    requiredMessageDetail="From Program is required."
+                                    required="true">
+                  <f:selectItems id="si60"
+                                 value="#{ViewActions.madeupAccProgramsList}"/>
+                </af:selectOneChoice>
+                <af:spacer width="10" height="10" id="spacer12"/>
+                <af:selectOneChoice label="To Program" id="selectOneChoice4"
+                                    autoSubmit="true"
+                                    value="#{bindings.ToProgram.inputValue}"
+                                    valuePassThru="true"
+                                    requiredMessageDetail="To Program is required."
+                                    required="true">
+                  <f:selectItems id="selectItems4"
+                                 value="#{ViewActions.madeupAllProgramsList}"/>
+                </af:selectOneChoice>
+              </af:panelFormLayout>
+            </af:dialog>
+          </af:popup>
         </af:panelGroupLayout>
+        <af:spacer width="10" height="10" id="spacer11"/>
         <af:spacer width="10" height="10" id="spacer4"/>
         <af:panelStretchLayout id="panelStretchLayout1" startWidth="0px"
                                endWidth="0px" topHeight="0px" bottomHeight="0px"
@@ -1336,9 +1370,8 @@
               <af:outputFormatted value="Text" id="of98"/>
             </af:gridCell>
             <af:gridCell id="gc518">
-              <af:inputText label="#{bindings.InsText.hints.label}"
-                            id="it160" simple="true"
-                            value="#{bindings.InsText.inputValue}"
+              <af:inputText label="#{bindings.InsText.hints.label}" id="it160"
+                            simple="true" value="#{bindings.InsText.inputValue}"
                             required="#{bindings.InsText.hints.mandatory}"
                             columns="#{bindings.InsText.hints.displayWidth}"
                             maximumLength="#{bindings.InsText.hints.precision}"
@@ -4941,11 +4974,11 @@
             <af:gridCell marginStart="5px" marginEnd="5px" width="dontCare"
                          id="gridCell154">
               <af:inputText value="#{bindings.BtnButtonSize.inputValue}"
-                                  label="#{bindings.BtnButtonSize.label}"
-                                  required="#{bindings.BtnButtonSize.hints.mandatory}"
-                                  shortDesc="#{bindings.BtnButtonSize.hints.tooltip}"
-                                  contentStyle="width:100px;"
-                                  simple="true" autoSubmit="true"/>
+                            label="#{bindings.BtnButtonSize.label}"
+                            required="#{bindings.BtnButtonSize.hints.mandatory}"
+                            shortDesc="#{bindings.BtnButtonSize.hints.tooltip}"
+                            contentStyle="width:100px;" simple="true"
+                            autoSubmit="true"/>
             </af:gridCell>
           </af:gridRow>
           <af:gridRow marginTop="5px" height="auto" id="gridRow78"

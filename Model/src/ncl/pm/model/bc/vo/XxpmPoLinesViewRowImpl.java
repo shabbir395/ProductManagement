@@ -233,6 +233,16 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
             }
         }
         ,
+        UnallocatedStock {
+            public Object get(XxpmPoLinesViewRowImpl obj) {
+                return obj.getUnallocatedStock();
+            }
+
+            public void put(XxpmPoLinesViewRowImpl obj, Object value) {
+                obj.setUnallocatedStock((BigDecimal)value);
+            }
+        }
+        ,
         VendorsLov {
             public Object get(XxpmPoLinesViewRowImpl obj) {
                 return obj.getVendorsLov();
@@ -313,6 +323,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
     public static final int EBSSTATUS = AttributesEnum.EbsStatus.index();
     public static final int PONUM = AttributesEnum.PoNum.index();
     public static final int ACCCAT = AttributesEnum.AccCat.index();
+    public static final int UNALLOCATEDSTOCK = AttributesEnum.UnallocatedStock.index();
     public static final int VENDORSLOV = AttributesEnum.VendorsLov.index();
     public static final int VENDORSITESLOV = AttributesEnum.VendorSitesLov.index();
     public static final int CURRENCIESLOV = AttributesEnum.CurrenciesLov.index();
@@ -322,6 +333,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      */
     public XxpmPoLinesViewRowImpl() {
     }
+
 
     /**
      * Gets XxpmPoLines entity object.
@@ -352,7 +364,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      * @return the PO_HEADER_ID
      */
     public Integer getPoHeaderId() {
-        return (Integer)getAttributeInternal(POHEADERID);
+        return (Integer) getAttributeInternal(POHEADERID);
     }
 
     /**
@@ -368,7 +380,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      * @return the INVENTORY_ITEM_ID
      */
     public Integer getInventoryItemId() {
-        return (Integer)getAttributeInternal(INVENTORYITEMID);
+        return (Integer) getAttributeInternal(INVENTORYITEMID);
     }
 
     /**
@@ -427,6 +439,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
         setAttributeInternal(UOM, value);
     }
 
+
     /**
      * Gets the attribute value for CURRENCY_CODE using the alias name CurrencyCode.
      * @return the CURRENCY_CODE
@@ -448,7 +461,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      * @return the ITEM_TYPE
      */
     public Integer getItemType() {
-        return (Integer)getAttributeInternal(ITEMTYPE);
+        return (Integer) getAttributeInternal(ITEMTYPE);
     }
 
     /**
@@ -464,7 +477,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      * @return the CONSUMPTION
      */
     public BigDecimal getConsumption() {
-        return (BigDecimal)getAttributeInternal(CONSUMPTION);
+        return (BigDecimal) getAttributeInternal(CONSUMPTION);
     }
 
     /**
@@ -480,7 +493,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      * @return the SO_LINE_QTY
      */
     public Integer getSoLineQty() {
-        return (Integer)getAttributeInternal(SOLINEQTY);
+        return (Integer) getAttributeInternal(SOLINEQTY);
     }
 
     /**
@@ -507,12 +520,13 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
         setAttributeInternal(POQNTY, value);
     }
 
+
     /**
      * Gets the attribute value for ITM_STOCK using the alias name ItmStock.
      * @return the ITM_STOCK
      */
     public BigDecimal getItmStock() {
-        return (BigDecimal)getAttributeInternal(ITMSTOCK);
+        return (BigDecimal) getAttributeInternal(ITMSTOCK);
     }
 
     /**
@@ -528,7 +542,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      * @return the ACT_ORDERED_QTY
      */
     public Double getActOrderedQty() {
-        return (Double)getAttributeInternal(ACTORDEREDQTY);
+        return (Double) getAttributeInternal(ACTORDEREDQTY);
     }
 
     /**
@@ -544,7 +558,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      * @return the SO_LINE_RATE
      */
     public BigDecimal getSoLineRate() {
-        return (BigDecimal)getAttributeInternal(SOLINERATE);
+        return (BigDecimal) getAttributeInternal(SOLINERATE);
     }
 
     /**
@@ -560,7 +574,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      * @return the MOQ
      */
     public Integer getMoq() {
-        return (Integer)getAttributeInternal(MOQ);
+        return (Integer) getAttributeInternal(MOQ);
     }
 
     /**
@@ -576,7 +590,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      * @return the VENDOR_ID
      */
     public Integer getVendorId() {
-        return (Integer)getAttributeInternal(VENDORID);
+        return (Integer) getAttributeInternal(VENDORID);
     }
 
     /**
@@ -603,12 +617,13 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
         setAttributeInternal(VENDORNAME, value);
     }
 
+
     /**
      * Gets the attribute value for VENDOR_SITE_ID using the alias name VendorSiteId.
      * @return the VENDOR_SITE_ID
      */
     public Integer getVendorSiteId() {
-        return (Integer)getAttributeInternal(VENDORSITEID);
+        return (Integer) getAttributeInternal(VENDORSITEID);
     }
 
     /**
@@ -624,7 +639,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      * @return the EBS_STATUS
      */
     public Integer getEbsStatus() {
-        return (Integer)getAttributeInternal(EBSSTATUS);
+        return (Integer) getAttributeInternal(EBSSTATUS);
     }
 
     /**
@@ -651,6 +666,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
         setAttributeInternal(PONUM, value);
     }
 
+
     /**
      * Gets the attribute value for ACC_CAT using the alias name AccCat.
      * @return the ACC_CAT
@@ -665,6 +681,22 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      */
     public void setAccCat(String value) {
         setAttributeInternal(ACCCAT, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute UnallocatedStock.
+     * @return the UnallocatedStock
+     */
+    public BigDecimal getUnallocatedStock() {
+        return (BigDecimal) getAttributeInternal(UNALLOCATEDSTOCK);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute UnallocatedStock.
+     * @param value value to set the  UnallocatedStock
+     */
+    public void setUnallocatedStock(BigDecimal value) {
+        setAttributeInternal(UNALLOCATEDSTOCK, value);
     }
 
     /**

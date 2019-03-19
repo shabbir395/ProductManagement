@@ -132,6 +132,7 @@
           <Item Value="ItmStock"/>
           <Item Value="AccCat"/>
           <Item Value="CurrencyCode"/>
+          <Item Value="UnallocatedStock"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

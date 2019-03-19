@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <%@ taglib uri="http://xmlns.oracle.com/adf/faces/rich" prefix="af"%>
-<f:view>
+<f:view afterPhase="#{ViewActions.blankVendorsLovOnPageLoad}">
   <af:document id="d1" title="Purchase Order">
     <af:messages id="m1"/>
     <af:form id="f1" partialTriggers="ctb2">
@@ -787,19 +787,22 @@
                       <f:validator binding="#{row.bindings.PoQnty.validator}"/>
                     </af:inputText>
                   </af:column>
-                  <af:column headerText="#{bindings.XxpmPoLinesViewAccChild.hints.ItmStock.label}"
-                             id="c37" width="50" align="center" sortable="true"
+                  <af:column headerText="#{bindings.XxpmPoLinesViewAccChild.hints.UnallocatedStock.label}"
+                             id="column3" align="center" sortable="true"
                              filterable="true"
-                             sortProperty="#{bindings.XxpmPoLinesViewAccChild.hints.ItmStock.name}"
-                             rendered="false">
-                    <af:inputText value="#{row.bindings.ItmStock.inputValue}"
-                                  label="#{bindings.XxpmPoLinesViewAccChild.hints.ItmStock.label}"
-                                  required="#{bindings.XxpmPoLinesViewAccChild.hints.ItmStock.mandatory}"
-                                  columns="#{bindings.XxpmPoLinesViewAccChild.hints.ItmStock.displayWidth}"
-                                  maximumLength="#{bindings.XxpmPoLinesViewAccChild.hints.ItmStock.precision}"
-                                  shortDesc="#{bindings.XxpmPoLinesViewAccChild.hints.ItmStock.tooltip}"
-                                  id="it29" disabled="true">
-                      <f:validator binding="#{row.bindings.ItmStock.validator}"/>
+                             sortProperty="#{bindings.XxpmPoLinesViewAccChild.hints.ActOrderedQty.name}"
+                             width="50">
+                    <af:inputText value="#{row.bindings.UnallocatedStock.inputValue}"
+                                  label="#{bindings.XxpmPoLinesViewAccChild.hints.UnallocatedStock.label}"
+                                  required="#{bindings.XxpmPoLinesViewAccChild.hints.UnallocatedStock.mandatory}"
+                                  columns="#{bindings.XxpmPoLinesViewAccChild.hints.UnallocatedStock.displayWidth}"
+                                  maximumLength="#{bindings.XxpmPoLinesViewAccChild.hints.UnallocatedStock.precision}"
+                                  shortDesc="#{bindings.XxpmPoLinesViewAccChild.hints.UnallocatedStock.tooltip}"
+                                  id="inputText1"
+                                  autoSubmit="true" readOnly="true">
+                      <f:validator binding="#{row.bindings.ActOrderedQty.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.XxpmPoLinesViewAccChild.hints.ActOrderedQty.format}"/>
                     </af:inputText>
                   </af:column>
                   <af:column headerText="#{bindings.XxpmPoLinesViewAccChild.hints.ActOrderedQty.label}"

@@ -16,9 +16,9 @@
       <property
          name="page">/pages/home.jsp</property>
       <property
-         name="thumbnailExpanded">false</property>
-      <property
          name="description">&lt;html>&lt;p>&lt;b>home&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="thumbnailExpanded">false</property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -33,9 +33,9 @@
       <property
          name="page">/pages/spinning.jsp</property>
       <property
-         name="thumbnailExpanded">false</property>
-      <property
          name="description">&lt;html>&lt;p>&lt;b>spinning&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="thumbnailExpanded">false</property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -50,9 +50,9 @@
       <property
          name="page">/pages/weaving.jsp</property>
       <property
-         name="thumbnailExpanded">false</property>
-      <property
          name="description">&lt;html>&lt;p>&lt;b>weaving&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="thumbnailExpanded">false</property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -247,9 +247,9 @@
       <property
          name="page">/pages/articleBom.jsp</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>articleBom&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
          name="thumbnailExpanded">false</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>articleBom&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -265,7 +265,7 @@
       <property
          name="fromOutcome">abBack</property>
       <property
-         name="sdm:polyPoints">T44,546.03516,521.90234,R58</property>
+         name="sdm:polyPoints">T33,539.03516,521.90234,R58</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -436,7 +436,7 @@
       <property
          name="fromOutcome">ExecuteWithParams</property>
       <property
-         name="sdm:polyPoints">B50,580.6885,543.3013,553.03516,543.3013,T56</property>
+         name="sdm:polyPoints">B50,580.6885,543.3013,560.03516,543.3013,T67</property>
    </ControlFlowCase>
    <View
       id="View53">
@@ -508,13 +508,6 @@
       <property
          name="sdm:polyPoints">T44,-9.8125,169.83887,236.03516,169.83887,T33</property>
    </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase63"
-      from="View4">
-      <property
-         name="fromOutcome">wvBack</property>
-   </ControlFlowCase>
    <View
       id="View61">
       <property
@@ -549,5 +542,47 @@
          name="fromOutcome">poRcvStatus</property>
       <property
          name="sdm:polyPoints">L62,12.025391,525.40234,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase69"
+      from="View4">
+      <property
+         name="fromOutcome">wvBack</property>
+   </ControlFlowCase>
+   <View
+      id="View66">
+      <property
+         name="activityId">copyArticleBOM</property>
+      <property
+         name="page">/pages/copyArticleBOM.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>copyArticleBOM&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">67.09766</property>
+      <property
+         name="x">401.01074</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase67"
+      from="View28"
+      to="View66">
+      <property
+         name="fromOutcome">copyArticleBOM</property>
+      <property
+         name="sdm:polyPoints">T56,553.03516,63.24707,R46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase68"
+      from="View66"
+      to="View28">
+      <property
+         name="fromOutcome">copyArticleBOMBack</property>
+      <property
+         name="sdm:polyPoints">R54,546.03516,70.24707,T44</property>
    </ControlFlowCase>
 </SDM>

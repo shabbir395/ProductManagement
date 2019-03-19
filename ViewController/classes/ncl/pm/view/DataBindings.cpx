@@ -28,6 +28,8 @@
           usageId="ncl_pm_view_accessoriesReportPageDef"/>
     <page path="/pages/poRcvStatusReport.jspx"
           usageId="ncl_pm_view_poRcvStatusPageDef"/>
+    <page path="/pages/copyArticleBOM.jspx"
+          usageId="ncl_pm_view_copyArticleBOMPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="ncl_pm_view_spinningPageDef" path="pages.spinningPageDef"/>
@@ -56,6 +58,8 @@
           path="pages.accessoriesReportPageDef"/>
     <page id="ncl_pm_view_poRcvStatusPageDef"
           path="pages.poRcvStatusReportPageDef"/>
+    <page id="ncl_pm_view_copyArticleBOMPageDef"
+          path="pages.copyArticleBOMPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="XxpmAppModuleDataControl" Package="ncl.pm.model.bc.am"

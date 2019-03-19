@@ -10,7 +10,7 @@
   CustomQuery="true"
   PageIterMode="Full"
   UseGlueCode="false"
-  OrderBy='"PO_NUM"'
+  OrderBy='"ITEM_CODE","PO_NUM"'
   FetchMode="FETCH_AS_NEEDED"
   FetchSize="11">
   <DesignTime>
@@ -27,50 +27,88 @@
     Kind="where"
     Type="java.lang.Integer"/>
   <SQLQuery>
-    <![CDATA[SELECT   PHA.SEGMENT1 PO_NUM,
-         PV.VENDOR_NAME,
-         XPL.PO_LINE_ID,
-         --       xph.prog_id,
-         XPH.SO_HEADER_ID,
-         --       pla.item_id,
-         MSI.CONCATENATED_SEGMENTS ITEM_CODE,
-         PLA.ITEM_DESCRIPTION,
-         PLA.UNIT_MEAS_LOOKUP_CODE UOM,
-         PLA.UNIT_PRICE,
-         XPL.REMARKS,
-         PLA.QUANTITY ORDERED_QUANTITY,
-         NVL (SUM (PLLA.QUANTITY_RECEIVED), 0) QUANTITY_RECEIVED,
-         NVL(PLA.QUANTITY, 0) - NVL (SUM (PLLA.QUANTITY_RECEIVED), 0) QUANTITY_BALANCE,
-         NVL (SUM (PLLA.QUANTITY_ACCEPTED), 0) ACCEPTED_QUANTITY,
-         NVL (SUM (PLLA.QUANTITY_REJECTED), 0) QUANTITY_REJECTED
-    FROM PO_LINE_LOCATIONS_ALL PLLA,
-         PO_LINES_ALL PLA,
-         PO_HEADERS_ALL PHA,
-         PO_VENDORS PV,
-         XXPM_PO_LINES XPL,
-         XXPM_PO_HEADER XPH,
-         MTL_SYSTEM_ITEMS_KFV MSI
-   WHERE PLLA.PO_LINE_ID = PLA.PO_LINE_ID
-     AND PLA.ATTRIBUTE15 = XPL.PO_LINE_ID
-     AND PHA.PO_HEADER_ID = PLA.PO_HEADER_ID
-     AND PV.VENDOR_ID = PHA.VENDOR_ID
-     AND XPL.PO_HEADER_ID = XPH.PO_HEADER_ID
-     AND PLA.ITEM_ID = MSI.INVENTORY_ITEM_ID
-     AND MSI.ORGANIZATION_ID = 106 --stitching 1 periodic
-     AND XPL.ITEM_TYPE = 1
-     AND XPH.SO_HEADER_ID = :BindSoHeaderId
-GROUP BY PHA.SEGMENT1,
-         PV.VENDOR_NAME,
-         XPL.PO_LINE_ID,
-         --       xph.prog_id,
-         XPH.SO_HEADER_ID,
-         --       pla.item_id,
-         MSI.CONCATENATED_SEGMENTS,
-         PLA.ITEM_DESCRIPTION,
-         PLA.UNIT_MEAS_LOOKUP_CODE,
-         PLA.UNIT_PRICE,
-         XPL.REMARKS,
-         PLA.QUANTITY]]>
+    <![CDATA[SELECT B.PO_NUM,
+         B.VENDOR_NAME,
+         ACC_CAT,
+         NVL (A.CONCATENATED_SEGMENTS, B.CONCATENATED_SEGMENTS)
+            ITEM_CODE,
+         NVL (A.ACCESSORIES_REQUIRED, B.ITEM_DESCRIPTION) ITEM_DESCRIPTION,
+         NVL (A.UOM, B.UOM) UOM,
+         A.REQUIRED_QUANTITY,
+         B.PO_QUANTITY ORDERED_QUANTITY,
+         NVL (B.RECEIVED_QUANTITY, 0) QUANTITY_RECEIVED,
+         NVL (B.PO_QUANTITY, 0) - NVL (B.RECEIVED_QUANTITY, 0) QUANTITY_BALANCE,
+         NVL (B.ACCEPTED_QUANTITY, 0) ACCEPTED_QUANTITY,
+         NVL (B.REJECTED_QUANTITY, 0) QUANTITY_REJECTED,
+         B.REMARKS
+    FROM (  SELECT ACC_CAT,
+                   CONCATENATED_SEGMENTS,
+                   ACCESSORIES_REQUIRED,
+                   ROUND (SUM ( (CONSUMPTION * ORDERED_QUANTITY)), 2)
+                      REQUIRED_QUANTITY,
+                   ACC_ITEM_UOM UOM
+              FROM XXPM_ARTICLE_BOM_VIEW D,
+                   (SELECT M.ATTRIBUTE26 ORDERED_ITEM,
+                           H.ATTRIBUTE12 BOM_VERSION,
+                           NVL (ROUND (L.ORDERED_QUANTITY), 0) ORDERED_QUANTITY
+                      FROM OE_ORDER_LINES_ALL L,
+                           OE_ORDER_HEADERS_ALL H,
+                           MTL_SYSTEM_ITEMS M
+                     WHERE     L.HEADER_ID = H.HEADER_ID
+                           AND L.INVENTORY_ITEM_ID = M.INVENTORY_ITEM_ID
+                           AND M.ORGANIZATION_ID = '87'
+                           AND M.SEGMENT1 = '24'
+                           AND M.ATTRIBUTE26 IS NOT NULL
+                           AND L.CANCELLED_FLAG = 'N'
+                           AND H.CONTEXT = 'Program Name'
+                           AND H.HEADER_ID =:BindSoHeaderId)
+                   M
+             WHERE     D.MADEUP_ID = M.ORDERED_ITEM
+                   AND ITEM_TYPE_DESC = 'Accessory'
+                   AND (   D.ART_BOM_VERSION = M.BOM_VERSION
+                        OR D.ART_BOM_VERSION IS NULL)
+          GROUP BY CONCATENATED_SEGMENTS,
+                   SEGMENT4,
+                   SEGMENT5,
+                   ACC_ITEM_UOM,
+                   ACC_CAT,
+                   ACCESSORIES_REQUIRED) A
+         FULL OUTER JOIN
+         (SELECT PHA.SEGMENT1 PO_NUM,
+                 XXPM_GET_VENDOR_NAME_FUNC (PHA.VENDOR_ID) VENDOR_NAME,
+                 MSI.CONCATENATED_SEGMENTS,
+                 PLA.ITEM_DESCRIPTION,
+                 MSI.PRIMARY_UOM_CODE UOM,
+                 PLA.QUANTITY PO_QUANTITY,
+                 NVL ( (SELECT QUANTITY_RECEIVED
+                          FROM PO_LINE_LOCATIONS_ALL PLLA
+                         WHERE PLLA.PO_LINE_ID = PLA.PO_LINE_ID),
+                      0)
+                    RECEIVED_QUANTITY,
+                 NVL ( (SELECT QUANTITY_ACCEPTED
+                          FROM PO_LINE_LOCATIONS_ALL PLLA
+                         WHERE PLLA.PO_LINE_ID = PLA.PO_LINE_ID),
+                      0)
+                    ACCEPTED_QUANTITY,
+                 NVL ( (SELECT QUANTITY_REJECTED
+                          FROM PO_LINE_LOCATIONS_ALL PLLA
+                         WHERE PLLA.PO_LINE_ID = PLA.PO_LINE_ID),
+                      0)
+                    REJECTED_QUANTITY,
+                 XXPMPOLINES.REMARKS
+            FROM PO_LINES_ALL PLA,
+                 PO_HEADERS_ALL PHA,
+                 XXPM_PO_LINES XXPMPOLINES,
+                 XXPM_PO_HEADER XXPMPOHEADER,
+                 MTL_SYSTEM_ITEMS_KFV MSI
+           WHERE     PLA.ATTRIBUTE15 = TO_CHAR (XXPMPOLINES.PO_LINE_ID)
+                 AND PHA.PO_HEADER_ID = PLA.PO_HEADER_ID
+                 AND XXPMPOLINES.PO_HEADER_ID = XXPMPOHEADER.PO_HEADER_ID
+                 AND PLA.ITEM_ID = MSI.INVENTORY_ITEM_ID
+                 AND MSI.ORGANIZATION_ID = 106          --STITCHING 1 PERIODIC
+                 AND XXPMPOHEADER.SO_HEADER_ID = :BindSoHeaderId
+                 AND XXPMPOLINES.ITEM_TYPE = 1) B
+            ON A.CONCATENATED_SEGMENTS = B.CONCATENATED_SEGMENTS]]>
   </SQLQuery>
   <ViewAttribute
     Name="PoNum"
@@ -116,33 +154,18 @@ GROUP BY PHA.SEGMENT1,
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="PoLineId"
+    Name="AccCat"
     IsUpdateable="false"
     IsPersistent="false"
-    IsNotNull="true"
     PrecisionRule="true"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    AliasName="PO_LINE_ID"
-    Expression="PO_LINE_ID"
-    SQLType="NUMERIC">
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ACC_CAT"
+    Expression="ACC_CAT"
+    SQLType="VARCHAR">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="SoHeaderId"
-    IsUpdateable="false"
-    IsPersistent="false"
-    IsNotNull="true"
-    PrecisionRule="true"
-    Type="java.lang.Integer"
-    ColumnType="NUMBER"
-    AliasName="SO_HEADER_ID"
-    Expression="SO_HEADER_ID"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
+      <Attr Name="_DisplaySize" Value="240"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
@@ -209,44 +232,18 @@ GROUP BY PHA.SEGMENT1,
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="UnitPrice"
+    Name="RequiredQuantity"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    AliasName="UNIT_PRICE"
-    Expression="UNIT_PRICE"
+    AliasName="REQUIRED_QUANTITY"
+    Expression="REQUIRED_QUANTITY"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="ncl.pm.model.bc.vo.misc.PoRcvStatusView.UnitPrice_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Remarks"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="2000"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="REMARKS"
-    Expression="REMARKS"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="2000"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <AUTOSUBMIT
-          Value="true"/>
-      </SchemaBasedProperties>
-    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="OrderedQuantity"
@@ -347,9 +344,26 @@ GROUP BY PHA.SEGMENT1,
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
-  <AttrArray Name="KeyAttributes">
-    <Item Value="PoLineId"/>
-  </AttrArray>
+  <ViewAttribute
+    Name="Remarks"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="2000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="REMARKS"
+    Expression="REMARKS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="ncl.pm.model.ModelBundle"/>

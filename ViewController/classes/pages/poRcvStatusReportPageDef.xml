@@ -24,18 +24,18 @@
                       Name="PoRcvStatusView0">
         <AttrNames>
           <Item Value="PoNum"/>
-          <Item Value="PoLineId"/>
-          <Item Value="SoHeaderId"/>
           <Item Value="ItemCode"/>
           <Item Value="ItemDescription"/>
           <Item Value="Uom"/>
-          <Item Value="UnitPrice"/>
           <Item Value="OrderedQuantity"/>
           <Item Value="AcceptedQuantity"/>
           <Item Value="VendorName"/>
           <Item Value="QuantityReceived"/>
           <Item Value="QuantityRejected"/>
           <Item Value="QuantityBalance"/>
+          <Item Value="AccCat"/>
+          <Item Value="Remarks"/>
+          <Item Value="RequiredQuantity"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

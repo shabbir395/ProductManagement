@@ -9,9 +9,15 @@ import java.io.OutputStream;
 
 import java.text.SimpleDateFormat;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
+
+import java.util.List;
+
+import java.util.Map;
 
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
@@ -23,10 +29,13 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.PhaseEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.validator.ValidatorException;
 
 import java.util.logging.Logger;
+
+import javax.faces.model.SelectItem;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
@@ -260,6 +269,8 @@ public class ViewActions {
     private String expPOAccToExcelFileName;
     private String expPORcvStatusReportFileName;
     private RichSelectOneChoice articleBomVersionBinding;
+    private List<SelectItem> madeupAccProgramsList;
+    private List<SelectItem> madeupAllProgramsList;
 
     public ViewActions() {
         //        super();
@@ -300,6 +311,14 @@ public class ViewActions {
         FacesContext.getCurrentInstance().addMessage(null, fm);
     }
 
+    public Object getAttributeValue(String Attribute) {
+        return ((AttributeBinding)bc.getControlBinding(Attribute)).getInputValue();
+    }
+
+    public void setAttributeValue(String Attribute, Object value) {
+        ((AttributeBinding)bc.getControlBinding(Attribute)).setInputValue(value);
+    }
+
     public ViewObject getVO(String iter) {
         DCIteratorBinding dci = (DCIteratorBinding)bc.get(iter);
         return dci.getViewObject();
@@ -308,6 +327,20 @@ public class ViewActions {
     public void execOper(String oper) {
         OperationBinding op = bc.getOperationBinding(oper);
         op.execute();
+    }
+
+    public void execOperWithParamNoReturn(String oper,
+                                          Map<Object, Object> params) {
+        OperationBinding op = bc.getOperationBinding(oper);
+        op.getParamsMap().putAll(params);
+        op.execute();
+    }
+
+    public Object execOperWithParamReturnVal(String oper,
+                                             Map<Object, Object> params) {
+        OperationBinding op = bc.getOperationBinding(oper);
+        op.getParamsMap().putAll(params);
+        return op.execute();
     }
 
     public void insertRowAtLast(String dcIter) {
@@ -4179,6 +4212,9 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         logger.warning("insertPoHeader button pressed.");
         this.poAddButtonProp.setDisabled(true);
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.poAddButtonProp);
+        AttributeBinding atb =
+            (AttributeBinding)bc.getControlBinding("VendorName");
+        atb.setInputValue(null);
     }
 
     public void commitPo(ActionEvent actionEvent) {
@@ -4346,6 +4382,9 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
                                     curRow.getAttribute("VendorName"));
                 newRow.setAttribute("VendorSiteId",
                                     curRow.getAttribute("VendorSiteId"));
+                newRow.setAttribute("AccCat", curRow.getAttribute("AccCat"));
+                newRow.setAttribute("CurrencyCode",
+                                    curRow.getAttribute("CurrencyCode"));
                 vo.insertRowAtRangeIndex(indx + 1, newRow);
                 vo.setCurrentRow(newRow);
             }
@@ -5110,5 +5149,108 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public void createArticleBomVersionAL(ActionEvent actionEvent) {
         // Add event code here...
+    }
+
+    public List<SelectItem> getMadeupAllProgramsList() {
+        List<SelectItem> result = new ArrayList();
+        ViewObject vo = this.getVO("MadeupAllProgramsDropdownLovIterator");
+        while (vo.hasNext()) {
+            Row row = vo.next();
+            result.add(new SelectItem(row.getAttribute("ProgCode"),
+                                      row.getAttribute("ProgName").toString()));
+        }
+        return result;
+    }
+
+    public List<SelectItem> getMadeupAccProgramsList() {
+        List<SelectItem> result = new ArrayList();
+        ViewObject vo = this.getVO("MadeupAccProgramsDropdownLovIterator");
+        while (vo.hasNext()) {
+            Row row = vo.next();
+            result.add(new SelectItem(row.getAttribute("ProgCode"),
+                                      row.getAttribute("ProgName").toString()));
+        }
+        return result;
+    }
+
+    //    public void copyAccFromProgramToProgram(ActionEvent actionEvent) {
+    //        //        // Get the sepecific list binding
+    //        //        oracle.jbo.uicli.binding.JUCtrlListBinding listBinding =
+    //        //            (oracle.jbo.uicli.binding.JUCtrlListBinding)bc.get("FromProgram");
+    //        //        // Get the value which is currently selected
+    //        //        Object selectedValue = listBinding.getSelectedValue();
+    //        String fromProg =
+    //            String.valueOf(((AttributeBinding)bc.getControlBinding("FromProgram")).getInputValue());
+    //        String toProg =
+    //            String.valueOf(((AttributeBinding)bc.getControlBinding("ToProgram")).getInputValue());
+    //        logger.warning("From Prog." + fromProg);
+    //        logger.warning("To Prog." + toProg);
+    //        Map<Object, Object> params = new HashMap();
+    //        params.put("fromProg", fromProg);
+    //        params.put("toProg", toProg);
+    //        execOperWithParamNoReturn("copyAccItemFromProgToProg", params);
+    //        showMessage("Operation successfull.");
+    //    }
+
+    public void copyAccFromProgramToProgramDE(DialogEvent de) {
+        if (de.getOutcome().equals(DialogEvent.Outcome.ok)) {
+            String fromProg =
+                String.valueOf(((AttributeBinding)bc.getControlBinding("FromProgram")).getInputValue());
+            String toProg =
+                String.valueOf(((AttributeBinding)bc.getControlBinding("ToProgram")).getInputValue());
+            logger.warning("From Prog. " + fromProg);
+            logger.warning("To Prog. " + toProg);
+            if (fromProg == null || fromProg.length() < 1) {
+                throw new ValidationException("\n\nFrom program cannot be null\n\n");
+            } else if (toProg == null || toProg.length() < 1) {
+                throw new ValidationException("\n\nTo program cannot be null\n\n");
+            }
+
+            Map<Object, Object> params = new HashMap();
+            params.put("fromProg", fromProg);
+            params.put("toProg", toProg);
+            execOperWithParamNoReturn("copyAccItemFromProgToProg", params);
+            showMessage("Operation successfull.");
+        }
+    }
+
+    public void copyBomFromProgToAnother(ActionEvent ae) {
+        try {
+            int result = 0;
+            int srcArticle =
+                Integer.parseInt(getValueFrmExpression("#{bindings.ArticleId.attributeValue}"));
+            int srcVersion =
+                Integer.parseInt(getValueFrmExpression("#{bindings.Version.attributeValue}"));
+            int destProg =
+                Integer.parseInt(String.valueOf(getAttributeValue("ProgId")));
+            int destArticle =
+                Integer.parseInt(getValueFrmExpression("#{bindings.ArticleId1.attributeValue}"));
+            logger.warning(srcArticle + ", " + srcVersion + ", " + destProg +
+                           ", " + destArticle);
+            Map<Object, Object> params = new HashMap();
+            params.put("srcArticle", srcArticle);
+            params.put("srcVersion", srcVersion);
+            params.put("destProg", destProg);
+            params.put("destArticle", destArticle);
+            result =
+                    Integer.parseInt(String.valueOf(execOperWithParamReturnVal("copyBomFromProgToAnother",
+                                                                               params)));
+            if (result == 1) {
+                showMessage("BOM created successfully.");
+            } else if (result == 3) {
+                showError("Acc. Items are not copied to destination program properly.");
+            } else if (result == 2) {
+                showError("BOM already exists.");
+            } else {
+                showMessage("There is a error in BOM creation. Please contact administrator.");
+            }
+        } catch (Exception ex) {
+            showMessage("There is a error in BOM creation. Please contact administrator.");
+            ex.printStackTrace();
+        }
+    }
+
+    public void blankVendorsLovOnPageLoad(PhaseEvent phaseEvent) {
+        this.setValueToExpression("#{bindings.VendorName.inputValue}", null);
     }
 }

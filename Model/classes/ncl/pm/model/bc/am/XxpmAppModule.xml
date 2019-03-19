@@ -319,6 +319,18 @@
   <ViewUsage
     Name="ArticleBomVersionsLov"
     ViewObjectName="ncl.pm.model.bc.vo.lov.ArticleBomVersionsLov"/>
+  <ViewUsage
+    Name="MadeupAllProgramsDropdownLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.MadeupAllProgramsDropdownLov"/>
+  <ViewUsage
+    Name="MadeupAccProgramsDropdownLov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.MadeupAccProgramsDropdownLov"/>
+  <ViewUsage
+    Name="CopyBomSourceView"
+    ViewObjectName="ncl.pm.model.bc.vo.misc.CopyBomSourceView"/>
+  <ViewUsage
+    Name="CopyBomDestinationView"
+    ViewObjectName="ncl.pm.model.bc.vo.misc.CopyBomDestinationView"/>
   <ViewLinkUsage
     Name="XxpmYarnBlendImIdFkLink"
     ViewLinkObjectName="ncl.pm.model.bc.vo.vl.XxpmYarnBlendImIdFkLink"
@@ -879,6 +891,34 @@
       <Parameter
         Name="versionDesc"
         Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="copyAccItemFromProgToProg">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="fromProg"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="toProg"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="copyBomFromProgToAnother">
+      <Return
+        Type="int"/>
+      <Parameter
+        Name="srcArticle"
+        Type="int"/>
+      <Parameter
+        Name="srcVersion"
+        Type="int"/>
+      <Parameter
+        Name="destProg"
+        Type="int"/>
+      <Parameter
+        Name="destArticle"
+        Type="int"/>
     </Method>
   </ClientInterface>
   <ResourceBundle>

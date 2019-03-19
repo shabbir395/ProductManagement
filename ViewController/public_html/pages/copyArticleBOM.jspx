@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Copy BOM from another Program">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1" layout="horizontal" valign="top">
+          <af:panelBox text="Source BOM" id="pb1">
+            <f:facet name="toolbar"/>
+            <af:panelFormLayout id="pfl1">
+              <af:inputListOfValues id="progNameId"
+                                    popupTitle="Search and Select: #{bindings.ProgName.hints.label}"
+                                    value="#{bindings.ProgName.inputValue}"
+                                    label="#{bindings.ProgName.hints.label}"
+                                    model="#{bindings.ProgName.listOfValuesModel}"
+                                    required="#{bindings.ProgName.hints.mandatory}"
+                                    columns="#{bindings.ProgName.hints.displayWidth}"
+                                    shortDesc="#{bindings.ProgName.hints.tooltip}"
+                                    autoSubmit="true"
+                                    contentStyle="width:200px;">
+                <f:validator binding="#{bindings.ProgName.validator}"/>
+              </af:inputListOfValues>
+              <af:selectOneChoice value="#{bindings.ArticleId.inputValue}"
+                                  label="#{bindings.ArticleId.label}"
+                                  required="#{bindings.ArticleId.hints.mandatory}"
+                                  shortDesc="#{bindings.ArticleId.hints.tooltip}"
+                                  id="soc2" autoSubmit="true"
+                                  contentStyle="width:200px;"
+                                  partialTriggers="progNameId">
+                <f:selectItems value="#{bindings.ArticleId.items}" id="si2"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice value="#{bindings.Version.inputValue}"
+                                  label="#{bindings.Version.label}"
+                                  required="#{bindings.Version.hints.mandatory}"
+                                  shortDesc="#{bindings.Version.hints.tooltip}"
+                                  id="soc1" autoSubmit="true"
+                                  contentStyle="width:200px;"
+                                  partialTriggers="soc2">
+                <f:selectItems value="#{bindings.Version.items}" id="si1"/>
+              </af:selectOneChoice>
+            </af:panelFormLayout>
+          </af:panelBox>
+          <af:panelBox text="Destination Prog. &amp; Article" id="pb2">
+            <f:facet name="toolbar"/>
+            <af:panelFormLayout id="pfl2">
+              <af:inputListOfValues id="progName1Id"
+                                    popupTitle="Search and Select: #{bindings.ProgName1.hints.label}"
+                                    value="#{bindings.ProgName1.inputValue}"
+                                    label="#{bindings.ProgName1.hints.label}"
+                                    model="#{bindings.ProgName1.listOfValuesModel}"
+                                    required="#{bindings.ProgName1.hints.mandatory}"
+                                    columns="#{bindings.ProgName1.hints.displayWidth}"
+                                    shortDesc="#{bindings.ProgName1.hints.tooltip}"
+                                    autoSubmit="true"
+                                    contentStyle="width:200px;">
+                <f:validator binding="#{bindings.ProgName1.validator}"/>
+              </af:inputListOfValues>
+              <af:selectOneChoice value="#{bindings.ArticleId1.inputValue}"
+                                  label="#{bindings.ArticleId1.label}"
+                                  required="#{bindings.ArticleId1.hints.mandatory}"
+                                  shortDesc="#{bindings.ArticleId1.hints.tooltip}"
+                                  id="soc3" autoSubmit="true"
+                                  contentStyle="width:200px;"
+                                  partialTriggers="progName1Id">
+                <f:selectItems value="#{bindings.ArticleId1.items}" id="si3"/>
+              </af:selectOneChoice>
+              <f:facet name="footer">
+                <af:panelGroupLayout id="pgl2" layout="horizontal"
+                                     halign="center">
+                  <af:commandButton text="Create BOM" id="cb1"
+                                    actionListener="#{ViewActions.copyBomFromProgToAnother}"/>
+                  <af:commandButton text="Back" id="commandButton1"
+                                    action="copyArticleBOMBack"/>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:panelFormLayout>
+          </af:panelBox>
+          <f:facet name="separator">
+            <af:separator id="s1" inlineStyle="width:30px;"/>
+          </f:facet>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

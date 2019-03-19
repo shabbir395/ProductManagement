@@ -64,6 +64,9 @@
   <view id="poRcvStatusReport">
     <page>/pages/poRcvStatusReport.jspx</page>
   </view>
+  <view id="copyArticleBOM">
+    <page>/pages/copyArticleBOM.jspx</page>
+  </view>
   <control-flow-rule id="__5">
     <from-activity-id id="__6">home</from-activity-id>
     <control-flow-case id="__7">
@@ -175,6 +178,10 @@
       <from-outcome id="__73">abBack</from-outcome>
       <to-activity-id id="__71">home</to-activity-id>
     </control-flow-case>
+    <control-flow-case id="__137">
+      <from-outcome id="__139">copyArticleBOM</from-outcome>
+      <to-activity-id id="__138">copyArticleBOM</to-activity-id>
+    </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__79">
     <from-activity-id id="__80">articleBomApproval</from-activity-id>
@@ -230,6 +237,13 @@
     <control-flow-case id="__132">
       <from-outcome id="__133">poRcvStatusBack</from-outcome>
       <to-activity-id id="__131">home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__140">
+    <from-activity-id id="__141">copyArticleBOM</from-activity-id>
+    <control-flow-case id="__142">
+      <from-outcome id="__144">copyArticleBOMBack</from-outcome>
+      <to-activity-id id="__143">articleBom</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__4">

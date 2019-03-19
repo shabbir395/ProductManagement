@@ -279,4 +279,17 @@ public class XxpmAppModuleClient extends ApplicationModuleImpl implements XxpmAp
             this.riInvokeExportedMethod(this,"createArticleBomVersion",new String [] {"java.lang.String","java.lang.String"},new Object[] {boms, versionDesc});
         return (Integer)_ret;
     }
+
+    public void copyAccItemFromProgToProg(String fromProg, String toProg) {
+        Object _ret =
+            this.riInvokeExportedMethod(this,"copyAccItemFromProgToProg",new String [] {"java.lang.String","java.lang.String"},new Object[] {fromProg, toProg});
+        return;
+    }
+
+    public int copyBomFromProgToAnother(int srcArticle, int srcVersion,
+                                        int destProg, int destArticle) {
+        Object _ret =
+            this.riInvokeExportedMethod(this,"copyBomFromProgToAnother",new String [] {"int","int","int","int"},new Object[] {new Integer(srcArticle), new Integer(srcVersion), new Integer(destProg), new Integer(destArticle)});
+        return ((Integer)_ret).intValue();
+    }
 }

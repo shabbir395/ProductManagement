@@ -20,7 +20,8 @@
        XxpmPoLines.VENDOR_ID, 
        XxpmPoLines.VENDOR_SITE_ID, 
        XxpmPoLines.EBS_STATUS, 
-       XxpmPoLines.ACC_CAT"
+       XxpmPoLines.ACC_CAT, 
+       XXPM_GET_ACC_UN_ALLOC_STOCK(INVENTORY_ITEM_ID) AS VIEW_ATTR"
   FromList="XXPM_PO_LINES XxpmPoLines"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -437,6 +438,28 @@
     EntityAttrName="AccCat"
     EntityUsage="XxpmPoLines"
     AliasName="ACC_CAT"/>
+  <ViewAttribute
+    Name="UnallocatedStock"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"
+    Expression="XXPM_GET_ACC_UN_ALLOC_STOCK(INVENTORY_ITEM_ID)">
+    <Dependencies>
+      <Item
+        Value="InventoryItemId"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.XxpmPoLinesView.UnallocatedStock_LABEL"/>
+        <TOOLTIP
+          ResId="ncl.pm.model.bc.vo.XxpmPoLinesView.UnallocatedStock_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="XxpmPoLinesViewAccCriteria"
     ViewObjectName="ncl.pm.model.bc.vo.XxpmPoLinesView"

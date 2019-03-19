@@ -16,15 +16,37 @@ import ncl.pm.model.bc.vo.XxpmAbFabricSizesViewImpl;
 import ncl.pm.model.bc.vo.XxpmArticleBomAccessoriesViewImpl;
 import ncl.pm.model.bc.vo.XxpmArticleBomFabricViewImpl;
 import ncl.pm.model.bc.vo.XxpmArticleBomViewImpl;
+import ncl.pm.model.bc.vo.XxpmItemMasterDyViewImpl;
+import ncl.pm.model.bc.vo.XxpmItemMasterPrnViewImpl;
+import ncl.pm.model.bc.vo.XxpmItemMasterSpnViewImpl;
+import ncl.pm.model.bc.vo.XxpmItemMasterWvViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupArticlesViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupColorsViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupCombinationsViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupDimensionsViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupProgramsViewImpl;
 import ncl.pm.model.bc.vo.XxpmMadeupSetArticlesViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupSetsViewImpl;
+import ncl.pm.model.bc.vo.XxpmMadeupSizesViewImpl;
+import ncl.pm.model.bc.vo.XxpmPoHeaderViewImpl;
 import ncl.pm.model.bc.vo.XxpmPoLinesViewImpl;
 import ncl.pm.model.bc.vo.XxpmSetBomAccessoriesViewImpl;
 import ncl.pm.model.bc.vo.XxpmSetBomArticlesViewImpl;
 import ncl.pm.model.bc.vo.XxpmSetBomViewImpl;
+import ncl.pm.model.bc.vo.XxpmWarpViewImpl;
+import ncl.pm.model.bc.vo.XxpmWeftViewImpl;
 import ncl.pm.model.bc.vo.XxpmYarnBlendViewImpl;
+import ncl.pm.model.bc.vo.XxpmYarnTypeViewImpl;
+import ncl.pm.model.bc.vo.lov.ArticleBomAcclovImpl;
+import ncl.pm.model.bc.vo.lov.ArticleBomFablovImpl;
+import ncl.pm.model.bc.vo.lov.ItemColorsLovImpl;
+import ncl.pm.model.bc.vo.lov.ItemSizeLovImpl;
 import ncl.pm.model.bc.vo.lov.MadeupArticlesDetailsLovImpl;
 import ncl.pm.model.bc.vo.lov.MadeupProgDetailsLovImpl;
 import ncl.pm.model.bc.vo.lov.VendorsLovImpl;
+
+import ncl.pm.model.bc.vo.lov.WeavingItemDescLovImpl;
+import ncl.pm.model.bc.vo.misc.MadeupCombinationsExportToExcelViewImpl;
 
 import oracle.adf.share.ADFContext;
 
@@ -1017,6 +1039,38 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
      */
     public ViewObjectImpl getArticleBomVersionsLov() {
         return (ViewObjectImpl)findViewObject("ArticleBomVersionsLov");
+    }
+
+    /**
+     * Container's getter for MadeupAllProgramsDropdownLov1.
+     * @return MadeupAllProgramsDropdownLov1
+     */
+    public ViewObjectImpl getMadeupAllProgramsDropdownLov() {
+        return (ViewObjectImpl)findViewObject("MadeupAllProgramsDropdownLov");
+    }
+
+    /**
+     * Container's getter for MadeupAccProgramsDropdownLov.
+     * @return MadeupAccProgramsDropdownLov
+     */
+    public ViewObjectImpl getMadeupAccProgramsDropdownLov() {
+        return (ViewObjectImpl)findViewObject("MadeupAccProgramsDropdownLov");
+    }
+
+    /**
+     * Container's getter for CopyBomSourceView.
+     * @return CopyBomSourceView
+     */
+    public ViewObjectImpl getCopyBomSourceView() {
+        return (ViewObjectImpl)findViewObject("CopyBomSourceView");
+    }
+
+    /**
+     * Container's getter for CopyBomDestinationView.
+     * @return CopyBomDestinationView
+     */
+    public ViewObjectImpl getCopyBomDestinationView() {
+        return (ViewObjectImpl)findViewObject("CopyBomDestinationView");
     }
 
 
@@ -2535,5 +2589,61 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
             }
         }
         return result;
+    }
+
+    public void copyAccItemFromProgToProg(String fromProg, String toProg) {
+        String sql = "BEGIN XXPM_ACC_BULK_COPY(?,?,?,?); END;";
+        CallableStatement stmt =
+            getDBTransaction().createCallableStatement(sql, 0);
+        try {
+            stmt.setString(1, fromProg);
+            stmt.setString(2, toProg);
+            stmt.setString(3, this.getUserInfo(1));
+            stmt.setString(4, this.getUserInfo(2));
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+            } catch (Exception e) {
+                // TODO: Add catch code
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    public int copyBomFromProgToAnother(int srcArticle, int srcVersion, int destProg, int destArticle) {
+        int successMsg = 0;
+        String query =
+            "BEGIN   XXPM_ARTICLE_BOM_PKG.COPY_BOM_TO_ANOTHER_PROG(:P_SRC_ARTICLE ,:P_SRC_VERSION ,:P_DEST_PROG ,:P_DEST_ARTICLE ,:P_USER ,:P_RESP ,:SUCCESS_MSG);  END;";
+        CallableStatement stmt =
+            getDBTransaction().createCallableStatement(query, 0);
+        try {
+            stmt.setInt("P_SRC_ARTICLE", srcArticle);
+            stmt.setInt("P_SRC_VERSION", srcVersion);
+            stmt.setInt("P_DEST_PROG", destProg);
+            stmt.setInt("P_DEST_ARTICLE", destArticle);
+            stmt.setString("P_USER", getUserInfo(1));
+            stmt.setString("P_RESP", getUserInfo(2));
+            stmt.registerOutParameter("SUCCESS_MSG", Types.INTEGER);
+            stmt.executeUpdate();
+            logger.warning("SUCCESS MSG ===== " + stmt.getInt("SUCCESS_MSG"));
+            successMsg = stmt.getInt("SUCCESS_MSG");
+        } catch (Exception e1) {
+            // TODO: Add catch code
+            logger.warning("msg == ADF Error");
+            successMsg = 0;
+            logger.info(e1.getMessage());
+            e1.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+            } catch (Exception e) {
+                // TODO: Add catch code
+                e.printStackTrace();
+            }
+        }
+        return successMsg;
     }
 }

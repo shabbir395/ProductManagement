@@ -100,6 +100,9 @@
               <af:showPopupBehavior popupId="versionPopup"
                                     triggerType="action"/>
             </af:commandButton>
+            <af:spacer width="10" height="10" id="spacer13"/>
+            <af:commandButton text="Copy from Another BOM" id="commandButton2"
+                              partialSubmit="true" action="copyArticleBOM"/>
             <af:popup id="bomLogPopup" contentDelivery="lazyUncached">
               <af:dialog id="d3" type="ok" resize="on">
                 <af:inputText value="#{bindings.BomLog.inputValue}"

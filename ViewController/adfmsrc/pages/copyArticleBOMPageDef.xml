@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="copyArticleBOMPageDef"
+                Package="pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CopyBomSourceView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="CopyBomSourceViewIterator"/>
+    <iterator Binds="CopyBomDestinationView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="CopyBomDestinationViewIterator"/>
+  </executables>
+  <bindings>
+    <listOfValues StaticList="false" IterBinding="CopyBomSourceViewIterator"
+                  Uses="LOV_ProgName" id="ProgName"/>
+    <list IterBinding="CopyBomSourceViewIterator" StaticList="false"
+          Uses="LOV_ArticleId" id="ArticleId" DTSupportsMRU="false"/>
+    <list IterBinding="CopyBomSourceViewIterator" StaticList="false"
+          Uses="LOV_Version" id="Version" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="CopyBomDestinationViewIterator" id="ProgId">
+      <AttrNames>
+        <Item Value="ProgId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false"
+                  IterBinding="CopyBomDestinationViewIterator"
+                  Uses="LOV_ProgName" id="ProgName1"/>
+    <list IterBinding="CopyBomDestinationViewIterator" StaticList="false"
+          Uses="LOV_ArticleId" id="ArticleId1" DTSupportsMRU="false"/>
+    <methodAction id="copyBomFromProgToAnother"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copyBomFromProgToAnother"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.copyBomFromProgToAnother_XxpmAppModuleDataControl_dataProvider_copyBomFromProgToAnother_result">
+      <NamedData NDName="srcArticle" NDType="int"/>
+      <NamedData NDName="srcVersion" NDType="int"/>
+      <NamedData NDName="destProg" NDType="int"/>
+      <NamedData NDName="destArticle" NDType="int"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

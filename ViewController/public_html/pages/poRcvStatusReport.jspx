@@ -5,7 +5,7 @@
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <f:view>
-    <af:document id="d1" title="PO Receiving Status Report">
+    <af:document id="d1" title="Accessory Receiving Status Report">
       <af:messages id="m1"/>
       <af:form id="f1">
         <af:panelFormLayout id="pfl1">
@@ -113,13 +113,22 @@
               <af:outputText value="#{row.Uom}" id="ot8"/>
             </af:column>
             <af:column sortProperty="#{bindings.PoRcvStatusView.hints.UnitPrice.name}"
-                       filterable="true" sortable="true"
-                       headerText="#{bindings.PoRcvStatusView.hints.UnitPrice.label}"
-                       id="c9" align="center" inlineStyle="text-align:right;"
-                       width="60">
-              <af:outputText value="#{row.UnitPrice}" id="ot7">
+                       headerText="#{bindings.PoRcvStatusView.hints.AccCat.label}"
+                       id="c9" align="center" inlineStyle="text-align:left;"
+                       width="60" sortable="true" filterable="true">
+              <af:outputText value="#{row.AccCat}" id="ot7">
                 <af:convertNumber groupingUsed="false"
                                   pattern="#{bindings.PoRcvStatusView.hints.UnitPrice.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.OrderedQuantity.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.RequiredQuantity.label}"
+                       id="column2" align="center"
+                       inlineStyle="text-align:right;" width="60">
+              <af:outputText value="#{row.RequiredQuantity}" id="outputText1">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PoRcvStatusView.hints.OrderedQuantity.format}"/>
               </af:outputText>
             </af:column>
             <af:column sortProperty="#{bindings.PoRcvStatusView.hints.OrderedQuantity.name}"

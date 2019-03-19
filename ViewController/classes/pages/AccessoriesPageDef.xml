@@ -13,12 +13,20 @@
       <variable Name="ExecuteWithParams_BindDescAcc" Type="java.lang.String"/>
       <variable Name="VsetVal" Type="java.lang.String"/>
       <variable Name="ValueSet" Type="java.lang.String"/>
+      <variable Name="FromProgramVariable" Type="java.lang.String"/>
+      <variable Name="ToProgramVariable" Type="java.lang.String"/>
     </variableIterator>
     <iterator id="AccessoryItemDescViewIterator" Binds="AccessoryItemDescView"
               DataControl="XxpmAppModuleDataControl" RangeSize="25"/>
     <iterator Binds="XxpmAttachmentsViewChildAcc" RangeSize="25"
               DataControl="XxpmAppModuleDataControl"
               id="XxpmAttachmentsViewChildAccIterator" ChangeEventPolicy="ppr"/>
+    <iterator id="MadeupAllProgramsDropdownLovIterator"
+              Binds="MadeupAllProgramsDropdownLov"
+              DataControl="XxpmAppModuleDataControl" RangeSize="25"/>
+    <iterator id="MadeupAccProgramsDropdownLovIterator"
+              Binds="MadeupAccProgramsDropdownLov"
+              DataControl="XxpmAppModuleDataControl" RangeSize="25"/>
   </executables>
   <bindings>
     <list IterBinding="XxpmItemMasterAccViewIterator" StaticList="false"
@@ -923,6 +931,25 @@
                      id="ItemStatusFlagTrans">
       <AttrNames>
         <Item Value="ItemStatusFlagTrans"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="copyAccItemFromProgToProg"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="copyAccItemFromProgToProg"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="fromProg" NDValue="" NDType="java.lang.String"/>
+      <NamedData NDName="toProg" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="FromProgram">
+      <AttrNames>
+        <Item Value="FromProgramVariable"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="ToProgram">
+      <AttrNames>
+        <Item Value="ToProgramVariable"/>
       </AttrNames>
     </attributeValues>
   </bindings>

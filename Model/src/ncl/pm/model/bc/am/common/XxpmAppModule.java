@@ -107,4 +107,9 @@ public interface XxpmAppModule extends ApplicationModule {
     Integer saleOrderBomsStatus(Integer hid);
 
     Integer createArticleBomVersion(String boms, String versionDesc);
+
+    void copyAccItemFromProgToProg(String fromProg, String toProg);
+
+    int copyBomFromProgToAnother(int srcArticle, int srcVersion, int destProg,
+                                 int destArticle);
 }
