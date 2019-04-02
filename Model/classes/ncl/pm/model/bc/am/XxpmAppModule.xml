@@ -331,6 +331,13 @@
   <ViewUsage
     Name="CopyBomDestinationView"
     ViewObjectName="ncl.pm.model.bc.vo.misc.CopyBomDestinationView"/>
+  <ViewUsage
+    Name="CancelledPOsView"
+    ViewObjectName="ncl.pm.model.bc.vo.misc.CancelledPOsView">
+    <ViewCriteriaUsage
+      Name="CancelledPOsViewCriteria"
+      FullName="ncl.pm.model.bc.vo.misc.CancelledPOsView.CancelledPOsViewCriteria"/>
+  </ViewUsage>
   <ViewLinkUsage
     Name="XxpmYarnBlendImIdFkLink"
     ViewLinkObjectName="ncl.pm.model.bc.vo.vl.XxpmYarnBlendImIdFkLink"
@@ -919,6 +926,17 @@
       <Parameter
         Name="destArticle"
         Type="int"/>
+    </Method>
+    <Method
+      Name="unlockPOLines">
+      <Return
+        Type="int"/>
+      <Parameter
+        Name="ebsHeaderID"
+        Type="int"/>
+      <Parameter
+        Name="custPOLines"
+        Type="java.lang.String"/>
     </Method>
   </ClientInterface>
   <ResourceBundle>

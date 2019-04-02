@@ -292,4 +292,10 @@ public class XxpmAppModuleClient extends ApplicationModuleImpl implements XxpmAp
             this.riInvokeExportedMethod(this,"copyBomFromProgToAnother",new String [] {"int","int","int","int"},new Object[] {new Integer(srcArticle), new Integer(srcVersion), new Integer(destProg), new Integer(destArticle)});
         return ((Integer)_ret).intValue();
     }
+
+    public int unlockPOLines(int ebsHeaderID, String custPOLines) {
+        Object _ret =
+            this.riInvokeExportedMethod(this,"unlockPOLines",new String [] {"int","java.lang.String"},new Object[] {new Integer(ebsHeaderID), custPOLines});
+        return ((Integer)_ret).intValue();
+    }
 }

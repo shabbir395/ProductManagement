@@ -97,19 +97,20 @@
                        filterable="true" sortable="true"
                        headerText="#{bindings.PoRcvStatusView.hints.ItemCode.label}"
                        id="c6" align="center" inlineStyle="text-align:left;"
-                       width="250">
+                       width="150">
               <af:outputText value="#{row.ItemCode}" id="ot2"/>
             </af:column>
             <af:column sortProperty="#{bindings.PoRcvStatusView.hints.ItemDescription.name}"
                        filterable="true" sortable="true"
                        headerText="#{bindings.PoRcvStatusView.hints.ItemDescription.label}"
-                       id="c1" align="center" inlineStyle="text-align:left;">
+                       id="c1" align="center" inlineStyle="text-align:left;"
+                       width="300">
               <af:outputText value="#{row.ItemDescription}" id="ot4"/>
             </af:column>
             <af:column sortProperty="#{bindings.PoRcvStatusView.hints.Uom.name}"
                        filterable="true" sortable="true"
                        headerText="#{bindings.PoRcvStatusView.hints.Uom.label}"
-                       id="c3" align="center">
+                       id="c3" align="center" width="40">
               <af:outputText value="#{row.Uom}" id="ot8"/>
             </af:column>
             <af:column sortProperty="#{bindings.PoRcvStatusView.hints.UnitPrice.name}"
@@ -123,10 +124,30 @@
             </af:column>
             <af:column sortProperty="#{bindings.PoRcvStatusView.hints.OrderedQuantity.name}"
                        filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.FreeStock.label}"
+                       id="column4" align="center"
+                       inlineStyle="text-align:right;" width="40">
+              <af:outputText value="#{row.FreeStock}" id="outputText3">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PoRcvStatusView.hints.OrderedQuantity.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.OrderedQuantity.name}"
+                       filterable="true" sortable="true"
                        headerText="#{bindings.PoRcvStatusView.hints.RequiredQuantity.label}"
                        id="column2" align="center"
                        inlineStyle="text-align:right;" width="60">
               <af:outputText value="#{row.RequiredQuantity}" id="outputText1">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.PoRcvStatusView.hints.OrderedQuantity.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="#{bindings.PoRcvStatusView.hints.OrderedQuantity.name}"
+                       filterable="true" sortable="true"
+                       headerText="#{bindings.PoRcvStatusView.hints.AllocatedQty.label}"
+                       id="column3" align="center"
+                       inlineStyle="text-align:right;" width="60">
+              <af:outputText value="#{row.AllocatedQty}" id="outputText2">
                 <af:convertNumber groupingUsed="false"
                                   pattern="#{bindings.PoRcvStatusView.hints.OrderedQuantity.format}"/>
               </af:outputText>

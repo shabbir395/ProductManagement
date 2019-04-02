@@ -94,14 +94,19 @@
             <af:commandToolbarButton text="Attachments" partialSubmit="true"
                                      id="commandToolbarButton4"/>
             <af:spacer width="10" height="10" id="spacer9"/>
-            <af:commandToolbarButton text="Refresh"
-                                     id="ctb20"
+            <af:commandToolbarButton text="Refresh" id="ctb20"
                                      actionListener="#{ViewActions.refreshPO}"/>
             <af:spacer width="10" height="10" id="spacer4"/>
             <af:commandToolbarButton text="Re-Calculate Values" id="ctb8"
                                      actionListener="#{ViewActions.refreshPoLines}"
                                      disabled='#{bindings.IsProgManager.inputValue > 0 ? false : true}'
                                      partialTriggers="ilov1 cb1 ctb1 ctb2 ctb3 ctb4"/>
+            <af:spacer width="10" height="10" id="spacer11"/>
+            <af:commandToolbarButton text="Unlock PO Lines" id="ctb22"
+                                     partialTriggers="ilov1 cb1 ctb1 ctb2 ctb3 ctb4"
+                                     disabled="#{bindings.IsProgManager.inputValue > 0 ? false : true}">
+              <af:showPopupBehavior popupId="unlockPOsp1" triggerType="action"/>
+            </af:commandToolbarButton>
             <af:popup id="bomLogPopup" contentDelivery="lazyUncached">
               <af:dialog id="d3" type="ok" resize="on">
                 <af:inputText value="#{bindings.BomLog.inputValue}"
@@ -117,6 +122,82 @@
                 </af:inputText>
                 <af:outputFormatted value="#{bindings.BomLog.inputValue}"
                                     id="of2" styleClass="PreWrap"/>
+              </af:dialog>
+            </af:popup>
+            <af:popup id="unlockPOsp1"
+                      popupFetchListener="#{ViewActions.CalcelledPOsPopupFetchListener}"
+                      contentDelivery="lazyUncached">
+              <af:dialog id="d4" title="Choose POs to unlock their Lines"
+                         dialogListener="#{ViewActions.unlockPOLinesDL}">
+                <af:table value="#{bindings.CancelledPOsView.collectionModel}"
+                          var="row"
+                          rows="#{bindings.CancelledPOsView.rangeSize}"
+                          emptyText="#{bindings.CancelledPOsView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.CancelledPOsView.rangeSize}"
+                          rowBandingInterval="0"
+                          filterModel="#{bindings.CancelledPOsViewQuery.queryDescriptor}"
+                          queryListener="#{bindings.CancelledPOsViewQuery.processQuery}"
+                          filterVisible="true" varStatus="vs"
+                          selectedRowKeys="#{bindings.CancelledPOsView.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.CancelledPOsView.collectionModel.makeCurrent}"
+                          rowSelection="single" id="t3">
+                  <af:column sortProperty="#{bindings.CancelledPOsView.hints.PoNum.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CancelledPOsView.hints.PoNum.label}"
+                             id="c43" align="center"
+                             inlineStyle="text-align:left;">
+                    <af:inputText value="#{row.bindings.PoNum.inputValue}"
+                                  label="#{bindings.CancelledPOsView.hints.PoNum.label}"
+                                  required="#{bindings.CancelledPOsView.hints.PoNum.mandatory}"
+                                  columns="#{bindings.CancelledPOsView.hints.PoNum.displayWidth}"
+                                  maximumLength="#{bindings.CancelledPOsView.hints.PoNum.precision}"
+                                  shortDesc="#{bindings.CancelledPOsView.hints.PoNum.tooltip}"
+                                  id="it29">
+                      <f:validator binding="#{row.bindings.PoNum.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.CancelledPOsView.hints.CustPoNum.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CancelledPOsView.hints.CustPoNum.label}"
+                             id="c37" align="center"
+                             inlineStyle="text-align:left;" rendered="false">
+                    <af:inputText value="#{row.bindings.CustPoNum.inputValue}"
+                                  label="#{bindings.CancelledPOsView.hints.CustPoNum.label}"
+                                  required="#{bindings.CancelledPOsView.hints.CustPoNum.mandatory}"
+                                  columns="#{bindings.CancelledPOsView.hints.CustPoNum.displayWidth}"
+                                  maximumLength="#{bindings.CancelledPOsView.hints.CustPoNum.precision}"
+                                  shortDesc="#{bindings.CancelledPOsView.hints.CustPoNum.tooltip}"
+                                  id="it33">
+                      <f:validator binding="#{row.bindings.CustPoNum.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.CancelledPOsView.hints.CustPoNum.format}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.CancelledPOsView.hints.CustPoLines.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CancelledPOsView.hints.CustPoLines.label}"
+                             id="c42" align="center"
+                             inlineStyle="text-align:left;" rendered="false">
+                    <af:inputText value="#{row.bindings.CustPoLines.inputValue}"
+                                  label="#{bindings.CancelledPOsView.hints.CustPoLines.label}"
+                                  required="#{bindings.CancelledPOsView.hints.CustPoLines.mandatory}"
+                                  columns="#{bindings.CancelledPOsView.hints.CustPoLines.displayWidth}"
+                                  maximumLength="#{bindings.CancelledPOsView.hints.CustPoLines.precision}"
+                                  shortDesc="#{bindings.CancelledPOsView.hints.CustPoLines.tooltip}"
+                                  id="it32">
+                      <f:validator binding="#{row.bindings.CustPoLines.validator}"/>
+                    </af:inputText>
+                  </af:column>
+                  <af:column sortProperty="#{bindings.CancelledPOsView.hints.Selected.name}"
+                             filterable="true" sortable="true"
+                             headerText="#{bindings.CancelledPOsView.hints.Selected.label}"
+                             id="c41" align="center" width="40">
+                    <af:selectBooleanCheckbox value="#{row.bindings.Selected.inputValue}"
+                                              label="#{row.bindings.Selected.label}"
+                                              shortDesc="#{bindings.CancelledPOsView.hints.Selected.tooltip}"
+                                              id="sbc1" autoSubmit="true"/>
+                  </af:column>
+                </af:table>
               </af:dialog>
             </af:popup>
           </af:panelGroupLayout>
@@ -205,11 +286,13 @@
                   <f:selectItems value="#{bindings.SoHeaderId.items}" id="si1"/>
                 </af:selectOneChoice>
                 <af:resource type="javascript">
+                  
                   function onPopupOpened(event) {
                       var popup = event.getSource();
                       popup.cancel = function () {
                       };
                   }
+                
                 </af:resource>
                 <af:popup id="poSoNumPopup">
                   <af:clientListener method="onPopupOpened" type="popupOpened"/>
@@ -272,7 +355,7 @@
             </af:gridRow>
           </af:panelGridLayout>
           <af:panelTabbed id="pt1" dimensionsFrom="disclosedChild"
-                          partialTriggers="ctb8 soc1 d2">
+                          partialTriggers="ctb8 soc1 d2 d4">
             <af:showDetailItem text="Fabric" id="sdi1">
               <af:panelCollection id="pc1" styleClass="AFStretchWidth">
                 <f:facet name="menus"/>
@@ -798,8 +881,8 @@
                                   columns="#{bindings.XxpmPoLinesViewAccChild.hints.UnallocatedStock.displayWidth}"
                                   maximumLength="#{bindings.XxpmPoLinesViewAccChild.hints.UnallocatedStock.precision}"
                                   shortDesc="#{bindings.XxpmPoLinesViewAccChild.hints.UnallocatedStock.tooltip}"
-                                  id="inputText1"
-                                  autoSubmit="true" readOnly="true">
+                                  id="inputText1" autoSubmit="true"
+                                  readOnly="true">
                       <f:validator binding="#{row.bindings.ActOrderedQty.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.XxpmPoLinesViewAccChild.hints.ActOrderedQty.format}"/>

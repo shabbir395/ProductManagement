@@ -36,6 +36,8 @@
           <Item Value="AccCat"/>
           <Item Value="Remarks"/>
           <Item Value="RequiredQuantity"/>
+          <Item Value="AllocatedQty"/>
+          <Item Value="FreeStock"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

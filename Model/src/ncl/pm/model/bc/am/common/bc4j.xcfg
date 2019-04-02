@@ -7,10 +7,9 @@
          <Security AppModuleJndiName="ncl.pm.model.bc.am.XxpmAppModule"/>
          <Custom JDBCDataSource="java:comp/env/jdbc/ebsDS"/>
       </AppModuleConfig>
-      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="ncl.pm.model.Model" name="XxpmAppModuleLocal" ApplicationName="ncl.pm.model.bc.am.XxpmAppModule">
+      <AppModuleConfig DeployPlatform="LOCAL" JDBCName="ebs" jbo.project="ncl.pm.model.Model" name="XxpmAppModuleLocal" ApplicationName="ncl.pm.model.bc.am.XxpmAppModule">
          <Database jbo.locking.mode="optimistic"/>
          <Security AppModuleJndiName="ncl.pm.model.bc.am.XxpmAppModule"/>
-         <Custom JDBCDataSource="java:comp/env/jdbc/ebsDS"/>
       </AppModuleConfig>
    </AppModuleConfigBag>
 </BC4JConfig>

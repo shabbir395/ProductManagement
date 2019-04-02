@@ -233,6 +233,36 @@ public class ViewActions {
     private String dimSize28Title = null;
     private String dimSize29Title = null;
     private String dimSize30Title = null;
+    private String dimSize31Title = null;
+    private String dimSize32Title = null;
+    private String dimSize33Title = null;
+    private String dimSize34Title = null;
+    private String dimSize35Title = null;
+    private String dimSize36Title = null;
+    private String dimSize37Title = null;
+    private String dimSize38Title = null;
+    private String dimSize39Title = null;
+    private String dimSize40Title = null;
+    private String dimSize41Title = null;
+    private String dimSize42Title = null;
+    private String dimSize43Title = null;
+    private String dimSize44Title = null;
+    private String dimSize45Title = null;
+    private String dimSize46Title = null;
+    private String dimSize47Title = null;
+    private String dimSize48Title = null;
+    private String dimSize49Title = null;
+    private String dimSize50Title = null;
+    private String dimSize51Title = null;
+    private String dimSize52Title = null;
+    private String dimSize53Title = null;
+    private String dimSize54Title = null;
+    private String dimSize55Title = null;
+    private String dimSize56Title = null;
+    private String dimSize57Title = null;
+    private String dimSize58Title = null;
+    private String dimSize59Title = null;
+    private String dimSize60Title = null;
     private RichSelectOneChoice madeupThreadCount;
     private RichSelectOneChoice madeupBrandName;
     private RichGridCell wvSegment3Cell;
@@ -2798,6 +2828,126 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         return getDimSizeTitle(29);
     }
 
+    public String getDimSize31Title() {
+        return getDimSizeTitle(30);
+    }
+
+    public String getDimSize32Title() {
+        return getDimSizeTitle(31);
+    }
+
+    public String getDimSize33Title() {
+        return getDimSizeTitle(32);
+    }
+
+    public String getDimSize34Title() {
+        return getDimSizeTitle(33);
+    }
+
+    public String getDimSize35Title() {
+        return getDimSizeTitle(34);
+    }
+
+    public String getDimSize36Title() {
+        return getDimSizeTitle(35);
+    }
+
+    public String getDimSize37Title() {
+        return getDimSizeTitle(36);
+    }
+
+    public String getDimSize38Title() {
+        return getDimSizeTitle(37);
+    }
+
+    public String getDimSize39Title() {
+        return getDimSizeTitle(38);
+    }
+
+    public String getDimSize40Title() {
+        return getDimSizeTitle(39);
+    }
+
+    public String getDimSize41Title() {
+        return getDimSizeTitle(40);
+    }
+
+    public String getDimSize42Title() {
+        return getDimSizeTitle(41);
+    }
+
+    public String getDimSize43Title() {
+        return getDimSizeTitle(42);
+    }
+
+    public String getDimSize44Title() {
+        return getDimSizeTitle(43);
+    }
+
+    public String getDimSize45Title() {
+        return getDimSizeTitle(44);
+    }
+
+    public String getDimSize46Title() {
+        return getDimSizeTitle(45);
+    }
+
+    public String getDimSize47Title() {
+        return getDimSizeTitle(46);
+    }
+
+    public String getDimSize48Title() {
+        return getDimSizeTitle(47);
+    }
+
+    public String getDimSize49Title() {
+        return getDimSizeTitle(48);
+    }
+
+    public String getDimSize50Title() {
+        return getDimSizeTitle(49);
+    }
+
+    public String getDimSize51Title() {
+        return getDimSizeTitle(50);
+    }
+
+    public String getDimSize52Title() {
+        return getDimSizeTitle(51);
+    }
+
+    public String getDimSize53Title() {
+        return getDimSizeTitle(52);
+    }
+
+    public String getDimSize54Title() {
+        return getDimSizeTitle(53);
+    }
+
+    public String getDimSize55Title() {
+        return getDimSizeTitle(54);
+    }
+
+    public String getDimSize56Title() {
+        return getDimSizeTitle(55);
+    }
+
+    public String getDimSize57Title() {
+        return getDimSizeTitle(56);
+    }
+
+    public String getDimSize58Title() {
+        return getDimSizeTitle(57);
+    }
+
+    public String getDimSize59Title() {
+        return getDimSizeTitle(58);
+    }
+
+    public String getDimSize60Title() {
+        return getDimSizeTitle(59);
+    }
+
     public void accAddVsetVal(DialogEvent de) {
         if (de.getOutcome().equals(DialogEvent.Outcome.ok)) {
             OperationBinding op = bc.getOperationBinding("addVsetVal");
@@ -5141,8 +5291,6 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     }
 
     public void refreshPO(ActionEvent actionEvent) {
-        //        ViewObject vo = this.getVO("XxpmPoHeaderViewIterator");
-        //        vo.executeQuery();
         this.execOper("ExecuteFab");
         this.execOper("ExecuteAcc");
     }
@@ -5252,5 +5400,63 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
 
     public void blankVendorsLovOnPageLoad(PhaseEvent phaseEvent) {
         this.setValueToExpression("#{bindings.VendorName.inputValue}", null);
+    }
+
+    public void CalcelledPOsPopupFetchListener(PopupFetchEvent popupFetchEvent) {
+        ViewObject headerVO = this.getVO("XxpmPoHeaderViewIterator");
+        if (headerVO != null) {
+            Row currRow = headerVO.getCurrentRow();
+            if (currRow != null) {
+                Integer headerID =
+                    new Integer(String.valueOf(currRow.getAttribute("PoHeaderId")));
+                logger.warning("Header: " + headerID);
+                //                Map<Object, Object> params = new HashMap();
+                //                params.put("BindCustPO", headerID);
+                //                this.execOperWithParamNoReturn("CancelledPOsExecuteWithParam", params);
+                ViewObject cancelledPOsVo =
+                    this.getVO("CancelledPOsViewIterator");
+                cancelledPOsVo.setNamedWhereClauseParam("BindCustPO",
+                                                        headerID);
+                cancelledPOsVo.executeQuery();
+            }
+        }
+    }
+
+    public void unlockPOLinesDL(DialogEvent de) {
+        if (de.getOutcome().equals(DialogEvent.Outcome.ok)) {
+            Integer result = -1;
+            String ebsPO = null;
+            ViewObject cancelledPOsVo = this.getVO("CancelledPOsViewIterator");
+            Row[] rows = cancelledPOsVo.getAllRowsInRange();
+            for (Row row : rows) {
+                Integer selected =
+                    Integer.valueOf(String.valueOf(row.getAttribute("Selected")));
+                selected = selected != null ? selected : 0;
+                logger.warning("selected: " + selected);
+                if (selected == 1) {
+                    Map<Object, Object> params = new HashMap();
+                    params.put("ebsHeaderID",
+                               Integer.valueOf(String.valueOf(row.getAttribute("PoHeaderId"))));
+                    params.put("custPOLines",
+                               String.valueOf(row.getAttribute("CustPoLines")));
+                    result =
+                            Integer.valueOf(this.execOperWithParamReturnVal("unlockPOLines",
+                                                                            params).toString());
+                    if (result == 0) {
+                        ebsPO =
+                                String.valueOf(row.getAttribute("CustPoLines"));
+                        break;
+                    }
+                }
+            }
+            if (result == 0) {
+                this.showError(ebsPO +
+                               ": There is an error in unlock procedure. Please contact administrator");
+            } else if (result == 1) {
+                this.execOper("ExecuteFab");
+                this.execOper("ExecuteAcc");
+                this.showMessage("Lines unlocked successfully.");
+            }
+        }
     }
 }

@@ -21,7 +21,8 @@
        XxpmPoLines.VENDOR_SITE_ID, 
        XxpmPoLines.EBS_STATUS, 
        XxpmPoLines.ACC_CAT, 
-       XXPM_GET_ACC_UN_ALLOC_STOCK(INVENTORY_ITEM_ID) AS VIEW_ATTR"
+       XXPM_GET_ACC_UN_ALLOC_STOCK(INVENTORY_ITEM_ID) AS VIEW_ATTR, 
+       XxpmPoLines.SELECTED"
   FromList="XXPM_PO_LINES XxpmPoLines"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -445,7 +446,7 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
+    SQLType="NUMERIC"
     Expression="XXPM_GET_ACC_UN_ALLOC_STOCK(INVENTORY_ITEM_ID)">
     <Dependencies>
       <Item
@@ -457,6 +458,21 @@
           ResId="ncl.pm.model.bc.vo.XxpmPoLinesView.UnallocatedStock_LABEL"/>
         <TOOLTIP
           ResId="ncl.pm.model.bc.vo.XxpmPoLinesView.UnallocatedStock_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Selected"
+    PrecisionRule="true"
+    EntityAttrName="Selected"
+    EntityUsage="XxpmPoLines"
+    AliasName="SELECTED">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="check_box"/>
+        <AUTOSUBMIT
+          Value="true"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

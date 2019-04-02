@@ -29,19 +29,20 @@
   <SQLQuery>
     <![CDATA[SELECT B.PO_NUM,
          B.VENDOR_NAME,
-         ACC_CAT,
+         ACC_CAT, NVL (A.INVENTORY_ITEM_ID, B.INVENTORY_ITEM_ID) INV_ITEM_ID,
          NVL (A.CONCATENATED_SEGMENTS, B.CONCATENATED_SEGMENTS)
             ITEM_CODE,
          NVL (A.ACCESSORIES_REQUIRED, B.ITEM_DESCRIPTION) ITEM_DESCRIPTION,
          NVL (A.UOM, B.UOM) UOM,
-         A.REQUIRED_QUANTITY,
-         B.PO_QUANTITY ORDERED_QUANTITY,
+         A.REQUIRED_QUANTITY,XXPM_GET_ACC_ALLOCATED_STOCK(NVL (A.INVENTORY_ITEM_ID, B.INVENTORY_ITEM_ID), :BindSoHeaderId) ALLOCATED_QTY,
+XXPM_GET_ACC_UN_ALLOC_STOCK(NVL (A.INVENTORY_ITEM_ID, B.INVENTORY_ITEM_ID)) FREE_STOCK,
+         NVL(B.PO_QUANTITY,0) ORDERED_QUANTITY,
          NVL (B.RECEIVED_QUANTITY, 0) QUANTITY_RECEIVED,
          NVL (B.PO_QUANTITY, 0) - NVL (B.RECEIVED_QUANTITY, 0) QUANTITY_BALANCE,
          NVL (B.ACCEPTED_QUANTITY, 0) ACCEPTED_QUANTITY,
          NVL (B.REJECTED_QUANTITY, 0) QUANTITY_REJECTED,
          B.REMARKS
-    FROM (  SELECT ACC_CAT,
+    FROM (  SELECT ACC_CAT,INVENTORY_ITEM_ID,
                    CONCATENATED_SEGMENTS,
                    ACCESSORIES_REQUIRED,
                    ROUND (SUM ( (CONSUMPTION * ORDERED_QUANTITY)), 2)
@@ -61,13 +62,13 @@
                            AND M.ATTRIBUTE26 IS NOT NULL
                            AND L.CANCELLED_FLAG = 'N'
                            AND H.CONTEXT = 'Program Name'
-                           AND H.HEADER_ID =:BindSoHeaderId)
+                           AND H.HEADER_ID = :BindSoHeaderId)
                    M
              WHERE     D.MADEUP_ID = M.ORDERED_ITEM
                    AND ITEM_TYPE_DESC = 'Accessory'
                    AND (   D.ART_BOM_VERSION = M.BOM_VERSION
                         OR D.ART_BOM_VERSION IS NULL)
-          GROUP BY CONCATENATED_SEGMENTS,
+          GROUP BY INVENTORY_ITEM_ID,CONCATENATED_SEGMENTS,
                    SEGMENT4,
                    SEGMENT5,
                    ACC_ITEM_UOM,
@@ -76,35 +77,26 @@
          FULL OUTER JOIN
          (SELECT PHA.SEGMENT1 PO_NUM,
                  XXPM_GET_VENDOR_NAME_FUNC (PHA.VENDOR_ID) VENDOR_NAME,
+                 MSI.INVENTORY_ITEM_ID,
                  MSI.CONCATENATED_SEGMENTS,
                  PLA.ITEM_DESCRIPTION,
                  MSI.PRIMARY_UOM_CODE UOM,
                  PLA.QUANTITY PO_QUANTITY,
-                 NVL ( (SELECT QUANTITY_RECEIVED
-                          FROM PO_LINE_LOCATIONS_ALL PLLA
-                         WHERE PLLA.PO_LINE_ID = PLA.PO_LINE_ID),
-                      0)
-                    RECEIVED_QUANTITY,
-                 NVL ( (SELECT QUANTITY_ACCEPTED
-                          FROM PO_LINE_LOCATIONS_ALL PLLA
-                         WHERE PLLA.PO_LINE_ID = PLA.PO_LINE_ID),
-                      0)
-                    ACCEPTED_QUANTITY,
-                 NVL ( (SELECT QUANTITY_REJECTED
-                          FROM PO_LINE_LOCATIONS_ALL PLLA
-                         WHERE PLLA.PO_LINE_ID = PLA.PO_LINE_ID),
-                      0)
-                    REJECTED_QUANTITY,
+                 NVL (  PLLA.QUANTITY_RECEIVED,0) RECEIVED_QUANTITY,
+                 NVL (  PLLA.QUANTITY_ACCEPTED,0) ACCEPTED_QUANTITY,
+                 NVL (  PLLA.QUANTITY_REJECTED,0) REJECTED_QUANTITY,
                  XXPMPOLINES.REMARKS
             FROM PO_LINES_ALL PLA,
                  PO_HEADERS_ALL PHA,
                  XXPM_PO_LINES XXPMPOLINES,
                  XXPM_PO_HEADER XXPMPOHEADER,
+                 PO_LINE_LOCATIONS_ALL PLLA,
                  MTL_SYSTEM_ITEMS_KFV MSI
            WHERE     PLA.ATTRIBUTE15 = TO_CHAR (XXPMPOLINES.PO_LINE_ID)
                  AND PHA.PO_HEADER_ID = PLA.PO_HEADER_ID
                  AND XXPMPOLINES.PO_HEADER_ID = XXPMPOHEADER.PO_HEADER_ID
                  AND PLA.ITEM_ID = MSI.INVENTORY_ITEM_ID
+                 AND PLLA.PO_LINE_ID = PLA.PO_LINE_ID
                  AND MSI.ORGANIZATION_ID = 106          --STITCHING 1 PERIODIC
                  AND XXPMPOHEADER.SO_HEADER_ID = :BindSoHeaderId
                  AND XXPMPOLINES.ITEM_TYPE = 1) B
@@ -166,6 +158,20 @@
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="InvItemId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="INV_ITEM_ID"
+    Expression="INV_ITEM_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
@@ -244,6 +250,52 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.misc.PoRcvStatusView.RequiredQuantity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AllocatedQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ALLOCATED_QTY"
+    Expression="ALLOCATED_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.misc.PoRcvStatusView.AllocatedQty_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FreeStock"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="FREE_STOCK"
+    Expression="FREE_STOCK"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ncl.pm.model.bc.vo.misc.PoRcvStatusView.FreeStock_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="OrderedQuantity"

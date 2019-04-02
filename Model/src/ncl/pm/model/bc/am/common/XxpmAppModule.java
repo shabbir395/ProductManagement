@@ -112,4 +112,6 @@ public interface XxpmAppModule extends ApplicationModule {
 
     int copyBomFromProgToAnother(int srcArticle, int srcVersion, int destProg,
                                  int destArticle);
+
+    int unlockPOLines(int ebsHeaderID, String custPOLines);
 }

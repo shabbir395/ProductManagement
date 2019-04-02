@@ -1073,6 +1073,14 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
         return (ViewObjectImpl)findViewObject("CopyBomDestinationView");
     }
 
+    /**
+     * Container's getter for CancelledPOsView.
+     * @return CancelledPOsView
+     */
+    public ViewObjectImpl getCancelledPOsView() {
+        return (ViewObjectImpl)findViewObject("CancelledPOsView");
+    }
+
 
     public enum MeasuringSystem {
         Ne,
@@ -2612,8 +2620,9 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
             }
         }
     }
-    
-    public int copyBomFromProgToAnother(int srcArticle, int srcVersion, int destProg, int destArticle) {
+
+    public int copyBomFromProgToAnother(int srcArticle, int srcVersion,
+                                        int destProg, int destArticle) {
         int successMsg = 0;
         String query =
             "BEGIN   XXPM_ARTICLE_BOM_PKG.COPY_BOM_TO_ANOTHER_PROG(:P_SRC_ARTICLE ,:P_SRC_VERSION ,:P_DEST_PROG ,:P_DEST_ARTICLE ,:P_USER ,:P_RESP ,:SUCCESS_MSG);  END;";
@@ -2626,6 +2635,36 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
             stmt.setInt("P_DEST_ARTICLE", destArticle);
             stmt.setString("P_USER", getUserInfo(1));
             stmt.setString("P_RESP", getUserInfo(2));
+            stmt.registerOutParameter("SUCCESS_MSG", Types.INTEGER);
+            stmt.executeUpdate();
+            logger.warning("SUCCESS MSG ===== " + stmt.getInt("SUCCESS_MSG"));
+            successMsg = stmt.getInt("SUCCESS_MSG");
+        } catch (Exception e1) {
+            // TODO: Add catch code
+            logger.warning("msg == ADF Error");
+            successMsg = 0;
+            logger.info(e1.getMessage());
+            e1.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+            } catch (Exception e) {
+                // TODO: Add catch code
+                e.printStackTrace();
+            }
+        }
+        return successMsg;
+    }
+
+    public int unlockPOLines(int ebsHeaderID, String custPOLines) {
+        int successMsg = 0;
+        String query =
+            "BEGIN XXPM_PO_PKG.UNLOCK_PO_LINES(:P_EBS_HEADER_ID, :P_CUST_PO_LINES, :SUCCESS_MSG); END;";
+        CallableStatement stmt =
+            getDBTransaction().createCallableStatement(query, 0);
+        try {
+            stmt.setInt("P_EBS_HEADER_ID", ebsHeaderID);
+            stmt.setString("P_CUST_PO_LINES", custPOLines);
             stmt.registerOutParameter("SUCCESS_MSG", Types.INTEGER);
             stmt.executeUpdate();
             logger.warning("SUCCESS MSG ===== " + stmt.getInt("SUCCESS_MSG"));

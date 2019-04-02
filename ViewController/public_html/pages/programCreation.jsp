@@ -1492,7 +1492,8 @@
               </af:panelGroupLayout>
             </af:panelGroupLayout>
             <af:panelTabbed id="pt2" dimensionsFrom="disclosedChild">
-              <af:showDetailItem text="Dimensions" id="sdi6">
+              <af:showDetailItem text="Dimensions" id="sdi6"
+                                 disclosureListener="#{ViewActions.dimensionsTabDL}">
                 <af:panelCollection id="pc2" styleClass="AFStretchWidth">
                   <f:facet name="menus"/>
                   <f:facet name="toolbar">
@@ -2145,6 +2146,576 @@
                         <f:validator binding="#{row.bindings.DimensionSize30.validator}"/>
                       </af:inputText>
                     </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize31.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize31Title}"
+                               id="c120" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 31 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize31.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize31.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize31.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize31.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize31.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize31.tooltip}"
+                                    id="it106" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize31.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize32.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize32Title}"
+                               id="c121" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 32 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize32.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize32.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize32.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize32.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize32.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize32.tooltip}"
+                                    id="it107" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize32.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize33.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize33Title}"
+                               id="c122" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 33 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize33.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize33.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize33.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize33.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize33.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize33.tooltip}"
+                                    id="it108" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize33.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize34.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize34Title}"
+                               id="c123" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 34 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize34.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize34.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize34.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize34.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize34.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize34.tooltip}"
+                                    id="it109" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize34.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize35.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize35Title}"
+                               id="c124" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 35 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize35.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize35.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize35.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize35.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize35.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize35.tooltip}"
+                                    id="it110" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize35.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize36.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize36Title}"
+                               id="c125" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 36 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize36.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize36.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize36.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize36.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize36.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize36.tooltip}"
+                                    id="it111" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize36.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize37.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize37Title}"
+                               id="c126" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 37 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize37.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize37.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize37.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize37.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize37.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize37.tooltip}"
+                                    id="it112" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize37.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize38.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize38Title}"
+                               id="c127" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 38 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize38.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize38.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize38.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize38.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize38.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize38.tooltip}"
+                                    id="it113" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize38.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize39.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize39Title}"
+                               id="c128" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 39 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize39.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize39.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize39.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize39.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize39.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize39.tooltip}"
+                                    id="it114" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize39.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize40.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize40Title}"
+                               id="c129" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 40 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize40.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize40.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize40.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize40.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize40.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize40.tooltip}"
+                                    id="it85" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize40.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize41.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize41Title}"
+                               id="c130" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 41 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize41.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize41.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize41.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize41.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize41.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize41.tooltip}"
+                                    id="it115" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize41.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize42.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize42Title}"
+                               id="c131" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 42 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize42.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize42.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize42.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize42.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize42.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize42.tooltip}"
+                                    id="it116" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize42.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize43.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize43Title}"
+                               id="c132" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 43 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize43.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize43.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize43.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize43.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize43.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize43.tooltip}"
+                                    id="it88" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize43.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize44.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize44Title}"
+                               id="c133" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 44 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize44.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize44.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize44.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize44.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize44.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize44.tooltip}"
+                                    id="it89" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize44.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize45.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize45Title}"
+                               id="c134" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 45 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize45.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize45.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize45.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize45.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize45.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize45.tooltip}"
+                                    id="it90" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize45.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize46.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize46Title}"
+                               id="c135" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 46 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize46.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize46.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize46.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize46.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize46.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize46.tooltip}"
+                                    id="it91" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize46.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize47.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize47Title}"
+                               id="c136" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 47 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize47.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize47.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize47.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize47.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize47.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize47.tooltip}"
+                                    id="it92" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize47.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize48.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize48Title}"
+                               id="c137" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 48 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize48.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize48.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize48.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize48.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize48.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize48.tooltip}"
+                                    id="it93" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize48.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize49.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize49Title}"
+                               id="c138" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 49 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize49.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize49.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize49.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize49.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize49.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize49.tooltip}"
+                                    id="it94" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize49.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize50.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize50Title}"
+                               id="c139" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 50 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize50.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize50.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize50.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize50.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize50.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize50.tooltip}"
+                                    id="it95" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize50.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize51.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize51Title}"
+                               id="c140" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 51 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize51.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize51.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize51.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize51.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize51.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize51.tooltip}"
+                                    id="it96" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize51.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize52.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize52Title}"
+                               id="c141" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 52 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize52.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize52.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize52.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize52.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize52.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize52.tooltip}"
+                                    id="it97" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize52.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize53.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize53Title}"
+                               id="c142" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 53 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize53.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize53.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize53.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize53.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize53.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize53.tooltip}"
+                                    id="it98" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize53.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize54.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize54Title}"
+                               id="c143" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 54 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize54.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize54.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize54.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize54.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize54.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize54.tooltip}"
+                                    id="it99" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize54.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize55.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize55Title}"
+                               id="c144" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 55 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize55.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize55.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize55.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize55.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize55.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize55.tooltip}"
+                                    id="it100" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize55.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize56.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize56Title}"
+                               id="c145" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 56 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize56.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize56.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize56.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize56.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize56.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize56.tooltip}"
+                                    id="it101" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize56.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize57.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize57Title}"
+                               id="c146" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 57 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize57.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize57.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize57.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize57.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize57.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize57.tooltip}"
+                                    id="it102" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize57.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize58.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize58Title}"
+                               id="c147" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 58 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize58.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize58.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize58.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize58.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize58.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize58.tooltip}"
+                                    id="it103" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize58.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize59.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize59Title}"
+                               id="c148" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 59 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize59.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize59.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize59.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize59.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize59.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize59.tooltip}"
+                                    id="it104" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize59.validator}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize60.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{ViewActions.dimSize60Title}"
+                               id="c79" align="center"
+                               rendered="#{bindings.XxpmMadeupSizesViewChildIterator.estimatedRowCount >= 60 ? true : false}"
+                               partialTriggers=":::panelCollection1:t16 :::panelCollection1:t16:sizeNameId">
+                      <af:inputText value="#{row.bindings.DimensionSize60.inputValue}"
+                                    label="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize60.label}"
+                                    required="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize60.mandatory}"
+                                    columns="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize60.displayWidth}"
+                                    maximumLength="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize60.precision}"
+                                    shortDesc="#{bindings.XxpmMadeupDimensionsViewChild.hints.DimensionSize60.tooltip}"
+                                    id="it105" autoSubmit="true"
+                                    contentStyle="min-width:95%;"
+                                    styleClass="AFFieldNumberMarker"
+                                    partialTriggers=":::ctb6">
+                        <f:validator binding="#{row.bindings.DimensionSize60.validator}"/>
+                      </af:inputText>
+                    </af:column>
                   </af:table>
                   <af:popup id="delMadeupDimensionPopup">
                     <af:dialog id="dialog6" inlineStyle="width:280px;"
@@ -2199,7 +2770,7 @@
                             selectionListener="#{bindings.XxpmMadeupCombinationsViewChild.collectionModel.makeCurrent}"
                             id="t9"
                             autoHeightRows="#{bindings.XxpmMadeupCombinationsViewChild.estimatedRowCount}"
-                            columnStretching="column:c79"
+                            columnStretching="column:c149"
                             styleClass="AFStretchWidth"
                             binding="#{ViewActions.madeupCombTable}"
                             contentDelivery="immediate">
@@ -2374,7 +2945,7 @@
                                     columns="#{bindings.XxpmMadeupCombinationsViewChild.hints.ConcateSegments.displayWidth}"
                                     maximumLength="#{bindings.XxpmMadeupCombinationsViewChild.hints.ConcateSegments.precision}"
                                     shortDesc="#{bindings.XxpmMadeupCombinationsViewChild.hints.ConcateSegments.tooltip}"
-                                    id="it85"
+                                    id="it117"
                                     rendered="#{row.bindings.EbsStatus.inputValue == '1' ? true : false}"
                                     disabled="true">
                         <f:validator binding="#{row.bindings.ConcateSegments.validator}"/>
@@ -2398,7 +2969,7 @@
                     <af:column sortProperty="#{bindings.XxpmMadeupCombinationsViewChild.hints.Description.name}"
                                filterable="true" sortable="true"
                                headerText="#{bindings.XxpmMadeupCombinationsViewChild.hints.Description.label}"
-                               id="c79" align="center" width="100">
+                               id="c149" align="center" width="100">
                       <af:inputText value="#{row.bindings.Description.inputValue}"
                                     label="#{bindings.XxpmMadeupCombinationsViewChild.hints.Description.label}"
                                     required="#{bindings.XxpmMadeupCombinationsViewChild.hints.Description.mandatory}"

@@ -36,7 +36,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionId((DBSequence)value);
             }
-        },
+        }
+        ,
         ArticleId {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getArticleId();
@@ -45,7 +46,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setArticleId((Number)value);
             }
-        },
+        }
+        ,
         Parameter {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getParameter();
@@ -54,7 +56,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setParameter((String)value);
             }
-        },
+        }
+        ,
         Uom {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getUom();
@@ -63,7 +66,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setUom((String)value);
             }
-        },
+        }
+        ,
         DimensionSize1 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize1();
@@ -72,7 +76,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize1((String)value);
             }
-        },
+        }
+        ,
         DimensionSize2 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize2();
@@ -81,7 +86,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize2((String)value);
             }
-        },
+        }
+        ,
         DimensionSize3 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize3();
@@ -90,7 +96,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize3((String)value);
             }
-        },
+        }
+        ,
         DimensionSize4 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize4();
@@ -99,7 +106,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize4((String)value);
             }
-        },
+        }
+        ,
         DimensionSize5 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize5();
@@ -108,7 +116,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize5((String)value);
             }
-        },
+        }
+        ,
         DimensionSize6 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize6();
@@ -117,7 +126,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize6((String)value);
             }
-        },
+        }
+        ,
         DimensionSize7 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize7();
@@ -126,7 +136,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize7((String)value);
             }
-        },
+        }
+        ,
         DimensionSize8 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize8();
@@ -135,7 +146,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize8((String)value);
             }
-        },
+        }
+        ,
         DimensionSize9 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize9();
@@ -144,7 +156,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize9((String)value);
             }
-        },
+        }
+        ,
         DimensionSize10 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize10();
@@ -153,7 +166,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize10((String)value);
             }
-        },
+        }
+        ,
         DimensionSize11 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize11();
@@ -162,7 +176,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize11((String)value);
             }
-        },
+        }
+        ,
         DimensionSize12 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize12();
@@ -171,7 +186,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize12((String)value);
             }
-        },
+        }
+        ,
         DimensionSize13 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize13();
@@ -180,7 +196,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize13((String)value);
             }
-        },
+        }
+        ,
         DimensionSize14 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize14();
@@ -189,7 +206,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize14((String)value);
             }
-        },
+        }
+        ,
         DimensionSize15 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize15();
@@ -198,7 +216,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize15((String)value);
             }
-        },
+        }
+        ,
         DimensionSize16 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize16();
@@ -207,7 +226,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize16((String)value);
             }
-        },
+        }
+        ,
         DimensionSize17 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize17();
@@ -216,7 +236,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize17((String)value);
             }
-        },
+        }
+        ,
         DimensionSize18 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize18();
@@ -225,7 +246,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize18((String)value);
             }
-        },
+        }
+        ,
         DimensionSize19 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize19();
@@ -234,7 +256,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize19((String)value);
             }
-        },
+        }
+        ,
         DimensionSize20 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize20();
@@ -243,7 +266,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize20((String)value);
             }
-        },
+        }
+        ,
         DimensionSize21 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize21();
@@ -252,7 +276,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize21((String)value);
             }
-        },
+        }
+        ,
         DimensionSize22 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize22();
@@ -261,7 +286,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize22((String)value);
             }
-        },
+        }
+        ,
         DimensionSize23 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize23();
@@ -270,7 +296,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize23((String)value);
             }
-        },
+        }
+        ,
         DimensionSize24 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize24();
@@ -279,7 +306,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize24((String)value);
             }
-        },
+        }
+        ,
         DimensionSize25 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize25();
@@ -288,7 +316,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize25((String)value);
             }
-        },
+        }
+        ,
         DimensionSize26 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize26();
@@ -297,7 +326,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize26((String)value);
             }
-        },
+        }
+        ,
         DimensionSize27 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize27();
@@ -306,7 +336,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize27((String)value);
             }
-        },
+        }
+        ,
         DimensionSize28 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize28();
@@ -315,7 +346,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize28((String)value);
             }
-        },
+        }
+        ,
         DimensionSize29 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize29();
@@ -324,7 +356,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize29((String)value);
             }
-        },
+        }
+        ,
         DimensionSize30 {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getDimensionSize30();
@@ -333,7 +366,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setDimensionSize30((String)value);
             }
-        },
+        }
+        ,
         Instructions {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getInstructions();
@@ -342,7 +376,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setInstructions((String)value);
             }
-        },
+        }
+        ,
         EbsStatus {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getEbsStatus();
@@ -351,7 +386,308 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setEbsStatus((Integer)value);
             }
-        },
+        }
+        ,
+        DimensionSize31 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize31();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize31((String)value);
+            }
+        }
+        ,
+        DimensionSize32 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize32();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize32((String)value);
+            }
+        }
+        ,
+        DimensionSize33 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize33();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize33((String)value);
+            }
+        }
+        ,
+        DimensionSize34 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize34();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize34((String)value);
+            }
+        }
+        ,
+        DimensionSize35 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize35();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize35((String)value);
+            }
+        }
+        ,
+        DimensionSize36 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize36();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize36((String)value);
+            }
+        }
+        ,
+        DimensionSize37 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize37();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize37((String)value);
+            }
+        }
+        ,
+        DimensionSize38 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize38();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize38((String)value);
+            }
+        }
+        ,
+        DimensionSize39 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize39();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize39((String)value);
+            }
+        }
+        ,
+        DimensionSize40 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize40();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize40((String)value);
+            }
+        }
+        ,
+        DimensionSize41 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize41();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize41((String)value);
+            }
+        }
+        ,
+        DimensionSize42 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize42();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize42((String)value);
+            }
+        }
+        ,
+        DimensionSize43 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize43();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize43((String)value);
+            }
+        }
+        ,
+        DimensionSize44 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize44();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize44((String)value);
+            }
+        }
+        ,
+        DimensionSize45 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize45();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize45((String)value);
+            }
+        }
+        ,
+        DimensionSize46 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize46();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize46((String)value);
+            }
+        }
+        ,
+        DimensionSize47 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize47();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize47((String)value);
+            }
+        }
+        ,
+        DimensionSize48 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize48();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize48((String)value);
+            }
+        }
+        ,
+        DimensionSize49 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize49();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize49((String)value);
+            }
+        }
+        ,
+        DimensionSize50 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize50();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize50((String)value);
+            }
+        }
+        ,
+        DimensionSize51 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize51();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize51((String)value);
+            }
+        }
+        ,
+        DimensionSize53 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize53();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize53((String)value);
+            }
+        }
+        ,
+        DimensionSize54 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize54();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize54((String)value);
+            }
+        }
+        ,
+        DimensionSize55 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize55();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize55((String)value);
+            }
+        }
+        ,
+        DimensionSize56 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize56();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize56((String)value);
+            }
+        }
+        ,
+        DimensionSize57 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize57();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize57((String)value);
+            }
+        }
+        ,
+        DimensionSize58 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize58();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize58((String)value);
+            }
+        }
+        ,
+        DimensionSize59 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize59();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize59((String)value);
+            }
+        }
+        ,
+        DimensionSize60 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize60();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize60((String)value);
+            }
+        }
+        ,
+        DimensionSize52 {
+            public Object get(XxpmMadeupDimensionsImpl obj) {
+                return obj.getDimensionSize52();
+            }
+
+            public void put(XxpmMadeupDimensionsImpl obj, Object value) {
+                obj.setDimensionSize52((String)value);
+            }
+        }
+        ,
         XxpmMadeupArticles {
             public Object get(XxpmMadeupDimensionsImpl obj) {
                 return obj.getXxpmMadeupArticles();
@@ -360,7 +696,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             public void put(XxpmMadeupDimensionsImpl obj, Object value) {
                 obj.setXxpmMadeupArticles((XxpmMadeupArticlesImpl)value);
             }
-        };
+        }
+        ;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -389,79 +726,91 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
             return vals;
         }
     }
+
+
     public static final int DIMENSIONID = AttributesEnum.DimensionId.index();
     public static final int ARTICLEID = AttributesEnum.ArticleId.index();
     public static final int PARAMETER = AttributesEnum.Parameter.index();
     public static final int UOM = AttributesEnum.Uom.index();
-    public static final int DIMENSIONSIZE1 =
-        AttributesEnum.DimensionSize1.index();
-    public static final int DIMENSIONSIZE2 =
-        AttributesEnum.DimensionSize2.index();
-    public static final int DIMENSIONSIZE3 =
-        AttributesEnum.DimensionSize3.index();
-    public static final int DIMENSIONSIZE4 =
-        AttributesEnum.DimensionSize4.index();
-    public static final int DIMENSIONSIZE5 =
-        AttributesEnum.DimensionSize5.index();
-    public static final int DIMENSIONSIZE6 =
-        AttributesEnum.DimensionSize6.index();
-    public static final int DIMENSIONSIZE7 =
-        AttributesEnum.DimensionSize7.index();
-    public static final int DIMENSIONSIZE8 =
-        AttributesEnum.DimensionSize8.index();
-    public static final int DIMENSIONSIZE9 =
-        AttributesEnum.DimensionSize9.index();
-    public static final int DIMENSIONSIZE10 =
-        AttributesEnum.DimensionSize10.index();
-    public static final int DIMENSIONSIZE11 =
-        AttributesEnum.DimensionSize11.index();
-    public static final int DIMENSIONSIZE12 =
-        AttributesEnum.DimensionSize12.index();
-    public static final int DIMENSIONSIZE13 =
-        AttributesEnum.DimensionSize13.index();
-    public static final int DIMENSIONSIZE14 =
-        AttributesEnum.DimensionSize14.index();
-    public static final int DIMENSIONSIZE15 =
-        AttributesEnum.DimensionSize15.index();
-    public static final int DIMENSIONSIZE16 =
-        AttributesEnum.DimensionSize16.index();
-    public static final int DIMENSIONSIZE17 =
-        AttributesEnum.DimensionSize17.index();
-    public static final int DIMENSIONSIZE18 =
-        AttributesEnum.DimensionSize18.index();
-    public static final int DIMENSIONSIZE19 =
-        AttributesEnum.DimensionSize19.index();
-    public static final int DIMENSIONSIZE20 =
-        AttributesEnum.DimensionSize20.index();
-    public static final int DIMENSIONSIZE21 =
-        AttributesEnum.DimensionSize21.index();
-    public static final int DIMENSIONSIZE22 =
-        AttributesEnum.DimensionSize22.index();
-    public static final int DIMENSIONSIZE23 =
-        AttributesEnum.DimensionSize23.index();
-    public static final int DIMENSIONSIZE24 =
-        AttributesEnum.DimensionSize24.index();
-    public static final int DIMENSIONSIZE25 =
-        AttributesEnum.DimensionSize25.index();
-    public static final int DIMENSIONSIZE26 =
-        AttributesEnum.DimensionSize26.index();
-    public static final int DIMENSIONSIZE27 =
-        AttributesEnum.DimensionSize27.index();
-    public static final int DIMENSIONSIZE28 =
-        AttributesEnum.DimensionSize28.index();
-    public static final int DIMENSIONSIZE29 =
-        AttributesEnum.DimensionSize29.index();
-    public static final int DIMENSIONSIZE30 =
-        AttributesEnum.DimensionSize30.index();
+    public static final int DIMENSIONSIZE1 = AttributesEnum.DimensionSize1.index();
+    public static final int DIMENSIONSIZE2 = AttributesEnum.DimensionSize2.index();
+    public static final int DIMENSIONSIZE3 = AttributesEnum.DimensionSize3.index();
+    public static final int DIMENSIONSIZE4 = AttributesEnum.DimensionSize4.index();
+    public static final int DIMENSIONSIZE5 = AttributesEnum.DimensionSize5.index();
+    public static final int DIMENSIONSIZE6 = AttributesEnum.DimensionSize6.index();
+    public static final int DIMENSIONSIZE7 = AttributesEnum.DimensionSize7.index();
+    public static final int DIMENSIONSIZE8 = AttributesEnum.DimensionSize8.index();
+    public static final int DIMENSIONSIZE9 = AttributesEnum.DimensionSize9.index();
+    public static final int DIMENSIONSIZE10 = AttributesEnum.DimensionSize10.index();
+    public static final int DIMENSIONSIZE11 = AttributesEnum.DimensionSize11.index();
+    public static final int DIMENSIONSIZE12 = AttributesEnum.DimensionSize12.index();
+    public static final int DIMENSIONSIZE13 = AttributesEnum.DimensionSize13.index();
+    public static final int DIMENSIONSIZE14 = AttributesEnum.DimensionSize14.index();
+    public static final int DIMENSIONSIZE15 = AttributesEnum.DimensionSize15.index();
+    public static final int DIMENSIONSIZE16 = AttributesEnum.DimensionSize16.index();
+    public static final int DIMENSIONSIZE17 = AttributesEnum.DimensionSize17.index();
+    public static final int DIMENSIONSIZE18 = AttributesEnum.DimensionSize18.index();
+    public static final int DIMENSIONSIZE19 = AttributesEnum.DimensionSize19.index();
+    public static final int DIMENSIONSIZE20 = AttributesEnum.DimensionSize20.index();
+    public static final int DIMENSIONSIZE21 = AttributesEnum.DimensionSize21.index();
+    public static final int DIMENSIONSIZE22 = AttributesEnum.DimensionSize22.index();
+    public static final int DIMENSIONSIZE23 = AttributesEnum.DimensionSize23.index();
+    public static final int DIMENSIONSIZE24 = AttributesEnum.DimensionSize24.index();
+    public static final int DIMENSIONSIZE25 = AttributesEnum.DimensionSize25.index();
+    public static final int DIMENSIONSIZE26 = AttributesEnum.DimensionSize26.index();
+    public static final int DIMENSIONSIZE27 = AttributesEnum.DimensionSize27.index();
+    public static final int DIMENSIONSIZE28 = AttributesEnum.DimensionSize28.index();
+    public static final int DIMENSIONSIZE29 = AttributesEnum.DimensionSize29.index();
+    public static final int DIMENSIONSIZE30 = AttributesEnum.DimensionSize30.index();
     public static final int INSTRUCTIONS = AttributesEnum.Instructions.index();
     public static final int EBSSTATUS = AttributesEnum.EbsStatus.index();
-    public static final int XXPMMADEUPARTICLES =
-        AttributesEnum.XxpmMadeupArticles.index();
+    public static final int DIMENSIONSIZE31 = AttributesEnum.DimensionSize31.index();
+    public static final int DIMENSIONSIZE32 = AttributesEnum.DimensionSize32.index();
+    public static final int DIMENSIONSIZE33 = AttributesEnum.DimensionSize33.index();
+    public static final int DIMENSIONSIZE34 = AttributesEnum.DimensionSize34.index();
+    public static final int DIMENSIONSIZE35 = AttributesEnum.DimensionSize35.index();
+    public static final int DIMENSIONSIZE36 = AttributesEnum.DimensionSize36.index();
+    public static final int DIMENSIONSIZE37 = AttributesEnum.DimensionSize37.index();
+    public static final int DIMENSIONSIZE38 = AttributesEnum.DimensionSize38.index();
+    public static final int DIMENSIONSIZE39 = AttributesEnum.DimensionSize39.index();
+    public static final int DIMENSIONSIZE40 = AttributesEnum.DimensionSize40.index();
+    public static final int DIMENSIONSIZE41 = AttributesEnum.DimensionSize41.index();
+    public static final int DIMENSIONSIZE42 = AttributesEnum.DimensionSize42.index();
+    public static final int DIMENSIONSIZE43 = AttributesEnum.DimensionSize43.index();
+    public static final int DIMENSIONSIZE44 = AttributesEnum.DimensionSize44.index();
+    public static final int DIMENSIONSIZE45 = AttributesEnum.DimensionSize45.index();
+    public static final int DIMENSIONSIZE46 = AttributesEnum.DimensionSize46.index();
+    public static final int DIMENSIONSIZE47 = AttributesEnum.DimensionSize47.index();
+    public static final int DIMENSIONSIZE48 = AttributesEnum.DimensionSize48.index();
+    public static final int DIMENSIONSIZE49 = AttributesEnum.DimensionSize49.index();
+    public static final int DIMENSIONSIZE50 = AttributesEnum.DimensionSize50.index();
+    public static final int DIMENSIONSIZE51 = AttributesEnum.DimensionSize51.index();
+    public static final int DIMENSIONSIZE53 = AttributesEnum.DimensionSize53.index();
+    public static final int DIMENSIONSIZE54 = AttributesEnum.DimensionSize54.index();
+    public static final int DIMENSIONSIZE55 = AttributesEnum.DimensionSize55.index();
+    public static final int DIMENSIONSIZE56 = AttributesEnum.DimensionSize56.index();
+    public static final int DIMENSIONSIZE57 = AttributesEnum.DimensionSize57.index();
+    public static final int DIMENSIONSIZE58 = AttributesEnum.DimensionSize58.index();
+    public static final int DIMENSIONSIZE59 = AttributesEnum.DimensionSize59.index();
+    public static final int DIMENSIONSIZE60 = AttributesEnum.DimensionSize60.index();
+    public static final int DIMENSIONSIZE52 = AttributesEnum.DimensionSize52.index();
+    public static final int XXPMMADEUPARTICLES = AttributesEnum.XxpmMadeupArticles.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public XxpmMadeupDimensionsImpl() {
+    }
+
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        if (mDefinitionObject == null) {
+            mDefinitionObject = EntityDefImpl.findDefObject("ncl.pm.model.bc.eo.XxpmMadeupDimensions");
+        }
+        return mDefinitionObject;
     }
 
     /**
@@ -1041,6 +1390,486 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for DimensionSize31, using the alias name DimensionSize31.
+     * @return the DimensionSize31
+     */
+    public String getDimensionSize31() {
+        return (String)getAttributeInternal(DIMENSIONSIZE31);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize31.
+     * @param value value to set the DimensionSize31
+     */
+    public void setDimensionSize31(String value) {
+        setAttributeInternal(DIMENSIONSIZE31, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize32, using the alias name DimensionSize32.
+     * @return the DimensionSize32
+     */
+    public String getDimensionSize32() {
+        return (String)getAttributeInternal(DIMENSIONSIZE32);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize32.
+     * @param value value to set the DimensionSize32
+     */
+    public void setDimensionSize32(String value) {
+        setAttributeInternal(DIMENSIONSIZE32, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize33, using the alias name DimensionSize33.
+     * @return the DimensionSize33
+     */
+    public String getDimensionSize33() {
+        return (String)getAttributeInternal(DIMENSIONSIZE33);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize33.
+     * @param value value to set the DimensionSize33
+     */
+    public void setDimensionSize33(String value) {
+        setAttributeInternal(DIMENSIONSIZE33, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize34, using the alias name DimensionSize34.
+     * @return the DimensionSize34
+     */
+    public String getDimensionSize34() {
+        return (String)getAttributeInternal(DIMENSIONSIZE34);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize34.
+     * @param value value to set the DimensionSize34
+     */
+    public void setDimensionSize34(String value) {
+        setAttributeInternal(DIMENSIONSIZE34, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize35, using the alias name DimensionSize35.
+     * @return the DimensionSize35
+     */
+    public String getDimensionSize35() {
+        return (String)getAttributeInternal(DIMENSIONSIZE35);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize35.
+     * @param value value to set the DimensionSize35
+     */
+    public void setDimensionSize35(String value) {
+        setAttributeInternal(DIMENSIONSIZE35, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize36, using the alias name DimensionSize36.
+     * @return the DimensionSize36
+     */
+    public String getDimensionSize36() {
+        return (String)getAttributeInternal(DIMENSIONSIZE36);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize36.
+     * @param value value to set the DimensionSize36
+     */
+    public void setDimensionSize36(String value) {
+        setAttributeInternal(DIMENSIONSIZE36, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize37, using the alias name DimensionSize37.
+     * @return the DimensionSize37
+     */
+    public String getDimensionSize37() {
+        return (String)getAttributeInternal(DIMENSIONSIZE37);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize37.
+     * @param value value to set the DimensionSize37
+     */
+    public void setDimensionSize37(String value) {
+        setAttributeInternal(DIMENSIONSIZE37, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize38, using the alias name DimensionSize38.
+     * @return the DimensionSize38
+     */
+    public String getDimensionSize38() {
+        return (String)getAttributeInternal(DIMENSIONSIZE38);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize38.
+     * @param value value to set the DimensionSize38
+     */
+    public void setDimensionSize38(String value) {
+        setAttributeInternal(DIMENSIONSIZE38, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize39, using the alias name DimensionSize39.
+     * @return the DimensionSize39
+     */
+    public String getDimensionSize39() {
+        return (String)getAttributeInternal(DIMENSIONSIZE39);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize39.
+     * @param value value to set the DimensionSize39
+     */
+    public void setDimensionSize39(String value) {
+        setAttributeInternal(DIMENSIONSIZE39, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize40, using the alias name DimensionSize40.
+     * @return the DimensionSize40
+     */
+    public String getDimensionSize40() {
+        return (String)getAttributeInternal(DIMENSIONSIZE40);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize40.
+     * @param value value to set the DimensionSize40
+     */
+    public void setDimensionSize40(String value) {
+        setAttributeInternal(DIMENSIONSIZE40, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize41, using the alias name DimensionSize41.
+     * @return the DimensionSize41
+     */
+    public String getDimensionSize41() {
+        return (String)getAttributeInternal(DIMENSIONSIZE41);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize41.
+     * @param value value to set the DimensionSize41
+     */
+    public void setDimensionSize41(String value) {
+        setAttributeInternal(DIMENSIONSIZE41, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize42, using the alias name DimensionSize42.
+     * @return the DimensionSize42
+     */
+    public String getDimensionSize42() {
+        return (String)getAttributeInternal(DIMENSIONSIZE42);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize42.
+     * @param value value to set the DimensionSize42
+     */
+    public void setDimensionSize42(String value) {
+        setAttributeInternal(DIMENSIONSIZE42, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize43, using the alias name DimensionSize43.
+     * @return the DimensionSize43
+     */
+    public String getDimensionSize43() {
+        return (String)getAttributeInternal(DIMENSIONSIZE43);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize43.
+     * @param value value to set the DimensionSize43
+     */
+    public void setDimensionSize43(String value) {
+        setAttributeInternal(DIMENSIONSIZE43, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize44, using the alias name DimensionSize44.
+     * @return the DimensionSize44
+     */
+    public String getDimensionSize44() {
+        return (String)getAttributeInternal(DIMENSIONSIZE44);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize44.
+     * @param value value to set the DimensionSize44
+     */
+    public void setDimensionSize44(String value) {
+        setAttributeInternal(DIMENSIONSIZE44, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize45, using the alias name DimensionSize45.
+     * @return the DimensionSize45
+     */
+    public String getDimensionSize45() {
+        return (String)getAttributeInternal(DIMENSIONSIZE45);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize45.
+     * @param value value to set the DimensionSize45
+     */
+    public void setDimensionSize45(String value) {
+        setAttributeInternal(DIMENSIONSIZE45, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize46, using the alias name DimensionSize46.
+     * @return the DimensionSize46
+     */
+    public String getDimensionSize46() {
+        return (String)getAttributeInternal(DIMENSIONSIZE46);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize46.
+     * @param value value to set the DimensionSize46
+     */
+    public void setDimensionSize46(String value) {
+        setAttributeInternal(DIMENSIONSIZE46, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize47, using the alias name DimensionSize47.
+     * @return the DimensionSize47
+     */
+    public String getDimensionSize47() {
+        return (String)getAttributeInternal(DIMENSIONSIZE47);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize47.
+     * @param value value to set the DimensionSize47
+     */
+    public void setDimensionSize47(String value) {
+        setAttributeInternal(DIMENSIONSIZE47, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize48, using the alias name DimensionSize48.
+     * @return the DimensionSize48
+     */
+    public String getDimensionSize48() {
+        return (String)getAttributeInternal(DIMENSIONSIZE48);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize48.
+     * @param value value to set the DimensionSize48
+     */
+    public void setDimensionSize48(String value) {
+        setAttributeInternal(DIMENSIONSIZE48, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize49, using the alias name DimensionSize49.
+     * @return the DimensionSize49
+     */
+    public String getDimensionSize49() {
+        return (String)getAttributeInternal(DIMENSIONSIZE49);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize49.
+     * @param value value to set the DimensionSize49
+     */
+    public void setDimensionSize49(String value) {
+        setAttributeInternal(DIMENSIONSIZE49, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize50, using the alias name DimensionSize50.
+     * @return the DimensionSize50
+     */
+    public String getDimensionSize50() {
+        return (String)getAttributeInternal(DIMENSIONSIZE50);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize50.
+     * @param value value to set the DimensionSize50
+     */
+    public void setDimensionSize50(String value) {
+        setAttributeInternal(DIMENSIONSIZE50, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize51, using the alias name DimensionSize51.
+     * @return the DimensionSize51
+     */
+    public String getDimensionSize51() {
+        return (String)getAttributeInternal(DIMENSIONSIZE51);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize51.
+     * @param value value to set the DimensionSize51
+     */
+    public void setDimensionSize51(String value) {
+        setAttributeInternal(DIMENSIONSIZE51, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize52, using the alias name DimensionSize52.
+     * @return the DimensionSize52
+     */
+    public String getDimensionSize52() {
+        return (String)getAttributeInternal(DIMENSIONSIZE52);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize52.
+     * @param value value to set the DimensionSize52
+     */
+    public void setDimensionSize52(String value) {
+        setAttributeInternal(DIMENSIONSIZE52, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize53, using the alias name DimensionSize53.
+     * @return the DimensionSize53
+     */
+    public String getDimensionSize53() {
+        return (String)getAttributeInternal(DIMENSIONSIZE53);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize53.
+     * @param value value to set the DimensionSize53
+     */
+    public void setDimensionSize53(String value) {
+        setAttributeInternal(DIMENSIONSIZE53, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize54, using the alias name DimensionSize54.
+     * @return the DimensionSize54
+     */
+    public String getDimensionSize54() {
+        return (String)getAttributeInternal(DIMENSIONSIZE54);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize54.
+     * @param value value to set the DimensionSize54
+     */
+    public void setDimensionSize54(String value) {
+        setAttributeInternal(DIMENSIONSIZE54, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize55, using the alias name DimensionSize55.
+     * @return the DimensionSize55
+     */
+    public String getDimensionSize55() {
+        return (String)getAttributeInternal(DIMENSIONSIZE55);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize55.
+     * @param value value to set the DimensionSize55
+     */
+    public void setDimensionSize55(String value) {
+        setAttributeInternal(DIMENSIONSIZE55, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize56, using the alias name DimensionSize56.
+     * @return the DimensionSize56
+     */
+    public String getDimensionSize56() {
+        return (String)getAttributeInternal(DIMENSIONSIZE56);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize56.
+     * @param value value to set the DimensionSize56
+     */
+    public void setDimensionSize56(String value) {
+        setAttributeInternal(DIMENSIONSIZE56, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize57, using the alias name DimensionSize57.
+     * @return the DimensionSize57
+     */
+    public String getDimensionSize57() {
+        return (String)getAttributeInternal(DIMENSIONSIZE57);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize57.
+     * @param value value to set the DimensionSize57
+     */
+    public void setDimensionSize57(String value) {
+        setAttributeInternal(DIMENSIONSIZE57, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize58, using the alias name DimensionSize58.
+     * @return the DimensionSize58
+     */
+    public String getDimensionSize58() {
+        return (String)getAttributeInternal(DIMENSIONSIZE58);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize58.
+     * @param value value to set the DimensionSize58
+     */
+    public void setDimensionSize58(String value) {
+        setAttributeInternal(DIMENSIONSIZE58, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize59, using the alias name DimensionSize59.
+     * @return the DimensionSize59
+     */
+    public String getDimensionSize59() {
+        return (String)getAttributeInternal(DIMENSIONSIZE59);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize59.
+     * @param value value to set the DimensionSize59
+     */
+    public void setDimensionSize59(String value) {
+        setAttributeInternal(DIMENSIONSIZE59, value);
+    }
+
+    /**
+     * Gets the attribute value for DimensionSize60, using the alias name DimensionSize60.
+     * @return the DimensionSize60
+     */
+    public String getDimensionSize60() {
+        return (String)getAttributeInternal(DIMENSIONSIZE60);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for DimensionSize60.
+     * @param value value to set the DimensionSize60
+     */
+    public void setDimensionSize60(String value) {
+        setAttributeInternal(DIMENSIONSIZE60, value);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -1050,10 +1879,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
      */
     protected Object getAttrInvokeAccessor(int index,
                                            AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) &&
-            (index < AttributesEnum.count())) {
-            return AttributesEnum.staticValues()[index -
-                AttributesEnum.firstIndex()].get(this);
+        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
+            return AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].get(this);
         }
         return super.getAttrInvokeAccessor(index, attrDef);
     }
@@ -1068,10 +1895,8 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
      */
     protected void setAttrInvokeAccessor(int index, Object value,
                                          AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) &&
-            (index < AttributesEnum.count())) {
-            AttributesEnum.staticValues()[index -
-                AttributesEnum.firstIndex()].put(this, value);
+        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
+            AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].put(this, value);
             return;
         }
         super.setAttrInvokeAccessor(index, value, attrDef);
@@ -1091,24 +1916,14 @@ public class XxpmMadeupDimensionsImpl extends EntityImpl {
         setAttributeInternal(XXPMMADEUPARTICLES, value);
     }
 
+
     /**
      * @param dimensionId key constituent
 
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(DBSequence dimensionId) {
-        return new Key(new Object[] { dimensionId });
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        if (mDefinitionObject == null) {
-            mDefinitionObject =
-                    EntityDefImpl.findDefObject("ncl.pm.model.bc.eo.XxpmMadeupDimensions");
-        }
-        return mDefinitionObject;
+        return new Key(new Object[]{dimensionId});
     }
 
     /**

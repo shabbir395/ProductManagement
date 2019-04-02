@@ -36,7 +36,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setPoLineId((DBSequence)value);
             }
-        },
+        }
+        ,
         PoHeaderId {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getPoHeaderId();
@@ -45,7 +46,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setPoHeaderId((Integer)value);
             }
-        },
+        }
+        ,
         InventoryItemId {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getInventoryItemId();
@@ -54,7 +56,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setInventoryItemId((Integer)value);
             }
-        },
+        }
+        ,
         AccCat {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getAccCat();
@@ -63,7 +66,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setAccCat((String)value);
             }
-        },
+        }
+        ,
         SoLineQty {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getSoLineQty();
@@ -72,7 +76,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setSoLineQty((Integer)value);
             }
-        },
+        }
+        ,
         SoLineRate {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getSoLineRate();
@@ -81,7 +86,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setSoLineRate((BigDecimal)value);
             }
-        },
+        }
+        ,
         CurrencyCode {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getCurrencyCode();
@@ -90,7 +96,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setCurrencyCode((String)value);
             }
-        },
+        }
+        ,
         Consumption {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getConsumption();
@@ -99,7 +106,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setConsumption((BigDecimal)value);
             }
-        },
+        }
+        ,
         ItmStock {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getItmStock();
@@ -108,7 +116,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setItmStock((BigDecimal)value);
             }
-        },
+        }
+        ,
         ActOrderedQty {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getActOrderedQty();
@@ -117,7 +126,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setActOrderedQty((Double)value);
             }
-        },
+        }
+        ,
         Moq {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getMoq();
@@ -126,7 +136,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setMoq((Integer)value);
             }
-        },
+        }
+        ,
         VendorId {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getVendorId();
@@ -135,7 +146,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setVendorId((Integer)value);
             }
-        },
+        }
+        ,
         ItemType {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getItemType();
@@ -144,7 +156,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setItemType((Integer)value);
             }
-        },
+        }
+        ,
         EbsStatus {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getEbsStatus();
@@ -153,7 +166,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setEbsStatus((Integer)value);
             }
-        },
+        }
+        ,
         VendorSiteId {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getVendorSiteId();
@@ -162,7 +176,18 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setVendorSiteId((Integer)value);
             }
-        },
+        }
+        ,
+        Selected {
+            public Object get(XxpmPoLinesImpl obj) {
+                return obj.getSelected();
+            }
+
+            public void put(XxpmPoLinesImpl obj, Object value) {
+                obj.setSelected((Integer)value);
+            }
+        }
+        ,
         XxpmPoHeader {
             public Object get(XxpmPoLinesImpl obj) {
                 return obj.getXxpmPoHeader();
@@ -171,7 +196,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
             public void put(XxpmPoLinesImpl obj, Object value) {
                 obj.setXxpmPoHeader((XxpmPoHeaderImpl)value);
             }
-        };
+        }
+        ;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
 
@@ -203,21 +229,20 @@ public class XxpmPoLinesImpl extends EntityImpl {
 
     public static final int POLINEID = AttributesEnum.PoLineId.index();
     public static final int POHEADERID = AttributesEnum.PoHeaderId.index();
-    public static final int INVENTORYITEMID =
-        AttributesEnum.InventoryItemId.index();
+    public static final int INVENTORYITEMID = AttributesEnum.InventoryItemId.index();
     public static final int ACCCAT = AttributesEnum.AccCat.index();
     public static final int SOLINEQTY = AttributesEnum.SoLineQty.index();
     public static final int SOLINERATE = AttributesEnum.SoLineRate.index();
     public static final int CURRENCYCODE = AttributesEnum.CurrencyCode.index();
     public static final int CONSUMPTION = AttributesEnum.Consumption.index();
     public static final int ITMSTOCK = AttributesEnum.ItmStock.index();
-    public static final int ACTORDEREDQTY =
-        AttributesEnum.ActOrderedQty.index();
+    public static final int ACTORDEREDQTY = AttributesEnum.ActOrderedQty.index();
     public static final int MOQ = AttributesEnum.Moq.index();
     public static final int VENDORID = AttributesEnum.VendorId.index();
     public static final int ITEMTYPE = AttributesEnum.ItemType.index();
     public static final int EBSSTATUS = AttributesEnum.EbsStatus.index();
     public static final int VENDORSITEID = AttributesEnum.VendorSiteId.index();
+    public static final int SELECTED = AttributesEnum.Selected.index();
     public static final int XXPMPOHEADER = AttributesEnum.XxpmPoHeader.index();
 
     /**
@@ -232,8 +257,7 @@ public class XxpmPoLinesImpl extends EntityImpl {
      */
     public static synchronized EntityDefImpl getDefinitionObject() {
         if (mDefinitionObject == null) {
-            mDefinitionObject =
-                    EntityDefImpl.findDefObject("ncl.pm.model.bc.eo.XxpmPoLines");
+            mDefinitionObject = EntityDefImpl.findDefObject("ncl.pm.model.bc.eo.XxpmPoLines");
         }
         return mDefinitionObject;
     }
@@ -416,6 +440,22 @@ public class XxpmPoLinesImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for Selected, using the alias name Selected.
+     * @return the Selected
+     */
+    public Integer getSelected() {
+        return (Integer)getAttributeInternal(SELECTED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Selected.
+     * @param value value to set the Selected
+     */
+    public void setSelected(Integer value) {
+        setAttributeInternal(SELECTED, value);
+    }
+
+    /**
      * Gets the attribute value for CurrencyCode, using the alias name CurrencyCode.
      * @return the CurrencyCode
      */
@@ -489,10 +529,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
      */
     protected Object getAttrInvokeAccessor(int index,
                                            AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) &&
-            (index < AttributesEnum.count())) {
-            return AttributesEnum.staticValues()[index -
-                AttributesEnum.firstIndex()].get(this);
+        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
+            return AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].get(this);
         }
         return super.getAttrInvokeAccessor(index, attrDef);
     }
@@ -507,10 +545,8 @@ public class XxpmPoLinesImpl extends EntityImpl {
      */
     protected void setAttrInvokeAccessor(int index, Object value,
                                          AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) &&
-            (index < AttributesEnum.count())) {
-            AttributesEnum.staticValues()[index -
-                AttributesEnum.firstIndex()].put(this, value);
+        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
+            AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].put(this, value);
             return;
         }
         super.setAttrInvokeAccessor(index, value, attrDef);
@@ -537,7 +573,7 @@ public class XxpmPoLinesImpl extends EntityImpl {
      * @return a Key object based on given key constituents.
      */
     public static Key createPrimaryKey(DBSequence poLineId) {
-        return new Key(new Object[] { poLineId });
+        return new Key(new Object[]{poLineId});
     }
 
     /**

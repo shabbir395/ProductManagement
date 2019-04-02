@@ -34,6 +34,12 @@
               id="AccCategoryTypeLovIterator"/>
     <iterator Binds="VendorsLov" RangeSize="25"
               DataControl="XxpmAppModuleDataControl" id="VendorsLovIterator"/>
+    <iterator Binds="CancelledPOsView" RangeSize="25"
+              DataControl="XxpmAppModuleDataControl"
+              id="CancelledPOsViewIterator"/>
+    <searchRegion Binds="CancelledPOsViewIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="CancelledPOsViewQuery"/>
   </executables>
   <bindings>
     <action IterBinding="XxpmPoHeaderViewIterator" id="First"
@@ -262,6 +268,27 @@
                   MethodName="saleOrderBomsStatus" IsViewObjectMethod="false"
                   ReturnName="data.XxpmAppModuleDataControl.methodResults.saleOrderBomsStatus_XxpmAppModuleDataControl_dataProvider_saleOrderBomsStatus_result">
       <NamedData NDName="hid" NDValue="" NDType="java.lang.Integer"/>
+    </methodAction>
+    <tree IterBinding="CancelledPOsViewIterator" id="CancelledPOsView">
+      <nodeDefinition DefName="ncl.pm.model.bc.vo.misc.CancelledPOsView"
+                      Name="CancelledPOsView0">
+        <AttrNames>
+          <Item Value="PoHeaderId"/>
+          <Item Value="PoNum"/>
+          <Item Value="CustPoNum"/>
+          <Item Value="CustPoLines"/>
+          <Item Value="Selected"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="unlockPOLines"
+                  InstanceName="XxpmAppModuleDataControl.dataProvider"
+                  DataControl="XxpmAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="unlockPOLines" IsViewObjectMethod="false"
+                  ReturnName="data.XxpmAppModuleDataControl.methodResults.unlockPOLines_XxpmAppModuleDataControl_dataProvider_unlockPOLines_result">
+      <NamedData NDName="ebsHeaderID" NDType="int"/>
+      <NamedData NDName="custPOLines" NDType="java.lang.String"/>
     </methodAction>
   </bindings>
 </pageDefinition>

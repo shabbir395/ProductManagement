@@ -243,6 +243,16 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
             }
         }
         ,
+        Selected {
+            public Object get(XxpmPoLinesViewRowImpl obj) {
+                return obj.getSelected();
+            }
+
+            public void put(XxpmPoLinesViewRowImpl obj, Object value) {
+                obj.setSelected((Integer)value);
+            }
+        }
+        ,
         VendorsLov {
             public Object get(XxpmPoLinesViewRowImpl obj) {
                 return obj.getVendorsLov();
@@ -324,6 +334,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
     public static final int PONUM = AttributesEnum.PoNum.index();
     public static final int ACCCAT = AttributesEnum.AccCat.index();
     public static final int UNALLOCATEDSTOCK = AttributesEnum.UnallocatedStock.index();
+    public static final int SELECTED = AttributesEnum.Selected.index();
     public static final int VENDORSLOV = AttributesEnum.VendorsLov.index();
     public static final int VENDORSITESLOV = AttributesEnum.VendorSitesLov.index();
     public static final int CURRENCIESLOV = AttributesEnum.CurrenciesLov.index();
@@ -697,6 +708,22 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      */
     public void setUnallocatedStock(BigDecimal value) {
         setAttributeInternal(UNALLOCATEDSTOCK, value);
+    }
+
+    /**
+     * Gets the attribute value for SELECTED using the alias name Selected.
+     * @return the SELECTED
+     */
+    public Integer getSelected() {
+        return (Integer) getAttributeInternal(SELECTED);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for SELECTED using the alias name Selected.
+     * @param value value to set the SELECTED
+     */
+    public void setSelected(Integer value) {
+        setAttributeInternal(SELECTED, value);
     }
 
     /**

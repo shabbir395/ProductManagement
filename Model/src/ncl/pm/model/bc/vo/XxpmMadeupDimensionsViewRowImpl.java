@@ -1,5 +1,7 @@
 package ncl.pm.model.bc.vo;
 
+import ncl.pm.model.bc.eo.XxpmMadeupDimensionsImpl;
+
 import oracle.jbo.Row;
 import oracle.jbo.RowSet;
 import oracle.jbo.domain.DBSequence;
@@ -392,6 +394,336 @@ public class XxpmMadeupDimensionsViewRowImpl extends ViewRowImpl {
             }
         }
         ,
+        DimensionSize35 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize35();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize35((String)value);
+            }
+        }
+        ,
+        DimensionSize44 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize44();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize44((String)value);
+            }
+        }
+        ,
+        DimensionSize39 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize39();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize39((String)value);
+            }
+        }
+        ,
+        DimensionSize36 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize36();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize36((String)value);
+            }
+        }
+        ,
+        DimensionSize53 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize53();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize53((String)value);
+            }
+        }
+        ,
+        DimensionSize34 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize34();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize34((String)value);
+            }
+        }
+        ,
+        DimensionSize58 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize58();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize58((String)value);
+            }
+        }
+        ,
+        DimensionSize48 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize48();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize48((String)value);
+            }
+        }
+        ,
+        DimensionSize55 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize55();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize55((String)value);
+            }
+        }
+        ,
+        DimensionSize32 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize32();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize32((String)value);
+            }
+        }
+        ,
+        DimensionSize46 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize46();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize46((String)value);
+            }
+        }
+        ,
+        DimensionSize59 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize59();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize59((String)value);
+            }
+        }
+        ,
+        DimensionSize52 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize52();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize52((String)value);
+            }
+        }
+        ,
+        DimensionSize40 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize40();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize40((String)value);
+            }
+        }
+        ,
+        DimensionSize41 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize41();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize41((String)value);
+            }
+        }
+        ,
+        DimensionSize31 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize31();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize31((String)value);
+            }
+        }
+        ,
+        DimensionSize49 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize49();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize49((String)value);
+            }
+        }
+        ,
+        DimensionSize54 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize54();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize54((String)value);
+            }
+        }
+        ,
+        DimensionSize33 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize33();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize33((String)value);
+            }
+        }
+        ,
+        DimensionSize51 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize51();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize51((String)value);
+            }
+        }
+        ,
+        DimensionSize45 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize45();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize45((String)value);
+            }
+        }
+        ,
+        DimensionSize38 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize38();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize38((String)value);
+            }
+        }
+        ,
+        DimensionSize56 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize56();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize56((String)value);
+            }
+        }
+        ,
+        DimensionSize50 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize50();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize50((String)value);
+            }
+        }
+        ,
+        DimensionSize43 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize43();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize43((String)value);
+            }
+        }
+        ,
+        DimensionSize57 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize57();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize57((String)value);
+            }
+        }
+        ,
+        DimensionSize47 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize47();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize47((String)value);
+            }
+        }
+        ,
+        DimensionSize60 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize60();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize60((String)value);
+            }
+        }
+        ,
+        DimensionSize37 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize37();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize37((String)value);
+            }
+        }
+        ,
+        DimensionSize42 {
+            public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
+                return obj.getDimensionSize42();
+            }
+
+            public void put(XxpmMadeupDimensionsViewRowImpl obj,
+                            Object value) {
+                obj.setDimensionSize42((String)value);
+            }
+        }
+        ,
         Instructions {
             public Object get(XxpmMadeupDimensionsViewRowImpl obj) {
                 return obj.getInstructions();
@@ -486,6 +818,7 @@ public class XxpmMadeupDimensionsViewRowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int DIMENSIONID = AttributesEnum.DimensionId.index();
     public static final int ARTICLEID = AttributesEnum.ArticleId.index();
     public static final int PARAMETER = AttributesEnum.Parameter.index();
@@ -520,6 +853,36 @@ public class XxpmMadeupDimensionsViewRowImpl extends ViewRowImpl {
     public static final int DIMENSIONSIZE28 = AttributesEnum.DimensionSize28.index();
     public static final int DIMENSIONSIZE29 = AttributesEnum.DimensionSize29.index();
     public static final int DIMENSIONSIZE30 = AttributesEnum.DimensionSize30.index();
+    public static final int DIMENSIONSIZE35 = AttributesEnum.DimensionSize35.index();
+    public static final int DIMENSIONSIZE44 = AttributesEnum.DimensionSize44.index();
+    public static final int DIMENSIONSIZE39 = AttributesEnum.DimensionSize39.index();
+    public static final int DIMENSIONSIZE36 = AttributesEnum.DimensionSize36.index();
+    public static final int DIMENSIONSIZE53 = AttributesEnum.DimensionSize53.index();
+    public static final int DIMENSIONSIZE34 = AttributesEnum.DimensionSize34.index();
+    public static final int DIMENSIONSIZE58 = AttributesEnum.DimensionSize58.index();
+    public static final int DIMENSIONSIZE48 = AttributesEnum.DimensionSize48.index();
+    public static final int DIMENSIONSIZE55 = AttributesEnum.DimensionSize55.index();
+    public static final int DIMENSIONSIZE32 = AttributesEnum.DimensionSize32.index();
+    public static final int DIMENSIONSIZE46 = AttributesEnum.DimensionSize46.index();
+    public static final int DIMENSIONSIZE59 = AttributesEnum.DimensionSize59.index();
+    public static final int DIMENSIONSIZE52 = AttributesEnum.DimensionSize52.index();
+    public static final int DIMENSIONSIZE40 = AttributesEnum.DimensionSize40.index();
+    public static final int DIMENSIONSIZE41 = AttributesEnum.DimensionSize41.index();
+    public static final int DIMENSIONSIZE31 = AttributesEnum.DimensionSize31.index();
+    public static final int DIMENSIONSIZE49 = AttributesEnum.DimensionSize49.index();
+    public static final int DIMENSIONSIZE54 = AttributesEnum.DimensionSize54.index();
+    public static final int DIMENSIONSIZE33 = AttributesEnum.DimensionSize33.index();
+    public static final int DIMENSIONSIZE51 = AttributesEnum.DimensionSize51.index();
+    public static final int DIMENSIONSIZE45 = AttributesEnum.DimensionSize45.index();
+    public static final int DIMENSIONSIZE38 = AttributesEnum.DimensionSize38.index();
+    public static final int DIMENSIONSIZE56 = AttributesEnum.DimensionSize56.index();
+    public static final int DIMENSIONSIZE50 = AttributesEnum.DimensionSize50.index();
+    public static final int DIMENSIONSIZE43 = AttributesEnum.DimensionSize43.index();
+    public static final int DIMENSIONSIZE57 = AttributesEnum.DimensionSize57.index();
+    public static final int DIMENSIONSIZE47 = AttributesEnum.DimensionSize47.index();
+    public static final int DIMENSIONSIZE60 = AttributesEnum.DimensionSize60.index();
+    public static final int DIMENSIONSIZE37 = AttributesEnum.DimensionSize37.index();
+    public static final int DIMENSIONSIZE42 = AttributesEnum.DimensionSize42.index();
     public static final int INSTRUCTIONS = AttributesEnum.Instructions.index();
     public static final int ROWSTATUS = AttributesEnum.RowStatus.index();
     public static final int EBSSTATUS = AttributesEnum.EbsStatus.index();
@@ -537,8 +900,8 @@ public class XxpmMadeupDimensionsViewRowImpl extends ViewRowImpl {
      * Gets XxpmMadeupDimensions entity object.
      * @return the XxpmMadeupDimensions
      */
-    public EntityImpl getXxpmMadeupDimensions() {
-        return (EntityImpl)getEntity(0);
+    public XxpmMadeupDimensionsImpl getXxpmMadeupDimensions() {
+        return (XxpmMadeupDimensionsImpl)getEntity(0);
     }
 
     /**
@@ -1083,6 +1446,486 @@ public class XxpmMadeupDimensionsViewRowImpl extends ViewRowImpl {
      */
     public void setDimensionSize30(String value) {
         setAttributeInternal(DIMENSIONSIZE30, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE35 using the alias name DimensionSize35.
+     * @return the DIMENSION_SIZE35
+     */
+    public String getDimensionSize35() {
+        return (String) getAttributeInternal(DIMENSIONSIZE35);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE35 using the alias name DimensionSize35.
+     * @param value value to set the DIMENSION_SIZE35
+     */
+    public void setDimensionSize35(String value) {
+        setAttributeInternal(DIMENSIONSIZE35, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE44 using the alias name DimensionSize44.
+     * @return the DIMENSION_SIZE44
+     */
+    public String getDimensionSize44() {
+        return (String) getAttributeInternal(DIMENSIONSIZE44);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE44 using the alias name DimensionSize44.
+     * @param value value to set the DIMENSION_SIZE44
+     */
+    public void setDimensionSize44(String value) {
+        setAttributeInternal(DIMENSIONSIZE44, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE39 using the alias name DimensionSize39.
+     * @return the DIMENSION_SIZE39
+     */
+    public String getDimensionSize39() {
+        return (String) getAttributeInternal(DIMENSIONSIZE39);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE39 using the alias name DimensionSize39.
+     * @param value value to set the DIMENSION_SIZE39
+     */
+    public void setDimensionSize39(String value) {
+        setAttributeInternal(DIMENSIONSIZE39, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE36 using the alias name DimensionSize36.
+     * @return the DIMENSION_SIZE36
+     */
+    public String getDimensionSize36() {
+        return (String) getAttributeInternal(DIMENSIONSIZE36);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE36 using the alias name DimensionSize36.
+     * @param value value to set the DIMENSION_SIZE36
+     */
+    public void setDimensionSize36(String value) {
+        setAttributeInternal(DIMENSIONSIZE36, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE53 using the alias name DimensionSize53.
+     * @return the DIMENSION_SIZE53
+     */
+    public String getDimensionSize53() {
+        return (String) getAttributeInternal(DIMENSIONSIZE53);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE53 using the alias name DimensionSize53.
+     * @param value value to set the DIMENSION_SIZE53
+     */
+    public void setDimensionSize53(String value) {
+        setAttributeInternal(DIMENSIONSIZE53, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE34 using the alias name DimensionSize34.
+     * @return the DIMENSION_SIZE34
+     */
+    public String getDimensionSize34() {
+        return (String) getAttributeInternal(DIMENSIONSIZE34);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE34 using the alias name DimensionSize34.
+     * @param value value to set the DIMENSION_SIZE34
+     */
+    public void setDimensionSize34(String value) {
+        setAttributeInternal(DIMENSIONSIZE34, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE58 using the alias name DimensionSize58.
+     * @return the DIMENSION_SIZE58
+     */
+    public String getDimensionSize58() {
+        return (String) getAttributeInternal(DIMENSIONSIZE58);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE58 using the alias name DimensionSize58.
+     * @param value value to set the DIMENSION_SIZE58
+     */
+    public void setDimensionSize58(String value) {
+        setAttributeInternal(DIMENSIONSIZE58, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE48 using the alias name DimensionSize48.
+     * @return the DIMENSION_SIZE48
+     */
+    public String getDimensionSize48() {
+        return (String) getAttributeInternal(DIMENSIONSIZE48);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE48 using the alias name DimensionSize48.
+     * @param value value to set the DIMENSION_SIZE48
+     */
+    public void setDimensionSize48(String value) {
+        setAttributeInternal(DIMENSIONSIZE48, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE55 using the alias name DimensionSize55.
+     * @return the DIMENSION_SIZE55
+     */
+    public String getDimensionSize55() {
+        return (String) getAttributeInternal(DIMENSIONSIZE55);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE55 using the alias name DimensionSize55.
+     * @param value value to set the DIMENSION_SIZE55
+     */
+    public void setDimensionSize55(String value) {
+        setAttributeInternal(DIMENSIONSIZE55, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE32 using the alias name DimensionSize32.
+     * @return the DIMENSION_SIZE32
+     */
+    public String getDimensionSize32() {
+        return (String) getAttributeInternal(DIMENSIONSIZE32);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE32 using the alias name DimensionSize32.
+     * @param value value to set the DIMENSION_SIZE32
+     */
+    public void setDimensionSize32(String value) {
+        setAttributeInternal(DIMENSIONSIZE32, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE46 using the alias name DimensionSize46.
+     * @return the DIMENSION_SIZE46
+     */
+    public String getDimensionSize46() {
+        return (String) getAttributeInternal(DIMENSIONSIZE46);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE46 using the alias name DimensionSize46.
+     * @param value value to set the DIMENSION_SIZE46
+     */
+    public void setDimensionSize46(String value) {
+        setAttributeInternal(DIMENSIONSIZE46, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE59 using the alias name DimensionSize59.
+     * @return the DIMENSION_SIZE59
+     */
+    public String getDimensionSize59() {
+        return (String) getAttributeInternal(DIMENSIONSIZE59);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE59 using the alias name DimensionSize59.
+     * @param value value to set the DIMENSION_SIZE59
+     */
+    public void setDimensionSize59(String value) {
+        setAttributeInternal(DIMENSIONSIZE59, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE52 using the alias name DimensionSize52.
+     * @return the DIMENSION_SIZE52
+     */
+    public String getDimensionSize52() {
+        return (String) getAttributeInternal(DIMENSIONSIZE52);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE52 using the alias name DimensionSize52.
+     * @param value value to set the DIMENSION_SIZE52
+     */
+    public void setDimensionSize52(String value) {
+        setAttributeInternal(DIMENSIONSIZE52, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE40 using the alias name DimensionSize40.
+     * @return the DIMENSION_SIZE40
+     */
+    public String getDimensionSize40() {
+        return (String) getAttributeInternal(DIMENSIONSIZE40);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE40 using the alias name DimensionSize40.
+     * @param value value to set the DIMENSION_SIZE40
+     */
+    public void setDimensionSize40(String value) {
+        setAttributeInternal(DIMENSIONSIZE40, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE41 using the alias name DimensionSize41.
+     * @return the DIMENSION_SIZE41
+     */
+    public String getDimensionSize41() {
+        return (String) getAttributeInternal(DIMENSIONSIZE41);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE41 using the alias name DimensionSize41.
+     * @param value value to set the DIMENSION_SIZE41
+     */
+    public void setDimensionSize41(String value) {
+        setAttributeInternal(DIMENSIONSIZE41, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE31 using the alias name DimensionSize31.
+     * @return the DIMENSION_SIZE31
+     */
+    public String getDimensionSize31() {
+        return (String) getAttributeInternal(DIMENSIONSIZE31);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE31 using the alias name DimensionSize31.
+     * @param value value to set the DIMENSION_SIZE31
+     */
+    public void setDimensionSize31(String value) {
+        setAttributeInternal(DIMENSIONSIZE31, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE49 using the alias name DimensionSize49.
+     * @return the DIMENSION_SIZE49
+     */
+    public String getDimensionSize49() {
+        return (String) getAttributeInternal(DIMENSIONSIZE49);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE49 using the alias name DimensionSize49.
+     * @param value value to set the DIMENSION_SIZE49
+     */
+    public void setDimensionSize49(String value) {
+        setAttributeInternal(DIMENSIONSIZE49, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE54 using the alias name DimensionSize54.
+     * @return the DIMENSION_SIZE54
+     */
+    public String getDimensionSize54() {
+        return (String) getAttributeInternal(DIMENSIONSIZE54);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE54 using the alias name DimensionSize54.
+     * @param value value to set the DIMENSION_SIZE54
+     */
+    public void setDimensionSize54(String value) {
+        setAttributeInternal(DIMENSIONSIZE54, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE33 using the alias name DimensionSize33.
+     * @return the DIMENSION_SIZE33
+     */
+    public String getDimensionSize33() {
+        return (String) getAttributeInternal(DIMENSIONSIZE33);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE33 using the alias name DimensionSize33.
+     * @param value value to set the DIMENSION_SIZE33
+     */
+    public void setDimensionSize33(String value) {
+        setAttributeInternal(DIMENSIONSIZE33, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE51 using the alias name DimensionSize51.
+     * @return the DIMENSION_SIZE51
+     */
+    public String getDimensionSize51() {
+        return (String) getAttributeInternal(DIMENSIONSIZE51);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE51 using the alias name DimensionSize51.
+     * @param value value to set the DIMENSION_SIZE51
+     */
+    public void setDimensionSize51(String value) {
+        setAttributeInternal(DIMENSIONSIZE51, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE45 using the alias name DimensionSize45.
+     * @return the DIMENSION_SIZE45
+     */
+    public String getDimensionSize45() {
+        return (String) getAttributeInternal(DIMENSIONSIZE45);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE45 using the alias name DimensionSize45.
+     * @param value value to set the DIMENSION_SIZE45
+     */
+    public void setDimensionSize45(String value) {
+        setAttributeInternal(DIMENSIONSIZE45, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE38 using the alias name DimensionSize38.
+     * @return the DIMENSION_SIZE38
+     */
+    public String getDimensionSize38() {
+        return (String) getAttributeInternal(DIMENSIONSIZE38);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE38 using the alias name DimensionSize38.
+     * @param value value to set the DIMENSION_SIZE38
+     */
+    public void setDimensionSize38(String value) {
+        setAttributeInternal(DIMENSIONSIZE38, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE56 using the alias name DimensionSize56.
+     * @return the DIMENSION_SIZE56
+     */
+    public String getDimensionSize56() {
+        return (String) getAttributeInternal(DIMENSIONSIZE56);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE56 using the alias name DimensionSize56.
+     * @param value value to set the DIMENSION_SIZE56
+     */
+    public void setDimensionSize56(String value) {
+        setAttributeInternal(DIMENSIONSIZE56, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE50 using the alias name DimensionSize50.
+     * @return the DIMENSION_SIZE50
+     */
+    public String getDimensionSize50() {
+        return (String) getAttributeInternal(DIMENSIONSIZE50);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE50 using the alias name DimensionSize50.
+     * @param value value to set the DIMENSION_SIZE50
+     */
+    public void setDimensionSize50(String value) {
+        setAttributeInternal(DIMENSIONSIZE50, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE43 using the alias name DimensionSize43.
+     * @return the DIMENSION_SIZE43
+     */
+    public String getDimensionSize43() {
+        return (String) getAttributeInternal(DIMENSIONSIZE43);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE43 using the alias name DimensionSize43.
+     * @param value value to set the DIMENSION_SIZE43
+     */
+    public void setDimensionSize43(String value) {
+        setAttributeInternal(DIMENSIONSIZE43, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE57 using the alias name DimensionSize57.
+     * @return the DIMENSION_SIZE57
+     */
+    public String getDimensionSize57() {
+        return (String) getAttributeInternal(DIMENSIONSIZE57);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE57 using the alias name DimensionSize57.
+     * @param value value to set the DIMENSION_SIZE57
+     */
+    public void setDimensionSize57(String value) {
+        setAttributeInternal(DIMENSIONSIZE57, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE47 using the alias name DimensionSize47.
+     * @return the DIMENSION_SIZE47
+     */
+    public String getDimensionSize47() {
+        return (String) getAttributeInternal(DIMENSIONSIZE47);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE47 using the alias name DimensionSize47.
+     * @param value value to set the DIMENSION_SIZE47
+     */
+    public void setDimensionSize47(String value) {
+        setAttributeInternal(DIMENSIONSIZE47, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE60 using the alias name DimensionSize60.
+     * @return the DIMENSION_SIZE60
+     */
+    public String getDimensionSize60() {
+        return (String) getAttributeInternal(DIMENSIONSIZE60);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE60 using the alias name DimensionSize60.
+     * @param value value to set the DIMENSION_SIZE60
+     */
+    public void setDimensionSize60(String value) {
+        setAttributeInternal(DIMENSIONSIZE60, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE37 using the alias name DimensionSize37.
+     * @return the DIMENSION_SIZE37
+     */
+    public String getDimensionSize37() {
+        return (String) getAttributeInternal(DIMENSIONSIZE37);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE37 using the alias name DimensionSize37.
+     * @param value value to set the DIMENSION_SIZE37
+     */
+    public void setDimensionSize37(String value) {
+        setAttributeInternal(DIMENSIONSIZE37, value);
+    }
+
+    /**
+     * Gets the attribute value for DIMENSION_SIZE42 using the alias name DimensionSize42.
+     * @return the DIMENSION_SIZE42
+     */
+    public String getDimensionSize42() {
+        return (String) getAttributeInternal(DIMENSIONSIZE42);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for DIMENSION_SIZE42 using the alias name DimensionSize42.
+     * @param value value to set the DIMENSION_SIZE42
+     */
+    public void setDimensionSize42(String value) {
+        setAttributeInternal(DIMENSIONSIZE42, value);
     }
 
     /**
