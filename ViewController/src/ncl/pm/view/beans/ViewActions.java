@@ -35,6 +35,7 @@ import javax.faces.validator.ValidatorException;
 
 import java.util.logging.Logger;
 
+import javax.faces.event.PhaseId;
 import javax.faces.model.SelectItem;
 
 import oracle.adf.model.BindingContext;
@@ -4818,36 +4819,36 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
     } */
 
     public void vendorApplyButtonAL(ActionEvent ae) {
-        ViewObject vendorVo = getVO("VendorsLovIterator");
-        if (vendorVo != null) {
-            Row curRow = vendorVo.getCurrentRow();
-            if (curRow != null) {
-                Integer vendorId =
-                    Integer.valueOf(curRow.getAttribute("VendorId").toString());
-                String vendorName =
-                    String.valueOf(curRow.getAttribute("VendorName").toString());
-                Row[] accRows =
-                    getVO("XxpmPoLinesViewAccChildIterator").getAllRowsInRange();
-                for (Row row : accRows) {
-                    if (Integer.valueOf(row.getAttribute("EbsStatus") == null ?
-                                        "0" :
-                                        row.getAttribute("EbsStatus").toString()) !=
-                        1) {
-                        row.setAttribute("VendorId", vendorId);
-                        row.setAttribute("VendorName", vendorName);
-                        ////////////////////////
-                        OperationBinding op =
-                            bc.getOperationBinding("getDefaultVendorSiteId");
-                        op.getParamsMap().put("vendorId", vendorId);
-
-                        row.setAttribute("VendorSiteId",
-                                         (Integer)op.execute());
-                    }
-
-                }
-                AdfFacesContext.getCurrentInstance().addPartialTarget(this.poLinesViewAccTable);
-            }
+        ViewObject headerVo = getVO("XxpmPoHeaderViewIterator");
+        Row vendorRow = null;
+        Integer vendorId = null;
+        String vendorName = null;
+        if (headerVo != null) {
+            vendorRow = headerVo.getCurrentRow();
+            vendorId =
+                    (vendorRow.getAttribute("VendorId") != null ? (Integer)vendorRow.getAttribute("VendorId") :
+                     0);
+            logger.warning("Vendor ID: " + vendorId);
+            vendorName = String.valueOf(vendorRow.getAttribute("VendorName"));
         }
+        Row[] accRows =
+            getVO("XxpmPoLinesViewAccChildIterator").getAllRowsInRange();
+        for (Row row : accRows) {
+            if (Integer.valueOf(row.getAttribute("EbsStatus") == null ? "0" :
+                                row.getAttribute("EbsStatus").toString()) !=
+                1) {
+                row.setAttribute("VendorId", vendorId);
+                row.setAttribute("VendorName", vendorName);
+                ////////////////////////
+                OperationBinding op =
+                    bc.getOperationBinding("getDefaultVendorSiteId");
+                op.getParamsMap().put("vendorId", vendorId);
+
+                row.setAttribute("VendorSiteId", (Integer)op.execute());
+            }
+
+        }
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.poLinesViewAccTable);
     }
 
     /*     public void articleBomFabSegment2VCL(ValueChangeEvent vce) {
@@ -5398,9 +5399,16 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
         }
     }
 
-    public void blankVendorsLovOnPageLoad(PhaseEvent phaseEvent) {
-        this.setValueToExpression("#{bindings.VendorName.inputValue}", null);
-    }
+    //    public void blankVendorsLovOnPageLoad(PhaseEvent phaseEvent) {
+    //        this.setValueToExpression("#{bindings.VendorName.inputValue}", null);
+    //
+    //        //        logger.warning("Event: " + phaseEvent.getPhaseId());
+    //        //        if (phaseEvent.getPhaseId().equals(PhaseId.RENDER_RESPONSE)) {
+    //        //            logger.warning("RENDER_RESPONSE called");
+    //        //            this.setValueToExpression("#{bindings.VendorName.inputValue}",
+    //        //                                      null);
+    //        //        }
+    //    }
 
     public void CalcelledPOsPopupFetchListener(PopupFetchEvent popupFetchEvent) {
         ViewObject headerVO = this.getVO("XxpmPoHeaderViewIterator");
@@ -5458,5 +5466,37 @@ uploadDir.getPath() + "\\" + fileCode + this.getExtension(myfile.getFilename());
                 this.showMessage("Lines unlocked successfully.");
             }
         }
+    }
+
+    public void poLinesSelectAllVCL(ValueChangeEvent vce, String view) {
+        boolean isSelected = ((Boolean)vce.getNewValue()).booleanValue();
+        ViewObject vo = getVO(view);
+        Row row = null;
+        RowSetIterator rs = vo.createRowSetIterator(null);
+        rs.reset();
+        while (rs.hasNext()) {
+            row = rs.next();
+            Integer ebsStatus =
+                (row.getAttribute("EbsStatus") != null ? (Integer)row.getAttribute("EbsStatus") :
+                 0);
+            if (ebsStatus < 1) {
+                if (isSelected) {
+                    row.setAttribute("Selected", 1);
+                } else {
+                    row.setAttribute("Selected", 0);
+                }
+            }
+        }
+        rs.closeRowSetIterator();
+        //Refresh the table
+        AdfFacesContext.getCurrentInstance().addPartialTarget(vce.getComponent().getParent().getParent());
+    }
+
+    public void poLinesAccSelectAllVCL(ValueChangeEvent vce) {
+        poLinesSelectAllVCL(vce, "XxpmPoLinesViewAccChildIterator");
+    }
+
+    public void poLinesFabSelectAllVCL(ValueChangeEvent vce) {
+        poLinesSelectAllVCL(vce, "XxpmPoLinesViewFabChildIterator");
     }
 }

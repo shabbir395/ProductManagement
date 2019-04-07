@@ -111,6 +111,26 @@ public class XxpmPoHeaderViewRowImpl extends ViewRowImpl implements XxpmPoHeader
             }
         }
         ,
+        VendorId {
+            public Object get(XxpmPoHeaderViewRowImpl obj) {
+                return obj.getVendorId();
+            }
+
+            public void put(XxpmPoHeaderViewRowImpl obj, Object value) {
+                obj.setVendorId((Integer)value);
+            }
+        }
+        ,
+        VendorName {
+            public Object get(XxpmPoHeaderViewRowImpl obj) {
+                return obj.getVendorName();
+            }
+
+            public void put(XxpmPoHeaderViewRowImpl obj, Object value) {
+                obj.setVendorName((String)value);
+            }
+        }
+        ,
         XxpmPoLinesView {
             public Object get(XxpmPoHeaderViewRowImpl obj) {
                 return obj.getXxpmPoLinesView();
@@ -134,6 +154,16 @@ public class XxpmPoHeaderViewRowImpl extends ViewRowImpl implements XxpmPoHeader
         poSoHeaderLov {
             public Object get(XxpmPoHeaderViewRowImpl obj) {
                 return obj.getpoSoHeaderLov();
+            }
+
+            public void put(XxpmPoHeaderViewRowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        VendorsLov {
+            public Object get(XxpmPoHeaderViewRowImpl obj) {
+                return obj.getVendorsLov();
             }
 
             public void put(XxpmPoHeaderViewRowImpl obj, Object value) {
@@ -178,9 +208,12 @@ public class XxpmPoHeaderViewRowImpl extends ViewRowImpl implements XxpmPoHeader
     public static final int PROGIDMP = AttributesEnum.ProgIdMP.index();
     public static final int EBSSTATUS = AttributesEnum.EbsStatus.index();
     public static final int ISPROGMANAGER = AttributesEnum.IsProgManager.index();
+    public static final int VENDORID = AttributesEnum.VendorId.index();
+    public static final int VENDORNAME = AttributesEnum.VendorName.index();
     public static final int XXPMPOLINESVIEW = AttributesEnum.XxpmPoLinesView.index();
     public static final int POMADEUPPROGRAMSLOV = AttributesEnum.PoMadeupProgramsLov.index();
     public static final int POSOHEADERLOV = AttributesEnum.poSoHeaderLov.index();
+    public static final int VENDORSLOV = AttributesEnum.VendorsLov.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -349,6 +382,38 @@ public class XxpmPoHeaderViewRowImpl extends ViewRowImpl implements XxpmPoHeader
     }
 
     /**
+     * Gets the attribute value for the calculated attribute VendorId.
+     * @return the VendorId
+     */
+    public Integer getVendorId() {
+        return (Integer) getAttributeInternal(VENDORID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute VendorId.
+     * @param value value to set the  VendorId
+     */
+    public void setVendorId(Integer value) {
+        setAttributeInternal(VENDORID, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute VendorName.
+     * @return the VendorName
+     */
+    public String getVendorName() {
+        return (String) getAttributeInternal(VENDORNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute VendorName.
+     * @param value value to set the  VendorName
+     */
+    public void setVendorName(String value) {
+        setAttributeInternal(VENDORNAME, value);
+    }
+
+    /**
      * Gets the associated <code>RowIterator</code> using master-detail link XxpmPoLinesView.
      */
     public RowIterator getXxpmPoLinesView() {
@@ -367,6 +432,13 @@ public class XxpmPoHeaderViewRowImpl extends ViewRowImpl implements XxpmPoHeader
      */
     public RowSet getpoSoHeaderLov() {
         return (RowSet)getAttributeInternal(POSOHEADERLOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> VendorsLov.
+     */
+    public RowSet getVendorsLov() {
+        return (RowSet)getAttributeInternal(VENDORSLOV);
     }
 
     /**

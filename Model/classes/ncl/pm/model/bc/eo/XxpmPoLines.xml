@@ -208,6 +208,17 @@
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Selected"
+    ColumnName="SELECTED"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    TableName="XXPM_PO_LINES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="XxpmPoHeader"
     Association="ncl.pm.model.bc.eo.asc.PoLinesPoHeaderIdFkAssoc"

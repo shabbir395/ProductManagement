@@ -93,7 +93,7 @@
           <af:spacer width="10" height="10" id="spacer10"/>
           <af:commandToolbarButton text="Copy Items to Program"
                                    partialSubmit="true"
-                                   id="commandToolbarButton2">
+                                   id="commandToolbarButton2" rendered="false">
             <af:showPopupBehavior popupId="p1" triggerType="action"/>
           </af:commandToolbarButton>
           <af:popup id="attachmentPopup" contentDelivery="lazyUncached">

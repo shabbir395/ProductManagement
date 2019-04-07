@@ -21,7 +21,8 @@
        XxpmPoLines.VENDOR_SITE_ID, 
        XxpmPoLines.EBS_STATUS, 
        XxpmPoLines.ACC_CAT, 
-       XXPM_GET_ACC_UN_ALLOC_STOCK(INVENTORY_ITEM_ID) AS VIEW_ATTR"
+       XXPM_GET_ACC_UN_ALLOC_STOCK(INVENTORY_ITEM_ID) AS VIEW_ATTR, 
+       XxpmPoLines.SELECTED"
   FromList="XXPM_PO_LINES XxpmPoLines"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -55,6 +56,10 @@
   <ViewAccessor
     Name="CurrenciesLov"
     ViewObjectName="ncl.pm.model.bc.vo.lov.CurrenciesLov"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="YesNoIntlov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.YesNoIntlov"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_VendorName"
@@ -111,6 +116,21 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CurrencyCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Selected"
+    ListVOName="YesNoIntlov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Selected_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Selected"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -445,7 +465,7 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"
+    SQLType="NUMERIC"
     Expression="XXPM_GET_ACC_UN_ALLOC_STOCK(INVENTORY_ITEM_ID)">
     <Dependencies>
       <Item
@@ -457,6 +477,22 @@
           ResId="ncl.pm.model.bc.vo.XxpmPoLinesView.UnallocatedStock_LABEL"/>
         <TOOLTIP
           ResId="ncl.pm.model.bc.vo.XxpmPoLinesView.UnallocatedStock_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Selected"
+    PrecisionRule="true"
+    EntityAttrName="Selected"
+    EntityUsage="XxpmPoLines"
+    AliasName="SELECTED"
+    LOVName="LOV_Selected">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+        <CONTROLTYPE
+          Value="check_box"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

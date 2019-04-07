@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <%@ taglib uri="http://xmlns.oracle.com/adf/faces/rich" prefix="af"%>
-<f:view afterPhase="#{ViewActions.blankVendorsLovOnPageLoad}">
+<f:view>
   <af:document id="d1" title="Purchase Order">
     <af:messages id="m1"/>
     <af:form id="f1" partialTriggers="ctb2">
@@ -286,13 +286,11 @@
                   <f:selectItems value="#{bindings.SoHeaderId.items}" id="si1"/>
                 </af:selectOneChoice>
                 <af:resource type="javascript">
-                  
                   function onPopupOpened(event) {
                       var popup = event.getSource();
                       popup.cancel = function () {
                       };
                   }
-                
                 </af:resource>
                 <af:popup id="poSoNumPopup">
                   <af:clientListener method="onPopupOpened" type="popupOpened"/>
@@ -334,7 +332,7 @@
               </af:gridCell>
               <af:gridCell marginStart="5px" width="dontCare" id="gridCell4">
                 <af:panelGroupLayout id="pgl3" layout="horizontal">
-                  <af:inputListOfValues id="inputListOfValues2"
+                  <af:inputListOfValues id="vendorName1Id"
                                         popupTitle="Search and Select: #{bindings.VendorName.hints.label}"
                                         value="#{bindings.VendorName.inputValue}"
                                         label="#{bindings.VendorName.hints.label}"
@@ -349,7 +347,8 @@
                   </af:inputListOfValues>
                   <af:spacer width="10" height="10" id="s1"/>
                   <af:commandButton text="Apply" id="cb2"
-                                    actionListener="#{ViewActions.vendorApplyButtonAL}"/>
+                                    actionListener="#{ViewActions.vendorApplyButtonAL}"
+                                    partialSubmit="true"/>
                 </af:panelGroupLayout>
               </af:gridCell>
             </af:gridRow>
@@ -445,7 +444,7 @@
                   <af:column sortProperty="#{bindings.XxpmPoLinesViewFabChild.hints.Description.name}"
                              filterable="true" sortable="true"
                              headerText="#{bindings.XxpmPoLinesViewFabChild.hints.Description.label}"
-                             id="c7" align="center" width="300">
+                             id="c7" align="center" width="250">
                     <af:inputText value="#{row.bindings.Description.inputValue}"
                                   label="#{bindings.XxpmPoLinesViewFabChild.hints.Description.label}"
                                   required="#{bindings.XxpmPoLinesViewFabChild.hints.Description.mandatory}"
@@ -664,6 +663,19 @@
                                              icon="/Images/split 12x12.png"
                                              disabled="#{row.bindings.EbsStatus.inputValue == '1' ? true : false}"/>
                   </af:column>
+                  <af:column headerText="#{bindings.XxpmPoLinesViewFabChild.hints.Selected.label}"
+                             id="c45" width="40" align="center">
+                    <af:selectBooleanCheckbox value="#{row.bindings.Selected.inputValue}"
+                                              label="#{row.bindings.Selected.label}"
+                                              shortDesc="#{bindings.XxpmPoLinesViewFabChild.hints.Selected.tooltip}"
+                                              id="sbc4" autoSubmit="true"
+                                              disabled="#{row.bindings.EbsStatus.inputValue == '1' ? true : false}"/>
+                    <f:facet name="header">
+                      <af:selectBooleanCheckbox text="All" id="sbc5"
+                                                autoSubmit="true"
+                                                valueChangeListener="#{ViewActions.poLinesFabSelectAllVCL}"/>
+                    </f:facet>
+                  </af:column>
                 </af:table>
               </af:panelCollection>
             </af:showDetailItem>
@@ -770,7 +782,7 @@
                   <af:column sortProperty="#{bindings.XxpmPoLinesViewAccChild.hints.Description.name}"
                              filterable="true" sortable="true"
                              headerText="#{bindings.XxpmPoLinesViewAccChild.hints.Description.label}"
-                             id="c22" align="center" width="300">
+                             id="c22" align="center" width="250">
                     <af:inputText value="#{row.bindings.Description.inputValue}"
                                   label="#{bindings.XxpmPoLinesViewAccChild.hints.Description.label}"
                                   required="#{bindings.XxpmPoLinesViewAccChild.hints.Description.mandatory}"
@@ -1000,6 +1012,19 @@
                                   id="it27" autoSubmit="true" disabled="true">
                       <f:validator binding="#{row.bindings.PoNum.validator}"/>
                     </af:inputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.XxpmPoLinesViewAccChild.hints.Selected.label}"
+                             id="c44" align="center" width="40">
+                    <af:selectBooleanCheckbox value="#{row.bindings.Selected.inputValue}"
+                                              label="#{row.bindings.Selected.label}"
+                                              shortDesc="#{bindings.XxpmPoLinesViewAccChild.hints.Selected.tooltip}"
+                                              id="sbc2" autoSubmit="true"
+                                              disabled="#{row.bindings.EbsStatus.inputValue == '1' ? true : false}"/>
+                    <f:facet name="header">
+                      <af:selectBooleanCheckbox id="sbc3" autoSubmit="true"
+                                                valueChangeListener="#{ViewActions.poLinesAccSelectAllVCL}"
+                                                text="All"/>
+                    </f:facet>
                   </af:column>
                   <af:column id="column1" width="30" headerText="Split"
                              align="center">

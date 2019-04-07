@@ -282,6 +282,16 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        YesNoIntlov {
+            public Object get(XxpmPoLinesViewRowImpl obj) {
+                return obj.getYesNoIntlov();
+            }
+
+            public void put(XxpmPoLinesViewRowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -338,6 +348,7 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
     public static final int VENDORSLOV = AttributesEnum.VendorsLov.index();
     public static final int VENDORSITESLOV = AttributesEnum.VendorSitesLov.index();
     public static final int CURRENCIESLOV = AttributesEnum.CurrenciesLov.index();
+    public static final int YESNOINTLOV = AttributesEnum.YesNoIntlov.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -745,6 +756,13 @@ public class XxpmPoLinesViewRowImpl extends ViewRowImpl implements XxpmPoLinesVi
      */
     public RowSet getCurrenciesLov() {
         return (RowSet)getAttributeInternal(CURRENCIESLOV);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> YesNoIntlov.
+     */
+    public RowSet getYesNoIntlov() {
+        return (RowSet)getAttributeInternal(YESNOINTLOV);
     }
 
     /**

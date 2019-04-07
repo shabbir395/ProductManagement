@@ -32,8 +32,6 @@
     <iterator Binds="AccCategoryTypeLov" RangeSize="25"
               DataControl="XxpmAppModuleDataControl"
               id="AccCategoryTypeLovIterator"/>
-    <iterator Binds="VendorsLov" RangeSize="25"
-              DataControl="XxpmAppModuleDataControl" id="VendorsLovIterator"/>
     <iterator Binds="CancelledPOsView" RangeSize="25"
               DataControl="XxpmAppModuleDataControl"
               id="CancelledPOsViewIterator"/>
@@ -109,6 +107,7 @@
           <Item Value="EbsStatus"/>
           <Item Value="PoNum"/>
           <Item Value="CurrencyCode"/>
+          <Item Value="Selected"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -139,6 +138,7 @@
           <Item Value="AccCat"/>
           <Item Value="CurrencyCode"/>
           <Item Value="UnallocatedStock"/>
+          <Item Value="Selected"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -231,8 +231,6 @@
                   IsViewObjectMethod="false">
       <NamedData NDName="accCat" NDValue="" NDType="java.lang.String"/>
     </methodAction>
-    <listOfValues StaticList="false" IterBinding="VendorsLovIterator"
-                  Uses="LOV_VendorName" id="VendorName"/>
     <methodAction id="getDefaultVendorSiteId"
                   InstanceName="XxpmAppModuleDataControl.dataProvider"
                   DataControl="XxpmAppModuleDataControl"
@@ -290,5 +288,7 @@
       <NamedData NDName="ebsHeaderID" NDType="int"/>
       <NamedData NDName="custPOLines" NDType="java.lang.String"/>
     </methodAction>
+    <listOfValues StaticList="false" IterBinding="XxpmPoHeaderViewIterator"
+                  Uses="LOV_VendorName" id="VendorName"/>
   </bindings>
 </pageDefinition>

@@ -57,6 +57,10 @@
     Name="CurrenciesLov"
     ViewObjectName="ncl.pm.model.bc.vo.lov.CurrenciesLov"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="YesNoIntlov"
+    ViewObjectName="ncl.pm.model.bc.vo.lov.YesNoIntlov"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_VendorName"
     ListVOName="VendorsLov"
@@ -112,6 +116,21 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="CurrencyCode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Selected"
+    ListVOName="YesNoIntlov"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Selected_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Selected"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Value"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -466,13 +485,14 @@
     PrecisionRule="true"
     EntityAttrName="Selected"
     EntityUsage="XxpmPoLines"
-    AliasName="SELECTED">
+    AliasName="SELECTED"
+    LOVName="LOV_Selected">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="check_box"/>
         <AUTOSUBMIT
           Value="true"/>
+        <CONTROLTYPE
+          Value="check_box"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

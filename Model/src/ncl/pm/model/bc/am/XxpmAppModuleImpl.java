@@ -2525,7 +2525,7 @@ public class XxpmAppModuleImpl extends ApplicationModuleImpl implements XxpmAppM
                 e.printStackTrace();
             }
         }
-        logger.warning("Active user agent -----> " + result);
+//        logger.warning("Active user agent -----> " + result);
         return result;
     }
 
