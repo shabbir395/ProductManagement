@@ -1,0 +1,12 @@
+ViewController/classes/
+ViewController/classes/.data/
+ViewController/classes/.wlsjsps/
+Model/classes/
+Model/classes/tester.xcfg
+Model/classes/tester.properties
+Model/classes/.data/
+*.class
+*.war
+*.ear
+*.jdb
+*.cdi_javac
